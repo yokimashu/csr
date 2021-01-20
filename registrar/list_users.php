@@ -52,7 +52,7 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">List of Students</div>
+            <div class="muted pull-left">LIST OF USERS</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
