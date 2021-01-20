@@ -92,7 +92,7 @@
   <div class="login-logo">
       <img src="images/final_logo.png" width="350px">
   </div>
-    <a href=""><b>Colegio de Sta. Rita</b> de San Carlos, Inc.</a>
+    <a href=""><b>Colegio de Sta. Rita</b> de San Carlos, Inc. HI IT RITARIANS!</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
