@@ -13,7 +13,7 @@
                         </li>
                         <ul style="display: block;">
                             <li><a href="list_students.php">Students</a></li>
-                            <li><a href="signup.html">Faculty</a></li>
+                            <li><a href="list_faculty.php">Faculty</a></li>
                             <li><a href="signup.html">Subjects</a></li>
                             <li><a href="signup.html">Room</a></li>
                             <li><a href="signup.html">Schedules</a></li>
