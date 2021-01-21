@@ -13,7 +13,7 @@ $teachers_id = $_SESSION['id'];
 
 include('../config/db_config.php');
 // include ('insert.php');
-
+//something
 //select user
 $get_teachers_sql = "SELECT * FROM tbl_teachers WHERE idno = :id";
 $teachers_data = $con->prepare($get_teachers_sql);
