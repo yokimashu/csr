@@ -46,7 +46,7 @@ include('../includes/sidebar.php');
 
   <section class="content">
 
-   
+
     <div class="span9" id="content">
       <div class="row-fluid">
         <!-- block -->
@@ -117,15 +117,19 @@ include('../includes/sidebar.php');
 
 </div>
 </div>
-                </div>
-            </div>
-            <hr>
+</div>
+</div>
+<hr>
 
 <!-- footer here -->
 <?php include('../includes/footer.php'); ?>
 </div>
-<script src="vendors/jquery-1.9.1.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="vendors/jquery-1.9.1.js">
+</script>
+
+<script src="bootstrap/js/bootstrap.min.js">
+</script>
+
 <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script>
   $('#pr').DataTable({
