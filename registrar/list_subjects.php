@@ -73,12 +73,11 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> ID #</th>
-                    <th> LAST NAME </th>
-                    <th> FIRST NAME </th>
-                    <th> MIDDLE NAME</th>
-                    <th> CONTACT No. </th>
-                    <th> EMAIL</th>
+                    <th> SUBJECT CODE</th>
+                    <th> DESCRIPTION</th>
+                    <th> UNITS </th>
+                    <th> PRE-REQUISITES</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
