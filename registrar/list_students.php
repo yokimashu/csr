@@ -46,7 +46,7 @@ include('../includes/sidebar.php');
 
   <section class="content">
 
-   
+
     <div class="span9" id="content">
       <div class="row-fluid">
         <!-- block -->
@@ -58,7 +58,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="#"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_student.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -117,15 +117,19 @@ include('../includes/sidebar.php');
 
 </div>
 </div>
-                </div>
-            </div>
-            <hr>
+</div>
+</div>
+<hr>
 
 <!-- footer here -->
 <?php include('../includes/footer.php'); ?>
 </div>
-<script src="vendors/jquery-1.9.1.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="vendors/jquery-1.9.1.js">
+</script>
+
+<script src="bootstrap/js/bootstrap.min.js">
+</script>
+
 <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script>
   $('#pr').DataTable({
