@@ -77,8 +77,13 @@ include('../includes/sidebar.php');
                     <th> LAST NAME </th>
                     <th> FIRST NAME </th>
                     <th> MIDDLE NAME</th>
-                    <th> COURSE </th>
-                    <th> YEAR</th>
+                    <th> BIRTHDATE </th>
+                    <th> SEX</th>
+                    <th> STATUS</th>
+                    <th> CONTACT NUMBER</th>
+                    <th> EMAIL ADDRESS</th>
+                    <th> DEPARTMENT</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
