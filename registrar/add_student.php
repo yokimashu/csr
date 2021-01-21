@@ -71,7 +71,7 @@ include('../includes/sidebar.php');
                     <div class="tab-pane" id="tab1">
                       <form class="form-horizontal">
                         <fieldset>
-
+                        <legend>Student's Information</legend>
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">ID Number: </label>
                             <div class="controls">
@@ -101,6 +101,27 @@ include('../includes/sidebar.php');
                           </div>
 
                           <div class="control-group">
+                                          <label class="control-label" for="date01">Date of Birth: </label>
+                                          <div class="controls">
+                                            <input type="date" class="input-xlarge datepicker" id="dateOfBirth" value="mm/dd/yy">
+                                          </div>
+                                        </div>
+                          
+                            <div class="control-group">
+                            <label class="control-label" for="focusedInput">Place of Birth: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Nationality: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
                             <label class="control-label" for="select01">Gender: </label>
                             <div class="controls">
                               <select id="select01" class="chzn-select">
@@ -123,6 +144,41 @@ include('../includes/sidebar.php');
                             </div>
                           </div>
 
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Home Address: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Provincial Address: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Contact Number: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="number" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Parent/Guardian: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Facebook Account: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" placeholder="Optional" value="">
+                            </div>
+                          </div>
+
                         </fieldset>
                       </form>
                     </div>
@@ -130,24 +186,43 @@ include('../includes/sidebar.php');
                     <div class="tab-pane" id="tab2">
                       <form class="form-horizontal">
                         <fieldset>
+                          <legend>Other Info</legend>
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Address</label>
+                            <label class="control-label" for="focusedInput">Religion: </label>
                             <div class="controls">
                               <input class="input-xlarge focused" id="focusedInput" type="text" value="">
                             </div>
                           </div>
+
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">City</label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-                            </div>
-                          </div>
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">State</label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-                            </div>
-                          </div>
+                                          <label class="control-label" for="optionsCheckbox">Baptized? :</label>
+                                          <div class="controls">
+                                            <label class="uniform" for="yes" >
+                                              <input class="uniform_on" type="radio" id="optionsCheckbox" value="Yes">
+                                              Yes
+                                            </label>
+                                            <label class="uniform" for="no">
+                                              <input class="uniform_on" type="radio" id="optionsCheckbox" value="No">
+                                              No
+                                            </label>
+                                          </div>
+                                          
+                                        </div>
+
+                                        <div class="control-group">
+                                          <label class="control-label" for="optionsCheckbox">Confirmed? :</label>
+                                          <div class="controls">
+                                            <label class="uniform">
+                                              <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="Yes">
+                                              Yes
+                                            </label>
+                                            <label class="uniform">
+                                              <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="No">
+                                              No
+                                            </label>
+                                          </div>
+                                          
+                                        </div>
                         </fieldset>
                       </form>
                     </div>
@@ -199,13 +274,13 @@ include('../includes/sidebar.php');
 
 
   <!-- /.box-body -->
-  <div class="box-footer">
+  <!-- <div class="box-footer">
     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
     <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
     <a href="users">
       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
     </a>
-  </div>
+  </div> -->
   </div>
   <!-- /.box -->
   <div class="col-md-1"></div>
@@ -244,9 +319,9 @@ include('../includes/sidebar.php');
   <script src="../assets/scripts.js"></script>
 
   <script>
-    // jQuery(document).ready(function() {   
-    //    FormValidation.init();
-    // });
+    jQuery(document).ready(function() {   
+       FormValidation.init();
+    });
 
 
     $(function() {
