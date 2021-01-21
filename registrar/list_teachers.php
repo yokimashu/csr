@@ -7,22 +7,23 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$department= $surname = $first_name =$middle_name = $birthdate = $sex = $status = $contact_number = $email_address = '';
 
-$user_id = $_SESSION['id'];
 
-//querry to select current user's information
-$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
-$get_user_data = $con->prepare($get_user_sql);
-$get_user_data->execute([':id' => $user_id]);
-while ($result = $get_user_data->fetch(PDO::FETCH_ASSOC)) {
+$teachers_id = $_SESSION['id'];
+
+//querry to select current teachers's information
+$get_teachers_sql = "SELECT * FROM tbl_teachers WHERE idno = :id";
+$get_teachers_data = $con->prepare($get_teachers_sql);
+$get_teachers_data->execute([':id' => $teachers_id]);
+while ($result = $get_teachers_data->fetch(PDO::FETCH_ASSOC)) {
   $user_name   = $result['username'];
   $department  = $result['department'];
 }
 
-$get_all_students_sql = "SELECT * FROM tbl_students ORDER BY objid ASC ";
-$get_all_students_data = $con->prepare($get_all_students_sql);
-$get_all_students_data->execute();
+$get_all_teachers_sql = "SELECT * FROM tbl_teachers ORDER BY idno Asc ";
+$get_all_teachers_data = $con->prepare($get_all_teachers_sql);
+$get_all_teachers_data->execute();
 
 
 ?>
@@ -52,13 +53,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">List of Students</div>
+            <div class="muted pull-left">LIST OF TEACHERS</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_student.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_teachers.php"><button class="btn btn-success">Add Teachers <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -73,25 +74,35 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> ID #</th>
-                    <th> LAST NAME </th>
+                  <th> ID #</th>
+                    <th> SURNAME </th>
                     <th> FIRST NAME </th>
                     <th> MIDDLE NAME</th>
-                    <th> COURSE </th>
-                    <th> YEAR</th>
+                    <th> BIRTHDATE </th>
+                    <th> SEX </th>
+                    <th> STATUS</th>
+                    <th> CONTACT No. </th>
+                    <th> EMAIL</th>
+                    <th> ADDRESS </th>
+                    <th> DEPARTMENT </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($users_data = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($teachers_data = $get_all_teachers_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $users_data['idno']; ?> </td>
-                      <td><?php echo $users_data['surname']; ?> </td>
-                      <td><?php echo $users_data['first_name']; ?> </td>
-                      <td><?php echo $users_data['middle_name']; ?> </td>
-                      <td><?php echo $users_data['course']; ?> </td>
-                      <td><?php echo $users_data['year']; ?> </td>
+                    <td><?php echo $teachers_data['idno']; ?> </td>
+                      <td><?php echo $teachers_data['surname']; ?> </td>
+                      <td><?php echo $teachers_data['firstname']; ?> </td>
+                      <td><?php echo $teachers_data['middlename']; ?> </td>
+                      <td><?php echo $teachers_data['birthdate']; ?> </td>
+                      <td><?php echo $teachers_data['sex']; ?> </td>
+                      <td><?php echo $teachers_data['status']; ?> </td>
+                      <td><?php echo $teachers_data['contactnumber']; ?> </td>
+                      <td><?php echo $teachers_data['email']; ?> </td>
+                      <td><?php echo $teachers_data['address']; ?> </td>
+                      <td><?php echo $teachers_data['department']; ?> </td>
                       <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                        <a class="btn btn-outline-success btn-xs" href="update_teachers.php?objid=<?php echo $teachers_data['idno']; ?>&id=<?php echo $teachers_data['idno']; ?>">
                           <i class="fa fa-check"></i>
                         </a>
                         &nbsp;
