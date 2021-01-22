@@ -52,13 +52,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Form Example</div>
+            <div class="muted pull-left">Add User</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal">
                 <fieldset>
-                  <legend>Form Horizontal</legend>
+                  <legend>User's Form</legend>
 
 
 
@@ -81,45 +81,41 @@ include('../includes/sidebar.php');
                         </div>
                       </div>
 
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Last Name</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo $lname; ?>" required>
+                        </div>
+                      </div>
 
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Email Address</label>
+                        <div class="controls">
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" value="<?php echo $email; ?>">
+                        </div>
+                      </div>
 
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Contact Number</label>
+                        <div class="controls">
+                        <input type="number" class="form-control" name="contact_number" placeholder="Contact Number" value="<?php echo $contact_number; ?>" required>
+                        </div>
+                      </div>
 
-                      
-                      <div class="row">
-                        <div class="col-md-2" style="text-align: right;padding-top: 5px;">
-                          <label>Last Name</label>
+                      <!-- <div class="control-group">
+                        <label class="control-label" for="focusedInput">Username</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $uname; ?>" required>
                         </div>
-                        <div class="col-md-10">
-                          <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo
-                                                                                                                $lname; ?>" required>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Department</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $department; ?>" required>
                         </div>
-                      </div><br>
-                      <div class="row">
-                        <div class="col-md-2" style="text-align: right;padding-top: 5px;">
-                          <label>Email Address</label>
-                        </div>
-                        <div class="col-md-10">
-                          <input type="email" class="form-control" name="email" placeholder="Email Address" value="<?php echo
-                                                                                                                    $email; ?>">
-                        </div>
-                      </div><br>
-                      <div class="row">
-                        <div class="col-md-2" style="text-align: right;padding-top: 5px;">
-                          <label>Contact Number</label>
-                        </div>
-                        <div class="col-md-10">
-                          <input type="number" class="form-control" name="contact_number" placeholder="Contact Number" value="<?php echo
-                                                                                                                              $contact_number; ?>" required>
-                        </div>
-                      </div><br>
-                      <div class="row">
-                        <div class="col-md-2" style="text-align: right;padding-top: 5px;">
-                          <label>Username</label>
-                        </div>
-                        <div class="col-md-10">
-                          <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo
-                                                                                                                $uname; ?>" required>
-                        </div>
+                      </div> -->
+
                       </div><br>
 
                       <!-- /.box-body -->
@@ -145,7 +141,7 @@ include('../includes/sidebar.php');
 <!-- footer here -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <b>Version</b> 1.0
+    <!-- <b>Version</b> 1.0 -->
   </div>
   <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
   reserved.

@@ -212,3 +212,23 @@ body {
   font-size: 12px;
   padding-left: 2px;
 }
+
+.left{
+float: left;
+}
+
+.right{
+  float: right;
+}
+
+.center{
+display: inline-block;
+margin: 0 auto;
+}
+
+.field{
+  position: absolute;
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}

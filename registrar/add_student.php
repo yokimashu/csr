@@ -72,6 +72,7 @@ include('../includes/sidebar.php');
                       <form class="form-horizontal">
                         <fieldset>
                         <legend>Student's Information</legend>
+
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">ID Number: </label>
                             <div class="controls">
@@ -103,7 +104,7 @@ include('../includes/sidebar.php');
                           <div class="control-group">
                                           <label class="control-label" for="date01">Date of Birth: </label>
                                           <div class="controls">
-                                            <input type="date" class="input-xlarge datepicker" id="dateOfBirth" value="mm/dd/yy">
+                                            <input type="date" class="input-xlarge datepicker" placeholder="mm/dd/yyyy" id="dateOfBirth" value="">
                                           </div>
                                         </div>
                           
@@ -121,28 +122,30 @@ include('../includes/sidebar.php');
                             </div>
                           </div>
 
-                          <div class="control-group">
-                            <label class="control-label" for="select01">Gender: </label>
-                            <div class="controls">
-                              <select id="select01" class="chzn-select">
-                                <option>Select Gender...</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </div>
-                          </div>
 
                           <div class="control-group">
-                            <label class="control-label" for="select02">Status: </label>
-                            <div class="controls">
-                              <select id="select02" class="chzn-select">
-                                <option>Select Status...</option>
-                                <option>Single</option>
-                                <option>Married</option>
-                                <option>Widowed</option>
-                              </select>
-                            </div>
-                          </div>
+  								<label class="control-label">Gender: <span class="required">*</span></label>
+  								<div class="controls">
+  									<select class="span6 m-wrap" name="category">
+  										<option value="">Select...</option>
+  										<option value="Male">Male</option>
+  										<option value="Female">Female</option>
+  									</select>
+  								</div>
+                </div>
+                        
+
+                          <div class="control-group">
+  								<label class="control-label">Status: <span class="required">*</span></label>
+  								<div class="controls">
+  									<select class="span6 m-wrap" name="category">
+  										<option value="">Select...</option>
+  										<option value="Single">Single</option>
+  										<option value="Married">Married</option>
+  										<option value="Widowed">Widowed</option>
+  									</select>
+  								</div>
+                </div>
 
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">Home Address: </label>
