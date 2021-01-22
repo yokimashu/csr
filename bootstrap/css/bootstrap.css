@@ -403,9 +403,9 @@ a:focus {
 .row-fluid:after {
   clear: both;
 }
-/* block display */
+
 .row-fluid [class*="span"] {
-  display: "";
+  display: block;
   float: left;
   width: 100%;
   min-height: 30px;

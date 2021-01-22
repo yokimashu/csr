@@ -24,7 +24,7 @@ include('../includes/sidebar.php');
                         <a href="#">Dashboard</a> <span class="divider">/</span>
                     </li>
                     <li>
-                        <a href="settings.php">Settings</a> <span class="divider">/</span>
+                        <a href="#">Settings</a> <span class="divider">/</span>
                     </li>
                     <li class="active">Tools</li>
                 </ul>

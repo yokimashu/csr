@@ -14,11 +14,7 @@
                         <ul style="display: block;">
                             <li><a href="list_students.php">Students</a></li>
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
                             <li><a href="add_teachers.php">Faculty</a></li>
-=======
-                            <li><a href="list_teachers.php">Faculty</a></li>
->>>>>>> Stashed changes
 =======
                             <li><a href="list_teachers.php">Faculty</a></li>
 >>>>>>> Stashed changes

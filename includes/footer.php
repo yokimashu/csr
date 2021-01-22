@@ -1,8 +1,6 @@
 <footer>
                 <p>&copy; Colegio de Sta. Rita de Inc.</p>
             </footer>
-        
-
         </div>
         <!--/.fluid-container-->
         <link href="../vendors/datepicker.css" rel="stylesheet" media="screen">

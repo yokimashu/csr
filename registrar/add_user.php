@@ -58,11 +58,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <form class="form-horizontal">
                 <fieldset>
-<<<<<<< Updated upstream
                   <legend>User's Form</legend>
-=======
-                  <legend>User's Information</legend>
->>>>>>> Stashed changes
 
 
 
@@ -89,109 +85,6 @@ include('../includes/sidebar.php');
                         <label class="control-label" for="focusedInput">Last Name</label>
                         <div class="controls">
                         <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo $lname; ?>" required>
-<<<<<<< Updated upstream
-=======
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Contact Number</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="contact number" placeholder="Contact Number" value="<?php echo $contact_number; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Email Address</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="Email Address" placeholder="Email Address" value="<?php echo $email; ?>" required>
-                        </div>
-                      </div>
-
-
-                     
-
-<!-- 
-                      <div class="row">
-                      <div class="col-lg6">
-                        <label class="row" for="focusedInput">Middle Name</label>
-                        <div class="content 1"></div>
-                        <input type="text" class="control-row" name="middlename" placeholder="Middlename" value="<?php echo $middle_name; ?>" required>
-                        <div class="content 2"></div>
-                        <input type="text" class="control-row" name="middlename" placeholder="Middlename" value="<?php echo $middle_name; ?>" required>
-                        </div>
-                      </div>
-                      </div>
-                    </div> -->
-
-<!-- 
-
-<div class ="row"> 
-<div class="col-md-1"> </div>
-<label>Name</label>
-"
-
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-"
-<div class="col-md-3">
-<input type ="text" class ="form-control" name="name" placeholder="First Name" onblur="name()" value="" required>
-<div id="name">
-</div>
-</div>
-</div>
-"
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;
-
-
-"
-<!-- <div class="row" >,,,</div>
-<br>
-<div class="row" >,,,</div>
-<br>
-<div class="row" >,,,</div>
-<br>
-<div class="row" >,,,</div>
-<br> -->
-
-<!-- <div class="col-md-1">
-<label>Password</label>
-</div>
-
-
-<div class="col-md-4">
-
-<input type ="password" class = "form-control" name ="password" id="password" placeholder ="Password">
-</div>
-          </div>
-          <br> -->
-
-
-
-
-<!--                       
-                       <div class="row">
-                        <div class="col-md-2" style="text-align: right;padding-top: 5px;">
-                          <label>Last Name</label>
-                        </div>
-                        <div class="col-md-10">
-                          <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo
-                                                                                                                $lname; ?>" required> -->
-                        <!-- </div>
-                      </div><br>
-                      <div class="row">
-                        <div class="col-md-2" style="text-align: right;padding-top: 5px;">
-                          <label>Email Address</label>
-                        </div>
-                        <div class="col-md-10">
-                          <input type="email" class="form-control" name="email" placeholder="Email Address" value="<?php echo
-                                                                                                                    $email; ?>">
->>>>>>> Stashed changes
                         </div>
                       </div>
 
@@ -214,7 +107,6 @@ include('../includes/sidebar.php');
                         <div class="controls">
                         <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $uname; ?>" required>
                         </div>
-<<<<<<< Updated upstream
                       </div>
 
                       <div class="control-group">
@@ -225,13 +117,6 @@ include('../includes/sidebar.php');
                       </div> -->
 
                       </div><br>
-=======
-                        <div class="col-md-10">
-                          <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo
-                                                                                                                $uname; ?>" required>
-                        </div> -->
-                      <!-- </div><br> -->
->>>>>>> Stashed changes
 
                       <!-- /.box-body -->
                       <div class="box-footer">

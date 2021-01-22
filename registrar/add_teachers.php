@@ -13,7 +13,7 @@ $teachers_id = $_SESSION['id'];
 
 include('../config/db_config.php');
 // include ('insert.php');
-
+//something
 //select user
 $get_teachers_sql = "SELECT * FROM tbl_teachers WHERE idno = :id";
 $teachers_data = $con->prepare($get_teachers_sql);
@@ -68,26 +68,18 @@ include('../includes/sidebar.php');
                       <?php echo $alert_msg; ?>
 
                       <div class="control-group">
-                      <!-- <div class="row">
-                      <div class="col-lg6"> -->
                         <label class="control-label" for="focusedInput">First Name</label>
                         <div class="controls">
                         <input type="text" class="form-control" name="firstname" placeholder="Firstname" value="<?php echo $first_name; ?>" required>
                         </div>
                       </div>
-                      <!-- </div> -->
-                      
 
                       <div class="control-group">
-                      <!-- <div class="row">
-                      <div class="col-lg6"> -->
                         <label class="control-label" for="focusedInput">Middle Name</label>
                         <div class="controls">
                         <input type="text" class="form-control" name="middlename" placeholder="Middlename" value="<?php echo $middle_name; ?>" required>
                         </div>
                       </div>
-                      <!-- </div> -->
-                    
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Last Name</label>
