@@ -59,6 +59,7 @@ include('../includes/sidebar.php');
                           <li><a href="#tab1" data-toggle="tab">Step 1</a></li>
                           <li><a href="#tab2" data-toggle="tab">Step 2</a></li>
                           <li><a href="#tab3" data-toggle="tab">Step 3</a></li>
+                          <li><a href="#tab3" data-toggle="tab">Step 4</a></li>
                         </ul>
                       </div>
                     </div>
@@ -223,8 +224,7 @@ include('../includes/sidebar.php');
                                               <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="No">
                                               No
                                             </label>
-                                          </div>
-                                          
+                                          </div> 
                                         </div>
                         </fieldset>
                       </form>
@@ -233,27 +233,70 @@ include('../includes/sidebar.php');
                     <div class="tab-pane" id="tab3">
                       <form class="form-horizontal">
                         <fieldset>
+                          <legend>Academic Background</legend>
+
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Company Name</label>
+                            <label class="control-label" for="focusedInput">Elementary School: </label>
                             <div class="controls">
                               <input class="input-xlarge focused" id="focusedInput" type="text" value="">
                             </div>
                           </div>
+
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Contact Name</label>
+                            <label class="control-label" for="focusedInput">High School: </label>
                             <div class="controls">
                               <input class="input-xlarge focused" id="focusedInput" type="text" value="">
                             </div>
                           </div>
+
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Contact Phone</label>
+                            <label class="control-label" for="focusedInput">Last Attended College/University: </label>
                             <div class="controls">
                               <input class="input-xlarge focused" id="focusedInput" type="text" value="">
                             </div>
                           </div>
+
                         </fieldset>
                       </form>
                     </div>
+
+                    <div class="tab-pane" id="tab4">
+                      <form class="form-horizontal">
+                        <fieldset>
+                          <legend>Enrolment</legend>
+
+                          <div class="control-group">
+                                          <label class="control-label" for="optionsCheckbox">Confirmed? :</label>
+                                          <div class="controls">
+                                            <label class="uniform">
+                                              <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="Yes">
+                                              Yes
+                                            </label>
+                                            <label class="uniform">
+                                              <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="No">
+                                              No
+                                            </label>
+                                          </div> 
+                                        </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">High School: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Last Attended College/University: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                            </div>
+                          </div>
+
+                        </fieldset>
+                      </form>
+                    </div>
+
                     <ul class="pager wizard">
                       <li class="previous first" style="display:none;"><a href="javascript:void(0);">First</a></li>
                       <li class="previous"><a href="javascript:void(0);">Previous</a></li>

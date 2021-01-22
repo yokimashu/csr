@@ -59,8 +59,8 @@ include('../includes/sidebar.php');
               <form class="form-horizontal">
                 <fieldset>
                   <legend>User's Form</legend>
-
-
+                  <br>
+                  <legend>User Information</legend>
 
 
                   <form role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
@@ -101,6 +101,69 @@ include('../includes/sidebar.php');
                         <input type="number" class="form-control" name="contact_number" placeholder="Contact Number" value="<?php echo $contact_number; ?>" required>
                         </div>
                       </div>
+
+                      <div class="control-group">
+  								<label class="control-label">Position: <span class="required">*</span></label>
+  								<div class="controls">
+  									<select class="span6 m-wrap" name="category">
+  										<option value="">Select...</option>
+  										<option value="Widowed">To be entered</option>
+  									</select>
+  								</div>
+                </div>
+
+                <legend>Account Set-Up</legend>
+
+                <div class="control-group">
+  								<label class="control-label">Account Type: <span class="required">*</span></label>
+  								<div class="controls">
+  									<select class="span6 m-wrap" name="category">
+  										<option value="">Select...</option>
+                      <option value="Widowed">1 (Admin)</option>
+                      <option value="Widowed">2 (User Only)</option>
+  									</select>
+  								</div>
+                </div>
+
+                <div class="control-group">
+                        <label class="control-label" for="focusedInput">Username: </label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="lastname"  value="<?php echo $lname; ?>" required>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Password: </label>
+                        <div class="controls">
+                        <input type="password" class="form-control" name="lastname"  value="<?php echo $lname; ?>" required>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Re-Type Password: </label>
+                        <div class="controls">
+                        <input type="password" class="form-control" name="lastname" value="<?php echo $lname; ?>" required>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+  								<label class="control-label">Department: <span class="required">*</span></label>
+  								<div class="controls">
+  									<select class="span6 m-wrap" name="category">
+  										<option value="">Select...</option>
+                      <option value="Widowed">1</option>
+                      <option value="Widowed">2</option>
+  									</select>
+  								</div>
+                </div>
+
+                <div class="control-group">
+                        <label class="control-label" for="focusedInput">Location: </label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="lastname"  value="<?php echo $lname; ?>" required>
+                        </div>
+                      </div>
+
 
                       <!-- <div class="control-group">
                         <label class="control-label" for="focusedInput">Username</label>
