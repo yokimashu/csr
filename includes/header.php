@@ -14,6 +14,10 @@
         <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
 
     </head>
         
