@@ -116,7 +116,7 @@ include('../includes/sidebar.php');
                 </div>
             </div>
             <hr>
-
+<!-- new -->
 <!-- footer here -->
 <?php include('../includes/footer.php'); ?>
 </div>
