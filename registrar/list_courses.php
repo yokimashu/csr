@@ -74,7 +74,7 @@ include('../includes/sidebar.php');
                 <thead>
                   <tr>
                     <th> Course</th>
-                    <th> Number of Enrolled </th>
+                    <th> Number of Enrolles </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,7 +116,7 @@ include('../includes/sidebar.php');
                 </div>
             </div>
             <hr>
-
+<!-- new -->
 <!-- footer here -->
 <?php include('../includes/footer.php'); ?>
 </div>

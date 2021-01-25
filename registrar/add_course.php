@@ -52,7 +52,7 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Subject</div>
+            <div class="muted pull-left">Add Course</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
@@ -115,7 +115,7 @@ include('../includes/sidebar.php');
                       <div class="box-footer">
                         <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
                         <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
-                        <a href="users">
+                        <a href="list_course.php">
                           <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                         </a>
                       </div>
