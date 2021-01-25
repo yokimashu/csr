@@ -52,13 +52,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">LIST OF USERS</div>
+            <div class="muted pull-left">LIST OF SUBJECTS</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_user.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_subject.php"><button class="btn btn-success">Add New Subject<i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
