@@ -3,22 +3,22 @@
 
 session_start();
 
-$department= $surname = $first_name =$middle_name = $birthdate =$btnStatus= $sex = $alert_msg= $status = $contact_number = $email = '';
+$fname = $mname = $lname = $contact_number = $email = $uname = $upass = $btnStatus = $department = $alert_msg = '';
 $btnNew = 'disabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$teachers_id = $_SESSION['id'];
+$user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
 // include ('insert.php');
 
 //select user
-$get_teachers_sql = "SELECT * FROM tbl_teachers WHERE idno = :id";
-$teachers_data = $con->prepare($get_teachers_sql);
-$teachers_data->execute([':id' => $teachers_id]);
-while ($result = $teachers_data->fetch(PDO::FETCH_ASSOC)) {
+$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
+$user_data = $con->prepare($get_user_sql);
+$user_data->execute([':id' => $user_id]);
+while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_first_name = $result['first_name'];
   $db_middle_name = $result['middle_name'];
   $db_last_name = $result['last_name'];
@@ -52,13 +52,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Teachers</div>
+            <div class="muted pull-left">Add Subject</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal">
                 <fieldset>
-                  <legend>Teacher's Form</legend>
+                  <legend>User's Form</legend>
 
 
 
@@ -68,60 +68,37 @@ include('../includes/sidebar.php');
                       <?php echo $alert_msg; ?>
 
                       <div class="control-group">
-                        <label class="control-label" for="focusedInput">First Name</label>
+                        <label class="control-label" for="focusedInput">Subject Code</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="firstname" placeholder="Firstname" value="<?php echo $first_name; ?>" required>
+                        <input type="text" class="form-control" name="subjcode" placeholder="Subjcode" value="<?php echo $fname; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
-                        <label class="control-label" for="focusedInput">Middle Name</label>
+                        <label class="control-label" for="focusedInput">Subject Description</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="middlename" placeholder="Middlename" value="<?php echo $middle_name; ?>" required>
+                        <input type="text" class="form-control" name="subjdesc" placeholder="Subjectdescription" value="<?php echo $mname; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
-                        <label class="control-label" for="focusedInput">Last Name</label>
+                        <label class="control-label" for="focusedInput">Units</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo $surname; ?>" required>
+                        <input type="text" class="form-control" name="units" placeholder="Units" value="<?php echo $lname; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
-                        <label class="control-label" for="focusedInput">Birthdate</label>
+                        <label class="control-label" for="focusedInput">Pre-requisites</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="Birthdate" placeholder="Birthdate" value="<?php echo $birthdate; ?>" required>
+                        <input type="email" class="form-control" name="prereq" placeholder="Prerequisites" value="<?php echo $email; ?>">
                         </div>
                       </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Sex</label>
+                      <!-- <div class="control-group">
+                        <label class="control-label" for="focusedInput">Username</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="sex" placeholder="Sex" value="<?php echo $sex; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Status</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="Status" placeholder="Status" value="<?php echo $status; ?>" required>
-                        </div>
-                      </div>
-
-
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Email Address</label>
-                        <div class="controls">
-                        <input type="email" class="form-control" name="email" placeholder="Email Address" value="<?php echo $email; ?>">
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Address</label>
-                        <div class="controls">
-                        <input type="number" class="form-control" name="address" placeholder="Address" value="<?php echo $address; ?>" required>
+                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $uname; ?>" required>
                         </div>
                       </div>
 
@@ -130,7 +107,7 @@ include('../includes/sidebar.php');
                         <div class="controls">
                         <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $department; ?>" required>
                         </div>
-                      </div>
+                      </div> -->
 
                       </div><br>
 

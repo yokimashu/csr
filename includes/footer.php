@@ -1,5 +1,5 @@
 <footer>
-                <p>&copy; Colegio de Sta. Rita de Inc.</p>
+                <p>&copy; Vincent Gabriel 2013</p>
             </footer>
         </div>
         <!--/.fluid-container-->
@@ -32,7 +32,7 @@
         });
         </script>
 
-
+        
         <script>
 
 jQuery(document).ready(function() {   
