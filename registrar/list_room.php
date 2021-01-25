@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$room_description = $room_no = '';
 
 $room_id = $_SESSION['id'];
 
@@ -16,8 +16,8 @@ $get_room_sql = "SELECT * FROM tbl_room WHERE room_no = :id";
 $get_room_data = $con->prepare($get_room_sql);
 $get_room_data->execute([':id' => $room_id]);
 while ($result = $get_room_data->fetch(PDO::FETCH_ASSOC)) {
-  $room_name   = $result['roomname'];
-  $department  = $result['department'];
+  $room_no   = $result['room_no'];
+  $room_description  = $result['room_description'];
 }
 
 $get_all_room_sql = "SELECT * FROM tbl_room ORDER BY room_no Asc ";
@@ -81,12 +81,12 @@ include('../includes/sidebar.php');
                 <tbody>
                   <?php while ($room_data = $get_all_room_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $room_data['Room No.']; ?> </td>
-                      <td><?php echo $room_data['Room Description']; ?> </td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                      <td><?php echo $room_data['room_no']; ?> </td>
+                      <td><?php echo $room_data['room_description']; ?> </td>
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $room_data['room_no']; ?>&id=<?php echo $room_data['room_no']; ?>"> -->
                           <i class="fa fa-check"></i>
                         </a>
-                        &nbsp;
+                        <!-- &nbsp; -->
 
                       </td>
 
