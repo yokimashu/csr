@@ -75,9 +75,9 @@ include('../includes/sidebar.php');
                       </div>
 
                       <div class="control-group">
-                        <label class="control-label" for="focusedInput">Room Description</label>
+                        <label class="control-label" for="focusedInput">ROOM DESCRIPTION</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="Room Description" placeholder="Room Description" value="<?php echo $mname; ?>" required>
+                        <input type="text" class="form-control" name="ROOM DESCRIPTION" placeholder="Room Description" value="<?php echo $mname; ?>" required>
                         </div>
                       </div>
 
@@ -89,7 +89,7 @@ include('../includes/sidebar.php');
                       <div class="box-footer">
                         <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
                         <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
-                        <a href="users">
+                        <a href="list_room.php">
                           <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                         </a>
                       </div>
