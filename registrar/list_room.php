@@ -52,13 +52,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">LIST OF USERS</div>
+            <div class="muted pull-left">LIST OF ROOM</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_user.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_room.php"><button class="btn btn-success">Add Room <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -73,10 +73,8 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> SUBJECT CODE</th>
-                    <th> DESCRIPTION</th>
-                    <th> UNITS </th>
-                    <th> PRE-REQUISITES</th>
+                    <th> ROOM NO. </th>
+                    <th> ROOM DESCRIPTION</th>
                     
                   </tr>
                 </thead>
