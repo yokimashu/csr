@@ -7,22 +7,24 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$subject_id = $description = $units = $pre_requisites = '';
 
-$user_id = $_SESSION['id'];
+$subject_id = $_SESSION['id'];
 
 //querry to select current user's information
-$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
-$get_user_data = $con->prepare($get_user_sql);
-$get_user_data->execute([':id' => $user_id]);
-while ($result = $get_user_data->fetch(PDO::FETCH_ASSOC)) {
-  $user_name   = $result['username'];
-  $department  = $result['department'];
+$get_subjects_sql = "SELECT * FROM tbl_subjects WHERE subject_id = :id";
+$get_subjects_data = $con->prepare($get_subjects_sql);
+$get_subjects_data->execute([':id' => $subject_id]);
+while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
+  $subject_id   = $result['subject_id'];
+  $subject_description  = $result['description'];
+  $subject_units = $result['units'];
+  $subject_pre_requisites = $result['pre_requisites'];
 }
 
-$get_all_users_sql = "SELECT * FROM tbl_users ORDER BY user_id Asc ";
-$get_all_users_data = $con->prepare($get_all_users_sql);
-$get_all_users_data->execute();
+$get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subject_id Asc ";
+$get_all_subjects_data = $con->prepare($get_all_subjects_sql);
+$get_all_subjects_data->execute();
 
 
 ?>
@@ -81,16 +83,14 @@ include('../includes/sidebar.php');
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($users_data = $get_all_users_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($subjects_data = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $users_data['user_id']; ?> </td>
-                      <td><?php echo $users_data['last_name']; ?> </td>
-                      <td><?php echo $users_data['first_name']; ?> </td>
-                      <td><?php echo $users_data['middle_name']; ?> </td>
-                      <td><?php echo $users_data['contact_no']; ?> </td>
-                      <td><?php echo $users_data['email']; ?> </td>
+                      <td><?php echo $subjects_data['subject_code']; ?> </td>
+                      <td><?php echo $subjects_data['description']; ?> </td>
+                      <td><?php echo $subjects_data['units']; ?> </td>
+                      <td><?php echo $subjects_data['pre_requisites']; ?> </td>
                       <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>"> -->
                           <i class="fa fa-check"></i>
                         </a>
                         &nbsp;

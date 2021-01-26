@@ -82,14 +82,10 @@ include('../includes/sidebar.php');
                     <tr style="font-size: 1rem">
                       <td><?php echo $users_data['user_id']; ?> </td>
                       <td><?php echo $users_data['last_name']; ?> </td>
-                      <td><?php echo $users_data['first_name']; ?> </td>
-                      <td><?php echo $users_data['middle_name']; ?> </td>
-                      <td><?php echo $users_data['contact_no']; ?> </td>
-                      <td><?php echo $users_data['email']; ?> </td>
                       <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
                           <i class="fa fa-check"></i>
-                        </a>
+                        </a> -->
                         &nbsp;
 
                       </td>

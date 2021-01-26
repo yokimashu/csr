@@ -70,28 +70,28 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Code</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="subjcode" placeholder="Subjcode" value="<?php echo $fname; ?>" required>
+                        <input type="text" class="form-control" name="subjcode" value="<?php echo $fname; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Description</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="subjdesc" placeholder="Subjectdescription" value="<?php echo $mname; ?>" required>
+                        <input type="text" class="form-control" name="subjdesc" value="<?php echo $mname; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Units</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="units" placeholder="Units" value="<?php echo $lname; ?>" required>
+                        <input type="text" class="form-control" name="units"  value="<?php echo $lname; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Pre-requisites</label>
                         <div class="controls">
-                        <input type="email" class="form-control" name="prereq" placeholder="Prerequisites" value="<?php echo $email; ?>">
+                        <input type="email" class="form-control" name="prereq" value="<?php echo $email; ?>">
                         </div>
                       </div>
 
@@ -115,7 +115,7 @@ include('../includes/sidebar.php');
                       <div class="box-footer">
                         <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
                         <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
-                        <a href="list_course.php">
+                        <a href="list_courses.php">
                           <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                         </a>
                       </div>
