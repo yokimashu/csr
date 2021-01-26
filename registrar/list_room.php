@@ -7,22 +7,22 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$room_description = $room_no = '';
 
-$user_id = $_SESSION['id'];
+$room_id = $_SESSION['id'];
 
-//querry to select current user's information
-$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
-$get_user_data = $con->prepare($get_user_sql);
-$get_user_data->execute([':id' => $user_id]);
-while ($result = $get_user_data->fetch(PDO::FETCH_ASSOC)) {
-  $user_name   = $result['username'];
-  $department  = $result['department'];
+//querry to select current room's information
+$get_room_sql = "SELECT * FROM tbl_room WHERE room_no = :id";
+$get_room_data = $con->prepare($get_room_sql);
+$get_room_data->execute([':id' => $room_id]);
+while ($result = $get_room_data->fetch(PDO::FETCH_ASSOC)) {
+  $room_no   = $result['room_no'];
+  $room_description  = $result['room_description'];
 }
 
-$get_all_users_sql = "SELECT * FROM tbl_users ORDER BY user_id Asc ";
-$get_all_users_data = $con->prepare($get_all_users_sql);
-$get_all_users_data->execute();
+$get_all_room_sql = "SELECT * FROM tbl_room ORDER BY room_no Asc ";
+$get_all_room_data = $con->prepare($get_all_room_sql);
+$get_all_room_data->execute();
 
 
 ?>
@@ -79,19 +79,14 @@ include('../includes/sidebar.php');
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($users_data = $get_all_users_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($room_data = $get_all_room_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $users_data['user_id']; ?> </td>
-                      <td><?php echo $users_data['last_name']; ?> </td>
-                      <td><?php echo $users_data['first_name']; ?> </td>
-                      <td><?php echo $users_data['middle_name']; ?> </td>
-                      <td><?php echo $users_data['contact_no']; ?> </td>
-                      <td><?php echo $users_data['email']; ?> </td>
-                      <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                      <td><?php echo $room_data['room_no']; ?> </td>
+                      <td><?php echo $room_data['room_description']; ?> </td>
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $room_data['room_no']; ?>&id=<?php echo $room_data['room_no']; ?>"> -->
                           <i class="fa fa-check"></i>
                         </a>
-                        &nbsp;
+                        <!-- &nbsp; -->
 
                       </td>
 
@@ -135,9 +130,9 @@ include('../includes/sidebar.php');
   })
   $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
     event.preventDefault();
-    var user_id = ($(this).data('id'));
-    $('#user_id').val(user_id);
-    $('#deleteuser_Modal').modal('toggle');
+    var room_id = ($(this).data('id'));
+    $('#room_id').val(room_id);
+    $('#deleteroom_Modal').modal('toggle');
   })
 </script>
 </body>
