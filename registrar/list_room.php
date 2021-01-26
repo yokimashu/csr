@@ -12,7 +12,7 @@ $room_description = $room_no = '';
 $room_id = $_SESSION['id'];
 
 //querry to select current room's information
-$get_room_sql = "SELECT * FROM tbl_room WHERE room_no = :id";
+$get_room_sql = "SELECT * FROM tbl_rooms WHERE room_no = :id";
 $get_room_data = $con->prepare($get_room_sql);
 $get_room_data->execute([':id' => $room_id]);
 while ($result = $get_room_data->fetch(PDO::FETCH_ASSOC)) {
@@ -20,7 +20,7 @@ while ($result = $get_room_data->fetch(PDO::FETCH_ASSOC)) {
   $room_description  = $result['room_description'];
 }
 
-$get_all_room_sql = "SELECT * FROM tbl_room ORDER BY room_no Asc ";
+$get_all_room_sql = "SELECT * FROM tbl_rooms ORDER BY room_no Asc ";
 $get_all_room_data = $con->prepare($get_all_room_sql);
 $get_all_room_data->execute();
 
