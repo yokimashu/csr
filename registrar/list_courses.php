@@ -73,8 +73,8 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> Course</th>
-                    <th> Number of Enrolles </th>
+                    <th> Courses</th>
+                    <th> Number of Enrollees </th>
                   </tr>
                 </thead>
                 <tbody>
