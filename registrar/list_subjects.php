@@ -7,22 +7,22 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$subject_id = $description = $units = $pre_requisites = '';
+$subjects_id = $description = $units = $pre_requisites = '';
 
-$subject_id = $_SESSION['id'];
+$subjects_id = $_SESSION['id'];
 
 //querry to select current user's information
-$get_subjects_sql = "SELECT * FROM tbl_subjects WHERE subject_id = :id";
+$get_subjects_sql = "SELECT * FROM tbl_subjects WHERE subjects_id = :id";
 $get_subjects_data = $con->prepare($get_subjects_sql);
-$get_subjects_data->execute([':id' => $subject_id]);
+$get_subjects_data->execute([':id' => $subjects_id]);
 while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
-  $subject_id   = $result['subject_id'];
-  $subject_description  = $result['description'];
-  $subject_units = $result['units'];
-  $subject_pre_requisites = $result['pre_requisites'];
+  $subjects_id   = $result['subjects_id'];
+  $subjects_description  = $result['description'];
+  $subjects_units = $result['units'];
+  $subjects_pre_requisites = $result['pre_requisites'];
 }
 
-$get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subject_id Asc ";
+$get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
 $get_all_subjects_data = $con->prepare($get_all_subjects_sql);
 $get_all_subjects_data->execute();
 
@@ -85,7 +85,7 @@ include('../includes/sidebar.php');
                 <tbody>
                   <?php while ($subjects_data = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $subjects_data['subject_code']; ?> </td>
+                      <td><?php echo $subjects_data['subjects_id']; ?> </td>
                       <td><?php echo $subjects_data['description']; ?> </td>
                       <td><?php echo $subjects_data['units']; ?> </td>
                       <td><?php echo $subjects_data['pre_requisites']; ?> </td>
