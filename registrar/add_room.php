@@ -3,8 +3,11 @@
 
 session_start();
 
-$fname = $mname = $lname = $contact_number = $email = $uname = $upass = $btnStatus = $department = $alert_msg = '';
-// $btnNew = 'disabled';
+$room_no = $description =  $alert_msg = '';
+
+
+ $btnNew = 'disabled';
+ $btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -12,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-// include ('insert.php');
+include ('insert_room.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -56,44 +59,43 @@ include('../includes/sidebar.php');
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <form class="form-horizontal">
+              <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
                   <legend>ROOM</legend>
 
 
 
 
-                  <form role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
-                    <div class="box-body">
-                      <?php echo $alert_msg; ?>
+                  <div class="box-body">
+                    <?php echo $alert_msg; ?>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Room No.</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="Room No."  value="<?php echo $fname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Room No.</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="room_no" value="<?php echo $room_no; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">ROOM DESCRIPTION</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="ROOM DESCRIPTION" placeholder="Room Description" value="<?php echo $mname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">ROOM DESCRIPTION</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="room_description" placeholder="Room Description" value="<?php echo $description; ?>" required>
                       </div>
+                    </div>
 
 
-    
-                      </div><br>
 
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <!-- <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New"> -->
-                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
-                        <a href="list_room.php">
-                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                        </a>
-                      </div>
-                  </form>
+                  </div><br>
+
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <a href="list_room.php">
+                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                    </a>
+                  </div>
+              </form>
             </div>
             <!-- /.box -->
           </div>
