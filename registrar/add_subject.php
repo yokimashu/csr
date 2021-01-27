@@ -70,7 +70,7 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Code</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="subjcode" value="<?php echo $fname; ?>" required>
+                        <input type="text" class="form-control" name="subjcode" placeholder="Subjcode" value="<?php echo $fname; ?>" required>
                         </div>
                       </div>
 
