@@ -7,22 +7,24 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$courses = $number_of_enrollees =  '';
 
-$user_id = $_SESSION['id'];
+$courses_id = $_SESSION['id'];
 
 //querry to select current user's information
-$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
-$get_user_data = $con->prepare($get_user_sql);
-$get_user_data->execute([':id' => $user_id]);
-while ($result = $get_user_data->fetch(PDO::FETCH_ASSOC)) {
-  $user_name   = $result['username'];
-  $department  = $result['department'];
+$get_courses_sql = "SELECT * FROM tbl_courses WHERE courses_id = :id";
+$get_courses_data = $con->prepare($get_courses_sql);
+$get_courses_data->execute([':id' => $courses_id]);
+while ($result = $get_courses_data->fetch(PDO::FETCH_ASSOC)) {
+  $courses_id   = $result['courses_id'];
+  $courses = $result['courses'];
+  $number_of_enrollees  = $result['no.of enrollees'];
+  
 }
 
-$get_all_users_sql = "SELECT * FROM tbl_users ORDER BY user_id Asc ";
-$get_all_users_data = $con->prepare($get_all_users_sql);
-$get_all_users_data->execute();
+$get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
+$get_all_courses_data = $con->prepare($get_all_courses_sql);
+$get_all_courses_data->execute();
 
 
 ?>
@@ -73,19 +75,22 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> Courses</th>
-                    <th> Number of Enrollees </th>
+                    <th> COURSE ID</th>
+                    <th> COURSES
+                    <th> NUMBER OF ENROLLEES</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($users_data = $get_all_users_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($courses_data = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $users_data['user_id']; ?> </td>
-                      <td><?php echo $users_data['last_name']; ?> </td>
+                      <td><?php echo $courses_data['courses_id']; ?> </td>
+                      <td><?php echo $courses_data['courses']; ?> </td>
+                      <td><?php echo $courses_data['number_of_enrollees']; ?> </td>
+                      
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $courses_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>"> -->
                           <i class="fa fa-check"></i>
-                        </a> -->
+                        </a>
                         &nbsp;
 
                       </td>
@@ -112,7 +117,7 @@ include('../includes/sidebar.php');
                 </div>
             </div>
             <hr>
-<!-- new -->
+
 <!-- footer here -->
 <?php include('../includes/footer.php'); ?>
 </div>
