@@ -14,6 +14,7 @@
                         <ul style="display: block;">
                             <li><a href="list_students.php">Students</a></li>
                             <li><a href="list_faculty.php">Faculty</a></li>
+                            <li><a href="list_courses.php">Courses</a></li>
                             <li><a href="list_subjects.php">Subjects</a></li>
                             <li><a href="list_room.php">Room</a></li>
                             <li><a href="list_schedules.php">Schedules</a></li>
