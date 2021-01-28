@@ -77,7 +77,7 @@ include('../includes/sidebar.php');
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">ROOM DESCRIPTION</label>
+                      <label class="control-label" for="focusedInput">Room Description</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="room_description" placeholder="Room Description" value="<?php echo $description; ?>" required>
                       </div>
