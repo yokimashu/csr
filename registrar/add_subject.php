@@ -77,7 +77,7 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Description</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="subjdesc"  value="<?php echo $mname; ?>" required>
+                        <input type="text" class="form-control" name="subject"  value="<?php echo $mname; ?>" required>
                         </div>
                       </div>
 
@@ -91,7 +91,7 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Pre-requisites</label>
                         <div class="controls">
-                        <input type="email" class="form-control" name="prereq"  value="<?php echo $email; ?>">
+                        <input type="text" class="form-control" name="prereq"  value="<?php echo $email; ?>">
                         </div>
                       </div>
 
