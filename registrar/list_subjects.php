@@ -90,7 +90,7 @@ include('../includes/sidebar.php');
                       <td><?php echo $subjects_data['units']; ?> </td>
                       <td><?php echo $subjects_data['pre_requisites']; ?> </td>
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>"> -->
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $subjects_data['subjects_id']; ?>&id=<?php echo $subjects_data['subjects_id']; ?>"> -->
                           <i class="fa fa-check"></i>
                         </a>
                         &nbsp;
