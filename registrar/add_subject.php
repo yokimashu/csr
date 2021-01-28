@@ -3,8 +3,11 @@
 
 session_start();
 
-$fname = $mname = $lname = $contact_number = $email = $uname = $upass = $btnStatus = $department = $alert_msg = '';
+$subjects_id = $description = $units = $pre_requisites = $alert_msg = '';
+
+
 $btnNew = 'disabled';
+$btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -12,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-// include ('insert.php');
+include ('insert_subjects.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -56,65 +59,50 @@ include('../includes/sidebar.php');
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <form class="form-horizontal">
+              <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>User's Form</legend>
+                  <legend>Add Subject Form</legend>
 
 
 
 
-                  <form role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                     <div class="box-body">
                       <?php echo $alert_msg; ?>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Code</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="subjcode" placeholder="Subjcode" value="<?php echo $fname; ?>" required>
+                        <input type="text" class="form-control" name="subjects_id" value="<?php echo $subjects_id; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Description</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="subject"  value="<?php echo $mname; ?>" required>
+                        <input type="text" class="form-control" name="description"  value="<?php echo $description; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Units</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="units"  value="<?php echo $lname; ?>" required>
+                        <input type="text" class="form-control" name="units"  value="<?php echo $units; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Pre-requisites</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="prereq"  value="<?php echo $email; ?>">
+                        <input type="text" class="form-control" name="prereq"  value="<?php echo $pre_requisites; ?>">
                         </div>
                       </div>
-
-                      <!-- <div class="control-group">
-                        <label class="control-label" for="focusedInput">Username</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $uname; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Department</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $department; ?>" required>
-                        </div>
-                      </div> -->
 
                       </div><br>
 
                       <!-- /.box-body -->
                       <div class="box-footer">
                         <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                        <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
+                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
                         <a href="list_subjects.php">
                           <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                         </a>
