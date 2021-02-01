@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$subjects_id = $description = $units = $pre_requisites = '';
+$subjects_id = $subjects_description = $units = $course_code = $year_level = $semester = $pre_requisites = '';
 
 $subjects_id = $_SESSION['id'];
 
@@ -17,8 +17,11 @@ $get_subjects_data = $con->prepare($get_subjects_sql);
 $get_subjects_data->execute([':id' => $subjects_id]);
 while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
   $subjects_id   = $result['subjects_id'];
-  $subjects_description  = $result['description'];
+  $subjects_description  = $result['subjects_description'];
   $subjects_units = $result['units'];
+  $subjects_course_code = $result['course_code'];
+  $subjects_year_level = $result['year_level'];
+  $subjects_semester = $result['semester'];
   $subjects_pre_requisites = $result['pre_requisites'];
 }
 
@@ -78,6 +81,9 @@ include('../includes/sidebar.php');
                     <th> SUBJECT CODE</th>
                     <th> DESCRIPTION</th>
                     <th> UNITS </th>
+                    <th> COURSE CODE </th>
+                    <th> YEAR LEVEL</th>
+                    <th> SEMESTER </th>
                     <th> PRE-REQUISITES</th>
                     
                   </tr>
@@ -86,8 +92,11 @@ include('../includes/sidebar.php');
                   <?php while ($subjects_data = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
                       <td><?php echo $subjects_data['subjects_id']; ?> </td>
-                      <td><?php echo $subjects_data['description']; ?> </td>
+                      <td><?php echo $subjects_data['subjects_description']; ?> </td>
                       <td><?php echo $subjects_data['units']; ?> </td>
+                      <td><?php echo $subjects_data['course_code']; ?> </td>
+                      <td><?php echo $subjects_data['year_level']; ?> </td>
+                      <td><?php echo $subjects_data['semester']; ?> </td>
                       <td><?php echo $subjects_data['pre_requisites']; ?> </td>
                       <td>
                         <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $subjects_data['subjects_id']; ?>&id=<?php echo $subjects_data['subjects_id']; ?>"> -->

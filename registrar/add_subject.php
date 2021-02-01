@@ -3,7 +3,7 @@
 
 session_start();
 
-$subjects_id = $description = $units = $pre_requisites = $alert_msg = '';
+$subjects_id = $subjects_description = $units = $course_code = $year_level = $semester = $pre_requisites = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -79,7 +79,7 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Subject Description</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="description"  value="<?php echo $description; ?>" required>
+                        <input type="text" class="form-control" name="subjects_description"  value="<?php echo $subjects_description; ?>" required>
                         </div>
                       </div>
 
@@ -91,9 +91,30 @@ include('../includes/sidebar.php');
                       </div>
 
                       <div class="control-group">
+                        <label class="control-label" for="focusedInput">Course Code</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="course_code"  value="<?php echo $course_code; ?>" required>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Year Level</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="year_level"  value="<?php echo $year_level; ?>" required>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Semester</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="semester"  value="<?php echo $semester; ?>" required>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
                         <label class="control-label" for="focusedInput">Pre-requisites</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="prereq"  value="<?php echo $pre_requisites; ?>">
+                        <input type="text" class="form-control" name="pre_requisites"  value="<?php echo $pre_requisites; ?>">
                         </div>
                       </div>
 

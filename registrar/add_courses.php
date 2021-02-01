@@ -3,8 +3,11 @@
 
 session_start();
 
-$fname = $mname = $lname = $contact_number = $email = $uname = $upass = $btnStatus = $department = $alert_msg = '';
-$btnNew = 'disabled';
+$courses_id = $courses = $number_of_enrollees = $alert_msg = '';
+
+
+ $btnNew = 'disabled';
+ $btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -12,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-// include ('insert.php');
+include ('insert_courses.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -52,74 +55,54 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Course</div>
+            <div class="muted pull-left">ADD COURSE</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <form class="form-horizontal">
+              <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>User's Form</legend>
+                  <legend>Courses</legend>
 
 
 
 
-                  <form role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
-                    <div class="box-body">
-                      <?php echo $alert_msg; ?>
+                  <div class="box-body">
+                    <?php echo $alert_msg; ?>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Subject Code</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="subjcode" value="<?php echo $fname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Courses Id</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="courses_id" value="<?php echo $courses_id; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Subject Description</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="subjdesc" value="<?php echo $mname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Courses</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="courses" placeholder="courses" value="<?php echo $courses; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Units</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="units"  value="<?php echo $lname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Number Of Enrollees</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="number_of_enrollees" placeholder="number_of_enrollees" value="<?php echo $number_of_enrollees; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Pre-requisites</label>
-                        <div class="controls">
-                        <input type="email" class="form-control" name="prereq" value="<?php echo $email; ?>">
-                        </div>
-                      </div>
 
-                      <!-- <div class="control-group">
-                        <label class="control-label" for="focusedInput">Username</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $uname; ?>" required>
-                        </div>
-                      </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Department</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $department; ?>" required>
-                        </div>
-                      </div> -->
+                  </div><br>
 
-                      </div><br>
-
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                        <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
-                        <a href="list_courses.php">
-                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                        </a>
-                      </div>
-                  </form>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <a href="list_courses.php">
+                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                    </a>
+                  </div>
+              </form>
             </div>
             <!-- /.box -->
           </div>
@@ -134,7 +117,7 @@ include('../includes/sidebar.php');
 <!-- footer here -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <!-- <b>Version</b> 1.0 -->
+    <b>Version</b> 1.0
   </div>
   <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
   reserved.
