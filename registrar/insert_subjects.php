@@ -12,7 +12,7 @@
     //     print_r($_POST);
     // echo "</pre>";
 
-    $subject_id = $_POST['subjects_id'];
+    $subjects_id = $_POST['subjects_id'];
     $subjects_description = $_POST['subjects_description'];
     $units = $_POST['units'];
     $course_code = $_POST['course_code'];
@@ -32,7 +32,7 @@
 
       $register_data = $con->prepare($register_user_sql);
       $register_data->execute([
-        ':subjects_id'        => $subjects_id,
+        ':subjects_id'    => $subjects_id,
         ':desc'           => $subjects_description,
         ':units'          => $units,
         ':course_code'    => $course_code,

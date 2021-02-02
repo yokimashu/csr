@@ -7,20 +7,24 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$students_id = $surname = $first_name = $middle_name = $course = $student_year_level =  '';
 
-$user_id = $_SESSION['id'];
+$students_id = $_SESSION['id'];
 
 //querry to select current user's information
-$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
-$get_user_data = $con->prepare($get_user_sql);
-$get_user_data->execute([':id' => $user_id]);
-while ($result = $get_user_data->fetch(PDO::FETCH_ASSOC)) {
-  $user_name   = $result['username'];
-  $department  = $result['department'];
+$get_students_sql = "SELECT * FROM tbl_students WHERE students_id = :id";
+$get_students_data = $con->prepare($get_students_sql);
+$get_students_data->execute([':id' => $students_id]);
+while ($result = $get_students_data->fetch(PDO::FETCH_ASSOC)) {
+  $students_id   = $result['students_id'];
+  $students_surname  = $result['surname'];
+  $students_first_name   = $result['first_name'];
+  $students_middle_name   = $result['middle_name'];
+  $students_course   = $result['course'];
+  $student_year_level   = $result['students_year_level'];
 }
 
-$get_all_students_sql = "SELECT * FROM tbl_students ORDER BY objid ASC ";
+$get_all_students_sql = "SELECT * FROM tbl_students ORDER BY students_id ASC ";
 $get_all_students_data = $con->prepare($get_all_students_sql);
 $get_all_students_data->execute();
 
@@ -58,7 +62,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_student.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_students.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -82,18 +86,18 @@ include('../includes/sidebar.php');
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($users_data = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($students_data = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $users_data['idno']; ?> </td>
-                      <td><?php echo $users_data['surname']; ?> </td>
-                      <td><?php echo $users_data['first_name']; ?> </td>
-                      <td><?php echo $users_data['middle_name']; ?> </td>
-                      <td><?php echo $users_data['course']; ?> </td>
-                      <td><?php echo $users_data['year']; ?> </td>
+                      <td><?php echo $students_data['students_id']; ?> </td>
+                      <td><?php echo $students_data['surname']; ?> </td>
+                      <td><?php echo $students_data['first_name']; ?> </td>
+                      <td><?php echo $students_data['middle_name']; ?> </td>
+                      <td><?php echo $students_data['course']; ?> </td>
+                      <td><?php echo $students_data['student_year_level']; ?> </td>
                       <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $students_data['idno']; ?>&id=<?php echo $students_data['idno']; ?>">
                           <i class="fa fa-check"></i>
-                        </a>
+                        </a> -->
                         &nbsp;
 
                       </td>
@@ -142,8 +146,8 @@ include('../includes/sidebar.php');
   })
   $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
     event.preventDefault();
-    var user_id = ($(this).data('id'));
-    $('#user_id').val(user_id);
+    var students_id = ($(this).data('id'));
+    $('#students_id').val(students_id);
     $('#deleteuser_Modal').modal('toggle');
   })
 </script>

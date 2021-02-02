@@ -3,11 +3,12 @@
 
 session_start();
 
-$subjects_id = $subjects_description = $units = $course_code = $year_level = $semester = $pre_requisites = $alert_msg = '';
+$students_id = $surname = $first_name = $middle_name = $course = $student_year_level
+ =  $alert_msg = '';
 
 
-$btnNew = 'disabled';
-$btnStatus = 'enabled';
+ $btnNew = 'disabled';
+ $btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -15,10 +16,10 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_subjects.php');
+include ('insert_students.php');
 
 //select user
-$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
+$get_user_sql = "SELECT * FROM tbl_users WHERE   user_id = :id";
 $user_data = $con->prepare($get_user_sql);
 $user_data->execute([':id' => $user_id]);
 while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
@@ -55,79 +56,75 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Subject</div>
+            <div class="muted pull-left">ADD SUBJECTS</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Add Subject Form</legend>
+                  <legend>SUBJECTS</legend>
 
 
 
 
-                    <div class="box-body">
-                      <?php echo $alert_msg; ?>
-                      <div class="control-group">
-                      <label class="control-label" for="focusedInput">Subjects ID</label>
+                  <div class="box-body">
+                    <?php echo $alert_msg; ?>
+
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">ID Number</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="subjects_id" value="<?php echo $subjects_id; ?>" required>
+                        <input type="text" class="form-control" name="students_id" value="<?php echo $students_id; ?>" required>
                       </div>
                     </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Subject Description</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="subjects_description"  value="<?php echo $subjects_description; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Surname</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="surname" value="<?php echo $surname; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Units</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="units"  value="<?php echo $units; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">First Name</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Course Code</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="course_code"  value="<?php echo $course_code; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Middle Name</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="middle_name" value="<?php echo $middle_name; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Year Level</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="year_level"  value="<?php echo $year_level; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Course</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="course" value="<?php echo $course; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Semester</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="semester"  value="<?php echo $semester; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Year</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="student_year_level" value="<?php echo $student_year_level; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Pre-requisites</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="pre_requisites"  value="<?php echo $pre_requisites; ?>">
-                        </div>
-                      </div>
 
-                      </div><br>
 
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
-                        <a href="list_subjects.php">
-                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                        </a>
-                      </div>
-                  </form>
+                  </div><br>
+
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <a href="list_students.php">
+                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                    </a>
+                  </div>
+              </form>
             </div>
             <!-- /.box -->
           </div>
@@ -142,7 +139,7 @@ include('../includes/sidebar.php');
 <!-- footer here -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <!-- <b>Version</b> 1.0 -->
+    <b>Version</b> 1.0
   </div>
   <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
   reserved.

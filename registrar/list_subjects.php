@@ -78,7 +78,7 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> SUBJECT CODE</th>
+                    <th> SUBJECT ID</th>
                     <th> DESCRIPTION</th>
                     <th> UNITS </th>
                     <th> COURSE CODE </th>
