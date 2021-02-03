@@ -3,22 +3,24 @@
 
 session_start();
 
-$department= $surname = $first_name =$middle_name = $birthdate =$btnStatus= $sex = $alert_msg= $status = $contact_number = $email = '';
+$teachers_id = $surname = $first_name = $middle_name = $work_status = $contact_number = $email_address = $alert_msg = '';
+
 $btnNew = 'disabled';
+$btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$teachers_id = $_SESSION['id'];
+$user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-// include ('insert.php');
+include ('insert_faculty.php');
 
 //select user
-$get_teachers_sql = "SELECT * FROM tbl_teachers WHERE idno = :id";
-$teachers_data = $con->prepare($get_teachers_sql);
-$teachers_data->execute([':id' => $teachers_id]);
-while ($result = $teachers_data->fetch(PDO::FETCH_ASSOC)) {
+$get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
+$user_data = $con->prepare($get_user_sql);
+$user_data->execute([':id' => $user_id]);
+while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_first_name = $result['first_name'];
   $db_middle_name = $result['middle_name'];
   $db_last_name = $result['last_name'];
@@ -52,83 +54,65 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Teachers</div>
+            <div class="muted pull-left">Add Teacher</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <form class="form-horizontal">
+              <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Teacher's Form</legend>
+                  <legend>Add Subject Form</legend>
 
 
 
 
-                  <form role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                     <div class="box-body">
                       <?php echo $alert_msg; ?>
+                      <div class="control-group">
+                      <label class="control-label" for="focusedInput">Teacher ID</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="teachers_id" value="<?php echo $teachers_id; ?>" required>
+                      </div>
+                    </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Surname</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="surname"  value="<?php echo $surname; ?>" required>
+                        </div>
+                      </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">First Name</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="firstname" placeholder="Firstname" value="<?php echo $first_name; ?>" required>
+                        <input type="text" class="form-control" name="first_name"  value="<?php echo $first_name; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Middle Name</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="middlename" placeholder="Middlename" value="<?php echo $middle_name; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Last Name</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo $surname; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Birthdate</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="Birthdate" placeholder="Birthdate" value="<?php echo $birthdate; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Sex</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="sex" placeholder="Sex" value="<?php echo $sex; ?>" required>
+                        <input type="text" class="form-control" name="middle_name"  value="<?php echo $middle_name; ?>" required>
                         </div>
                       </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Status</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="Status" placeholder="Status" value="<?php echo $status; ?>" required>
+                        <input type="text" class="form-control" name="work_status"  value="<?php echo $work_status; ?>" required>
                         </div>
                       </div>
 
-
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Contact Number</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="contact_number"  value="<?php echo $contact_number; ?>" required>
+                        </div>
+                      </div>
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Email Address</label>
                         <div class="controls">
-                        <input type="email" class="form-control" name="email" placeholder="Email Address" value="<?php echo $email; ?>">
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Address</label>
-                        <div class="controls">
-                        <input type="number" class="form-control" name="address" placeholder="Address" value="<?php echo $address; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Department</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $department; ?>" required>
+                        <input type="email" class="form-control" name="email_address"  value="<?php echo $email_address; ?>">
                         </div>
                       </div>
 
@@ -137,8 +121,8 @@ include('../includes/sidebar.php');
                       <!-- /.box-body -->
                       <div class="box-footer">
                         <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                        <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
-                        <a href="users">
+                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                        <a href="list_faculty.php">
                           <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                         </a>
                       </div>
