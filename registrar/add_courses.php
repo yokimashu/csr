@@ -79,14 +79,14 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Courses</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="courses" placeholder="courses" value="<?php echo $courses; ?>" required>
+                        <input type="text" class="form-control" name="courses"  value="<?php echo $courses; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Number Of Enrollees</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="number_of_enrollees" placeholder="number_of_enrollees" value="<?php echo $number_of_enrollees; ?>" required>
+                        <input type="text" class="form-control" name="number_of_enrollees"  value="<?php echo $number_of_enrollees; ?>" required>
                       </div>
                     </div>
 

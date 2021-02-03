@@ -3,11 +3,10 @@
 
 session_start();
 
-$room_no = $description =  $alert_msg = '';
+$day = $time = $alert_msg = '';
 
-
- $btnNew = 'disabled';
- $btnStatus = 'enabled';
+$btnNew = 'disabled';
+$btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -15,7 +14,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_room.php');
+include ('insert_schedules.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -55,47 +54,44 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">ADD ROOM</div>
+            <div class="muted pull-left">Add Schedule</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>ROOM</legend>
+                  <legend>Add Subject Form</legend>
 
 
 
 
-                  <div class="box-body">
-                    <?php echo $alert_msg; ?>
-
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Room No.</label>
+                    <div class="box-body">
+                      <?php echo $alert_msg; ?>
+                      <div class="control-group">
+                      <label class="control-label" for="focusedInput">Day</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="room_no" value="<?php echo $room_no; ?>" required>
+                        <input type="text" class="form-control" name="day" value="<?php echo $day; ?>" required>
                       </div>
                     </div>
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Room Description</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="room_description"  value="<?php echo $description; ?>" required>
+                      <div class="control-group">
+                        <label class="control-label" for="focusedInput">Time</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="time"  value="<?php echo $time; ?>" required>
+                        </div>
                       </div>
-                    </div>
 
+                      </div><br>
 
-
-                  </div><br>
-
-                  <!-- /.box-body -->
-                  <div class="box-footer">
-                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
-                    <a href="list_room.php">
-                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                    </a>
-                  </div>
-              </form>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                        <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                        <a href="list_schedules.php">
+                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                        </a>
+                      </div>
+                  </form>
             </div>
             <!-- /.box -->
           </div>
@@ -110,7 +106,7 @@ include('../includes/sidebar.php');
 <!-- footer here -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <b>Version</b> 1.0
+    <!-- <b>Version</b> 1.0 -->
   </div>
   <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
   reserved.

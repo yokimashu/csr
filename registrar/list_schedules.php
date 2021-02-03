@@ -7,23 +7,23 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$teachers_id = $surname =  '';
+$day = $time =  '';
 
-$teachers_id = $_SESSION['id'];
+$day = $_SESSION['id'];
 
 //querry to select current user's information
-$get_faculty_sql = "SELECT * FROM tbl_faculty WHERE teachers_id = :id";
-$get_faculty_data = $con->prepare($get_faculty_sql);
-$get_faculty_data->execute([':id' => $teachers_id]);
-while ($result = $get_faculty_data->fetch(PDO::FETCH_ASSOC)) {
-  $faculty_teachers_id   = $result['teachers_id'];
-  $faculty_surname  = $result['surname'];
+$get_schedules_sql = "SELECT * FROM tbl_schedules WHERE day = :id";
+$get_schedules_data = $con->prepare($get_schedules_sql);
+$get_schedules_data->execute([':id' => $day]);
+while ($result = $get_schedules_data->fetch(PDO::FETCH_ASSOC)) {
+  $schedules_day   = $result['day'];
+  $schedules_time  = $result['time'];
  
 }
 
-$get_all_faculty_sql = "SELECT * FROM tbl_faculty ORDER BY teachers_id ASC ";
-$get_all_faculty_data = $con->prepare($get_all_faculty_sql);
-$get_all_faculty_data->execute();
+$get_all_schedules_sql = "SELECT * FROM tbl_schedules ORDER BY day ASC ";
+$get_all_schedules_data = $con->prepare($get_all_schedules_sql);
+$get_all_schedules_data->execute();
 
 
 ?>
@@ -59,7 +59,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_schedule.php"><button class="btn btn-success">Add New Schedule<i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_schedules.php"><button class="btn btn-success">Add New Schedule<i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -82,13 +82,13 @@ include('../includes/sidebar.php');
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($faculty_data = $get_all_faculty_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($schedules_data = $get_all_schedules_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $faculty_data['teachers_id']; ?> </td>
-                      <td><?php echo $faculty_data['surname']; ?> </td>
+                      <td><?php echo $schedules_data['day']; ?> </td>
+                      <td><?php echo $schedules_data['time']; ?> </td>
                       
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $faculty_data['teachers_id']; ?>&id=<?php echo $faculty_data['teachers_id']; ?>">
+                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $schedules_data['day']; ?>&id=<?php echo $schedules_data['day']; ?>">
                           <i class="fa fa-check"></i>
                         </a> -->
                         &nbsp;
