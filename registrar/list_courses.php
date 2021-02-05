@@ -76,8 +76,9 @@ include('../includes/sidebar.php');
                 <thead>
                   <tr>
                     <th> COURSE ID</th>
-                    <th> COURSES
+                    <th> COURSES</th>
                     <th> NUMBER OF ENROLLEES</th>
+                    <th> OPTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -88,10 +89,10 @@ include('../includes/sidebar.php');
                       <td><?php echo $courses_data['number_of_enrollees']; ?> </td>
                       
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $courses_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>"> -->
-                          <i class="fa fa-check"></i>
-                        </a>
-                        &nbsp;
+                        <a class="btn btn-primary" href="edit_courses.php?courses_id=<?php echo
+    $courses_data['courses_id']; ?>"><i class="icon-edit"></i>
+                          </a>
+                        <!-- &nbsp; -->
 
                       </td>
 
