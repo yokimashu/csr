@@ -75,6 +75,7 @@ include('../includes/sidebar.php');
                   <tr>
                     <th> ROOM NO. </th>
                     <th> ROOM DESCRIPTION</th>
+                    <th> OPTIONS</th>
                     
                   </tr>
                 </thead>
@@ -83,11 +84,12 @@ include('../includes/sidebar.php');
                     <tr style="font-size: 1rem">
                       <td><?php echo $room_data['room_no']; ?> </td>
                       <td><?php echo $room_data['room_description']; ?> </td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $room_data['room_no']; ?>&id=<?php echo $room_data['room_no']; ?>"> -->
-                          <i class="fa fa-check"></i>
-                        </a>
+                     <td>
+                      <a class="btn btn-primary" href="edit_room.php?room_no=<?php echo
+    $room_data['room_no']; ?>"><i class="icon-edit"></i>
+                          </a>
                         <!-- &nbsp; -->
-
+</td>
                       </td>
 
 

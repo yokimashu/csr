@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$teachers_id = $surname = $first_name = $middlename = $work_status = $contact_number = $email_address =  '';
+$teachers_id = $surname = $first_name = $middlename = $work_status = $faculty_dept = $contact_number = $email_address =  '';
 
 $teachers_id = $_SESSION['id'];
 
@@ -21,8 +21,10 @@ while ($result = $get_faculty_data->fetch(PDO::FETCH_ASSOC)) {
   $faculty_first_name   = $result['first_name'];
   $faculty_middle_name   = $result['middle_name'];
   $faculty_work_status   = $result['work_status'];
+  $faculty_faculty_dept   = $result['faculty_dept'];
   $faculty_contact_number   = $result['contact_number'];
   $faculty_email_address   = $result['email_address'];
+  
 }
 
 $get_all_faculty_sql = "SELECT * FROM tbl_faculty ORDER BY teachers_id ASC ";
@@ -57,13 +59,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">List of Students</div>
+            <div class="muted pull-left">List of Faculty</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_faculty.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_faculty.php"><button class="btn btn-success">Add New Teacher<i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -83,6 +85,7 @@ include('../includes/sidebar.php');
                     <th> FIRST NAME </th>
                     <th> MIDDLE NAME</th>
                     <th> STATUS</th>
+                    <th> DEPARTMENT</th>
                     <th> CONTACT NUMBER</th>
                     <th> EMAIL ADDRESS</th>
                     
@@ -97,6 +100,7 @@ include('../includes/sidebar.php');
                       <td><?php echo $faculty_data['first_name']; ?> </td>
                       <td><?php echo $faculty_data['middle_name']; ?> </td>
                       <td><?php echo $faculty_data['work_status']; ?> </td>
+                      <td><?php echo $faculty_data['faculty_dept']; ?> </td>
                       <td><?php echo $faculty_data['contact_number']; ?> </td>
                       <td><?php echo $faculty_data['email_address']; ?> </td>
                       <td>

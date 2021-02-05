@@ -3,10 +3,11 @@
 
 session_start();
 
-$teachers_id = $surname = $first_name = $middle_name = $work_status = $faculty_dept = $contact_number = $email_address = $alert_msg = '';
+$room_no = $description =  $alert_msg = '';
 
-$btnNew = 'disabled';
-$btnStatus = 'enabled';
+
+ $btnNew = 'disabled';
+ $btnStatus = 'enabled';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -14,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_faculty.php');
+include ('update_room.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -28,6 +29,20 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_contact_number = $result['contact_no'];
   $db_user_name = $result['username'];
   $db_department = $result['department'];
+}
+
+
+//get room data
+if (isset($_GET['room_no'])) {
+  $room_no = $_GET['room_no'];
+
+  $get_room_sql = "SELECT * FROM tbl_rooms WHERE room_no = :room_no";
+  $get_room_data = $con->prepare($get_room_sql);
+  $get_room_data->execute([':room_no' => $room_no]);
+  while ($result = $get_room_data->fetch(PDO::FETCH_ASSOC)) {
+      $description = $result['room_description'];
+  }
+
 }
 ?>
 
@@ -54,86 +69,47 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Teacher</div>
+            <div class="muted pull-left">ADD ROOM</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Add Teacher Form</legend>
+                  <legend>ROOM</legend>
 
 
 
 
-                    <div class="box-body">
-                      <?php echo $alert_msg; ?>
-                      <div class="control-group">
-                      <label class="control-label" for="focusedInput">Teacher ID</label>
+                  <div class="box-body">
+                    <?php echo $alert_msg; ?>
+
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Room No.</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="teachers_id" value="<?php echo $teachers_id; ?>" required>
+                        <input type="text" class="form-control" name="room_no" value="<?php echo $room_no; ?>" required>
                       </div>
                     </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Surname</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="surname"  value="<?php echo $surname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Room Description</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="room_description"  value="<?php echo $description; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">First Name</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="first_name"  value="<?php echo $first_name; ?>" required>
-                        </div>
-                      </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Middle Name</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="middle_name"  value="<?php echo $middle_name; ?>" required>
-                        </div>
-                      </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Status</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="work_status"  value="<?php echo $work_status; ?>" required>
-                        </div>
-                      </div>
+                  </div><br>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Department</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="faculty_dept"  value="<?php echo $faculty_dept; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Contact Number</label>
-                        <div class="controls">
-                        <input type="number" class="form-control" name="contact_number"  value="<?php echo $contact_number; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Email Address</label>
-                        <div class="controls">
-                        <input type="email" class="form-control" name="email_address"  value="<?php echo $email_address; ?>">
-                        </div>
-                      </div>
-
-                      </div><br>
-
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
-                        <a href="list_faculty.php">
-                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                        </a>
-                      </div>
-                  </form>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                    <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
+                    <a href="list_room.php">
+                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                    </a>
+                  </div>
+              </form>
             </div>
             <!-- /.box -->
           </div>
@@ -148,7 +124,7 @@ include('../includes/sidebar.php');
 <!-- footer here -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <!-- <b>Version</b> 1.0 -->
+    <b>Version</b> 1.0
   </div>
   <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
   reserved.

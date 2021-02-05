@@ -17,6 +17,7 @@
     $first_name = $_POST['first_name'];
     $middle_name = $_POST['middle_name'];
     $work_status = $_POST['work_status'];
+    $faculty_dept = $_POST['faculty_dept'];
     $contact_number = $_POST['contact_number'];
     $email_address = $_POST['email_address'];
 
@@ -30,6 +31,7 @@
         first_name     = :first_name,
         middle_name    = :middle_name,
         work_status    = :work_status,
+        faculty_dept   = :faculty_dept,
         contact_number = :contact_number,
         email_address  = :email_address";
     
@@ -42,6 +44,7 @@
         ':first_name'         => $first_name,
         ':middle_name'        => $middle_name,
         ':work_status'        => $work_status,
+        ':faculty_dept'       => $faculty_dept,
         ':contact_number'     => $contact_number,
         ':email_address'      => $email_address
       ]);
