@@ -60,7 +60,7 @@ include('../includes/sidebar.php');
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <div class="table-toolbar">
+              <div class="table-toolbar" style = "margin-bottom:20px;">
                 <div class="btn-group">
                   <a href="add_students.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
                 </div>
@@ -83,6 +83,7 @@ include('../includes/sidebar.php');
                     <th> MIDDLE NAME</th>
                     <th> COURSE </th>
                     <th> YEAR</th>
+                    <th> OPTION</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -95,9 +96,9 @@ include('../includes/sidebar.php');
                       <td><?php echo $students_data['course']; ?> </td>
                       <td><?php echo $students_data['student_year_level']; ?> </td>
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $students_data['idno']; ?>&id=<?php echo $students_data['idno']; ?>">
+                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $students_data['idno']; ?>&id=<?php echo $students_data['idno']; ?>">
                           <i class="fa fa-check"></i>
-                        </a> -->
+                        </a>
                         &nbsp;
 
                       </td>
@@ -128,15 +129,9 @@ include('../includes/sidebar.php');
 <!-- footer here -->
 <?php include('../includes/footer.php'); ?>
 </div>
-<script src="vendors/jquery-1.9.1.js">
-</script>
 
-<script src="bootstrap/js/bootstrap.min.js">
-</script>
-
-<script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script>
-  $('#pr').DataTable({
+  $('#example2').DataTable({
     'paging': true,
     'lengthChange': true,
     'searching': true,
