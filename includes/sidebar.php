@@ -13,14 +13,11 @@
                         </li>
                         <ul style="display: block;">
                             <li><a href="list_students.php">Students</a></li>
-<<<<<<< Updated upstream
-                            <li><a href="add_teachers.php">Faculty</a></li>
-=======
-                            <li><a href="list_teachers.php">Faculty</a></li>
->>>>>>> Stashed changes
-                            <li><a href="signup.html">Subjects</a></li>
-                            <li><a href="signup.html">Room</a></li>
-                            <li><a href="signup.html">Schedules</a></li>
+                            <li><a href="list_faculty.php">Faculty</a></li>
+                            <li><a href="list_courses.php">Courses</a></li>
+                            <li><a href="list_subjects.php">Subjects</a></li>
+                            <li><a href="list_room.php">Room</a></li>
+                            <li><a href="list_schedules.php">Schedules</a></li>
                             <li><a href="list_users.php">Users</a></li>
 
 
