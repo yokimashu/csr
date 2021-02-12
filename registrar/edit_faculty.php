@@ -132,14 +132,14 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Contact No.</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="contact_number" value="<?php echo $contact_number; ?>" required>
+                        <input type="number" class="form-control" name="contact_number" value="<?php echo $contact_number; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Email Address</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="email_address"  value="<?php echo $email_address; ?>" required>
+                        <input type="email" class="form-control" name="email_address"  value="<?php echo $email_address; ?>" required>
                       </div>
                     </div>
 

@@ -43,16 +43,16 @@
                 ':teachers_id'             => $teachers_id
           ]);
         
-      // echo "Data Updated";
+        // echo "Data Updated";
 
     
-      $alert_msg .= ' 
-      <div class="new-alert new-alert-success alert-dismissible">
-          <i class="icon fa fa-success"></i>
-          Data Updated.
-      </div>     
-    ';
+        $alert_msg .= ' 
+        <div class="new-alert new-alert-success alert-dismissible">
+            <i class="icon fa fa-success"></i>
+            Data Updated.
+        </div>     
+      ';
 
-          }
-    
+    }
+
 ?>
