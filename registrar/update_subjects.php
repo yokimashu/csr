@@ -22,16 +22,16 @@
   
 
             $update_subjects_sql = "UPDATE tbl_subjects SET 
-                pre_requisites         = :pre_requisites
-                semester               = :semester
-                year_level             = :year_level
-                course_code            = :course_code
-                units                  = :units
+                pre_requisites         = :pre_requisites,
+                semester               = :semester,
+                year_level             = :year_level,
+                course_code            = :course_code,
+                units                  = :units,
                 subjects_description   = :subjects_description
-                WHERE subjects_id       = :subjects_id";
+                WHERE subjects_id      = :subjects_id";
     
           $update_subjects = $con->prepare($update_subjects_sql);
-          $update_room->execute([
+          $update_subjects->execute([
                 ':pre_requisites'              => $pre_requisites, 
                 ':semester'                    => $semester,
                 ':year_level'                  => $year_level,
