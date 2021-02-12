@@ -88,9 +88,9 @@ include('../includes/sidebar.php');
                       <td><?php echo $schedules_data['time']; ?> </td>
                       
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $schedules_data['day']; ?>&id=<?php echo $schedules_data['day']; ?>">
-                          <i class="fa fa-check"></i>
-                        </a> -->
+                      <a class="btn btn-primary" href="edit_room.php?room_no=<?php echo
+    $room_data['room_no']; ?>"><i class="icon-edit"></i>
+                          </a>
                         &nbsp;
 
                       </td>

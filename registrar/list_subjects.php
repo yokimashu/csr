@@ -86,7 +86,7 @@ include('../includes/sidebar.php');
                     <th> YEAR LEVEL</th>
                     <th> SEMESTER </th>
                     <th> PRE-REQUISITES</th>
-                    <th> Options</th>
+                    <th> OPTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -100,11 +100,10 @@ include('../includes/sidebar.php');
                     <td><?php echo $subjects_data['semester']; ?> </td>
                     <td><?php echo $subjects_data['pre_requisites']; ?> </td>
                     <td>
-                      <a class="btn btn-success "
-                        href="update_users.php?objid=<?php echo $subjects_data['subjects_id']; ?>&id=<?php echo $subjects_data['subjects_id']; ?>">
-                        <i class="fa fa-user"></i>
-                      </a>
-                      &nbsp;
+                    <a class="btn btn-primary" href="edit_subjects.php?subjects_id=<?php echo
+    $room_data['subjects_id']; ?>"><i class="icon-edit"></i>
+                          </a>
+                      <!-- &nbsp; -->
 
                     </td>
 

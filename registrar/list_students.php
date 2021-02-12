@@ -83,7 +83,7 @@ include('../includes/sidebar.php');
                     <th> MIDDLE NAME</th>
                     <th> COURSE </th>
                     <th> YEAR</th>
-                    <th> OPTION</th>
+                    <th> OPTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,10 +96,10 @@ include('../includes/sidebar.php');
                       <td><?php echo $students_data['course']; ?> </td>
                       <td><?php echo $students_data['student_year_level']; ?> </td>
                       <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $students_data['idno']; ?>&id=<?php echo $students_data['idno']; ?>">
-                          <i class="fa fa-check"></i>
-                        </a>
-                        &nbsp;
+                      <a class="btn btn-primary" href="edit_students.php?students_id=<?php echo
+    $room_data['students_id']; ?>"><i class="icon-edit"></i>
+                          </a>
+                        <!-- &nbsp; -->
 
                       </td>
 

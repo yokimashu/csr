@@ -79,6 +79,7 @@ include('../includes/sidebar.php');
                     <th> MIDDLE NAME</th>
                     <th> CONTACT No. </th>
                     <th> EMAIL</th>
+                    <th> OPTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -91,9 +92,9 @@ include('../includes/sidebar.php');
                       <td><?php echo $users_data['contact_no']; ?> </td>
                       <td><?php echo $users_data['email']; ?> </td>
                       <td>
-                        <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $users_data['user_id']; ?>&id=<?php echo $users_data['user_id']; ?>">
-                          <i class="fa fa-check"></i>
-                        </a>
+                      <a class="btn btn-primary" href="edit_room.php?room_no=<?php echo
+    $room_data['room_no']; ?>"><i class="icon-edit"></i>
+                          </a>
                         &nbsp;
 
                       </td>

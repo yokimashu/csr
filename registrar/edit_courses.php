@@ -111,7 +111,7 @@ include('../includes/sidebar.php');
                   <!-- /.box-body -->
                   <div class="box-footer">
                     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
                     <a href="list_courses.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                     </a>

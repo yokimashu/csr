@@ -88,6 +88,7 @@ include('../includes/sidebar.php');
                     <th> DEPARTMENT</th>
                     <th> CONTACT NUMBER</th>
                     <th> EMAIL ADDRESS</th>
+                    <th> OPTIONS</th>
                     
                     
                   </tr>
@@ -104,10 +105,11 @@ include('../includes/sidebar.php');
                       <td><?php echo $faculty_data['contact_number']; ?> </td>
                       <td><?php echo $faculty_data['email_address']; ?> </td>
                       <td>
-                        <!-- <a class="btn btn-outline-success btn-xs" href="update_users.php?objid=<?php echo $faculty_data['teachers_id']; ?>&id=<?php echo $faculty_data['teachers_id']; ?>">
-                          <i class="fa fa-check"></i>
-                        </a> -->
-                        &nbsp;
+                  
+                        <a class="btn btn-primary" href="edit_students.php?students_id=<?php echo
+    $room_data['students_id']; ?>"><i class="icon-edit"></i>
+                          </a>
+                        <!-- &nbsp; -->
 
                       </td>
 
