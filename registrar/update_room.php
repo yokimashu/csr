@@ -5,9 +5,9 @@
   $alert_msg = '';
     if (isset($_POST['update'])){
 
-  //     echo "<pre>";
-  //     print_r($_POST);
-  // echo "</pre>";
+      echo "<pre>";
+      print_r($_POST);
+  echo "</pre>";
 
          //to check if data are passed
        
