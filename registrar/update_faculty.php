@@ -45,7 +45,7 @@
                 
           ]);
         
-      // echo "Data Inserted";
+      // echo "Data Updated";
 
     
             $alert_msg .= ' 

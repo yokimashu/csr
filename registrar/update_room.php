@@ -25,7 +25,7 @@
                 ':room_no'        => $room_no
           ]);
         
-      // echo "Data Inserted";
+      // echo "Data Updated";
 
     
             $alert_msg .= ' 
