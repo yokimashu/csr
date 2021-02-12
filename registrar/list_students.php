@@ -62,7 +62,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <div class="table-toolbar" style = "margin-bottom:20px;">
                 <div class="btn-group">
-                  <a href="add_students.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_student.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
