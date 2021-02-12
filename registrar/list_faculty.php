@@ -106,7 +106,7 @@ include('../includes/sidebar.php');
                       <td><?php echo $faculty_data['email_address']; ?> </td>
                       <td>
                   
-                        <a class="btn btn-primary" href="edit_faculty.php?teacher_id=<?php echo
+                        <a class="btn btn-primary" href="edit_faculty.php?teachers_id=<?php echo
     $faculty_data['teachers_id']; ?>"><i class="icon-edit"></i>
                           </a>
                         <!-- &nbsp; -->
