@@ -76,6 +76,7 @@ include('../includes/sidebar.php');
                   <tr>
                     <th> DAY</th>
                     <th> TIME </th>
+                    <th> OPTIONS</th>
                     
                     
                     
@@ -88,8 +89,8 @@ include('../includes/sidebar.php');
                       <td><?php echo $schedules_data['time']; ?> </td>
                       
                       <td>
-                      <a class="btn btn-primary" href="edit_room.php?room_no=<?php echo
-    $room_data['room_no']; ?>"><i class="icon-edit"></i>
+                      <a class="btn btn-primary" href="edit_schedules.php?day=<?php echo
+    $schedules_data['day']; ?>"><i class="icon-edit"></i>
                           </a>
                         &nbsp;
 

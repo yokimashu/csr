@@ -60,7 +60,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Add Subject Form</legend>
+                  <legend>Add Schedule Form</legend>
 
 
 

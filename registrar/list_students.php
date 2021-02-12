@@ -97,7 +97,7 @@ include('../includes/sidebar.php');
                       <td><?php echo $students_data['student_year_level']; ?> </td>
                       <td>
                       <a class="btn btn-primary" href="edit_students.php?students_id=<?php echo
-    $room_data['students_id']; ?>"><i class="icon-edit"></i>
+    $students_data['students_id']; ?>"><i class="icon-edit"></i>
                           </a>
                         <!-- &nbsp; -->
 

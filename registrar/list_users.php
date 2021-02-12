@@ -92,8 +92,8 @@ include('../includes/sidebar.php');
                       <td><?php echo $users_data['contact_no']; ?> </td>
                       <td><?php echo $users_data['email']; ?> </td>
                       <td>
-                      <a class="btn btn-primary" href="edit_room.php?room_no=<?php echo
-    $room_data['room_no']; ?>"><i class="icon-edit"></i>
+                      <a class="btn btn-primary" href="edit_users.php?user_id=<?php echo
+    $users_data['user_id']; ?>"><i class="icon-edit"></i>
                           </a>
                         &nbsp;
 

@@ -55,7 +55,7 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">ADD COURSE</div>
+            <div class="muted pull-left">Add Course</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
