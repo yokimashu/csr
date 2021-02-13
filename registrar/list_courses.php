@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$courses = $number_of_enrollees =  '';
+$courses_id = $courses = $number_of_enrollees =  '';
 
 $courses_id = $_SESSION['id'];
 

@@ -8,9 +8,9 @@
   if (isset($_POST['save'])) {
 
     
-    //     echo "<pre>";
-    //     print_r($_POST);
-    // echo "</pre>";
+        echo "<pre>";
+        print_r($_POST);
+    echo "</pre>";
 
     $courses_id = $_POST['courses_id'];
     $courses = $_POST['courses'];

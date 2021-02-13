@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_courses.php');
+include ('update_courses.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -31,7 +31,8 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_department = $result['department'];
 }
 
-//get room data
+
+//get courses data
 if (isset($_GET['courses_id'])) {
   $courses_id = $_GET['courses_id'];
 
@@ -42,7 +43,6 @@ if (isset($_GET['courses_id'])) {
       $courses = $result['courses'];
       $number_of_enrollees = $result['number_of_enrollees'];
   }
-
 }
 ?>
 
@@ -69,7 +69,7 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">ADD COURSE</div>
+            <div class="muted pull-left">Add Course</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
@@ -100,7 +100,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Number Of Enrollees</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="number_of_enrollees"  value="<?php echo $number_of_enrollees; ?>" required>
+                        <input type="number" class="form-control" name="number_of_enrollees"  value="<?php echo $number_of_enrollees; ?>" required>
                       </div>
                     </div>
 
