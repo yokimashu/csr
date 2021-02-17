@@ -12,7 +12,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-// include ('insert_students.php');
+// include ('insert_student.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -105,7 +105,7 @@ include('../includes/sidebar.php');
                           <div class="control-group">
                                           <label class="control-label" for="date01">Date of Birth: </label>
                                           <div class="controls">
-                                            <input type="date" class="input-xlarge datepicker" placeholder="mm/dd/yyyy" id="dateOfBirth" value="">
+                                            <input type="date" id="dateOfBirth" value="">
                                           </div>
                                         </div>
                           
@@ -201,12 +201,12 @@ include('../includes/sidebar.php');
                           <div class="control-group">
                                           <label class="control-label" for="optionsCheckbox">Baptized? :</label>
                                           <div class="controls">
-                                            <label class="uniform" for="yes" >
-                                              <input class="uniform_on" type="radio" id="optionsCheckbox" value="Yes">
+                                            <label class="uniform">
+                                              <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="Yes">
                                               Yes
                                             </label>
-                                            <label class="uniform" for="no">
-                                              <input class="uniform_on" type="radio" id="optionsCheckbox" value="No">
+                                            <label class="uniform">
+                                              <input class="uniform_on" type="checkbox" id="optionsCheckbox" value="No">
                                               No
                                             </label>
                                           </div>
@@ -320,13 +320,13 @@ include('../includes/sidebar.php');
 
 
   <!-- /.box-body -->
-  <!-- <div class="box-footer">
+  <div class="box-footer">
     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-    <input type="submit" <?php echo $btnStatus; ?> name="insert" class="btn btn-primary" value="Save">
-    <a href="users">
+    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+    <a href="list_students.php">
       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
     </a>
-  </div> -->
+  </div>
   </div>
   <!-- /.box -->
   <div class="col-md-1"></div>
