@@ -13,22 +13,22 @@
        
     $courses_id = $_POST['courses_id'];
     $courses = $_POST['courses'];
+    $number_of_enrollees = $_POST['number_of_enrollees'];
   
 
             $update_courses_sql = "UPDATE tbl_courses SET 
-                number_of_enrollees    = :number_of_enrollees
-                courses                = :number_of_enrollees
-                WHERE courses_id       = :courses_id";
+                number_of_enrollees = :number_of_enrollees
+                courses             = :courses
+                WHERE courses_id    = :courses_id";
     
           $update_courses = $con->prepare($update_courses_sql);
           $update_courses->execute([
-                ':number_of_enrollees'       => $number_of_enrollees, 
-                ':courses'                   => $courses,
-                ':courses_id'                => $courses_id
-                
+                ':number_of_enrollees'    => $number_of_enrollees, 
+                ':courses'        => $courses,
+                ':courses_id'     => $courses_id
           ]);
         
-      // echo "Data Inserted";
+      // echo "Data Updated";
 
     
             $alert_msg .= ' 

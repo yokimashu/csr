@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_courses.php');
+include ('update_courses.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -31,7 +31,7 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_department = $result['department'];
 }
 
-//get room data
+  //get courses data
 if (isset($_GET['courses_id'])) {
   $courses_id = $_GET['courses_id'];
 
@@ -39,10 +39,11 @@ if (isset($_GET['courses_id'])) {
   $get_courses_data = $con->prepare($get_courses_sql);
   $get_courses_data->execute([':courses_id' => $courses_id]);
   while ($result = $get_courses_data->fetch(PDO::FETCH_ASSOC)) {
-      $courses = $result['courses'];
-      $number_of_enrollees = $result['number_of_enrollees'];
-  }
+      $courses    = $result['courses'];
+      $number_of_enrollees    = $result['number_of_enrollees'];
+  
 
+  }
 }
 ?>
 
@@ -69,13 +70,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">ADD COURSE</div>
+            <div class="muted pull-left">Edit Course</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Courses</legend>
+                  <legend>Course Edit Form</legend>
 
 
 
@@ -108,15 +109,15 @@ include('../includes/sidebar.php');
 
                   </div><br>
 
-                  <!-- /.box-body -->
-                  <div class="box-footer">
-                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
-                    <a href="list_courses.php">
-                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                    </a>
-                  </div>
-              </form>
+                 <!-- /.box-body -->
+                 <div class="box-footer">
+                        <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                        <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
+                        <a href="list_courses.php">
+                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                        </a>
+                      </div>
+                  </form>
             </div>
             <!-- /.box -->
           </div>
