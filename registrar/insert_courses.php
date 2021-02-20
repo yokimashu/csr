@@ -19,8 +19,8 @@
       //insert user to database
       $register_user_sql = "INSERT INTO tbl_courses SET 
         courses_id             = :courses_id,
-        courses    = :courses,
-        number_of_enrollees     =:number_of_enrollees";
+        courses                = :courses,
+        number_of_enrollees    =:number_of_enrollees";
   
 
       $register_data = $con->prepare($register_user_sql);

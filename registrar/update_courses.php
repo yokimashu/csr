@@ -17,7 +17,7 @@
   
 
             $update_courses_sql = "UPDATE tbl_courses SET 
-                number_of_enrollees = :number_of_enrollees
+                number_of_enrollees = :number_of_enrollees,
                 courses             = :courses
                 WHERE courses_id    = :courses_id";
     
