@@ -1,8 +1,6 @@
 <?php
 
 
-session_start();
-
 $fname = $mname = $lname = $contact_number = $email = $uname = $upass = $btnStatus = $department = $alert_msg = '';
 $btnNew = 'disabled';
 

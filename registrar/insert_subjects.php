@@ -38,7 +38,7 @@
         ':course_code'    => $course_code,
         ':year_level'     => $year_level,
         ':semester'       => $semester,
-        ':pre_requisites' => $pre_requisites
+        ':pre_requisites' => implode(" , ", $pre_requisites)
 
       ]);
 

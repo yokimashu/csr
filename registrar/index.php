@@ -1,3 +1,10 @@
+<?php
+include('../config/db_config.php');
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html class="no-js">
 

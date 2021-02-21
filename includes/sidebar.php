@@ -4,7 +4,7 @@
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                         <li class="active">
-                            <a href=""><i class="icon-chevron-right"></i> Dashboard</a>
+                            <a href="index.php"><i class="icon-chevron-right"></i> Dashboard</a>
                         </li>
                       
     
@@ -22,6 +22,25 @@
 
 
                         </ul>
+
+                        <li>
+                            <a href=""><i class="icon-chevron-right"></i> Transactions</a>
+                        </li>
+                        <ul style="display: block;">
+                            <li><a href="list_students.php">Enrollment</a></li>
+                            <li><a href="list_faculty.php">Adding of Subjects</a></li>
+                            <li><a href="list_courses.php">Dropping of Subjects</a></li>
+                        </ul>
+
+                        <li>
+                            <a href=""><i class="icon-chevron-right"></i>Reports</a>
+                        </li>
+                        <ul style="display: block;">
+                            <li><a href="list_students.php">Transcript of Records</a></li>
+                            <li><a href="list_faculty.php">Certificate of Good Moral</a></li>
+                            <li><a href="list_courses.php">Honorable Dismissal</a></li>
+                        </ul>
+            
             
               </ul>
 

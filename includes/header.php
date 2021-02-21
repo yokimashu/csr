@@ -1,8 +1,53 @@
+<?php
+$user_id = $_SESSION['id'];
+$docno = '';
+
+
+if (!isset($_SESSION['id'])) {
+  header('location:../index.php');
+} else {
+}
+
+
+
+//fetch user from database
+
+$get_user_sql = "SELECT * FROM tbl_users where user_id = :id";
+$user_data = $con->prepare($get_user_sql);
+$user_data->execute([':id' => $user_id]);
+while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
+
+
+  $db_first_name = $result['first_name'];
+  $db_middle_name = $result['middle_name'];
+  $db_last_name = $result['last_name'];
+  $db_email_ad = $result['email'];
+  $db_contact_number = $result['contact_no'];
+  $db_user_name = $result['username'];
+  $department = $result['department'];
+}
+
+
+
+// $get_all_document_sql = "SELECT * FROM tbl_ledger";
+// $get_all_document_data = $con->prepare($get_all_document_sql);
+// $get_all_document_data->execute();  
+
+//count incoming documents
+$get_noofstuds_sql = "SELECT COUNT(`students_id`) as total FROM `tbl_students`";
+$get_noofstuds_data = $con->prepare($get_noofstuds_sql);
+$get_noofstuds_data->execute();
+$get_noofstuds_data->setFetchMode(PDO::FETCH_ASSOC);
+while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
+  $percent =  $result1['total'];
+}
+?>
+
 <!DOCTYPE html>
 <html class="no-js">
     
     <head>
-        <title>Admin Home Page</title>
+        <title>Colegio de Sta. Rita de San Carlos</title>
         <!-- Bootstrap -->
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
@@ -23,11 +68,11 @@
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Admin Panel</a>
+                    <a class="brand" href="#">CSR MIS</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <?php echo $db_first_name . '' . $db_middle_name . ' ' . $db_last_name ?> <i class="caret"></i>
 
                                 </a>
                                 <ul class="dropdown-menu">

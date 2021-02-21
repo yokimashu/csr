@@ -1,7 +1,7 @@
 <?php
 
 
-session_start();
+// session_start();
 
 $students_id = $surname = $first_name = $middle_name = $course = $student_year_level
  =  $alert_msg = '';

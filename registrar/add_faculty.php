@@ -29,6 +29,12 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_user_name = $result['username'];
   $db_department = $result['department'];
 }
+
+//select all courses
+$get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
+$get_all_courses_data = $con->prepare($get_all_courses_sql);
+$get_all_courses_data->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -103,11 +109,25 @@ include('../includes/sidebar.php');
                       </div>
 
                       <div class="control-group">
+                      <label class="control-label" for="multiSelect">Department/s:</label>
+                      <div class="controls">
+                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="faculty_dept[]">
+                          <option>
+                            <?php while ($get_subjects = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <option value="<?php echo
+                                          $get_subjects['subjects_id']; ?>"><?php echo $get_subjects['subjects_description']; ?></option>
+                        <?php } ?>
+                        </select>
+                        <p class="help-block">Start typing to activate auto complete!</p>
+                      </div>
+
+
+                      <!-- <div class="control-group">
                         <label class="control-label" for="focusedInput">Department</label>
                         <div class="controls">
                         <input type="text" class="form-control" name="faculty_dept"  value="<?php echo $faculty_dept; ?>" required>
                         </div>
-                      </div>
+                      </div> -->
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Contact Number</label>

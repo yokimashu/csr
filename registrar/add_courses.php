@@ -30,6 +30,8 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_user_name = $result['username'];
   $db_department = $result['department'];
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -70,9 +72,9 @@ include('../includes/sidebar.php');
                     <?php echo $alert_msg; ?>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Courses Id</label>
+                      <label class="control-label" for="focusedInput">Course ID</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="courses_id" value="<?php echo $courses_id; ?>" required>
+                        <input type="text" class="input-xlarge focused" name="courses_id" value="<?php echo $courses_id; ?>" required>
                       </div>
                     </div>
 
@@ -83,6 +85,7 @@ include('../includes/sidebar.php');
                       </div>
                     </div>
 
+                    
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Number Of Enrollees</label>
                       <div class="controls">
