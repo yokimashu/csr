@@ -7,24 +7,22 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$courses = $number_of_enrollees =  '';
+$room_description = $room_no = '';
 
-$courses_id = $_SESSION['id'];
+$semester_id = $_SESSION['id'];
 
-//querry to select current user's information
-$get_courses_sql = "SELECT * FROM tbl_courses WHERE courses_id = :id";
-$get_courses_data = $con->prepare($get_courses_sql);
-$get_courses_data->execute([':id' => $courses_id]);
-while ($result = $get_courses_data->fetch(PDO::FETCH_ASSOC)) {
-  $courses_id   = $result['courses_id'];
-  $courses = $result['courses'];
-  $number_of_enrollees  = $result['no.of enrollees'];
-  
+//querry to select current room's information
+$get_semester_sql = "SELECT * FROM tbl_semester WHERE semester_id = :id";
+$get_semester_data = $con->prepare($get_semester_sql);
+$get_semester_data->execute([':id' => $semester_id]);
+while ($result = $get_semester_data->fetch(PDO::FETCH_ASSOC)) {
+  $semester_id   = $result['semester_id'];
+  $number_of_students  = $result['number_of_students'];
 }
 
-$get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
-$get_all_courses_data = $con->prepare($get_all_courses_sql);
-$get_all_courses_data->execute();
+$get_all_semester_sql = "SELECT * FROM tbl_semester ORDER BY semester_id Asc ";
+$get_all_semester_data = $con->prepare($get_all_semester_sql);
+$get_all_semester_data->execute();
 
 
 ?>
@@ -54,13 +52,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">LIST OF COURSES</div>
+            <div class="muted pull-left">List of Semesters</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_courses.php"><button class="btn btn-success">Add New Course<i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_room.php"><button class="btn btn-success">Add Semester <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -75,25 +73,23 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> COURSE ID</th>
-                    <th> COURSES</th>
-                    <th> NUMBER OF ENROLLEES</th>
+                    <th> SEMESTER </th>
+                    <th> NO. OF STUDENTS</th>
                     <th> OPTIONS</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($courses_data = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($semester_data = $get_all_semester_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $courses_data['courses_id']; ?> </td>
-                      <td><?php echo $courses_data['courses']; ?> </td>
-                      <td><?php echo $courses_data['number_of_enrollees']; ?> </td>
-                      
-                      <td>
-                        <a class="btn btn-primary" href="edit_courses.php?courses_id=<?php echo
-    $courses_data['courses_id']; ?>"><i class="icon-edit"></i>
+                      <td><?php echo $semester_data['semester_id']; ?> </td>
+                      <td><?php echo $semester_data['number_of_students']; ?> </td>
+                     <td>
+                      <a class="btn btn-primary" href="edit_semester.php?semester_id=<?php echo
+    $semester_data['semester_id']; ?>"><i class="icon-edit"></i>
                           </a>
                         <!-- &nbsp; -->
-
+</td>
                       </td>
 
 
@@ -136,9 +132,9 @@ include('../includes/sidebar.php');
   })
   $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
     event.preventDefault();
-    var user_id = ($(this).data('id'));
-    $('#user_id').val(user_id);
-    $('#deleteuser_Modal').modal('toggle');
+    var room_id = ($(this).data('id'));
+    $('#room_id').val(room_id);
+    $('#deleteroom_Modal').modal('toggle');
   })
 </script>
 </body>

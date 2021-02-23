@@ -19,6 +19,9 @@
                             <li><a href="list_room.php">Room</a></li>
                             <li><a href="list_schedules.php">Schedules</a></li>
                             <li><a href="list_users.php">Users</a></li>
+                            <li><a href="list_year.php">Year Level</a></li>
+                            <li><a href="list_semester.php">Semester</a></li>
+                            <li><a href="list_status.php">Status of Teacher</a></li>
 
 
                         </ul>
