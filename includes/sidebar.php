@@ -30,7 +30,7 @@
                             <a href=""><i class="icon-chevron-right"></i> Transactions</a>
                         </li>
                         <ul style="display: block;">
-                            <li><a href="list_students.php">Enrollment</a></li>
+                            <li><a href="list_enrollment.php">Enrollment</a></li>
                             <li><a href="list_faculty.php">Adding of Subjects</a></li>
                             <li><a href="list_courses.php">Dropping of Subjects</a></li>
                         </ul>
