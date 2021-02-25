@@ -7,22 +7,23 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$year_level = $total_students_number = '';
+$teacher_id = $status = $department = '';
 
-$year_level = $_SESSION['id'];
+$teacher_id = $_SESSION['id'];
 
 //querry to select current user's information
-$get_year_sql = "SELECT * FROM tbl_year WHERE year_level = :id";
-$get_year_data = $con->prepare($get_year_sql);
-$get_year_data->execute([':id' => $year_level]);
-while ($result = $get_year_data->fetch(PDO::FETCH_ASSOC)) {
-  $year_level                  = $result['year_level'];
-  $total_students_number       = $result['total_students_number'];
+$get_status_sql = "SELECT * FROM tbl_status WHERE teacher_id = :id";
+$get_status_data = $con->prepare($get_status_sql);
+$get_status_data->execute([':id' => $teacher_id]);
+while ($result = $get_status_data->fetch(PDO::FETCH_ASSOC)) {
+  $teacher_id                = $result['teacher_id'];
+  $status      = $result['status'];
+  $department = $result['department'];
 }
 
-$get_all_year_sql = "SELECT * FROM tbl_year ORDER BY year_level Asc ";
-$get_all_year_data = $con->prepare($get_all_year_sql);
-$get_all_year_data->execute();
+$get_all_status_sql = "SELECT * FROM tbl_status ORDER BY teacher_id Asc ";
+$get_all_status_data = $con->prepare($get_all_status_sql);
+$get_all_status_data->execute();
 
 
 ?>
@@ -52,15 +53,15 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">List of Year Level</div>
+            <div class="muted pull-left">List of Teacher Status</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
-                <div class="btn-group" style="margin-bottom:20px;">
+                <!-- <div class="btn-group" style="margin-bottom:20px;">
                   <a href="add_subject.php"><button class="btn btn-success">Add New Year Level<i
                         class="icon-plus icon-white"></i></button></a>
-                </div>
+                </div> -->
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
                   <ul class="dropdown-menu">
@@ -74,19 +75,21 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> YEAR LEVEL</th>
-                    <th> TOTAL NUMBER OF STUDENTS</th>
-                    <th> OPTIONS </th>
+                    <th> TEACHER ID</th>
+                    <th> STATUS</th>
+                    <th> DEPARTMENT </th>
+                    <th> OPTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while ($year_data = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) {  ?>
+                  <?php while ($status_data = $get_all_status_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                   <tr style="font-size: 1rem">
-                    <td><?php echo $year_data['year_level']; ?> </td>
-                    <td><?php echo $year_data['total_students_number']; ?> </td>
+                    <td><?php echo $status_data['teacher_id']; ?> </td>
+                    <td><?php echo $status_data['status']; ?> </td>
+                    <td><?php echo $status_data['department'] ?> </td>
                     <td>
-                    <a class="btn btn-primary" href="edit_year.php?year_level=<?php echo
-    $year_data['year_level']; ?>"><i class="icon-edit"></i>
+                    <a class="btn btn-primary" href="edit_status.php?teacher_id=<?php echo
+    $status_data['teacher_id']; ?>"><i class="icon-edit"></i>
                           </a>
                       <!-- &nbsp; -->
 

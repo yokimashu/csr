@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$room_description = $room_no = '';
+$semester_id = $number_of_students = '';
 
 $semester_id = $_SESSION['id'];
 
