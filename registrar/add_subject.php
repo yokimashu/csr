@@ -37,6 +37,11 @@ $get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
 $get_all_courses_data = $con->prepare($get_all_courses_sql);
 $get_all_courses_data->execute();
 
+//select all year level
+$get_all_year_sql = "SELECT * FROM tbl_year ORDER BY year_level Asc ";
+$get_all_year_data = $con->prepare($get_all_year_sql);
+$get_all_year_data->execute();
+
 //select all subjects
 $get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
 $get_all_subjects_data = $con->prepare($get_all_subjects_sql);
@@ -121,10 +126,23 @@ include('../includes/sidebar.php');
                       </div>
                     </div> -->
 
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                       <label class="control-label" for="focusedInput">Year Level</label>
                       <div class="controls">
                         <input type="text" class="form-control span5" name="year_level" value="<?php echo $year_level; ?>" required>
+                      </div>
+                    </div> -->
+
+                    <div class="control-group">
+                      <label class="control-label" for="select01">Year Level</label>
+                      <div class="controls">
+                        <select id="select01" name="year_level" class="chzn-select span5">
+                        <option selected="selected">Please select...</option>
+                        <?php while ($get_year = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                                                        <option value="<?php echo
+    $get_year['year_level']; ?>"><?php echo $get_year['year_level']; ?></option>
+<?php } ?>
+                        </select>
                       </div>
                     </div>
 

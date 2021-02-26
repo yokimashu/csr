@@ -23,7 +23,7 @@
       $register_data = $con->prepare($register_user_sql);
       $register_data->execute([
         ':year_level'                         => $year_level,
-        ':total_students_number'              => $description
+        ':total_students_number'              => $total_students_number
       ]);
 
       $alert_msg .= ' 

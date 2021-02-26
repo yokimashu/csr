@@ -58,7 +58,7 @@ include('../includes/sidebar.php');
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group" style="margin-bottom:20px;">
-                  <a href="add_subject.php"><button class="btn btn-success">Add New Year Level<i
+                  <a href="add_year.php"><button class="btn btn-success">Add New Year Level<i
                         class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
