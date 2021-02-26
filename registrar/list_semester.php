@@ -11,7 +11,7 @@ $semester_id = $number_of_students = '';
 
 $semester_id = $_SESSION['id'];
 
-//querry to select current room's information
+//querry to select current user's information
 $get_semester_sql = "SELECT * FROM tbl_semester WHERE semester_id = :id";
 $get_semester_data = $con->prepare($get_semester_sql);
 $get_semester_data->execute([':id' => $semester_id]);
@@ -52,13 +52,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">List of Semesters</div>
+            <div class="muted pull-left">List of Semester</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="add_room.php"><button class="btn btn-success">Add Semester <i class="icon-plus icon-white"></i></button></a>
+                  <a href="add_semester.php"><button class="btn btn-success">Add Semester <i class="icon-plus icon-white"></i></button></a>
                 </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -74,7 +74,7 @@ include('../includes/sidebar.php');
                 <thead>
                   <tr>
                     <th> SEMESTER </th>
-                    <th> NO. OF STUDENTS</th>
+                    <th> TOTAL NUMBER OF STUDENTS</th>
                     <th> OPTIONS</th>
                     
                   </tr>
