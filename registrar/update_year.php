@@ -21,7 +21,7 @@
     
           $update_year = $con->prepare($update_year_sql);
           $update_year->execute([
-                ':total_number_students'    => $description, 
+                ':total_students_number'    => $total_students_number, 
                 ':year_level'               => $year_level
           ]);
         
