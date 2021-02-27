@@ -13,20 +13,23 @@
     // echo "</pre>";
 
     $day = $_POST['day'];
-    $time = $_POST['time'];
+    $start_time = $_POST['start_time'];
+    $end_time = $_POST['end_time'];
   
   
       //insert user to database
       $register_user_sql = "INSERT INTO tbl_schedules SET 
         day             = :day,
-        time  = :time";
+        start_time      = :start_time,
+        end_time        = :end_time";
     
   
 
       $register_data = $con->prepare($register_user_sql);
       $register_data->execute([
-        ':day'        => $day,
-        ':time'      => $time
+        ':day'             => $day,
+        ':start_time'      => $start_time,
+        ':end_time'        => $end_time
       ]);
 
       $alert_msg .= ' 
