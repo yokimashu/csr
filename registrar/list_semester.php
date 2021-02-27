@@ -7,20 +7,20 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$semester_id = $number_of_students = '';
+$code = $semester = '';
 
-$semester_id = $_SESSION['id'];
+$code = $_SESSION['id'];
 
 //querry to select current user's information
-$get_semester_sql = "SELECT * FROM tbl_semester WHERE semester_id = :id";
+$get_semester_sql = "SELECT * FROM tbl_semester WHERE code = :id";
 $get_semester_data = $con->prepare($get_semester_sql);
 $get_semester_data->execute([':id' => $semester_id]);
 while ($result = $get_semester_data->fetch(PDO::FETCH_ASSOC)) {
-  $semester_id   = $result['semester_id'];
-  $number_of_students  = $result['number_of_students'];
+  $scode   = $result['code'];
+  $semster  = $result['semester'];
 }
 
-$get_all_semester_sql = "SELECT * FROM tbl_semester ORDER BY semester_id Asc ";
+$get_all_semester_sql = "SELECT * FROM tbl_semester ORDER BY code Asc ";
 $get_all_semester_data = $con->prepare($get_all_semester_sql);
 $get_all_semester_data->execute();
 
@@ -73,8 +73,8 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> SEMESTER </th>
-                    <th> TOTAL NUMBER OF STUDENTS</th>
+                    <th> CODE </th>
+                    <th> SEMESTER</th>
                     <th> OPTIONS</th>
                     
                   </tr>
@@ -82,11 +82,11 @@ include('../includes/sidebar.php');
                 <tbody>
                   <?php while ($semester_data = $get_all_semester_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $semester_data['semester_id']; ?> </td>
-                      <td><?php echo $semester_data['number_of_students']; ?> </td>
+                      <td><?php echo $semester_data['code']; ?> </td>
+                      <td><?php echo $semester_data['semester']; ?> </td>
                      <td>
-                      <a class="btn btn-primary" href="edit_semester.php?semester_id=<?php echo
-    $semester_data['semester_id']; ?>"><i class="icon-edit"></i>
+                      <a class="btn btn-primary" href="edit_semester.php?code=<?php echo
+    $semester_data['code']; ?>"><i class="icon-edit"></i>
                           </a>
                         <!-- &nbsp; -->
 </td>
