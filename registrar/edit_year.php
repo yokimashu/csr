@@ -3,7 +3,7 @@
 
 session_start();
 
-$year_level = $total_students_number =  $alert_msg = '';
+$code = $year_level=  $alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -33,14 +33,14 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 
 
 //get year data
-if (isset($_GET['year_level'])) {
-  $year_level = $_GET['year_level'];
+if (isset($_GET['code'])) {
+  $code = $_GET['code'];
 
-  $get_year_sql = "SELECT * FROM tbl_year WHERE year_level = :year_level";
+  $get_year_sql = "SELECT * FROM tbl_year WHERE code = :code";
   $get_year_data = $con->prepare($get_year_sql);
-  $get_year_data->execute([':year_level' => $year_level]);
+  $get_year_data->execute([':code' => $code]);
   while ($result = $get_year_data->fetch(PDO::FETCH_ASSOC)) {
-      $total_students_number = $result['total_students_number'];
+      $year_level = $result['year_level'];
   }
 
 }
@@ -84,16 +84,16 @@ include('../includes/sidebar.php');
                     <?php echo $alert_msg; ?>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Year Level</label>
+                      <label class="control-label" for="focusedInput">Code</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="year_level" value="<?php echo $year_level; ?>" required>
+                        <input type="text" class="form-control" name="code" value="<?php echo $code; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Total Number of Students</label>
+                      <label class="control-label" for="focusedInput">Year Level</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="total_students_number"  value="<?php echo $total_students_number; ?>" required>
+                        <input type="text" class="form-control" name="year_level"  value="<?php echo $year_level; ?>" required>
                       </div>
                     </div>
 

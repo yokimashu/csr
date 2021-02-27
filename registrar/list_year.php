@@ -7,20 +7,20 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$year_level = $total_students_number = '';
+$code= $year_level = '';
 
-$year_level = $_SESSION['id'];
+$code = $_SESSION['id'];
 
 //querry to select current user's information
-$get_year_sql = "SELECT * FROM tbl_year WHERE year_level = :id";
+$get_year_sql = "SELECT * FROM tbl_year WHERE code = :id";
 $get_year_data = $con->prepare($get_year_sql);
-$get_year_data->execute([':id' => $year_level]);
+$get_year_data->execute([':id' => $code]);
 while ($result = $get_year_data->fetch(PDO::FETCH_ASSOC)) {
-  $year_level                  = $result['year_level'];
-  $total_students_number       = $result['total_students_number'];
+  $code                 = $result['code'];
+  $year_level           = $result['year_level'];
 }
 
-$get_all_year_sql = "SELECT * FROM tbl_year ORDER BY year_level Asc ";
+$get_all_year_sql = "SELECT * FROM tbl_year ORDER BY code Asc ";
 $get_all_year_data = $con->prepare($get_all_year_sql);
 $get_all_year_data->execute();
 
@@ -74,19 +74,19 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="example2">
                 <thead>
                   <tr>
+                    <th> CODE</th>
                     <th> YEAR LEVEL</th>
-                    <th> TOTAL NUMBER OF STUDENTS</th>
                     <th> OPTIONS </th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php while ($year_data = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                   <tr style="font-size: 1rem">
+                    <td><?php echo $year_data['code']; ?> </td>
                     <td><?php echo $year_data['year_level']; ?> </td>
-                    <td><?php echo $year_data['total_students_number']; ?> </td>
                     <td>
-                    <a class="btn btn-primary" href="edit_year.php?year_level=<?php echo
-    $year_data['year_level']; ?>"><i class="icon-edit"></i>
+                    <a class="btn btn-primary" href="edit_year.php?code=<?php echo
+    $year_data['code']; ?>"><i class="icon-edit"></i>
                           </a>
                       <!-- &nbsp; -->
 

@@ -3,7 +3,7 @@
 
 session_start();
 
-$semester_id = $number_of_students =  $alert_msg = '';
+$code = $semester =  $alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -33,14 +33,14 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 
 
 //get semester data
-if (isset($_GET['semester_id'])) {
-  $semester_id = $_GET['semester_id'];
+if (isset($_GET['code'])) {
+  $code = $_GET['code'];
 
-  $get_semester_sql = "SELECT * FROM tbl_semester WHERE semester_id = :semester_id";
+  $get_semester_sql = "SELECT * FROM tbl_semester WHERE code = :code";
   $get_semester_data = $con->prepare($get_semester_sql);
-  $get_semester_data->execute([':semester_id' => $semester_id]);
+  $get_semester_data->execute([':code' => $code]);
   while ($result = $get_semester_data->fetch(PDO::FETCH_ASSOC)) {
-      $number_of_students = $result['number_of_students'];
+      $semester = $result['semester'];
   }
 
 }
@@ -84,16 +84,16 @@ include('../includes/sidebar.php');
                     <?php echo $alert_msg; ?>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Semester</label>
+                      <label class="control-label" for="focusedInput">Code</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="semester_id" value="<?php echo $semester_id; ?>" required>
+                        <input type="text" class="form-control" name="code" value="<?php echo $code; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Total Number of Students</label>
+                      <label class="control-label" for="focusedInput">Semester</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="number_of_students"  value="<?php echo $number_of_students; ?>" required>
+                        <input type="text" class="form-control" name="semester"  value="<?php echo $semester; ?>" required>
                       </div>
                     </div>
 

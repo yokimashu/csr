@@ -11,18 +11,18 @@
 
          //to check if data are passed
        
+    $code = $_POST['code'];
     $year_level = $_POST['year_level'];
-    $total_students_number = $_POST['total_students_number'];
   
 
             $update_year_sql = "UPDATE tbl_year SET 
-                total_students_number    = :total_students_number
-                WHERE year_level         = :year_level";
+                year_level   = :year_level
+                WHERE code   = :code";
     
           $update_year = $con->prepare($update_year_sql);
           $update_year->execute([
-                ':total_students_number'    => $total_students_number, 
-                ':year_level'               => $year_level
+                ':year_level'    => $year_level, 
+                ':code'          => $code
           ]);
         
       // echo "Data Updated";

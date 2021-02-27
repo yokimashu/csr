@@ -3,7 +3,7 @@
 
 session_start();
 
-$semester_id = $number_of_students =  $alert_msg = '';
+$code = $semester =  $alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -70,16 +70,16 @@ include('../includes/sidebar.php');
                     <?php echo $alert_msg; ?>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Semester</label>
+                      <label class="control-label" for="focusedInput">Code</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="semester_id" value="<?php echo $semester_id; ?>" required>
+                        <input type="text" class="form-control" name="code" value="<?php echo $code; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Total Number of Students</label>
+                      <label class="control-label" for="focusedInput">Semester</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="number_of_students"  value="<?php echo $number_of_students; ?>" required>
+                        <input type="text" class="form-control" name="semester"  value="<?php echo $semester; ?>" required>
                       </div>
                     </div>
 
