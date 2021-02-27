@@ -11,18 +11,18 @@
 
          //to check if data are passed
        
-    $semester_id        = $_POST['semester_id'];
-    $number_of_students = $_POST['number_of_students'];
+    $code        = $_POST['code'];
+    $semester = $_POST['semester'];
   
 
             $update_semester_sql = "UPDATE tbl_semester SET 
-                number_of_students    = :number_of_students
-                WHERE semester_id       = :semester_id";
+                semester    = :semester
+                WHERE code      = :code";
     
           $update_semester = $con->prepare($update_semester_sql);
           $update_semester->execute([
-                ':number_of_students'           => $number_of_students, 
-                ':semester_id'                  => $semester_id
+                ':semester'           => $semester, 
+                ':code'                  => $code
           ]);
         
       // echo "Data Updated";
