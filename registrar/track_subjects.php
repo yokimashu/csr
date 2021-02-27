@@ -54,14 +54,14 @@ $columns = array(
 
 
 // getting total number records without any search
-$sql = "SELECT * FROM tbl_subjects";
+$sql = "SELECT subjects_id FROM tbl_subjects";
 // $sql.=" " ;
-$query=mysqli_query($conn, $sql) or die("track_subjects.php");
+$query=mysqli_query($conn, $sql) or die("tbl_subjects.php");
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
 
 
-$sql = "SELECT * FROM tbl_subjects ";
+$sql2 = "SELECT * FROM tbl_subjects ";
 // $sql.=" ";
 // if( !empty($requestData['search']['value']) ) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
 // 	$sql.=" WHERE (subjects_id LIKE '%".$requestData['search']['value']."%' ";    
@@ -79,10 +79,10 @@ $sql = "SELECT * FROM tbl_subjects ";
 
 // $sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
 /* $requestData['order'][0]['column'] contains colmun index, $requestData['order'][0]['dir'] contains order such as asc/desc  */	
-$query=mysqli_query($conn, $sql) or die("track_subjects.php");
+$query2=mysqli_query($conn, $sql2) or die("tbl_subjects.php");
 
 $data = array();
-while( $row=mysqli_fetch_array($query) ) {  // preparing an array
+while( $row=mysqli_fetch_array($query2) ) {  // preparing an array
 	$nestedData=array(); 
 
 	$nestedData[] = $row["subjects_id"];
