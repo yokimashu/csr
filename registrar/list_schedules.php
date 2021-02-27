@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$day = $time =  '';
+$day = $star_time = $end_time = '';
 
 $day = $_SESSION['id'];
 
@@ -17,7 +17,8 @@ $get_schedules_data = $con->prepare($get_schedules_sql);
 $get_schedules_data->execute([':id' => $day]);
 while ($result = $get_schedules_data->fetch(PDO::FETCH_ASSOC)) {
   $schedules_day   = $result['day'];
-  $schedules_time  = $result['time'];
+  $schedules_start_time  = $result['start_time'];
+  $schedules_end_time = $result['end_time'];
  
 }
 
@@ -75,7 +76,8 @@ include('../includes/sidebar.php');
                 <thead>
                   <tr>
                     <th> DAY</th>
-                    <th> TIME </th>
+                    <th> START TIME </th>
+                    <th> END TIME </th>
                     <th> OPTIONS</th>
                     
                     
@@ -86,7 +88,8 @@ include('../includes/sidebar.php');
                   <?php while ($schedules_data = $get_all_schedules_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
                       <td><?php echo $schedules_data['day']; ?> </td>
-                      <td><?php echo $schedules_data['time']; ?> </td>
+                      <td><?php echo $schedules_data['start_time']; ?> </td>
+                      <td><?php echo $schedules_data['end_time']; ?> </td>
                       
                       <td>
                       <a class="btn btn-primary" href="edit_schedules.php?day=<?php echo
