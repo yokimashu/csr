@@ -29,7 +29,7 @@ include('../config/db_config.php');
         echo "<td>";
         echo $units;
         echo "</td>";
-        echo "</tr";
+        echo "</tr>";
 
         
     }
