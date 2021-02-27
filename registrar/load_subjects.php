@@ -21,7 +21,7 @@ include('../config/db_config.php');
 
         echo "<tr>";
         echo "<td>";
-        echo $description;
+        echo $subject_course;
         echo "</td>";
         echo "<td>";
         echo $description;
