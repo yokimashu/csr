@@ -62,10 +62,10 @@ include('../includes/sidebar.php');
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
-                <!-- <div class="btn-group" style="margin-bottom:20px;">
-                  <a href="add_subject.php"><button class="btn btn-success">Add New Year Level<i
+                <div class="btn-group" style="margin-bottom:20px;">
+                  <a href="add_grades.php"><button class="btn btn-success">Add New Year Level<i
                         class="icon-plus icon-white"></i></button></a>
-                </div> -->
+                </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
                   <ul class="dropdown-menu">
@@ -99,7 +99,7 @@ include('../includes/sidebar.php');
                     <td><?php echo $grades_data['finals'] ?></td>
                     <td><?php echo $grades_data['remarks'] ?></td>
                     <td>
-                    <a class="btn btn-primary" href="edit_grades.php?objig=<?php echo
+                    <a class="btn btn-primary" href="edit_grades.php?objid=<?php echo
     $grades_data['objid']; ?>"><i class="icon-edit"></i>
                           </a>
                       <!-- &nbsp; -->
