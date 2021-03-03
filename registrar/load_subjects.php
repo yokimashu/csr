@@ -6,8 +6,12 @@ include('../config/db_config.php');
  $semester = $_POST['semester'];
 
  if(isset($_POST['semester'])){
-    $sql = "SELECT * FROM tbl_subjects where course_code = :code AND
-    year_level= :year_level AND semester = :semester";
+    $sql = "SELECT s.`subjects_id`, s.`subjects_description`, s.`units`, c.`days`, 
+    CONCAT(c.`start_time`,'-', c.`end_time`) AS time, r.`room_description` FROM tbl_subjects s 
+    INNER JOIN tbl_schedules c ON c.`subject_code` =s.`subjects_id` 
+    INNER JOIN tbl_rooms r ON r.`room_no` = c.`room_code`
+    INNER JOIN tbl_faculty f ON f.`teachers_id` = c.`teacher_code`
+    WHERE s.course_code = :code AND s.year_level= :year_level AND s.semester = :semester"; 
 
     $prep_sql = $con->prepare($sql);
     $prep_sql->execute([':code'=> $course,
@@ -18,6 +22,9 @@ include('../config/db_config.php');
         $subject_course = $result['subjects_id'];
         $description = $result['subjects_description'];
         $units = $result['units'];
+        $days = $result['days'];
+        $time = $result['time'];
+        $room = $result['room_description'];
 
         echo "<tr>";
         echo "<td>";
@@ -29,6 +36,18 @@ include('../config/db_config.php');
         echo "<td>";
         echo $units;
         echo "</td>";
+        echo "<td>";
+        echo $days;
+        echo "</td>";
+        echo "<td>";
+        echo $time;
+        echo "</td>";
+        echo "<td>";
+        echo $room;
+        echo "</td>";
+
+
+
         echo "</tr>";
 
         

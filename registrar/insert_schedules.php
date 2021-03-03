@@ -12,24 +12,33 @@
     //     print_r($_POST);
     // echo "</pre>";
 
-    $day = $_POST['day'];
+    $subject = $_POST['subject'];
+    $schedule = $_POST['schedule'];
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
+    $room = $_POST['room'];
+    $teacher = $_POST['teacher'];
   
   
       //insert user to database
-      $register_user_sql = "INSERT INTO tbl_schedules SET 
-        day             = :day,
-        start_time      = :start_time,
-        end_time        = :end_time";
+      $register_schedule_sql = "INSERT INTO tbl_schedules SET 
+        subject_code         = :subjects,
+        days                  = :days,
+        start_time            = :start_time,
+        end_time              = :end_time,
+        room_code             = :room,
+        teacher_code          = :teacher";
     
   
 
-      $register_data = $con->prepare($register_user_sql);
+      $register_data = $con->prepare($register_schedule_sql);
       $register_data->execute([
-        ':day'             => $day,
-        ':start_time'      => $start_time,
-        ':end_time'        => $end_time
+        ':subjects'         => $subject,
+        ':days'             => implode(" , ", $schedule),
+        ':start_time'       => $start_time,
+        ':end_time'         => $end_time,
+        ':room'             => $room,
+        ':teacher'          => $teacher
       ]);
 
       $alert_msg .= ' 

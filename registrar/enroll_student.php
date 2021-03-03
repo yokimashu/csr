@@ -133,8 +133,10 @@ include('../includes/sidebar.php');
                                   <th>Subject Code</th>
                                   <th>Descriptive Title</th>
                                   <th>No. of Units</th>
-                                 
-                                  <th>Schedule</th>
+                                  <th>Days</th>
+                                  <th>Time</th>
+                                  <th>Room</th>
+                                  <th>Options</th>
                                 </tr>
                               </thead>
                               <tbody id="list_subjects">

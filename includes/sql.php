@@ -41,6 +41,18 @@ $get_all_semesters_data = $con->prepare($get_all_semesters_sql);
 $get_all_semesters_data->execute();
 
 
+//select all rooms
+$get_all_rooms_sql = "SELECT * FROM tbl_rooms ORDER BY room_no ASC ";
+$get_all_rooms_data = $con->prepare($get_all_rooms_sql);
+$get_all_rooms_data->execute();
+
+//select all instructors
+$get_all_teachers_sql = "SELECT * FROM tbl_faculty ORDER BY teachers_id ASC ";
+$get_all_teachers_data = $con->prepare($get_all_teachers_sql);
+$get_all_teachers_data->execute();
+
+
+
 
 
 ?>
