@@ -35,6 +35,13 @@
 
                   header('location: registrar'); //location is folder
                 }
+
+                else if ($result['account_type'] == 2) {
+                  
+
+
+                  header('location: billing'); //location is folder
+                }
                 else {
                   header('location: user');
                 }

@@ -11,18 +11,18 @@ $day = $star_time = $end_time = '';
 
 $day = $_SESSION['id'];
 
-//querry to select current user's information
-$get_schedules_sql = "SELECT * FROM tbl_schedules WHERE day = :id";
-$get_schedules_data = $con->prepare($get_schedules_sql);
-$get_schedules_data->execute([':id' => $day]);
-while ($result = $get_schedules_data->fetch(PDO::FETCH_ASSOC)) {
-  $schedules_day   = $result['day'];
-  $schedules_start_time  = $result['start_time'];
-  $schedules_end_time = $result['end_time'];
+// //querry to select current user's information
+// $get_schedules_sql = "SELECT * FROM tbl_schedules WHERE days = :id";
+// $get_schedules_data = $con->prepare($get_schedules_sql);
+// $get_schedules_data->execute([':id' => $day]);
+// while ($result = $get_schedules_data->fetch(PDO::FETCH_ASSOC)) {
+//   $schedules_day   = $result['days'];
+//   $schedules_start_time  = $result['start_time'];
+//   $schedules_end_time = $result['end_time'];
  
-}
+// }
 
-$get_all_schedules_sql = "SELECT * FROM tbl_schedules ORDER BY day ASC ";
+$get_all_schedules_sql = "SELECT * FROM tbl_schedules ORDER BY objid ASC ";
 $get_all_schedules_data = $con->prepare($get_all_schedules_sql);
 $get_all_schedules_data->execute();
 
