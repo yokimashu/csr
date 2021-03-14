@@ -219,37 +219,7 @@ include('../includes/sidebar.php');
     //   }],
     // });
 
-    // $('#users tbody').on('click', 'button.receive', function() {
-    //     // alert ('hello');
-    //     // var row = $(this).closest('tr');
-    //     var table = $('#users').DataTable();
-    //     var data = table.row($(this).parents('tr')).data();
-    //     //  alert (data[0]);
-    //     //  var data = $('#users').DataTable().row('.selected').data(); //table.row(row).data().docno;
-    //     var type = data[2];
-    //     var docno = data[0];
-
-    //     if (type == "DV" || type == "OBR" || type == "DWP" || type == "PYL" || type == "LR" || type == "RIS" || type == "PO") {
-    //         window.open("receive_incoming_dv.php?docno=" + docno, '_parent');
-    //     } else {
-
-    //         window.open("receive_incoming.php?docno=" + docno, '_parent');
-    //     }
-    //  var table = $('#users').DataTable();
-    //   if ($(this).hasClass('selected')){
-    //       $(this).removeClass('selected');
-
-    //   }else{
-    //     table.$('tr.selected').removeClass('selected');
-    //     $(this).addClass('selected');
-
-    //   var data = $('#users').DataTable().row('.selected').data(); //table.row(row).data().docno;
-    //   var docno = data[0];
-    //   window.open("receive_incoming.php?docno=" + docno,'_parent');
-    // alert(docno);
-    //    }
-    // });
-
+  
   });
 </script>
 </body>
