@@ -52,6 +52,10 @@ $get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
 $get_all_subjects_data = $con->prepare($get_all_subjects_sql);
 $get_all_subjects_data->execute();
 
+//select all courses
+$get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
+$get_all_courses_data = $con->prepare($get_all_course_sql);
+$get_all_courses_data->execute();
 ?>
 
 <!DOCTYPE html>
