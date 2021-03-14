@@ -3,7 +3,7 @@
 
 session_start();
 
-$teachers_id = $surname = $first_name = $middle_name = $work_status = $faculty_dept = $contact_number = $email_address = $alert_msg = '';
+$teachers_id = $surname = $first_name = $middle_name = $work_status = $courses = $courses_id = $contact_number = $email_address = $alert_msg = '';
 
 $btnNew = 'disabled';
 $btnStatus = 'enabled';
@@ -34,7 +34,6 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 $get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
 $get_all_courses_data = $con->prepare($get_all_courses_sql);
 $get_all_courses_data->execute();
-
 ?>
 
 <!DOCTYPE html>
@@ -111,23 +110,16 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                       <label class="control-label" for="multiSelect">Department/s:</label>
                       <div class="controls">
-                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="faculty_dept[]">
+                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="courses[]">
                           <option>
-                            <?php while ($get_subjects = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <?php while ($courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
                           <option value="<?php echo
-                                          $get_subjects['subjects_id']; ?>"><?php echo $get_subjects['subjects_description']; ?></option>
+                                          $get_courses['courses']; ?>"><?php echo $get_courses['courses']; ?></option>
                         <?php } ?>
                         </select>
                         <p class="help-block">Start typing to activate auto complete!</p>
                       </div>
 
-
-                      <!-- <div class="control-group">
-                        <label class="control-label" for="focusedInput">Department</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="faculty_dept"  value="<?php echo $faculty_dept; ?>" required>
-                        </div>
-                      </div> -->
 
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Contact Number</label>

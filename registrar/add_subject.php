@@ -52,6 +52,7 @@ $get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
 $get_all_subjects_data = $con->prepare($get_all_subjects_sql);
 $get_all_subjects_data->execute();
 
+
 ?>
 
 <!DOCTYPE html>
