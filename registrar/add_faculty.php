@@ -114,7 +114,7 @@ include('../includes/sidebar.php');
                           <option>
                             <?php while ($courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
                           <option value="<?php echo
-                                          $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
+                                          $get_courses['courses']; ?>"><?php echo $get_courses['courses']; ?></option>
                         <?php } ?>
                         </select>
                         <p class="help-block">Start typing to activate auto complete!</p>
