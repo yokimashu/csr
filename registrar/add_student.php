@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 $fname = $mname = $lname = $contact_number = $email = $uname = $upass = $btnStatus = $department = $alert_msg = '';
 $btnNew = 'disabled';
@@ -57,7 +58,7 @@ include('../includes/sidebar.php');
                           <li><a href="#tab1" data-toggle="tab">Step 1</a></li>
                           <li><a href="#tab2" data-toggle="tab">Step 2</a></li>
                           <li><a href="#tab3" data-toggle="tab">Step 3</a></li>
-                          <li><a href="#tab3" data-toggle="tab">Step 4</a></li>
+                          <li><a href="#tab4" data-toggle="tab">Step 4</a></li>
                         </ul>
                       </div>
                     </div>
@@ -242,16 +243,23 @@ include('../includes/sidebar.php');
                           </div>
 
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Contact Number: </label>
+                            <label class="control-label" for="focusedInput">Address: </label>
                             <div class="controls">
-                              <input class="input-xlarge focused" id="parentContactNumber type="text" value="">
+                              <input class="input-xlarge focused" id="parentAddress" type="text" value="">
                             </div>
                           </div>
 
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Address: </label>
+                            <label class="control-label" for="focusedInput">Contact Number: </label>
                             <div class="controls">
-                              <input class="input-xlarge focused" id="parentAddress type="text" value="">
+                              <input class="input-xlarge focused" id="parentContactNumber" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Occupation: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="parentOccupation" type="text" value="">
                             </div>
                           </div>
 
@@ -262,22 +270,14 @@ include('../includes/sidebar.php');
                     <div class="tab-pane" id="tab4">
                       <form class="form-horizontal">
                         <fieldset>
-                          <legend>Academic Background</legend>
-
+                          <legend>Last School Attended</legend>
                           <div class="control-group">
-                                          <label class="control-label" for="optionsCheckbox">Confirmed? :</label>
-                                          <div class="controls">
-                                            <label class="uniform">
-                                              <input class="uniform_on" type="checkbox" id="confirmedYes" value="Yes">
-                                              Yes
-                                            </label>
-                                            <label class="uniform">
-                                              <input class="uniform_on" type="checkbox" id="confirmedNo" value="No">
-                                              No
-                                            </label>
-                                          </div> 
-                                        </div>
-
+                            <label class="control-label" for="focusedInput">Elementary School: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="elemSchool" type="text" value="">
+                            </div>
+                          </div>
+                          
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">High School: </label>
                             <div class="controls">
@@ -286,13 +286,15 @@ include('../includes/sidebar.php');
                           </div>
 
                           <div class="control-group">
-                            <label class="control-label" for="focusedInput">Last Attended College/University: </label>
+                            <label class="control-label" for="focusedInput">Last College Attended: </label>
                             <div class="controls">
                               <input class="input-xlarge focused" id="college" type="text" value="">
                             </div>
                           </div>
 
                         </fieldset>
+                      </form>
+                    </div>
                       </form>
                     </div>
 
@@ -417,6 +419,7 @@ include('../includes/sidebar.php');
         var parent_name = document.getElementById("parentName").value;
         var parent_contact_number = document.getElementById("parentContactNumber").value;
         var parent_address = document.getElementById("parentAddress").value;
+        var parent_occupation = document.getElementById("parentOccupation").value;
         var elementary_school = document.getElementById("elemSchool").value;
         var high_school = document.getElementById("highSchool").value;
         var last_attended_college = document.getElementById("college").value;
@@ -424,7 +427,7 @@ include('../includes/sidebar.php');
         var docno = $(this).val();
             $.ajax({
               type:'POST',
-              data:{students_id:students_id,first_name:first_name,middle_name:middle_name,last_name:last_name,date_of_birth:date_of_birth,place_of_birth:place_of_birth,nationality:nationality,gender:gender,status:status,home_address:home_address,provincial_address:provincial_address,contact_number:contact_number,facebook_account:facebook_account,religion:religion,baptized:baptized,baptized:baptized,confirmed:confirmed,parent_name:parent_name,parent_contact_number:parent_contact_number,parent_address:parent_address,elementary_school:elementary_school,high_school:high_school,last_attended_college:last_attended_college},
+              data:{students_id:students_id,first_name:first_name,middle_name:middle_name,last_name:last_name,date_of_birth:date_of_birth,place_of_birth:place_of_birth,nationality:nationality,gender:gender,status:status,home_address:home_address,provincial_address:provincial_address,contact_number:contact_number,facebook_account:facebook_account,religion:religion,baptized:baptized,baptized:baptized,confirmed:confirmed,parent_name:parent_name,parent_contact_number:parent_contact_number,parent_address:parent_address,parent_occupation:parent_occupation,elementary_school:elementary_school,high_school:high_school,last_attended_college:last_attended_college},
               url:'insert_students.php',
                success:function(data){
               
