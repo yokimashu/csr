@@ -3,7 +3,7 @@
 
 session_start();
 
-$teachers_id = $surname = $first_name = $middle_name = $work_status = $courses = $courses_id = $contact_number = $email_address = $alert_msg = '';
+$teachers_id = $surname = $first_name = $middle_name = $work_status = $contact_number = $email_address = $alert_msg = '';
 
 $btnNew = 'disabled';
 $btnStatus = 'enabled';
