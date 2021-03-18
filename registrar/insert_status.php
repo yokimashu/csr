@@ -12,18 +12,21 @@
     //     print_r($_POST);
     // echo "</pre>";
 
-    $year_level = $_POST['year_level'];
-    $total_students_number = $_POST['total_students_number'];
+    $teacher_id = $_POST['teacher_id'];
+    $status = $_POST['status'];
+    $department = $_POST['department'];
   
       //insert user to database
-      $register_user_sql = "INSERT INTO tbl_year SET 
-        year_level                = :year_level,
-        total_students_number     = :total_students_number";
+      $register_user_sql = "INSERT INTO tbl_status SET 
+        teacher_id               = :teacher_id,
+        status                   = :status,
+        department               = :department";
 
       $register_data = $con->prepare($register_user_sql);
       $register_data->execute([
-        ':year_level'                         => $year_level,
-        ':total_students_number'              => $description
+        ':teacher_id'                         => $teacher_id,
+        ':status'                             => $status,
+        ':department'                         => $department
       ]);
 
       $alert_msg .= ' 
