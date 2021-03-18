@@ -59,6 +59,7 @@ include('../includes/sidebar.php');
                           <li><a href="#tab2" data-toggle="tab">Step 2</a></li>
                           <li><a href="#tab3" data-toggle="tab">Step 3</a></li>
                           <li><a href="#tab4" data-toggle="tab">Step 4</a></li>
+                          <li><a href="#tab5" data-toggle="tab">Step 5</a></li>
                         </ul>
                       </div>
                     </div>
@@ -233,6 +234,66 @@ include('../includes/sidebar.php');
                     <div class="tab-pane" id="tab3">
                       <form class="form-horizontal">
                         <fieldset>
+                          <legend>Address</legend>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Street: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="street" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Village/Subdivision: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="subd" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Barangay: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="brgy" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">City: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="city" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Province: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="province" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Region: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="region" type="text" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="focusedInput">Zip Code: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="zipCode" type="text" value="">
+                            </div>
+                          </div>
+
+                         
+
+                        </fieldset>
+                      </form>
+                    </div>
+
+                    <div class="tab-pane" id="tab4">
+                      <form class="form-horizontal">
+                        <fieldset>
                           <legend>Parent/Guardian Information</legend>
 
                           <div class="control-group">
@@ -267,7 +328,7 @@ include('../includes/sidebar.php');
                       </form>
                     </div>
 
-                    <div class="tab-pane" id="tab4">
+                    <div class="tab-pane" id="tab5">
                       <form class="form-horizontal">
                         <fieldset>
                           <legend>Last School Attended</legend>
@@ -416,6 +477,13 @@ include('../includes/sidebar.php');
         var baptized = document.getElementById("baptizedNo").value;
         var confirmed = document.getElementById("confirmedYes").value;
         var confirmed = document.getElementById("confirmedNo").value;
+        var street = document.getElementById("street").value;
+        var subd = document.getElementById("subd").value;
+        var brgy = document.getElementById("brgy").value;
+        var city = document.getElementById("city").value;
+        var province = document.getElementById("province").value;
+        var region = document.getElementById("region").value;
+        var zip_code = document.getElementById("zipCode").value;
         var parent_name = document.getElementById("parentName").value;
         var parent_contact_number = document.getElementById("parentContactNumber").value;
         var parent_address = document.getElementById("parentAddress").value;
@@ -427,7 +495,7 @@ include('../includes/sidebar.php');
         var docno = $(this).val();
             $.ajax({
               type:'POST',
-              data:{students_id:students_id,first_name:first_name,middle_name:middle_name,last_name:last_name,date_of_birth:date_of_birth,place_of_birth:place_of_birth,nationality:nationality,gender:gender,status:status,home_address:home_address,provincial_address:provincial_address,contact_number:contact_number,facebook_account:facebook_account,religion:religion,baptized:baptized,baptized:baptized,confirmed:confirmed,parent_name:parent_name,parent_contact_number:parent_contact_number,parent_address:parent_address,parent_occupation:parent_occupation,elementary_school:elementary_school,high_school:high_school,last_attended_college:last_attended_college},
+              data:{students_id:students_id,first_name:first_name,middle_name:middle_name,last_name:last_name,date_of_birth:date_of_birth,place_of_birth:place_of_birth,nationality:nationality,gender:gender,status:status,home_address:home_address,provincial_address:provincial_address,contact_number:contact_number,facebook_account:facebook_account,religion:religion,baptized:baptized,baptized:baptized,confirmed:confirmed,street:street,subd:subd,brgy:brgy,city:city,province:province,region:region,zip_code:zip_code,parent_name:parent_name,parent_contact_number:parent_contact_number,parent_address:parent_address,parent_occupation:parent_occupation,elementary_school:elementary_school,high_school:high_school,last_attended_college:last_attended_college},
               url:'insert_students.php',
                success:function(data){
               
