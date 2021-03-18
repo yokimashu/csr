@@ -3,7 +3,7 @@
 
 session_start();
 
-$teacher_id = $status = $department =  $alert_msg = '';
+$teacher_id = $status =$department =  $alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('update_status.php');
+include ('insert_status.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -29,21 +29,6 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_contact_number = $result['contact_no'];
   $db_user_name = $result['username'];
   $db_department = $result['department'];
-}
-
-
-//get year data
-if (isset($_GET['teacher_id'])) {
-  $teacher_id = $_GET['teacher_id'];
-
-  $get_status_sql = "SELECT * FROM tbl_status WHERE teacher_id = :teacher_id";
-  $get_status_data = $con->prepare($get_status_sql);
-  $get_status_data->execute([':teacher_id' => $teacher_id]);
-  while ($result = $get_status_data->fetch(PDO::FETCH_ASSOC)) {
-      $status = $result['status'];
-      $department = $result['department'];
-  }
-
 }
 ?>
 
@@ -70,13 +55,13 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Edit Teacher Status</div>
+            <div class="muted pull-left">Add New Status</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Status</legend>
+                  <legend>New Status</legend>
 
 
 
@@ -101,7 +86,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Department</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="department"  value="<?php echo $department; ?>" required>
+                        <input type="text" class="form-control" name="department"  value= "<?php echo $department; ?>" required>
                       </div>
                     </div>
 
@@ -112,7 +97,7 @@ include('../includes/sidebar.php');
                   <!-- /.box-body -->
                   <div class="box-footer">
                     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
+                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
                     <a href="list_status.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                     </a>

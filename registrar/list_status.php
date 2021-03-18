@@ -17,8 +17,8 @@ $get_status_data = $con->prepare($get_status_sql);
 $get_status_data->execute([':id' => $teacher_id]);
 while ($result = $get_status_data->fetch(PDO::FETCH_ASSOC)) {
   $teacher_id                = $result['teacher_id'];
-  $status      = $result['status'];
-  $department = $result['department'];
+  $status                    = $result['status'];
+  $department                = $result['department'];
 }
 
 $get_all_status_sql = "SELECT * FROM tbl_status ORDER BY teacher_id Asc ";
@@ -58,10 +58,9 @@ include('../includes/sidebar.php');
           <div class="block-content collapse in">
             <div class="span12">
               <div class="table-toolbar">
-                <!-- <div class="btn-group" style="margin-bottom:20px;">
-                  <a href="add_subject.php"><button class="btn btn-success">Add New Year Level<i
-                        class="icon-plus icon-white"></i></button></a>
-                </div> -->
+                <div class="btn-group" style="margin-bottom:20px;">
+                  <a href="add_status.php"><button class="btn btn-success">Add New Status<i class="icon-plus icon-white"></i></button></a>
+                </div>
                 <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
                   <ul class="dropdown-menu">
