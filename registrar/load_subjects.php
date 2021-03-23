@@ -45,9 +45,10 @@ include('../config/db_config.php');
         echo "<td>";
         echo $room;
         echo "</td>";
-
-
-
+        echo "</td>";
+        echo "<td>";
+        echo '<button class="btn btn-outline-success btn-sm " id = "remove" data-placement="top" title="Remove Subject"  onclick = "deleteRow(this)"> <i class="fa icon-remove"></i></button>';
+        echo "</td>";
         echo "</tr>";
 
         

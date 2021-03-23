@@ -87,7 +87,7 @@ include('../includes/sidebar.php');
                 <tbody>
                   <?php while ($schedules_data = $get_all_schedules_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
-                      <td><?php echo $schedules_data['day']; ?> </td>
+                      <td><?php echo $schedules_data['days']; ?> </td>
                       <td><?php echo $schedules_data['start_time']; ?> </td>
                       <td><?php echo $schedules_data['end_time']; ?> </td>
                       

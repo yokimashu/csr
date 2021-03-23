@@ -54,7 +54,7 @@ include('../includes/sidebar.php');
                   <div class="control-group">
                     <label class="control-label" for="select01">Search Student:</label>
                     <div class="controls">
-                      <select id="select01" name="student" class="chzn-select span5">
+                      <select id="search_student" name="student" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_student = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) { ?>
                         <option value="<?php echo
@@ -154,7 +154,7 @@ include('../includes/sidebar.php');
                   <!-- /.box-body -->
                   <div class="box-footer">
                     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <input type="submit" <?php echo $btnStatus; ?> name="save" id = "save" class="btn btn-primary" value="Save">
                     <a href="list_subjects.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                     </a>
@@ -175,7 +175,6 @@ include('../includes/sidebar.php');
 <script>
   $('#semester').on('change', function () {
 
-
     var course = $('#course').val();
     var level = $('#level').val();
     var semester = $('#semester').val();
@@ -192,35 +191,56 @@ include('../includes/sidebar.php');
 
     });
 
-    // var dataTable = $('#subjects').DataTable({
-    //   "processing": true,
-    //   "serverSide": true,
-    //   "ajax": {
-    //     url: "track_subjects.php", // json datasource
-    //     data: {
-    //       course: course,
-    //       level: level,
-    //       semester: semester
-    //     },
-    //     type: "post", // method  , by default get
-    //     error: function() { // error handling
-    //       $("#subjects-error").html("");
-    //       $("#subjects").append('<tbody class="subjects-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
-    //       $("#subjects_processing").css("display", "none");
-
-    //     }
-    //   },
-    //   "columnDefs": [{
-    //     "targets": -1,
-    //     "data": null,
-    //     "defaultContent": '<button class=\"receive btn btn-outline-success btn-xs \" ><i class="fa fa-download" aria-hidden= "true"></i></button>'
-
-
-    //   }],
-    // });
-
   
   });
+  $('#save').click(function(){
+    event.preventDefault();
+    console.log("hello");
+    var course = $('#course').val();
+    var course = $('#idno').val();
+    var course = $('#search_student').val();
+    var course = $('#level').val();
+    var course = $('#semester').val();
+  $('#subjects tr').each(function(row, tr){
+
+    
+    var col1 = $(tr).find('td:eq(0)').text();
+    var col2 = $(tr).find('td:eq(1)').text();
+    var col3 = $(tr).find('td:eq(2)').text();
+    var col4 = $(tr).find('td:eq(3)').text();
+    var col5 = $(tr).find('td:eq(4)').text();
+    var col6 = $(tr).find('td:eq(5)').text();
+
+    $.ajax({
+
+url : 'insert_workscheduledetail.php',
+method: 'POST',
+data: {workId:workId,
+  Day:col1,
+  CheckIn:col2,
+  BreakOut:col3,
+  BreakIn:col4,
+  CheckOut:col5
+},
+dataType: 'json',
+success:function(){
+ 
+},
+error: function (xhr, b, c) {
+console.log("xhr=" + xhr.responseText + " b=" + b.responseText + " c=" + c.responseText);
+}
+})
+
+
+    });
+    window.location.reload();
+
+  });
+  function deleteRow(r) {
+  // DELETE SELECTED ROW
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("subjects").deleteRow(i);
+}
 </script>
 </body>
 
