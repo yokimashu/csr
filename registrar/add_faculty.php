@@ -3,7 +3,7 @@
 
 session_start();
 
-$teachers_id = $surname = $first_name = $middle_name = $work_status = $contact_number = $email_address = $alert_msg = '';
+$teachers_id = $surname = $first_name = $middle_name = $work_status = $couses_id = $courses = $contact_number = $email_address = $alert_msg = '';
 
 $btnNew = 'disabled';
 $btnStatus = 'enabled';
@@ -108,7 +108,7 @@ include('../includes/sidebar.php');
                       </div>
 
 
-                      <div class="control-group">
+                      <!-- <div class="control-group">
   								<label class="control-label">Department: <span class="required">*</span></label>
   								<div class="controls">
   									<select class="span6 m-wrap" id ="gender" name="category">
@@ -120,7 +120,20 @@ include('../includes/sidebar.php');
                       <option value="Tourism Department">Tourism Department</option>
   									</select>
   								</div>
-                </div>
+                </div> -->
+
+                <div class="control-group">
+                      <label class="control-label" for="multiSelect">Department:</label>
+                      <div class="controls">
+                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="departments[]">
+                          <option>
+                            <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <option value="<?php echo
+                                          $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
+                        <?php } ?>
+                        </select>
+                        <p class="help-block">Start typing to activate auto complete!</p>
+                      </div>
 
 
                       <div class="control-group">
