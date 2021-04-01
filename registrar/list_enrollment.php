@@ -95,8 +95,6 @@ include('../includes/sidebar.php');
                     <th> LAST NAME </th>
                     <th> FIRST NAME </th>
                     <th> MIDDLE NAME</th>
-                    <th> COURSE </th>
-                    <th> YEAR</th>
                     <th> OPTIONS</th>
                   </tr>
                 </thead>
@@ -107,8 +105,6 @@ include('../includes/sidebar.php');
                       <td><?php echo $students_data['surname']; ?> </td>
                       <td><?php echo $students_data['first_name']; ?> </td>
                       <td><?php echo $students_data['middle_name']; ?> </td>
-                      <td><?php echo $students_data['course']; ?> </td>
-                      <td><?php echo $students_data['student_year_level']; ?> </td>
                       <td>
                       <a class="btn btn-primary" href="edit_students.php?students_id=<?php echo
     $students_data['students_id']; ?>"><i class="icon-edit"></i>

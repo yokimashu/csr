@@ -123,6 +123,8 @@ include('../includes/sidebar.php');
                         <div class="navbar navbar-inner block-header">
                           <div class="muted pull-left">SUBJECTS</div>
                         </div>
+
+                    
                         <div class="block-content collapse in">
                           <div class="span12">
 
@@ -142,6 +144,9 @@ include('../includes/sidebar.php');
                               <tbody id="list_subjects">
 
                               </tbody>
+                              
+                          
+      
                             </table>
                           </div>
                         </div>
@@ -178,6 +183,9 @@ include('../includes/sidebar.php');
     var course = $('#course').val();
     var level = $('#level').val();
     var semester = $('#semester').val();
+    console.log(course);
+    console.log(level);
+    console.log(semester);
     $('#list_subjects').load("load_subjects.php",{ course: course, 
     level: level, 
     semester: semester},
@@ -193,41 +201,64 @@ include('../includes/sidebar.php');
 
   
   });
+
+
   $('#save').click(function(){
     event.preventDefault();
     console.log("hello");
+
+    var idno = $('#search_student').val();
     var course = $('#course').val();
-    var course = $('#idno').val();
-    var course = $('#search_student').val();
-    var course = $('#level').val();
-    var course = $('#semester').val();
+    var yearlevel = $('#level').val();
+    var semester = $('#semester').val();
+
+
+    $.ajax({
+      url:"insert_enrolle.php",
+      method:'POST',
+      dataType: 'json',
+             data:{idno:idno,
+             course:course,
+              yearlevel:yearlevel,
+                semester:semester},
+                error: function (xhr, b, c) {
+console.log("xhr=" + xhr.responseText + " b=" + b.responseText + " c=" + c.responseText);
+}
+
+
+
+
+
+    });
   $('#subjects tr').each(function(row, tr){
 
-    
+   
     var col1 = $(tr).find('td:eq(0)').text();
     var col2 = $(tr).find('td:eq(1)').text();
     var col3 = $(tr).find('td:eq(2)').text();
     var col4 = $(tr).find('td:eq(3)').text();
     var col5 = $(tr).find('td:eq(4)').text();
     var col6 = $(tr).find('td:eq(5)').text();
-
+    console.log(col1);
+    console.log(col6);
     $.ajax({
 
-url : 'insert_workscheduledetail.php',
+url : 'insert_enrolle_item.php',
 method: 'POST',
-data: {workId:workId,
-  Day:col1,
-  CheckIn:col2,
-  BreakOut:col3,
-  BreakIn:col4,
-  CheckOut:col5
+data: {idno:idno,
+  subcode:col1,
+  deptitle:col2,
+  units:col3,
+  days:col4,
+  time:col5,
+  sroom:col6,
 },
 dataType: 'json',
 success:function(){
  
 },
-error: function (xhr, b, c) {
-console.log("xhr=" + xhr.responseText + " b=" + b.responseText + " c=" + c.responseText);
+error: function (chr, d, e) {
+console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
 }
 })
 
