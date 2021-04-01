@@ -14,10 +14,10 @@ $code = $_SESSION['id'];
 //querry to select current user's information
 $get_semester_sql = "SELECT * FROM tbl_semester WHERE code = :id";
 $get_semester_data = $con->prepare($get_semester_sql);
-$get_semester_data->execute([':id' => $semester_id]);
+$get_semester_data->execute([':id' => $code]);
 while ($result = $get_semester_data->fetch(PDO::FETCH_ASSOC)) {
-  $scode   = $result['code'];
-  $semster  = $result['semester'];
+  $code   = $result['code'];
+  $semester  = $result['semester'];
 }
 
 $get_all_semester_sql = "SELECT * FROM tbl_semester ORDER BY code Asc ";

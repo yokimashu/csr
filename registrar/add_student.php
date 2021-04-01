@@ -74,6 +74,16 @@ include('../includes/sidebar.php');
                         <fieldset>
                         <legend>Student's Information</legend>
 
+                        
+
+                        <div class = "register-box-body" style = "width:300px;margin:auto;" >
+                 <img src="../dist/img/no-photo-icon.png" align="right" class="elevation-2" style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px";  id="image" >
+               </div>      
+               <div class="col-md-2" style = "width:300px;margin:auto;">
+                 <input type ="file" name="myFiles" id="fileToUpload" onchange = "loadImage()" value="<?php echo $pictures;?>">
+               </div><br>
+               
+
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">ID Number: </label>
                             <div class="controls">
