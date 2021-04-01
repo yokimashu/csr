@@ -70,16 +70,16 @@ include('../includes/sidebar.php');
                     <?php echo $alert_msg; ?>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Year Level</label>
+                      <label class="control-label" for="focusedInput">Code</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="year_level" value="<?php echo $year_level; ?>" required>
+                        <input type="text" class="form-control" name="code" value="<?php echo $code; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Total Number of Students</label>
+                      <label class="control-label" for="focusedInput">Year Level</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="total_students_number"  value="<?php echo $total_students_number; ?>" required>
+                        <input type="text" class="form-control" name="year_level"  value="<?php echo $year_level; ?>" required>
                       </div>
                     </div>
 
