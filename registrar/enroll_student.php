@@ -69,12 +69,12 @@ include('../includes/sidebar.php');
 
                   <div class="box-body">
                     <?php echo $alert_msg; ?>
-                    <div class="control-group">
+                    <!-- <div class="control-group" hidden>
                       <label class="control-label" for="focusedInput">ID No.</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="idno" value="<?php echo $idno; ?>" required>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="control-group">
                       <label class="control-label" for="select01">Course</label>
@@ -115,6 +115,21 @@ include('../includes/sidebar.php');
                           <?php } ?>
                         </select>
                       </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="select01">Add Custom Subject</label>
+                      <div class="controls">
+                        <select id="custom_subjects" name="custom_subjects" class="chzn-select span5">
+                          <option selected="selected">Please select...</option>
+                          <?php while ($get_subjects = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <option value="<?php echo
+                                            $get_subjects['subjects_id']; ?>"><?php echo $get_subjects['subjects_description']; ?>
+                          </option>
+                          <?php } ?>
+                        </select>
+                        <button class = "btn btn-primary" id = "add_subject" >Add</button>
+                      </div>
+                     
                     </div>
 
                     <div class="row-fluid">
@@ -272,6 +287,41 @@ console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.respo
   var i = r.parentNode.parentNode.rowIndex;
   document.getElementById("subjects").deleteRow(i);
 }
+
+$('#add_subject').click(function(){
+  event.preventDefault();
+var subject_id = $('#custom_subjects').val();
+console.log(subject_id);
+$.ajax({
+  url:'get_subject_details.php',
+  type:'POST',
+  data:{id:subject_id},
+  success:function(response){
+    var result = jQuery.parseJSON(response);
+    var table = document.getElementById("subjects");
+ var row = table.insertRow(1);
+ var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
+  console.log(result.subjects_id);
+  cell1.innerHTML = result.subjects_id;
+  cell2.innerHTML = result.subjects_description;
+  cell3.innerHTML = result.units;
+  cell4.innerHTML = result.days;
+  cell5.innerHTML = result.time;
+  cell6.innerHTML = result.room_description;
+  cell7.innerHTML = '<button class="btn btn-outline-success btn-sm " id = "remove" data-placement="top" title="Remove Subject"  onclick = "deleteRow(this)"> <i class="fa icon-remove"></i></button>';
+  },
+  error: function (chr, d, e) {
+console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+}
+})
+
+});
 </script>
 </body>
 
