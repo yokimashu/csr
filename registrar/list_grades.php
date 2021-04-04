@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$objid= $student_id = $subject_id = $prelim =$midterm =$finals = $remarks = '';
+$objid= $students_id = $subjects_id = $prelim =$midterm =$finals = $remarks = '';
 
 $objid = $_SESSION['id'];
 
@@ -17,8 +17,8 @@ $get_grades_data = $con->prepare($get_grades_sql);
 $get_grades_data->execute([':id' => $objid]);
 while ($result = $get_grades_data->fetch(PDO::FETCH_ASSOC)) {
   $objid               = $result['objid'];
-  $student_id      = $result['student_id'];
-  $subject_id     = $result['subject_id'];
+  $students_id      = $result['students_id'];
+  $subjects_id     = $result['subjects_id'];
   $prelim         = $result['prelim'];
   $midterm      = $result['midterm'];
   $finals       = $result['finals'];
@@ -92,8 +92,8 @@ include('../includes/sidebar.php');
                   <?php while ($grades_data = $get_all_grades_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                   <tr style="font-size: 1rem">
                     <td><?php echo $grades_data['objid']; ?> </td>
-                    <td><?php echo $grades_data['student_id']; ?> </td>
-                    <td><?php echo $grades_data['subject_id'] ?> </td>
+                    <td><?php echo $grades_data['students_id']; ?> </td>
+                    <td><?php echo $grades_data['subjects_id'] ?> </td>
                     <td><?php echo $grades_data['prelim'] ?> </td>
                     <td><?php echo $grades_data['midterm'] ?></td>
                     <td><?php echo $grades_data['finals'] ?></td>

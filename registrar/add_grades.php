@@ -3,7 +3,7 @@
 
 session_start();
 
-$objid = $student_id = $subject_id =$prelim =$midterm =$finals =$remarks =$alert_msg = '';
+$objid = $students_id = $subjects_id = $prelim = $midterm = $finals = $remarks = $alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -81,7 +81,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Student Id</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="student_id"  value="<?php echo $student_id; ?>" required>
+                        <input type="text" class="form-control" name="students_id"  value="<?php echo $students_id; ?>" required>
                       </div>
                     </div>
 
@@ -89,7 +89,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Subject Id</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="subject_id"  value="<?php echo $subject_id; ?>" required>
+                        <input type="text" class="form-control" name="subjects_id"  value="<?php echo $subjects_id; ?>" required>
                       </div>
                     </div>
 

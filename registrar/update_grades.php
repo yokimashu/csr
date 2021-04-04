@@ -12,8 +12,8 @@
          //to check if data are passed
        
     $objid = $_POST['objid'];
-    $student_id = $_POST['student_id'];
-    $subject_id = $_POST['subject_id'];
+    $students_id = $_POST['students_id'];
+    $subjects_id = $_POST['subjects_id'];
     $prelim = $_POST['prelim'];
     $midterm = $_POST['midterm'];
     $finals = $_POST['finals'];
@@ -25,8 +25,8 @@
                 finals = :finals,
                 midterm = :midterm,
                 prelim = :prelim,
-                subject_id = :subject_id,
-                student_id = :student_id
+                subjects_id = :subjects_id,
+                students_id = :students_id
                 WHERE objid    = :objid";
     
           $update_grades = $con->prepare($update_grades_sql);
@@ -35,8 +35,8 @@
                 ':finals'        => $finals, 
                 ':midterm'       => $midterm, 
                 ':prelim'        => $prelim, 
-                ':subject_id'    => $subject_id, 
-                ':student_id'    => $student_id, 
+                ':subjects_id'   => $subjects_id, 
+                ':students_id'   => $students_id, 
                 ':objid'         => $objid
                
           ]);

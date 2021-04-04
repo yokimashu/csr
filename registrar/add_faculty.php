@@ -125,7 +125,7 @@ include('../includes/sidebar.php');
                 <div class="control-group">
                       <label class="control-label" for="multiSelect">Department:</label>
                       <div class="controls">
-                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="departments[]">
+                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="faculty_dept[]">
                           <option>
                             <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
                           <option value="<?php echo
