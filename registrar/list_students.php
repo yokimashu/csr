@@ -17,7 +17,7 @@ $get_students_data = $con->prepare($get_students_sql);
 $get_students_data->execute([':id' => $students_id]);
 while ($result = $get_students_data->fetch(PDO::FETCH_ASSOC)) {
   $students_id   = $result['students_id'];
-  $students_surname  = $result['surname'];
+  $students_surname  = $result['last_name'];
   $students_first_name   = $result['first_name'];
   $students_middle_name   = $result['middle_name'];
   $students_course   = $result['course'];
@@ -90,7 +90,7 @@ include('../includes/sidebar.php');
                   <?php while ($students_data = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
                       <td><?php echo $students_data['students_id']; ?> </td>
-                      <td><?php echo $students_data['surname']; ?> </td>
+                      <td><?php echo $students_data['last_name']; ?> </td>
                       <td><?php echo $students_data['first_name']; ?> </td>
                       <td><?php echo $students_data['middle_name']; ?> </td>
                       <td><?php echo $students_data['course']; ?> </td>
