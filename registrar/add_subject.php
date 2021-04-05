@@ -113,9 +113,9 @@ include('../includes/sidebar.php');
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="select01">Course</label>
+                      <label class="control-label" for="select01">Course Code</label>
                       <div class="controls">
-                        <select id="select01" name="course_id" class="chzn-select span5">
+                        <select id="select01" name="course_code" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
                                                         <option value="<?php echo
@@ -128,7 +128,7 @@ include('../includes/sidebar.php');
                     <!-- <div class="control-group">
                       <label class="control-label" for="focusedInput">Course Code</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="course_code" value="<?php echo $course_id; ?>" required>
+                        <input type="text" class="form-control" name="course_code" value="<?php echo $course_code; ?>" required>
                       </div>
                     </div> -->
 
