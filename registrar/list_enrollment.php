@@ -102,7 +102,7 @@ include('../includes/sidebar.php');
                   <?php while ($students_data = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
                       <td><?php echo $students_data['students_id']; ?> </td>
-                      <td><?php echo $students_data['surname']; ?> </td>
+                      <td><?php echo $students_data['last_name']; ?> </td>
                       <td><?php echo $students_data['first_name']; ?> </td>
                       <td><?php echo $students_data['middle_name']; ?> </td>
                       <td>
