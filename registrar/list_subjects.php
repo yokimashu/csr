@@ -17,12 +17,12 @@ $get_subjects_data = $con->prepare($get_subjects_sql);
 $get_subjects_data->execute([':id' => $subjects_id]);
 while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
   $subjects_id                    = $result['subjects_id'];
-  $subjects_subjects_description  = $result['subjects_description'];
-  $subjects_units                 = $result['units'];
-  $subjects_course_code           = $result['course_code'];
-  $subjects_year_level            = $result['year_level'];
-  $subjects_semester              = $result['semester'];
-  $subjects_pre_requisites        = $result['pre_requisites'];
+  $subjects_description  = $result['subjects_description'];
+  $units                 = $result['units'];
+  $course_code           = $result['course_code'];
+  $year_level            = $result['year_level'];
+  $semester              = $result['semester'];
+  $pre_requisites        = $result['pre_requisites'];
 }
 
 $get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
