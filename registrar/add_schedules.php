@@ -135,7 +135,7 @@ include('../includes/sidebar.php');
                           <option>
                             <?php while ($get_teachers = $get_all_teachers_data->fetch(PDO::FETCH_ASSOC)) { ?>
                           <option value="<?php echo
-                                          $get_teachers['teachers_id']; ?>"><?php echo $get_teachers['first_name']. ' '. $get_teachers['middle_name'] . ' ' . $get_teachers['surname']; ?></option>
+                                          $get_teachers['teachers_id']; ?>"><?php echo $get_teachers['first_name'] . ' ' . $get_teachers['middle_name'] . ' ' . $get_teachers['surname']; ?></option>
                           </option>
                         <?php } ?>
                         </select>
@@ -159,7 +159,8 @@ include('../includes/sidebar.php');
           </div>
           <div class="col-md-1"></div>
         </div>
-
+      </div>
+    </div>
   </section>
   <!-- /.content -->
 </div>

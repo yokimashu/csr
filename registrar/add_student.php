@@ -30,7 +30,7 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 
 <!DOCTYPE html>
 <html>
-  
+
 <?php
 include('../includes/header.php');
 include('../includes/sidebar.php');
@@ -55,11 +55,11 @@ include('../includes/sidebar.php');
                     <div class="navbar-inner">
                       <div class="container">
                         <ul>
-                          <li><a href="#tab1" data-toggle="tab">Step 1</a></li>
-                          <li><a href="#tab2" data-toggle="tab">Step 2</a></li>
-                          <li><a href="#tab3" data-toggle="tab">Step 3</a></li>
-                          <li><a href="#tab4" data-toggle="tab">Step 4</a></li>
-                          <li><a href="#tab5" data-toggle="tab">Step 5</a></li>
+                          <li><a href="#tab1" data-toggle="tab">Basic Information</a></li>
+                          <li><a href="#tab3" data-toggle="tab">Address</a></li>
+                          <li><a href="#tab4" data-toggle="tab">Parent/Guardian</a></li>
+                          <li><a href="#tab5" data-toggle="tab">School Attended</a></li>
+                          <li><a href="#tab2" data-toggle="tab">Other Information</a></li>
                         </ul>
                       </div>
                     </div>
@@ -70,60 +70,56 @@ include('../includes/sidebar.php');
                   <div class="tab-content">
 
                     <div class="tab-pane" id="tab1">
-                      <form class="form-horizontal">
+                      <form>
                         <fieldset>
-                        <legend>Student's Information</legend>
+                          <legend>Student's Information</legend>
 
-                        
 
-                        <div class = "register-box-body" style = "width:300px;margin:auto;" >
-                 <img src="../dist/img/no-photo-icon.png" align="right" class="elevation-2" style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px";  id="image" >
-               </div>      
-               <div class="col-md-2" style = "width:300px;margin:auto;">
-                 <input type ="file" name="myFiles" id="fileToUpload" onchange = "loadImage()" value="<?php echo $pictures;?>">
-               </div><br>
-               
+                          <div align="center">
+                            <?php echo $alert_msg; ?>
+                          </div>
 
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">ID Number: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="idNumber" type="number" value="">
+                          <!-- <div class="register-box-body" style="width:300px;margin:auto;">
+                            <img src="../dist/img/no-photo.png" align="center" class="elevation-2" style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px" ; id="image">
+                          </div>
+                          <div class="col-md-2" style="width:300px;margin:auto;">
+                            <input type="file" name="myFiles" id="fileToUpload" onchange="loadImage()" value="<?php echo $pictures; ?>">
+                          </div><br> -->
+
+
+                          <div class="control-group span12">
+                            <label class="control-label" for="focusedInput" style="display: inline-block;">ID Number: </label>
+                            <div class="controls" style="display: inline-block;">
+                              <input class="input-xlarge focused span11" id="idNumber" type="number" value="">
                             </div>
                           </div>
 
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">First Name: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="fName" type="text" value="">
+
+                          <div class="control-group span12">
+                            <label class="control-label" for="focusedInput" style="display: inline-block;">First Name: </label>
+                            <div class="controls" style="display: inline-block;">
+                              <input class="input-xlarge focused span11" id="fName" type="text" value="">
+                            </div>
+                            <label class="control-label" for="focusedInput" style="display: inline-block;">Middle Name: </label>
+                            <div class="controls" style="display: inline-block;">
+                              <input class="input-xlarge focused span11" id="mName" type="text" value="">
+                            </div>
+                            <label class="control-label" for="focusedInput" style="display: inline-block;">Last Name: </label>
+                            <div class="controls" style="display: inline-block;">
+                              <input class="input-xlarge focused span11" id="lName" type="text" value="">
                             </div>
                           </div>
 
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">Middle Name: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="mName" type="text" value="">
-                            </div>
-                          </div>
 
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">Last Name: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="lName" type="text" value="">
-                            </div>
-                          </div>
-
-                          <div class="control-group">
-                                          <label class="control-label" for="date01">Date of Birth: </label>
-                                          <div class="controls">
-                                            <input type="date"  id="dateOfBirth" value="">
-                                          </div>
-                                        </div>
-                                        
-                          
-                            <div class="control-group">
-                            <label class="control-label" for="focusedInput">Place of Birth: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="placeOfBirth" type="text" value="">
+                          <div class="control-group span12">
+                            <label class="control-label" for="date01" style="display: inline-block;">Date of Birth: </label>
+                            <div class="controls " style="display: inline-block;">
+                              <input class="input-xlarge focused span11"  type="date" id="dateOfBirth" value="">
+                            </div>        
+                            
+                            <label class="control-label" for="focusedInput" style="display: inline-block;">Place of Birth:</label>
+                            <div class="controls" style="display: inline-block;">
+                              <input class="input-xlarge focused span11" id="placeOfBirth" type="text" value="">
                             </div>
                           </div>
 
@@ -136,30 +132,30 @@ include('../includes/sidebar.php');
 
 
                           <div class="control-group">
-  								<label class="control-label">Gender: <span class="required">*</span></label>
-  								<div class="controls">
-  									<select class="span6 m-wrap" id ="gender" name="category">
-  										<option value="">Select...</option>
-  										<option value="Male">Male</option>
-  										<option value="Female">Female</option>
-  									</select>
-  								</div>
-                </div>
-                        
+                            <label class="control-label">Gender: <span class="required">*</span></label>
+                            <div class="controls">
+                              <select class="span6 m-wrap" id="gender" name="category">
+                                <option value="">Select...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
+                            </div>
+                          </div>
+
 
                           <div class="control-group">
-  								<label class="control-label">Status: <span class="required">*</span></label>
-  								<div class="controls">
-  									<select class="span6 m-wrap" id ="status" name="category">
-  										<option value="">Select...</option>
-  										<option value="Single">Single</option>
-  										<option value="Married">Married</option>
-  										<option value="Widowed">Widowed</option>
-  									</select>
-  								</div>
-                </div>
+                            <label class="control-label">Status: <span class="required">*</span></label>
+                            <div class="controls">
+                              <select class="span6 m-wrap" id="status" name="category">
+                                <option value="">Select...</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Widowed">Widowed</option>
+                              </select>
+                            </div>
+                          </div>
 
-                          <div class="control-group">
+                          <!-- <div class="control-group">
                             <label class="control-label" for="focusedInput">Home Address: </label>
                             <div class="controls">
                               <input class="input-xlarge focused" id="homeAddress" type="text" value="">
@@ -171,7 +167,7 @@ include('../includes/sidebar.php');
                             <div class="controls">
                               <input class="input-xlarge focused" id="provincialAddress" type="text" value="">
                             </div>
-                          </div>
+                          </div> -->
 
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">Contact Number: </label>
@@ -210,33 +206,33 @@ include('../includes/sidebar.php');
                           </div>
 
                           <div class="control-group">
-                                          <label class="control-label" for="optionsCheckbox">Baptized? :</label>
-                                          <div class="controls">
-                                            <label class="uniform" >
-                                              <input class="uniform_on" type="checkbox" id="baptizedYes" value="Yes">
-                                              Yes
-                                            </label>
-                                            <label class="uniform">
-                                              <input class="uniform_on" type="checkbox" id="baptizedNo" value="No">
-                                              No
-                                            </label>
-                                          </div>
-                                          
-                                        </div>
+                            <label class="control-label" for="optionsCheckbox">Baptized? :</label>
+                            <div class="controls">
+                              <label class="uniform">
+                                <input class="uniform_on" type="checkbox" id="baptizedYes" value="Yes">
+                                Yes
+                              </label>
+                              <label class="uniform">
+                                <input class="uniform_on" type="checkbox" id="baptizedNo" value="No">
+                                No
+                              </label>
+                            </div>
 
-                                        <div class="control-group">
-                                          <label class="control-label" for="optionsCheckbox">Confirmed? :</label>
-                                          <div class="controls">
-                                            <label class="uniform">
-                                              <input class="uniform_on" type="checkbox" id="confirmedYes" value="Yes">
-                                              Yes
-                                            </label>
-                                            <label class="uniform">
-                                              <input class="uniform_on" type="checkbox" id="confirmedNo" value="No">
-                                              No
-                                            </label>
-                                          </div> 
-                                        </div>
+                          </div>
+
+                          <div class="control-group">
+                            <label class="control-label" for="optionsCheckbox">Confirmed? :</label>
+                            <div class="controls">
+                              <label class="uniform">
+                                <input class="uniform_on" type="checkbox" id="confirmedYes" value="Yes">
+                                Yes
+                              </label>
+                              <label class="uniform">
+                                <input class="uniform_on" type="checkbox" id="confirmedNo" value="No">
+                                No
+                              </label>
+                            </div>
+                          </div>
                         </fieldset>
                       </form>
                     </div>
@@ -295,7 +291,7 @@ include('../includes/sidebar.php');
                             </div>
                           </div>
 
-                         
+
 
                         </fieldset>
                       </form>
@@ -348,7 +344,7 @@ include('../includes/sidebar.php');
                               <input class="input-xlarge focused" id="elemSchool" type="text" value="">
                             </div>
                           </div>
-                          
+
                           <div class="control-group">
                             <label class="control-label" for="focusedInput">High School: </label>
                             <div class="controls">
@@ -366,28 +362,28 @@ include('../includes/sidebar.php');
                         </fieldset>
                       </form>
                     </div>
-                      </form>
-                    </div>
-
-                    <ul class="pager wizard">
-                      <li class="previous first" style="display:none;"><a href="javascript:void(0);">First</a></li>
-                      <li class="previous"><a href="javascript:void(0);">Previous</a></li>
-                      <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
-                      <li class="next"><a href="javascript:void(0);">Next</a></li>
-                      <li class="next finish" style="display:none;"><a href="javascript:;">Finish</a></li>
-                    </ul>
+                    </form>
                   </div>
+
+                  <ul class="pager wizard">
+                    <li class="previous first" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                    <li class="previous"><a href="javascript:void(0);">Previous</a></li>
+                    <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                    <li class="next"><a href="javascript:void(0);">Next</a></li>
+                    <li class="next finish" style="display:none;"><a href="javascript:;">Finish</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-          <!-- /block -->
         </div>
-        <!-- /wizard -->
-
+        <!-- /block -->
       </div>
+      <!-- /wizard -->
+
     </div>
   </div>
+
 
 
 
@@ -437,8 +433,8 @@ include('../includes/sidebar.php');
   <script src="../assets/scripts.js"></script>
 
   <script>
-    jQuery(document).ready(function() {   
-       FormValidation.init();
+    jQuery(document).ready(function() {
+      FormValidation.init();
     });
 
 
@@ -503,22 +499,54 @@ include('../includes/sidebar.php');
         var last_attended_college = document.getElementById("college").value;
 
         var docno = $(this).val();
-            $.ajax({
-              type:'POST',
-              data:{students_id:students_id,first_name:first_name,middle_name:middle_name,last_name:last_name,date_of_birth:date_of_birth,place_of_birth:place_of_birth,nationality:nationality,gender:gender,status:status,home_address:home_address,provincial_address:provincial_address,contact_number:contact_number,facebook_account:facebook_account,religion:religion,baptized:baptized,baptized:baptized,confirmed:confirmed,street:street,subd:subd,brgy:brgy,city:city,province:province,region:region,zip_code:zip_code,parent_name:parent_name,parent_contact_number:parent_contact_number,parent_address:parent_address,parent_occupation:parent_occupation,elementary_school:elementary_school,high_school:high_school,last_attended_college:last_attended_college},
-              url:'insert_students.php',
-               success:function(data){
-              
-                   alert (data);
-               }
-            
-                 
-                });           
-     
-                
-  
-             
-             
+        $.ajax({
+          type: 'POST',
+          data: {
+            students_id: students_id,
+            first_name: first_name,
+            middle_name: middle_name,
+            last_name: last_name,
+            date_of_birth: date_of_birth,
+            place_of_birth: place_of_birth,
+            nationality: nationality,
+            gender: gender,
+            status: status,
+            home_address: home_address,
+            provincial_address: provincial_address,
+            contact_number: contact_number,
+            facebook_account: facebook_account,
+            religion: religion,
+            baptized: baptized,
+            baptized: baptized,
+            confirmed: confirmed,
+            street: street,
+            subd: subd,
+            brgy: brgy,
+            city: city,
+            province: province,
+            region: region,
+            zip_code: zip_code,
+            parent_name: parent_name,
+            parent_contact_number: parent_contact_number,
+            parent_address: parent_address,
+            parent_occupation: parent_occupation,
+            elementary_school: elementary_school,
+            high_school: high_school,
+            last_attended_college: last_attended_college
+          },
+          url: 'insert_students.php',
+          success: function(data) {
+
+            alert(data);
+          }
+
+
+        });
+
+
+
+
+
         alert('Finished!, Starting over!');
         $('#rootwizard').find("a[href*='tab1']").trigger('click');
       });

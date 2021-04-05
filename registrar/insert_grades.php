@@ -13,8 +13,8 @@
     // echo "</pre>";
 
     $objid = $_POST['objid'];
-    $student_id = $_POST['student_id'];
-    $subject_id = $_POST['subject_id'];
+    $students_id = $_POST['students_id'];
+    $subjects_id = $_POST['subjects_id'];
     $prelim = $_POST['prelim'];
     $midterm = $_POST['midterm'];
     $finals = $_POST['finals'];
@@ -24,19 +24,19 @@
       //insert user to database
       $register_user_sql = "INSERT INTO tbl_grades SET 
         objid             = :objid,
-        student_id           = :student_id,
-        subject_id           = :subject_id,
+        students_id          = :students_id,
+        subjects_id          = :subjects_id,
         prelim               = :prelim,
         midterm              = :midterm,
         finals               = :finals,
-        remarks              =:remarks";
+        remarks              = :remarks";
   
 
       $register_data = $con->prepare($register_user_sql);
       $register_data->execute([
         ':objid'            => $objid,
-        ':student_id'       => $student_id,
-        ':subject_id'       => $subject_id,
+        ':students_id'      => $students_id,
+        ':subjects_id'      => $subjects_id,
         ':prelim'           => $prelim,
         ':midterm'          => $midterm,
         ':finals'           => $finals,

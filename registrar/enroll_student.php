@@ -60,7 +60,7 @@ include('../includes/sidebar.php');
                         <?php while ($get_student = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) { ?>
                         <option value="<?php echo
                                           $get_student['students_id']; ?>">
-                          <?php echo $get_student['first_name'] . ' ' . $get_student['middle_name'] . ' ' . $get_student['surname']; ?>
+                          <?php echo $get_student['first_name'] . ' ' . $get_student['middle_name'] . ' ' . $get_student['last_name']; ?>
                         </option>
                         <?php } ?>
                       </select>

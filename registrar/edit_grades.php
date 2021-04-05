@@ -3,7 +3,7 @@
 
 session_start();
 
-$objid = $student_id = $subject_id =$prelim =$midterm =$finals =$remarks =$alert_msg = '';
+$objid = $students_id = $subjects_id =$prelim =$midterm =$finals =$remarks =$alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -39,8 +39,8 @@ if (isset($_GET['objid'])) {
   $get_grades_data = $con->prepare($get_grades_sql);
   $get_grades_data->execute([':objid' => $objid]);
   while ($result = $get_grades_data->fetch(PDO::FETCH_ASSOC)) {
-      $student_id    = $result['student_id'];
-      $subject_id    = $result['subject_id'];
+      $students_id    = $result['students_id'];
+      $subjects_id    = $result['subjects_id'];
       $prelim    = $result['prelim'];
       $midterm    = $result['midterm'];
       $finals    = $result['finals'];
@@ -98,14 +98,14 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Student Id</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="student_id"  value="<?php echo $student_id; ?>" required>
+                        <input type="text" class="form-control" name="students_id"  value="<?php echo $students_id; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Subject Id</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="subject_id"  value="<?php echo $subject_id; ?>" required>
+                        <input type="text" class="form-control" name="subjects_id"  value="<?php echo $subjects_id; ?>" required>
                       </div>
                     </div>
 
