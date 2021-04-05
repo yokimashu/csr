@@ -25,6 +25,7 @@
 
 <script src="../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
 <script src="../assets/scripts.js"></script>
+<script src="../vendors/sweetalert/sweetalert.min.js"></script>
 <script>
     $(function() {
         // Easy pie charts

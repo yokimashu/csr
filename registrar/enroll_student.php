@@ -41,13 +41,14 @@ include('../includes/sidebar.php');
       <!-- morris stacked chart -->
       <div class="row-fluid">
         <!-- block -->
+       
         <div class="block">
           <div class="navbar navbar-inner block-header">
             <div class="muted pull-left">Enroll Students</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
+              <form class="form-horizontal" role="form" id = "enroll_student" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
                   <legend>Details</legend>
 
@@ -173,7 +174,7 @@ include('../includes/sidebar.php');
 
                   <!-- /.box-body -->
                   <div class="box-footer">
-                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                    <input type="submit" <?php echo $btnNew; ?> name="add" id = "new" class="btn btn-primary" value="New">
                     <input type="submit" <?php echo $btnStatus; ?> name="save" id = "save" class="btn btn-primary" value="Save">
                     <a href="list_enrollment.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
@@ -268,20 +269,38 @@ data: {idno:idno,
   time:col5,
   sroom:col6,
 },
-dataType: 'json',
-success:function(){
- 
+success:function(response){
+  var result = jQuery.parseJSON(response);
+
+  if(result == "You successfully enrolled new student!"){
+    notification('success',result);
+    $("#save").attr("disabled", true);
+    $("#new").attr("disabled", false);
+    // reset_form_input('enroll_student');
+      
+  }else{
+    notification('error',result);
+    $("#save").attr("disabled", false);
+    $("#new").attr("disabled", true);
+  }
 },
 error: function (chr, d, e) {
 console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+
 }
 })
 
 
     });
-    window.location.reload();
+ 
 
   });
+// reset the elements inside the form
+  function reset_form_input(form_id){
+      $( '#'+form_id ).each(function(){
+          this.reset();
+      });
+    }
   function deleteRow(r) {
   // DELETE SELECTED ROW
   var i = r.parentNode.parentNode.rowIndex;
@@ -322,7 +341,22 @@ console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.respo
 })
 
 });
+
+function notification(status,message){
+  swal({
+        title:message ,
+        // text: "You clicked the button!",
+        icon: status,
+        button: "Ok done!",
+      
+      });
+     
+    
+
+}
 </script>
+
+
 </body>
 
 </html>

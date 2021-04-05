@@ -26,7 +26,9 @@ if($idno !='' && $subject !='' && $title !='' && $units !='' && $day !='' && $ti
            ':day' => $day,
            ':stime' => $time,
            ':room' => $room]);   
- 
+ echo json_encode("You successfully enrolled new student!");
+}else{
+    echo json_encode("There is something wrong in the enrollment!");
 }
 }
 
