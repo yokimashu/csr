@@ -41,7 +41,7 @@ if (isset($_GET['subjects_id'])) {
   while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
       $subjects_description       = $result['subjects_description'];
       $units                      = $result['units'];
-      $course_code                = $result['course_code'];
+      $course_code                = $result['course_id'];
       $year_level                 = $result['year_level'];
       $semester                   = $result['semester'];
       $pre_requisites             = $result['pre_requisites'];
