@@ -25,7 +25,7 @@
         subjects_id             = :subjects_id,
         subjects_description    = :desc,
         units                   = :units,
-        course_code             = :course_code,
+        course_id               = :course_code,
         year_level              = :year_level,
         semester                = :semester,
         pre_requisites          = :pre_requisites";

@@ -72,127 +72,144 @@ include('../includes/sidebar.php');
                     <div class="tab-pane" id="tab1">
                       <form>
                         <fieldset>
-                          <legend>Student's Information</legend>
-
+                          <!-- <legend>Student's Information</legend> -->
 
                           <div align="center">
                             <?php echo $alert_msg; ?>
                           </div>
 
-                          <!-- <div class="register-box-body" style="width:300px;margin:auto;">
-                            <img src="../dist/img/no-photo.png" align="center" class="elevation-2" style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px" ; id="image">
-                          </div>
-                          <div class="col-md-2" style="width:300px;margin:auto;">
-                            <input type="file" name="myFiles" id="fileToUpload" onchange="loadImage()" value="<?php echo $pictures; ?>">
-                          </div><br> -->
+                          <div class="span12" id="content">
+                            <div class="row-fluid">
+                              <div class="span8">
+                                <!-- block -->
+                                <div class="block">
+                                  <div class="navbar navbar-inner block-header">
+                                    <div class="muted pull-left">Profile</div>
+                                  </div>
+                                  <div class="block-content collapse in">
+                                    <div class="span12">
 
 
-                          <div class="control-group span12">
-                            <label class="control-label" for="focusedInput" style="display: inline-block;">ID Number: </label>
-                            <div class="controls" style="display: inline-block;">
-                              <input class="input-xlarge focused span11" id="idNumber" type="number" value="">
+                                      <div class="control-group span12">
+                                        <label class="control-label" for="focusedInput" style="display: inline-block;">ID Number: </label>
+                                        <div class="controls" style="display: inline-block;">
+                                          <input class="input-xlarge focused span20" id="idNumber" type="number" value="">
+                                        </div>
+                                      </div>
+
+                                      <p>
+                                      <div class="control-group span12">
+                                        <label class="control-label" for="focusedInput" style="display: inline-block; ">First Name: </label>
+                                        <div class="controls" style="display: inline-block; margin-left: 8px;">
+                                          <input class="input-xlarge focused span10" id="fName" type="text" value="">
+                                        </div>
+                                        <label class="control-label" for="focusedInput" style="display: inline-block; margin-left: 4px;">Middle Name: </label>
+                                        <div class="controls" style="display: inline-block; margin: 8px;">
+                                          <input class="input-xlarge focused span10" id="mName" type="text" value="">
+                                        </div>
+                                        <label class="control-label" for="focusedInput" style="display: inline-block; margin-left: 4px;">Last Name: </label>
+                                        <div class="controls" style="display: inline-block; margin: 8px;">
+                                          <input class="input-xlarge focused span10" id="lName" type="text" value="">
+                                        </div>
+
+
+                                      </div>
+                                      </p>
+
+                                      <p>
+                                      <div class="control-group span12">
+                                        <label class="control-label" for="date01" style="display: inline-block;">Date of Birth: </label>
+                                        <div class="controls " style="display: inline-block; margin-left: 10px;">
+                                          <input class="input-xlarge focused span11" type="date" id="dateOfBirth" value="">
+                                        </div>
+
+                                        <label class="control-label" for="focusedInput" style="display: inline-block; margin-left: 10px;">Place of Birth:</label>
+                                        <div class="controls" style="display: inline-block; margin-left: 10px;">
+                                          <input class="input-xlarge focused span11" id="placeOfBirth" type="text" value="">
+                                        </div>
+
+                                        <label class="control-label" for="focusedInput" style="display: inline-block; margin-left: 10px;">Nationality: </label>
+                                        <div class="controls" style="display: inline-block; margin-left: 10px;">
+                                          <input class="input-xlarge focused span11" id="nationality" type="text" value="">
+                                        </div>
+                                      </div>
+                                      </p>
+
+                                      <p>
+
+                                      <div class="control-group span12">
+
+                                        <label class="control-label" style="display: inline-block; ">Gender: <span class="required">*</span></label>
+                                        <div class="controls" style="display: inline-block; margin-left: 15px;">
+                                          <select class="span12 m-wrap" id="gender" name="category">
+                                            <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                          </select>
+                                        </div>
+
+                                        <label class="control-label" style="display: inline-block; margin-left: 30px;">Status: <span class="required">*</span></label>
+                                        <div class="controls" style="display: inline-block; margin-left: 40px;">
+                                          <select class="span12 m-wrap" id="gender" name="category">
+                                            <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Widowed">Widowed</option>
+                                          </select>
+                                        </div>
+
+                                      </div>
+
+                                      </p>
+
+                                      <div class="control-group span12">
+
+                                        <div class="control-group">
+                                          <label class="control-label" style="display: inline-block;">Contact Number: </label>
+                                          <div class="controls" style="display: inline-block; margin-left: 15px;">
+                                            <input class="input-xlarge focused span8" id="contactNumber" type="number" value="">
+                                          </div>
+                                          <label class="control-label" style="display: inline-block;margin-left:-30px;">Facebook Account: </label>
+                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
+                                            <input class="input-xlarge focused" id="fbAcc" type="text" placeholder="Optional" value="">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- /block -->
+
+                              <div class="span4">
+                                <!-- block -->
+                                <div class="block">
+                                  <div class="navbar navbar-inner block-header">
+                                    <div class="muted pull-left">Upload Photo</div>
+                                  </div>
+                                  <div class="block-content collapse in">
+                                    <div class="span10" style="padding-bottom:30px;">
+                                      <div class="register-box-body" style="width:300px;margin:auto;">
+                                        <img src="../dist/img/no-photo.png" align="center" class="elevation-2" style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px"; id="image">
+                                      </div>
+                                      <div class="col-md-2" style="width:300px;margin:auto;">
+                                        <input type="file" name="myFiles" id="fileToUpload" onchange="loadImage()" value="<?php echo $pictures; ?>">
+                                      </div><br>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-
-
-                          <div class="control-group span12">
-                            <label class="control-label" for="focusedInput" style="display: inline-block;">First Name: </label>
-                            <div class="controls" style="display: inline-block;">
-                              <input class="input-xlarge focused span11" id="fName" type="text" value="">
-                            </div>
-                            <label class="control-label" for="focusedInput" style="display: inline-block;">Middle Name: </label>
-                            <div class="controls" style="display: inline-block;">
-                              <input class="input-xlarge focused span11" id="mName" type="text" value="">
-                            </div>
-                            <label class="control-label" for="focusedInput" style="display: inline-block;">Last Name: </label>
-                            <div class="controls" style="display: inline-block;">
-                              <input class="input-xlarge focused span11" id="lName" type="text" value="">
-                            </div>
-                          </div>
-
-
-                          <div class="control-group span12">
-                            <label class="control-label" for="date01" style="display: inline-block;">Date of Birth: </label>
-                            <div class="controls " style="display: inline-block;">
-                              <input class="input-xlarge focused span11"  type="date" id="dateOfBirth" value="">
-                            </div>        
-                            
-                            <label class="control-label" for="focusedInput" style="display: inline-block;">Place of Birth:</label>
-                            <div class="controls" style="display: inline-block;">
-                              <input class="input-xlarge focused span11" id="placeOfBirth" type="text" value="">
-                            </div>
-                          </div>
-
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">Nationality: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="nationality" type="text" value="">
-                            </div>
-                          </div>
-
-
-                          <div class="control-group">
-                            <label class="control-label">Gender: <span class="required">*</span></label>
-                            <div class="controls">
-                              <select class="span6 m-wrap" id="gender" name="category">
-                                <option value="">Select...</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                              </select>
-                            </div>
-                          </div>
-
-
-                          <div class="control-group">
-                            <label class="control-label">Status: <span class="required">*</span></label>
-                            <div class="controls">
-                              <select class="span6 m-wrap" id="status" name="category">
-                                <option value="">Select...</option>
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Widowed">Widowed</option>
-                              </select>
-                            </div>
-                          </div>
-
-                          <!-- <div class="control-group">
-                            <label class="control-label" for="focusedInput">Home Address: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="homeAddress" type="text" value="">
-                            </div>
-                          </div>
-
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">Provincial Address: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="provincialAddress" type="text" value="">
-                            </div>
-                          </div> -->
-
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">Contact Number: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="contactNumber" type="number" value="">
-                            </div>
-                          </div>
-
-                          <!-- <div class="control-group">
-                            <label class="control-label" for="focusedInput">Parent/Guardian: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="parent" type="text" value="">
-                            </div>
-                          </div> -->
-
-                          <div class="control-group">
-                            <label class="control-label" for="focusedInput">Facebook Account: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="fbAcc" type="text" placeholder="Optional" value="">
-                            </div>
-                          </div>
-
                         </fieldset>
                       </form>
                     </div>
+
+
+
+                    <!-- /block -->
+
+
+
 
                     <div class="tab-pane" id="tab2">
                       <form class="form-horizontal">
