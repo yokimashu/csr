@@ -8,9 +8,9 @@
   if (isset($_POST['save'])) {
 
     
-    //     echo "<pre>";
-    //     print_r($_POST);
-    // echo "</pre>";
+        echo "<pre>";
+        print_r($_POST);
+    echo "</pre>";
 
     $teachers_id = $_POST['teachers_id'];
     $surname = $_POST['surname'];
@@ -26,7 +26,7 @@
   
       //insert user to database
       $register_user_sql = "INSERT INTO tbl_faculty SET 
-        teachers_id             = :teachers_id,
+        teachers_id    = :teachers_id,
         surname        = :surname,
         first_name     = :first_name,
         middle_name    = :middle_name,
