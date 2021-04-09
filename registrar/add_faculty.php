@@ -107,21 +107,6 @@ include('../includes/sidebar.php');
                         </div>
                       </div>
 
-
-                      <!-- <div class="control-group">
-  								<label class="control-label">Department: <span class="required">*</span></label>
-  								<div class="controls">
-  									<select class="span6 m-wrap" id ="gender" name="category">
-  										<option value="">Select...</option>
-  										<option value="BSIT Department">BSIT Department</option>
-  										<option value="BSBA Department">BSBA Department</option>
-                      <option value="BEED Department">BEED Department</option>
-  										<option value="Midwiferey Department">Midwiferey Department</option>
-                      <option value="Tourism Department">Tourism Department</option>
-  									</select>
-  								</div>
-                </div> -->
-
                 <div class="control-group">
                       <label class="control-label" for="multiSelect">Department:</label>
                       <div class="controls">
