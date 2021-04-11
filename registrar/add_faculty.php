@@ -3,7 +3,8 @@
 
 session_start();
 
-$teachers_id = $surname = $first_name = $middle_name = $work_status = $couses_id = $courses = $contact_number = $email_address = $alert_msg = '';
+$teachers_id = $surname = $first_name = $middle_name = $work_status = $courses_id = $courses = $contact_number = $email_address = $alert_msg = '';
+
 
 $btnNew = 'disabled';
 $btnStatus = 'enabled';
@@ -14,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_faculty.php');
+include('insert_faculty.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -30,10 +31,14 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_department = $result['department'];
 }
 
+
 //select all courses
 $get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
 $get_all_courses_data = $con->prepare($get_all_courses_sql);
 $get_all_courses_data->execute();
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -65,52 +70,55 @@ include('../includes/sidebar.php');
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Add Teacher Form</legend>
+                  <legend>Details</legend>
 
 
 
 
-                    <div class="box-body">
-                      <?php echo $alert_msg; ?>
-                      <div class="control-group">
-                      <label class="control-label" for="focusedInput">Teacher ID</label>
+                  <div class="box-body">
+                    <?php echo $alert_msg; ?>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Teacher ID:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="teachers_id" value="<?php echo $teachers_id; ?>" required>
                       </div>
                     </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Surname</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="surname"  value="<?php echo $surname; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Surname:</label>
+                      <div class="controls">
+                        <input type="text" class="form-control span5" name="surname" value="<?php echo $surname; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">First Name</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="first_name"  value="<?php echo $first_name; ?>" required>
-                        </div>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">First Name:</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>" required>
                       </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Middle Name</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="middle_name"  value="<?php echo $middle_name; ?>" required>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Middle Name:</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="middle_name" value="<?php echo $middle_name; ?>" required>
                         </div>
-                      </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Status</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="work_status"  value="<?php echo $work_status; ?>" required>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Status:</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="work_status" value="<?php echo $work_status; ?>" required>
                         </div>
-                      </div>
+                    </div>
 
-                <div class="control-group">
+                  
+
+
+                    <div class="control-group">
                       <label class="control-label" for="multiSelect">Department:</label>
                       <div class="controls">
-                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="faculty_dept[]">
+                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="courses_id[]">
                           <option>
                             <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
                           <option value="<?php echo
@@ -120,32 +128,31 @@ include('../includes/sidebar.php');
                         <p class="help-block">Start typing to activate auto complete!</p>
                       </div>
 
+                    </div><br>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Contact Number</label>
-                        <div class="controls">
-                        <input type="number" class="form-control" name="contact_number"  value="<?php echo $contact_number; ?>" required>
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Contact Number:</label>
+                      <div class="controls">
+                        <input type="number" class="form-control" name="contact_number" value="<?php echo $contact_number; ?>" required>
                         </div>
-                      </div>
+                    </div>
 
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Email Address</label>
-                        <div class="controls">
-                        <input type="email" class="form-control" name="email_address"  value="<?php echo $email_address; ?>">
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Email Address:</label>
+                      <div class="controls">
+                        <input type="email" class="form-control" name="email_address" value="<?php echo $email_address; ?>" required>
                         </div>
-                      </div>
+                    </div>
 
-                      </div><br>
-
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                        <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
-                        <a href="list_faculty.php">
-                          <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                        </a>
-                      </div>
-                  </form>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                      <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                      <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                      <a href="list_faculty.php">
+                        <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                      </a>
+                    </div>
+              </form>
             </div>
             <!-- /.box -->
           </div>
@@ -156,82 +163,8 @@ include('../includes/sidebar.php');
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<!-- footer here -->
-<footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <!-- <b>Version</b> 1.0 -->
-  </div>
-  <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
-  reserved.
-</footer>
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
+<?php include('../includes/footer.php'); ?>
 </script>
-<!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="../plugins/morris/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="../plugins/knob/jquery.knob.js"></script>
-<!-- daterangepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-<script src="../plugins/daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap4.js"></script>
-
-<script>
-  $('#users').DataTable({
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'ordering': true,
-    'info': true,
-    'autoWidth': true,
-    'autoHeight': true
-  })
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $(document).ajaxStart(function() {
-      Pace.restart()
-    })
-
-  });
-</script>
-
-
 </body>
 
 </html>

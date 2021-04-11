@@ -8,16 +8,16 @@
   if (isset($_POST['save'])) {
 
     
-        echo "<pre>";
-        print_r($_POST);
-    echo "</pre>";
+    //     echo "<pre>";
+    //     print_r($_POST);
+    // echo "</pre>";
 
     $teachers_id = $_POST['teachers_id'];
     $surname = $_POST['surname'];
     $first_name = $_POST['first_name'];
     $middle_name = $_POST['middle_name'];
     $work_status = $_POST['work_status'];
-    $faculty_dept = $_POST['faculty_dept'];
+    $courses_id = $_POST['courses_id'];
     $contact_number = $_POST['contact_number'];
     $email_address = $_POST['email_address'];
 
@@ -31,7 +31,7 @@
         first_name     = :first_name,
         middle_name    = :middle_name,
         work_status    = :work_status,
-        faculty_dept   = :faculty_dept,
+        courses_id     = :courses_id,
         contact_number = :contact_number,
         email_address  = :email_address";
     
@@ -44,7 +44,7 @@
         ':first_name'         => $first_name,
         ':middle_name'        => $middle_name,
         ':work_status'        => $work_status,
-        ':faculty_dept'       => $faculty_dept,
+        ':courses_id'         => implode(" , ",$courses_id),
         ':contact_number'     => $contact_number,
         ':email_address'      => $email_address
       ]);
