@@ -108,13 +108,13 @@ include('../includes/sidebar.php');
                                             <input class="input-xlarge focused span10" id="fName" type="text" value="">
                                           </div>
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 4px;">Middle Name: </label>
+                                            style="display: inline-block; margin-left: 2px;">Middle Name: </label>
                                           <div class="controls" style="display: inline-block; margin: 8px;">
                                             <input class="input-xlarge focused span10" id="mName" type="text" value="">
                                           </div>
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 4px;">Last Name: </label>
-                                          <div class="controls" style="display: inline-block; margin: 8px;">
+                                            style="display: inline-block; margin-left: 2px;">Last Name: </label>
+                                          <div class="controls" style="display: inline-block; margin: 4px;">
                                             <input class="input-xlarge focused span10" id="lName" type="text" value="">
                                           </div>
 
