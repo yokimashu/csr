@@ -22,8 +22,13 @@
     $nationality = $_POST['nationality'];
     $gender = $_POST['gender'];
     $status = $_POST['status'];
-    $home_address = $_POST['home_address'];
-    $provincial_address = $_POST['provincial_address'];
+    $street = $_POST['street'];
+    $subd = $_POST['subd'];
+    $brgy = $_POST['brgy'];
+    $city = $_POST['city'];
+    $province = $_POST['province'];
+    $region = $_POST['region'];
+    $zip_code = $_POST['zip_code'];
     $contact_number   = $_POST['contact_number'];
     $facebook_account = $_POST['facebook_account'];
     $religion   = $_POST['religion'];
@@ -88,16 +93,24 @@
 
       ]);
 
-      $alert_msg .= ' 
-          <div class="new-alert new-alert-success alert-dismissible">
-              <i class="icon fa fa-success"></i>
-              Data Inserted
-          </div>     
-      ';
-     // $fname = $mname = $lname = $contact_number = $email = $uname = $upass = '';
+        $query_address = "INSERT INTO tbl_student_address SET
+        student_id = :students_id,
+        students_id
 
-     $btnStatus = 'disabled';
-     $btnNew = 'enabled';
+        ";
+        
+   
+
+        ':students_id'     => $students_id,
+        ':street'            => $steet,
+        ':vil_subd'           => $subd,
+        ':barangay'           => $brgy,
+        ':city'               => $city,
+        ':province'          => $province,
+        ':region'            => $region,
+        ':zip_code'             => $zip_code
+        ";
+
     }
 
   

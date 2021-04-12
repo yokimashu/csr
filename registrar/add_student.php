@@ -165,7 +165,7 @@ include('../includes/sidebar.php');
                                             style="display: inline-block; margin-left: 30px;">Status: <span
                                               class="required">*</span></label>
                                           <div class="controls" style="display: inline-block; margin-left: 40px;">
-                                            <select class="span12 m-wrap" id="gender" name="category">
+                                            <select class="span12 m-wrap" id="status" name="category">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option value="Single">Single</option>
                                               <option value="Married">Married</option>
@@ -240,7 +240,7 @@ include('../includes/sidebar.php');
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                          
 
                           </div>
                     </div>
@@ -535,7 +535,6 @@ include('../includes/sidebar.php');
         var nationality = document.getElementById("nationality").value;
         var gender = document.getElementById("gender").value;
         var status = document.getElementById("status").value;
-        var home_address = document.getElementById("homeAddress").value;
         var provincial_address = document.getElementById("provincialAddress").value;
         var contact_number = document.getElementById("contactNumber").value;
         var facebook_account = document.getElementById("parent").value;
@@ -559,7 +558,7 @@ include('../includes/sidebar.php');
         var high_school = document.getElementById("highSchool").value;
         var last_attended_college = document.getElementById("college").value;
 
-        var docno = $(this).val();
+        // var docno = $(this).val();
         $.ajax({
           type: 'POST',
           data: {
@@ -572,7 +571,6 @@ include('../includes/sidebar.php');
             nationality: nationality,
             gender: gender,
             status: status,
-            home_address: home_address,
             provincial_address: provincial_address,
             contact_number: contact_number,
             facebook_account: facebook_account,
@@ -599,7 +597,10 @@ include('../includes/sidebar.php');
           success: function (data) {
 
             alert(data);
-          }
+          },
+          error: function(chr, d, e) {
+        console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+      }
 
 
         });
