@@ -3,7 +3,7 @@
 
 session_start();
 
-$courses_id = $courses = $number_of_enrollees = $alert_msg = '';
+$courses_id = $courses  = $alert_msg = '';
 
 
  $btnNew = 'disabled';
@@ -40,7 +40,7 @@ if (isset($_GET['courses_id'])) {
   $get_courses_data->execute([':courses_id' => $courses_id]);
   while ($result = $get_courses_data->fetch(PDO::FETCH_ASSOC)) {
       $courses    = $result['courses'];
-      $number_of_enrollees    = $result['number_of_enrollees'];
+      
   
 
   }
@@ -98,12 +98,7 @@ include('../includes/sidebar.php');
                       </div>
                     </div>
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Number Of Enrollees</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="number_of_enrollees"  value="<?php echo $number_of_enrollees; ?>" required>
-                      </div>
-                    </div>
+                  
 
 
 

@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$courses = $number_of_enrollees =  '';
+$courses_id = $courses =  '';
 
 $courses_id = $_SESSION['id'];
 
@@ -18,7 +18,7 @@ $get_courses_data->execute([':id' => $courses_id]);
 while ($result = $get_courses_data->fetch(PDO::FETCH_ASSOC)) {
   $courses_id   = $result['courses_id'];
   $courses = $result['courses'];
-  $number_of_enrollees  = $result['no.of enrollees'];
+  
   
 }
 
@@ -77,7 +77,6 @@ include('../includes/sidebar.php');
                   <tr>
                     <th> COURSE ID</th>
                     <th> COURSES</th>
-                    <th> NUMBER OF ENROLLEES</th>
                     <th> OPTIONS</th>
                   </tr>
                 </thead>
@@ -86,7 +85,6 @@ include('../includes/sidebar.php');
                     <tr style="font-size: 1rem">
                       <td><?php echo $courses_data['courses_id']; ?> </td>
                       <td><?php echo $courses_data['courses']; ?> </td>
-                      <td><?php echo $courses_data['number_of_enrollees']; ?> </td>
                       
                       <td>
                         <a class="btn btn-primary" href="edit_courses.php?courses_id=<?php echo
