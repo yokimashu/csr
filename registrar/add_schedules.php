@@ -100,14 +100,14 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Start Time</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="start_time" value="<?php echo $start_time; ?>" required>
+                        <input type="time" class="form-control" name="start_time" value="<?php echo $start_time; ?>" required>
                       </div>
                     </div></br>
 
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">End Time</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="end_time" value="<?php echo $end_time; ?>" required>
+                        <input type="time" class="form-control" name="end_time" value="<?php echo $end_time; ?>" required>
                       </div>
                     </div>
 
