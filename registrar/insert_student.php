@@ -64,7 +64,7 @@ date_default_timezone_set('Asia/Manila');
         ':surname'            =>$surname,
         ':date_of_birth'      => $date_of_birth,
        ':place_of_birth'     => $place_of_birth,
-       ':nationality'      => $nationality,
+       ':nationality'      => $nationality
        ':gender'            => $gender,
       ':status'            => $status,
         ':home_address'       => $home_address,

@@ -7,9 +7,9 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$day = $star_time = $end_time = '';
+$objid =$subject_code =$schedule = $start_time = $end_time =$room_code =$teacher_code = '';
 
-$day = $_SESSION['id'];
+$objid = $_SESSION['id'];
 
 // //querry to select current user's information
 // $get_schedules_sql = "SELECT * FROM tbl_schedules WHERE days = :id";
@@ -75,9 +75,13 @@ include('../includes/sidebar.php');
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
-                    <th> DAY</th>
+                     <th> OBJID</th>
+                    <th> SUBJECT CODE</th>
+                    <th> DAYS </th>
                     <th> START TIME </th>
                     <th> END TIME </th>
+                    <th> ROOM CODE</th>
+                    <th> TEACHER CODE</th>
                     <th> OPTIONS</th>
                     
                     
@@ -87,13 +91,17 @@ include('../includes/sidebar.php');
                 <tbody>
                   <?php while ($schedules_data = $get_all_schedules_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
+                      <td><?php echo $schedules_data['objid']; ?> </td>
+                      <td><?php echo $schedules_data['subject_code']; ?> </td>
                       <td><?php echo $schedules_data['days']; ?> </td>
                       <td><?php echo $schedules_data['start_time']; ?> </td>
                       <td><?php echo $schedules_data['end_time']; ?> </td>
+                      <td><?php echo $schedules_data['room_code']; ?> </td>
+                      <td><?php echo $schedules_data['teacher_code']; ?> </td>
                       
                       <td>
                       <a class="btn btn-primary" href="edit_schedules.php?day=<?php echo
-    $schedules_data['day']; ?>"><i class="icon-edit"></i>
+    $schedules_data['objid']; ?>"><i class="icon-edit"></i>
                           </a>
                         &nbsp;
 
