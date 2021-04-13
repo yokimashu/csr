@@ -36,6 +36,7 @@
     $confirmed = $_POST['confirmed'];
     $parent_name = $_POST['parent_name'];
     $parent_contact_number = $_POST['parent_contact_number'];
+    $parent_occupation = $_POST['parent_occupation'];
     $parent_address = $_POST['parent_address'];
     $elementary_school = $_POST['elementary_school'];
     $high_school = $_POST['high_school'];
@@ -52,16 +53,11 @@
         nationality           = :nationality,
         gender                = :gender,
         status                = :status,
-        home_address          = :home_address,
-        provincial_address    = :provincial_address,
         contact_number        = :contact_number,
         facebook_account      = :facebook_account,
         religion              = :religion,
         baptized              = :baptized,
         confirmed             = :confirmed,
-        parent_name           = :parent_name,
-        parent_contact_number = :parent:contact_number,
-        parent_address        = :parent_address,
         elementary_school     = :elementary_school,
         high_school           = :high_school,
         last_attended_college = :last_attended_college";
@@ -77,43 +73,41 @@
         ':nationality'           => $nationality,
         ':gender'                => $gender,
         ':status'                => $status,
-        ':home_address'          => $home_address,
-        ':provincial_address'    => $provincial_address,
         ':contact_number'        => $contact_number,
         ':facebook_account'      => $facebook_account,
         ':religion'              => $religion,
         ':baptized'              => $baptized,
         ':confirmed'             => $confirmed,
-        ':parent_name'           => $parent_name,
-        ':parent_contact_number' => $parent_contact_number,
-        ':parent_address'        => $parent_address,
         ':elementary_school'     => $elementary_school,
         ':high_school'           => $high_school,
         ':last_attended_college' => $last_attended_college
-
       ]);
 
         $query_address = "INSERT INTO tbl_student_address SET
         student_id = :students_id,
-        students_id
-
+        street = :street,
+        vil_subd = :vil_subd,
+        barangay = :barangay,
+        city = :city,
+        province = :province,
+        region = :region,
+        zip_code = :zip_code
         ";
-        
-   
-
+      
+        $prep_address = $con->prepare($query_address);
+        $prep_address->execute([
         ':students_id'     => $students_id,
-        ':street'            => $steet,
+        ':street'            => $street,
         ':vil_subd'           => $subd,
         ':barangay'           => $brgy,
         ':city'               => $city,
         ':province'          => $province,
         ':region'            => $region,
-        ':zip_code'             => $zip_code
-        ";
+        ':zip_code'          => $zip_code
+        ]);
 
     }
 
-  
 
  
 

@@ -3,7 +3,7 @@
 $host = "127.0.0.1";
 $db_name = "csr";
 $username = "root";
-$password = "";
+$password = "1234";
 
 try {
     //database connection
