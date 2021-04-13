@@ -535,8 +535,9 @@ include('../includes/sidebar.php');
         var nationality = document.getElementById("nationality").value;
         var gender = document.getElementById("gender").value;
         var status = document.getElementById("status").value;
+        var provincial_address = document.getElementById("provincialAddress").value;
         var contact_number = document.getElementById("contactNumber").value;
-        var facebook_account = document.getElementById("fbAcc").value;
+        var facebook_account = document.getElementById("parent").value;
         var religion = document.getElementById("religion").value;
         var baptized = document.getElementById("baptizedYes").value;
         var baptized = document.getElementById("baptizedNo").value;
@@ -570,12 +571,12 @@ include('../includes/sidebar.php');
             nationality: nationality,
             gender: gender,
             status: status,
+            provincial_address: provincial_address,
             contact_number: contact_number,
             facebook_account: facebook_account,
             religion: religion,
             baptized: baptized,
             baptized: baptized,
-            confirmed: confirmed,
             confirmed: confirmed,
             street: street,
             subd: subd,
@@ -607,6 +608,8 @@ include('../includes/sidebar.php');
 
 
 
+
+        alert('Finished!, Starting over!');
         $('#rootwizard').find("a[href*='tab1']").trigger('click');
       });
 
