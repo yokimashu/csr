@@ -558,6 +558,7 @@ include('../includes/sidebar.php');
         var last_attended_college = document.getElementById("college").value;
 
         // var docno = $(this).val();
+        console.log(contact_number);
         $.ajax({
           type: 'POST',
           data: {
@@ -574,8 +575,6 @@ include('../includes/sidebar.php');
             facebook_account: facebook_account,
             religion: religion,
             baptized: baptized,
-            baptized: baptized,
-            confirmed: confirmed,
             confirmed: confirmed,
             street: street,
             subd: subd,
@@ -594,8 +593,7 @@ include('../includes/sidebar.php');
           },
           url: 'insert_students.php',
           success: function (data) {
-
-            alert(data);
+console.log(data);
           },
           error: function(chr, d, e) {
         console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
