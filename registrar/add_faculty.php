@@ -87,7 +87,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Surname:</label>
                       <div class="controls">
-                        <input type="text" class="form-control span5" name="surname" value="<?php echo $surname; ?>" required>
+                        <input type="text" class="form-control span3" name="surname" value="<?php echo $surname; ?>" required>
                       </div>
                     </div>
 
@@ -106,11 +106,18 @@ include('../includes/sidebar.php');
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Status:</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="work_status" value="<?php echo $work_status; ?>" required>
-                        </div>
+                    <label class="control-label" for="focusedInput">Status: 
+                                      </label>
+                                          <div class="controls" >
+                                            <select class="span3 m-wrap" id="work_status" name="category">
+                                              <option value="">Please Select</option>
+                                              <option value="Part-time">Full-time</option>
+                                              <option value="Full-time">Part-time</option>
+                                            </select>
+                                          </div>
                     </div>
+
+                    
 
                   
 
