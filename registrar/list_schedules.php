@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$objid =$subject_code =$schedule = $start_time = $end_time =$room_code =$teacher_code = '';
+$objid =$subject_code =$days = $start_time = $end_time =$room_code =$teacher_code = '';
 
 $objid = $_SESSION['id'];
 
@@ -16,7 +16,7 @@ $objid = $_SESSION['id'];
 // $get_schedules_data = $con->prepare($get_schedules_sql);
 // $get_schedules_data->execute([':id' => $day]);
 // while ($result = $get_schedules_data->fetch(PDO::FETCH_ASSOC)) {
-//   $schedules_day   = $result['days'];
+//   $schedules_days   = $result['days'];
 //   $schedules_start_time  = $result['start_time'];
 //   $schedules_end_time = $result['end_time'];
  

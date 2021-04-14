@@ -3,7 +3,7 @@
 
 session_start();
 
-$subjects_id = $subjects_description = $units = $course_code = $year_level = $semester = $pre_requisites = $alert_msg = '';
+$subjects_id = $subjects_description = $units = $courses_id = $year_level = $semester = $pre_requisites = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -41,7 +41,7 @@ if (isset($_GET['subjects_id'])) {
   while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
       $subjects_description       = $result['subjects_description'];
       $units                      = $result['units'];
-      $course_code                = $result['course_id'];
+      $courses_id                 = $result['courses_id'];
       $year_level                 = $result['year_level'];
       $semester                   = $result['semester'];
       $pre_requisites             = $result['pre_requisites'];
@@ -111,7 +111,7 @@ include('../includes/sidebar.php');
                       <div class="control-group">
                         <label class="control-label" for="focusedInput">Course Code</label>
                         <div class="controls">
-                        <input type="text" class="form-control" name="course_code"  value="<?php echo $course_code; ?>" required>
+                        <input type="text" class="form-control" name="courses_id"  value="<?php echo $courses_id; ?>" required>
                         </div>
                       </div>
 

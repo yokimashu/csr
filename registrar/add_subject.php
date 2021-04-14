@@ -115,7 +115,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="select01">Course</label>
                       <div class="controls">
-                        <select id="select01" name="course_code" class="chzn-select span5">
+                        <select id="select01" name="courses_id" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
                                                         <option value="<?php echo
@@ -153,7 +153,7 @@ include('../includes/sidebar.php');
                         <option selected="selected">Please select...</option>
                         <?php while ($get_year = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) { ?>
                                                         <option value="<?php echo
-    $get_year['year_level']; ?>"><?php echo $get_year['year_level']; ?></option>
+    $get_year['code']; ?>"><?php echo $get_year['code']; ?></option>
 <?php } ?>
                         </select>
                       </div>
@@ -166,7 +166,7 @@ include('../includes/sidebar.php');
                         <option selected="selected">Please select...</option>
                         <?php while ($get_semester = $get_all_semester_data->fetch(PDO::FETCH_ASSOC)) { ?>
                                                         <option value="<?php echo
-    $get_semester['semester']; ?>"><?php echo $get_semester['semester']; ?></option>
+    $get_semester['code']; ?>"><?php echo $get_semester['code']; ?></option>
 <?php } ?>
                         </select>
                       </div>

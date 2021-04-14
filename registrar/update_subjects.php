@@ -14,10 +14,10 @@
     $subjects_id           = $_POST['subjects_id'];
     $subjects_description  = $_POST['subjects_description'];
     $units                 = $_POST['units'];
-    $course_code          = $_POST['course_code'];
-    $year_level           = $_POST['year_level'];
-    $semester             = $_POST['semester'];
-    $pre_requisites       = $_POST['pre_requisites'];
+    $courses_id            = $_POST['courses_id'];
+    $year_level            = $_POST['year_level'];
+    $semester              = $_POST['semester'];
+    $pre_requisites        = $_POST['pre_requisites'];
 
   
 
@@ -25,7 +25,7 @@
                 pre_requisites         = :pre_requisites,
                 semester               = :semester,
                 year_level             = :year_level,
-                course_code            = :course_code,
+                courses_id             = :courses_id,
                 units                  = :units,
                 subjects_description   = :subjects_description
                 WHERE subjects_id      = :subjects_id";
@@ -35,7 +35,7 @@
                 ':pre_requisites'              => $pre_requisites, 
                 ':semester'                    => $semester,
                 ':year_level'                  => $year_level,
-                ':course_code'                 => $course_code,
+                ':courses_id'                  => $courses_id,
                 ':units'                       => $units,
                 ':subjects_description'        => $subjects_description,
                 ':subjects_id'                 => $subjects_id

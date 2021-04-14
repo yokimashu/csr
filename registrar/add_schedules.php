@@ -66,6 +66,8 @@ include('../includes/sidebar.php');
 
 
                   <!-- search students -->
+                  <?php echo $alert_msg; ?>
+
                   <div class="control-group">
                     <label class="control-label" for="select01">Search Subject:</label>
                     <div class="controls">
