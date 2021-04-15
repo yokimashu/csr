@@ -71,7 +71,7 @@ include('../includes/sidebar.php');
                   <div class="tab-content">
 
                     <div class="tab-pane" id="tab1">
-                      <form id = "firsttab">
+                      <form id="firsttab">
                         <fieldset>
                           <!-- <legend>Student's Information</legend> -->
 
@@ -209,7 +209,7 @@ include('../includes/sidebar.php');
                                   <div class="block-content collapse in">
                                     <div class="span10" style="padding-bottom:30px;margin-left:60px;">
                                       <div class="register-box-body" style="width:300px;margin:auto;">
-                                        <input type="hidden" name="image" class="image-tag" id = "image-tag">
+                                        <input type="hidden" name="image" class="image-tag" id="image-tag">
                                         <img src="../dist/img/no-photo.png" align="center" id="photo"
                                           class="elevation-2"
                                           style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px"
@@ -256,7 +256,7 @@ include('../includes/sidebar.php');
 
 
                     <div class="tab-pane" id="tab2">
-                      <form class="form-horizontal" id = "secondtab">
+                      <form class="form-horizontal" id="secondtab">
                         <fieldset>
                           <legend>Other Info</legend>
                           <div class="control-group">
@@ -298,11 +298,11 @@ include('../includes/sidebar.php');
                               <input class="uniform_on" type="checkbox" id="confirmedNo" value="No">
                               No
                             </label> -->
-                            <div class="controls" style="display: inline-block; margin-left: 15px;">
-                              <select class="span12 m-wrap" id="confirmed" name="category">
-                                <option selected value="Yes">Yes</option>
-                                <option value="No">No</option>
-                              </select>
+                              <div class="controls" style="display: inline-block; margin-left: 15px;">
+                                <select class="span12 m-wrap" id="confirmed" name="category">
+                                  <option selected value="Yes">Yes</option>
+                                  <option value="No">No</option>
+                                </select>
                               </div>
                             </div>
                           </div>
@@ -551,8 +551,8 @@ include('../includes/sidebar.php');
         var contact_number = document.getElementById("contactNumber").value;
         var facebook_account = document.getElementById("fbAcc").value;
         var religion = document.getElementById("religion").value;
-        var baptized = document.getElementById("baptized").value; 
-        var confirmed = document.getElementById("confirmed").value; 
+        var baptized = document.getElementById("baptized").value;
+        var confirmed = document.getElementById("confirmed").value;
         var street = document.getElementById("street").value;
         var subd = document.getElementById("subd").value;
         var brgy = document.getElementById("brgy").value;
@@ -601,14 +601,18 @@ include('../includes/sidebar.php');
             elementary_school: elementary_school,
             high_school: high_school,
             last_attended_college: last_attended_college,
-            studentimage:student_image
+            studentimage: student_image
           },
           url: 'insert_students.php',
           success: function (response) {
-          var result = JQuery.parseJSON(response);
-          if(result == 'Record saved'){
-            notification('success', result);
-          }
+           
+            
+              notification("Congratulations", "The student is successfully saved","Refresh","success","success");
+
+      
+
+
+     
           },
           error: function (chr, d, e) {
             console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
@@ -639,16 +643,30 @@ include('../includes/sidebar.php');
 
     });
 
+    function notification(title, message,text,value,status) {
+      swal(title, message, status, {
+          buttons: {
+            catch: {
+              text: text,
+              value: value,
+            }
 
-    function notification(status, message) {
-    swal({
-      title: message,
-      // text: "You clicked the button!",
-      icon: status,
-      button: "Ok done!",
+          },
+        })
+        .then((value) => {
+          switch (value) {
 
-    });
+            case "success":
 
+              break;
+              case "error":
+
+              break;
+
+          }
+        });
+
+    }
   </script>
 
 </body>

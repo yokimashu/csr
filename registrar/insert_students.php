@@ -140,8 +140,9 @@
       ':student_id'   =>  $students_id,
       ':photo'        =>  $fileName
     ]);
-    echo json_encode("Record saved");
+  
     }
+    
 
   
 
