@@ -95,7 +95,7 @@ include('../includes/sidebar.php');
                                         <label class="control-label" for="focusedInput"
                                           style="display: inline-block;">ID Number: </label>
                                         <div class="controls" style="display: inline-block;">
-                                          <input class="input-xlarge focused span20" id="idNumber" type="number"
+                                          <input class="input-xlarge focused span20" id="idNumber" type="number" readonly
                                             value="">
                                         </div>
                                       </div>
@@ -502,7 +502,7 @@ include('../includes/sidebar.php');
 
   <script type="text/javascript" src="../vendors/jquery-validation/dist/jquery.validate.min.js"></script>
   <script src="../assets/form-validation.js"></script>
-  <script src="../vendors/pixelarity/pixelarity-face.js"></script>
+  <script src="../vendors/pixelarity/pixelarity-faceless.js"></script>
   <script src="../assets/scripts.js"></script>
   <script src="../vendors/sweetalert/sweetalert.min.js"></script>
 
@@ -609,13 +609,11 @@ include('../includes/sidebar.php');
             
               notification("Congratulations", "The student is successfully saved","Refresh","success","success");
 
-      
-
-
      
           },
           error: function (chr, d, e) {
             console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+            notification("Opps!", "There is something wrong on your information provided","Close","error","error");
           }
 
 
@@ -643,6 +641,23 @@ include('../includes/sidebar.php');
 
     });
 
+     //GENERATE NEW ID NUMBER
+          $('#fName').change(function() {
+                if ($('#idNumber').val() == '') {
+                    $.ajax({
+                        type: 'POST',
+                        data: {},
+                        url: 'generate_id.php',
+                        success: function(data) {
+                            //$('#entity_no').val(data);
+                            document.getElementById("idNumber").value = data;
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+
+            //ADD A SWEETALERTS NOTIFICATION
     function notification(title, message,text,value,status) {
       swal(title, message, status, {
           buttons: {
@@ -657,7 +672,7 @@ include('../includes/sidebar.php');
           switch (value) {
 
             case "success":
-
+              window.location.reload(true);
               break;
               case "error":
 
