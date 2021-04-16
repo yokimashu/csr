@@ -105,22 +105,29 @@ include('../includes/sidebar.php');
                         </div>
                     </div>
 
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                     <label class="control-label" for="focusedInput">Status: 
                                       </label>
                                           <div class="controls" >
                                             <select class="span3 m-wrap" id="work_status" name="category">
-                                              <option value="">Please Select</option>
-                                              <option value="Part-time">Full-time</option>
-                                              <option value="Full-time">Part-time</option>
+                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                              <option value="Full-time">Full-time</option>
+                                              <option value="Part-time">Part-time</option>
                                             </select>
                                           </div>
-                    </div>
+                    </div> -->
 
-                    
-
-                  
-
+                    <label class="control-label"
+                                            style="display: inline-block; margin-left: 15px;">Status: 
+                                             </label>
+                                          <div class="controls" >
+                                            <select class="span3 m-wrap" id="work_status" name="work_status">
+                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                              <option value="Full-time">Full-time</option>
+                                              <option value="Part-time">Part-time</option>
+                                            </select>
+                                          </div>
+                  </div> </fieldset>
 
                     <div class="control-group">
                       <label class="control-label" for="multiSelect">Department:</label>

@@ -10,7 +10,7 @@
     
     //     echo "<pre>";
     //     print_r($_POST);
-    // echo "</pre>";
+    // echo "</dept>";
 
     $teachers_id = $_POST['teachers_id'];
     $surname = $_POST['surname'];
@@ -31,7 +31,7 @@
         first_name     = :first_name,
         middle_name    = :middle_name,
         work_status    = :work_status,
-        courses_id     = :courses_id,
+        faculty_dept   = :faculty_dept,
         contact_number = :contact_number,
         email_address  = :email_address";
     
@@ -44,7 +44,7 @@
         ':first_name'         => $first_name,
         ':middle_name'        => $middle_name,
         ':work_status'        => $work_status,
-        ':courses_id'         => implode(" , ",$courses_id),
+        ':faculty_dept'       => implode(" , ",$courses_id),
         ':contact_number'     => $contact_number,
         ':email_address'      => $email_address
       ]);
