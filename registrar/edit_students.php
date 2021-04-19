@@ -261,7 +261,7 @@ include('../includes/sidebar.php');
                                     <div class="span10" style="padding-bottom:30px;margin-left:60px;">
                                       <div class="register-box-body" style="width:300px;margin:auto;">
                                         <input type="hidden" name="image" class="image-tag" id="image-tag" value = "<?php echo $photo; ?>">
-                                        <img src="../studentimage/<?php echo $photo?>" align="center" id="photo"
+                                        <img src="../studentimage/<?php echo $photo;?>" align="center" id="photo"
                                           class="elevation-2"
                                           style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px"
                                            id="image">
