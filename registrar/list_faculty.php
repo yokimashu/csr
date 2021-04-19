@@ -16,7 +16,7 @@ $get_faculty_sql = "SELECT * FROM tbl_faculty WHERE teachers_id = :id";
 $get_faculty_data = $con->prepare($get_faculty_sql);
 $get_faculty_data->execute([':id' => $teachers_id]);
 while ($result = $get_faculty_data->fetch(PDO::FETCH_ASSOC)) {
-  $faculty_teachers_id   = $result['teachers_id'];
+  $teachers_id   = $result['teachers_id'];
   $faculty_surname  = $result['surname'];
   $faculty_first_name   = $result['first_name'];
   $faculty_middle_name   = $result['middle_name'];

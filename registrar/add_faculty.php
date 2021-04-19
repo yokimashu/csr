@@ -26,7 +26,7 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_middle_name = $result['middle_name'];
   $db_last_name = $result['last_name'];
   $db_email_ad = $result['email'];
-  $db_contact_number = $result['contact_no'];
+  $db_contact_no = $result['contact_no'];
   $db_user_name = $result['username'];
   $db_department = $result['department'];
 }
@@ -105,22 +105,29 @@ include('../includes/sidebar.php');
                         </div>
                     </div>
 
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                     <label class="control-label" for="focusedInput">Status: 
                                       </label>
                                           <div class="controls" >
                                             <select class="span3 m-wrap" id="work_status" name="category">
-                                              <option value="">Please Select</option>
-                                              <option value="Part-time">Full-time</option>
-                                              <option value="Full-time">Part-time</option>
+                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                              <option value="Full-time">Full-time</option>
+                                              <option value="Part-time">Part-time</option>
                                             </select>
                                           </div>
-                    </div>
+                    </div> -->
 
-                    
-
-                  
-
+                    <label class="control-label"
+                                            style="display: inline-block; margin-left: 15px;">Status: 
+                                             </label>
+                                          <div class="controls" >
+                                            <select class="span3 m-wrap" id="work_status" name="work_status">
+                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                              <option value="Full-time">Full-time</option>
+                                              <option value="Part-time">Part-time</option>
+                                            </select>
+                                          </div>
+                    </div> </fieldset> </br>
 
                     <div class="control-group">
                       <label class="control-label" for="multiSelect">Department:</label>
@@ -135,9 +142,9 @@ include('../includes/sidebar.php');
                         <p class="help-block">Start typing to activate auto complete!</p>
                       </div>
 
-                    </div><br>
+                    </div>
 
-                    <div class="control-group">
+                  <div class="control-group">
                       <label class="control-label" for="focusedInput">Contact Number:</label>
                       <div class="controls">
                         <input type="number" class="form-control" name="contact_number" value="<?php echo $contact_number; ?>" required>
