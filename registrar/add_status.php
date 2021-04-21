@@ -3,7 +3,7 @@
 
 session_start();
 
-$teacher_id = $department =$courses_id =$courses = $status = $alert_msg = '';
+$teachers_id = $status = $department = $courses_id =  $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -64,28 +64,27 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add New Status</div>
+            <div class="muted pull-left">Add Teacher</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Status</legend>
+                  <legend>Details</legend>
 
 
 
-                  
+
                   <div class="box-body">
                     <?php echo $alert_msg; ?>
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Teacher ID:</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="teacher_id" value="<?php echo $teacher_id; ?>" required>
+                        <input type="text" class="form-control" name="teachers_id" value="<?php echo $teachers_id; ?>" required>
                       </div>
-                    </div> </br>
+                    </div><br>
 
-
-                  
+                    
 
                     <!-- <div class="control-group">
                     <label class="control-label" for="focusedInput">Status: 
@@ -99,7 +98,18 @@ include('../includes/sidebar.php');
                                           </div>
                     </div> -->
 
-                   
+                    <label class="control-label"
+                                            style="display: inline-block; margin-left: 15px;">Status: 
+                                             </label>
+                                          <div class="controls" >
+                                            <select class="span3 m-wrap" id="work_status" name="work_status">
+                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                              <option value="Full-time">Full-time</option>
+                                              <option value="Part-time">Part-time</option>
+                                            </select>
+                                          </div>
+                    </div> </fieldset> </br>
+                    <br>
 
                     <div class="control-group">
                       <label class="control-label" for="multiSelect">Department:</label>
@@ -112,25 +122,14 @@ include('../includes/sidebar.php');
                         <?php } ?>
                         </select>
                         <p class="help-block">Start typing to activate auto complete!</p>
-                      </div>
-                      </div>
-
-                    </div> </br>
+                      </div> <br>
                       
-                    <label class="control-label"
-                                            style="display: inline-block; margin-left: 15px;">Status: 
-                                             </label>
-                                          <div class="controls" >
-                                            <select class="span3 m-wrap" id="status" name="status">
-                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                              <option value="Full-time">Full-time</option>
-                                              <option value="Part-time">Part-time</option>
-                                            </select>
-                                          </div>
-                    </div> </fieldset> </br>
-                    </div>
-            
-                    </div>
+
+                    </div><br>
+
+
+                  
+                    </div> <br>
 
                     <!-- /.box-body -->
                     <div class="box-footer">

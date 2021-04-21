@@ -9,14 +9,12 @@
 
     
     //     echo "<pre>";
-    //     print_r($_POST);s
+    //     print_r($_POST);
     // echo "</pre>";
 
     $teacher_id = $_POST['teacher_id'];
     $status = $_POST['status'];
-    $department = $_POST['department'];
     $courses_id = $_POST['courses_id'];
-    
   
       //insert user to database
       $register_user_sql = "INSERT INTO tbl_status SET 
@@ -28,7 +26,7 @@
       $register_data->execute([
         ':teacher_id'                         => $teacher_id,
         ':status'                             => $status,
-        ':department'                         => implode(" , ",$courses_id)
+        ':department'                         =>  implode(" , ",$courses_id),
       ]);
 
       $alert_msg .= ' 

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificates" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="723bcb88-57b8-475b-ac6b-d7650a3ea0a0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="31"/>
+	<property name="ireport.y" value="378"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="137" y="0" width="333" height="27" uuid="bb93e6b3-b719-4cc9-8220-9a6f1561310f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian" size="16"/>
+				</textElement>
+				<text><![CDATA[Colegio de Sta. Rita de San Carlos Inc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="27" width="168" height="20" uuid="ecdd8209-4a49-49bc-92b7-5b059db76e86"/>
+				<text><![CDATA[San Carlos City, Negros Occidental]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="47" width="228" height="20" uuid="84366519-92c2-4b45-bba1-7437a9e77ad7"/>
+				<text><![CDATA[Tel No. (034) 312-6212 , Telefax (034) 312- 6824]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="67" width="168" height="20" uuid="ec0e91c9-c5c9-4564-81fb-8b63f849310a"/>
+				<text><![CDATA[Website: http://www.csr-scc.edu.ph]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="93" width="256" height="20" uuid="07b9f7e5-5a5c-48b5-8c1f-00e483907e80"/>
+				<text><![CDATA[Email: csrreg_123@yahoo.com  |  admin@csr-scc.edu.ph]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="156" y="15" width="267" height="20" uuid="ff8f2fca-4121-4d8d-95e1-1d3045022732"/>
+				<textElement textAlignment="Center">
+					<font fontName="Baskerville Old Face" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C E R T I F I C A T I O N]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="-21" y="14" width="214" height="20" uuid="008089ef-3de0-4940-8d78-3bb142a34f11"/>
+				<textElement textAlignment="Center">
+					<font fontName="Baskerville Old Face" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TO WHOM IT MAY CONCERN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="41" width="476" height="13" uuid="7b00ea01-0b81-46aa-ad01-a486b6d6cf1f"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[        This is to certify that 		    	          	                   	    obtained the following grades as]]></text>
+			</staticText>
+			<line>
+				<reportElement x="137" y="52" width="210" height="1" uuid="7a35c87e-c72a-46a5-a5ad-6c7ac080b00f"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="60" width="474" height="20" uuid="17bc052a-ea36-4561-bf56-cf1395b80949"/>
+				<text><![CDATA[		     student in the college of ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="71" width="85" height="1" uuid="67253656-7f20-45eb-ad2c-941ff5a34683"/>
+			</line>
+			<line>
+				<reportElement x="227" y="71" width="271" height="1" uuid="229c1e42-948d-4ac0-9ca7-bc73fda4baf7"/>
+			</line>
+			<staticText>
+				<reportElement x="25" y="80" width="51" height="20" uuid="2834c604-fea9-49b4-ac23-accb04c01509"/>
+				<text><![CDATA[during the]]></text>
+			</staticText>
+			<line>
+				<reportElement x="76" y="91" width="100" height="1" uuid="b819bd33-e903-4e7a-9382-418de2fd7549"/>
+			</line>
+			<staticText>
+				<reportElement x="184" y="80" width="133" height="20" uuid="e17d92f3-ac20-4bbb-a147-e9bcb22c945f"/>
+				<text><![CDATA[of Academic Year]]></text>
+			</staticText>
+			<line>
+				<reportElement x="267" y="92" width="115" height="1" uuid="01b85c71-0592-448b-b905-e791c5930347"/>
+			</line>
+			<staticText>
+				<reportElement x="387" y="81" width="27" height="20" uuid="b8e34103-ddaa-4967-91f5-ac95465a3cd1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="57" y="12" width="58" height="20" uuid="74e60259-0513-4b3f-b724-a0ebd94b4abe"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBJECTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="12" width="100" height="20" uuid="905bfc3c-c453-4d4e-96c7-824843c137a6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTIVE TITLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="12" width="67" height="20" uuid="1305f1cc-4fa4-4e0a-8311-ab94ee9117a8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RATING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="12" width="44" height="20" uuid="173404f1-0df9-4b9f-95fe-416d846d296a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CREDIT]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="76" y="15" width="442" height="19" uuid="a9ec513d-a638-4602-94a6-19dcefa723cc"/>
+				<text><![CDATA[This certification is issued  upon request of the party concerned  for whatever legal purpose it]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="34" width="100" height="20" uuid="1dbeb0b0-ce41-40fd-b7a3-1f4eda87f67a"/>
+				<text><![CDATA[serve him/her best.]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="169" splitType="Stretch">
+			<staticText>
+				<reportElement x="56" y="13" width="106" height="20" uuid="eeb2aecc-9521-416d-b567-66114f85593b"/>
+				<text><![CDATA[Signed and given this ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="13" width="279" height="20" uuid="f01ca9a9-a1f1-4587-8d56-0c2a7ef3fc78"/>
+				<text><![CDATA[at Colegio de Santa Rita de San Carlos , Inc. San Carlos City,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="31" width="114" height="20" uuid="833bb080-a41f-451f-99e7-8e555b1ddf06"/>
+				<text><![CDATA[Negros Occidental .]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="101" width="166" height="20" uuid="96be84d3-75e9-4ee1-9055-898ae5510232"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SR. EMILIA V. BUENASEDA, AR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="121" width="57" height="20" uuid="ae7a1456-727a-4d06-8f1a-541701d3236e"/>
+				<text><![CDATA[Registrar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="101" width="100" height="20" uuid="fe9c149e-9d4d-483e-8de8-35ecdfdfa6f6"/>
+				<text><![CDATA[not valid without]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="121" width="100" height="20" uuid="9995bf59-ebbf-4ed0-a82d-6e2e5194dd10"/>
+				<text><![CDATA[the college seal.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="155" y="25" width="100" height="1" uuid="1aeb6495-6a38-4e9a-a627-9470edf24ff0"/>
+			</line>
+			<line>
+				<reportElement x="352" y="97" width="166" height="1" uuid="77a498d6-af06-42f5-8eaa-db0060a7911b"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="98" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -4,7 +4,7 @@
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="328"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -14,7 +14,7 @@
 	<field name="subjects_id" class="java.lang.String"/>
 	<field name="subjects_description" class="java.lang.String"/>
 	<field name="units" class="java.lang.Integer"/>
-	<field name="course_code" class="java.lang.String"/>
+	<field name="courses_id" class="java.lang.String"/>
 	<field name="year_level" class="java.lang.String"/>
 	<field name="semester" class="java.lang.String"/>
 	<field name="pre_requisites" class="java.lang.String"/>
@@ -77,7 +77,6 @@
 	</title>
 	<pageHeader>
 		<band height="150" splitType="Stretch">
-			<printWhenExpression><![CDATA[$F{grades_prelim}]]></printWhenExpression>
 			<staticText>
 				<reportElement key="staticText-2" x="1" y="0" width="34" height="18" uuid="7c67efd3-05f0-4467-8703-12f9b54485ee"/>
 				<textElement verticalAlignment="Middle"/>
@@ -254,18 +253,6 @@
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{subjects_description}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="false">
-				<reportElement key="textField" x="357" y="-1" width="61" height="19" uuid="aceb3022-7ba6-4592-a8d6-40629b09ec84"/>
-				<box>
-					<pen lineWidth="0.0" lineStyle="Solid"/>
-					<topPen lineWidth="0.0" lineStyle="Solid"/>
-					<leftPen lineWidth="0.5" lineStyle="Solid"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid"/>
-					<rightPen lineWidth="0.5" lineStyle="Solid"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{grades_final}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField" x="418" y="-1" width="47" height="18" uuid="b3e77ef9-f42c-415c-aae4-c2906d1cc491"/>
