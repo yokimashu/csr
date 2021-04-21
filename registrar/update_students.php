@@ -13,23 +13,23 @@ if (isset($_POST['students_id'])) {
   //     print_r($_POST);
   // echo "</pre>";
 
-  $students_id = $_POST['students_id'];
-  $first_name = $_POST['first_name'];
-  $middle_name = $_POST['middle_name'];
-  $last_name = $_POST['last_name'];
-  $date_of_birth = date('Y-m-d', strtotime($_POST['date_of_birth']));
-  $place_of_birth = $_POST['place_of_birth'];
+  $students_id = $_POST['idNumber'];
+  $first_name = $_POST['fName'];
+  $middle_name = $_POST['mName'];
+  $last_name = $_POST['lName'];
+  $date_of_birth = date('Y-m-d', strtotime($_POST['dateOfBirth']));
+  $place_of_birth = $_POST['placeOfBirth'];
   $nationality = $_POST['nationality'];
   $gender = $_POST['gender'];
   $status = $_POST['status'];
-  $contact_number   = $_POST['contact_number'];
-  $facebook_account = $_POST['facebook_account'];
+  $contact_number   = $_POST['contactNumber'];
+  $facebook_account = $_POST['fbAcc'];
   $religion   = $_POST['religion'];
   $baptized  = $_POST['baptized'];
   $confirmed = $_POST['confirmed'];
-  $elementary_school = $_POST['elementary_school'];
-  $high_school = $_POST['high_school'];
-  $last_attended_college = $_POST['last_attended_college'];
+  $elementary_school = $_POST['elemSchool'];
+  $high_school = $_POST['highSchool'];
+  $last_attended_college = $_POST['college'];
 
     //insert user to database
     $register_user_sql      = "UPDATE tbl_students SET 
@@ -107,10 +107,10 @@ if (isset($_POST['students_id'])) {
         $con = null;
 
       //INSERT THE INFORMATION OF THE STUDENT
-      $parent_name                 =                $_POST['parent_name'];
-      $parent_contact_number       =                $_POST['parent_contact_number'];
-      $parent_address              =                $_POST['parent_address'];
-      $parent_occupation           =                $_POST['parent_occupation'];
+      $parent_name                 =                $_POST['parentName'];
+      $parent_contact_number       =                $_POST['parentContactNumber'];
+      $parent_address              =                $_POST['parentAddress'];
+      $parent_occupation           =                $_POST['parentOccupation'];
 
       $query_parent_info =            "UPDATE tbl_student_guardian SET 
                                         parent_name = :parent,
@@ -128,7 +128,7 @@ if (isset($_POST['students_id'])) {
           ':occupation'         =>      $parent_occupation
                                ]);
   $fileName = 'default.jpg';
-  $img = $_POST['studentimage'];
+  $img = $_POST['image-tag'];
   if($img !=  '')
   {
     unlink('../studentimage/' . $img);
