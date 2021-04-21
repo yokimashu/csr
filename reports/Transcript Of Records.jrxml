@@ -77,7 +77,6 @@
 	</title>
 	<pageHeader>
 		<band height="150" splitType="Stretch">
-			<printWhenExpression><![CDATA[$F{grades_prelim}]]></printWhenExpression>
 			<staticText>
 				<reportElement key="staticText-2" x="1" y="0" width="34" height="18" uuid="7c67efd3-05f0-4467-8703-12f9b54485ee"/>
 				<textElement verticalAlignment="Middle"/>
