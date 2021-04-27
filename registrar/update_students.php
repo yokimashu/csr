@@ -71,8 +71,7 @@ if (isset($_POST['students_id'])) {
     :parent,
     :address,
     :contact,
-    :occupation,
-    :photo)";
+    :occupation)";
 
     $register_data = $con->prepare($register_user_sql);
     $register_data->execute([
@@ -103,10 +102,10 @@ if (isset($_POST['students_id'])) {
       ':parent'                => $parent_name,
       ':address'               => $parent_address,
       ':contact'               => $parent_contact_number,
-      ':occupation'            => $parent_occupation,
-      ':photo'                 => $img
+      ':occupation'            => $parent_occupation
+    
     ]);
- 
+
 
     if ($oldphoto !=  $img) {
         unlink('../studentimage/' . $img);
@@ -118,6 +117,10 @@ if (isset($_POST['students_id'])) {
         $fileName = uniqid() . '.jpg';
         $file = $folderPath . $fileName;
         file_put_contents($file, $image_base64);
+        $get_new_photo = "UPDATE student_image SET photo = :photo WHERE student_id = :studentid";
+        $prep_new_photo = $con->prepare($get_new_photo);
+        $prep_new_photo->execute([':photo' =>$fileName,
+        ':studentid'  =>  $students_id]);
     }
 }
   

@@ -610,6 +610,8 @@ include('../includes/sidebar.php');
         var student_image = $('#image-tag').val();
         // var docno = $(this).val();
         console.log(contact_number);
+        console.log(oldphoto);
+        console.log(student_image);
         $.ajax({
           type: 'POST',
           data: {
