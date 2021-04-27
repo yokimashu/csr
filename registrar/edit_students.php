@@ -9,6 +9,7 @@ $baptized =  $confirmed = $elem_school =  $high_school= $last_school =  $street 
 $vil_subd=  $brgy = $city =  $province =  $region = $zip_code =  $parent_name= 
 $address =  $contact =  $occupation = $photo = '';
 $btnNew = 'disabled';
+$oldphoto ='';
 $civil_status = '';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -70,7 +71,7 @@ $get_student_record = "SELECT *,s.status as sstatus FROM tbl_students s inner jo
       $contact = $records['contact'];
       $occupation = $records['occupation'];
       $photo = $records['photo'];
- 
+      $oldphoto = $records['photo'];
 
 
 
@@ -577,6 +578,7 @@ include('../includes/sidebar.php');
         }
       });
       $('#rootwizard .finish').click(function () {
+        var oldphoto = '<?php echo $oldphoto ?>';
         var students_id = $('#idNumber').val();
         var first_name = $('#fName').val();
         var middle_name = $('#mName').val();
@@ -639,12 +641,14 @@ include('../includes/sidebar.php');
             elementary_school: elementary_school,
             high_school: high_school,
             last_attended_college: last_attended_college,
-            studentimage: student_image
+            studentimage: student_image,
+            oldphoto : oldphoto
           },
           url: 'update_students.php',
+          
           success: function (response) {
            
-            
+            console.log(response);
               notification("Congratulations", "The student is successfully saved","Refresh","success","success");
 
      
