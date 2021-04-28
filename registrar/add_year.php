@@ -3,7 +3,7 @@
 
 session_start();
 
-$year_level = $total_students_number =  $alert_msg = '';
+$code = $year_level  =  $alert_msg = '';
 
 
  $btnNew = 'disabled';

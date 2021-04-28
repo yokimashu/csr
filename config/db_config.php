@@ -18,5 +18,8 @@ catch (PDOEXCEPTION $error) {
 
 }
 
+$conn = new mysqli("localhost","root","","csr");	
+
+
 
 ?>

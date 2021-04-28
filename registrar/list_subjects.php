@@ -95,7 +95,7 @@ include('../includes/sidebar.php');
                     <td><?php echo $subjects_data['subjects_id']; ?> </td>
                     <td><?php echo $subjects_data['subjects_description']; ?> </td>
                     <td><?php echo $subjects_data['units']; ?> </td>
-                    <td><?php echo $subjects_data['courses_id']; ?> </td>
+                    <td><?php echo $subjects_data['course_id']; ?> </td>
                     <td><?php echo $subjects_data['year_level']; ?> </td>
                     <td><?php echo $subjects_data['semester']; ?> </td>
                     <td><?php echo $subjects_data['pre_requisites']; ?> </td>
