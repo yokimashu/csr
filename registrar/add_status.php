@@ -3,7 +3,7 @@
 
 session_start();
 
-$teachers_id = $status = $department = $courses_id =  $alert_msg = '';
+$teacher_id = $status = $department = $courses_id = $courses =  $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -64,7 +64,7 @@ include('../includes/sidebar.php');
         <!-- block -->
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Add Teacher</div>
+            <div class="muted pull-left">Add Status</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
@@ -80,7 +80,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Teacher ID:</label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="teachers_id" value="<?php echo $teachers_id; ?>" required>
+                        <input type="text" class="form-control" name="teacher_id" value="<?php echo $teacher_id; ?>" required>
                       </div>
                     </div><br>
 
@@ -102,7 +102,7 @@ include('../includes/sidebar.php');
                                             style="display: inline-block; margin-left: 15px;">Status: 
                                              </label>
                                           <div class="controls" >
-                                            <select class="span3 m-wrap" id="work_status" name="work_status">
+                                            <select class="span3 m-wrap" id="status" name="status">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option value="Full-time">Full-time</option>
                                               <option value="Part-time">Part-time</option>
