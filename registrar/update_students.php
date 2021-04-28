@@ -108,7 +108,7 @@ if (isset($_POST['students_id'])) {
 
 
     if ($oldphoto !=  $img) {
-        unlink('../studentimage/' . $img);
+        unlink('../studentimage/' . $oldphoto);
         $folderPath = "../studentimage/";
         $image_parts = explode(";base64,", $img);
         $image_type_aux = explode("image/", $image_parts[0]);
@@ -125,10 +125,6 @@ if (isset($_POST['students_id'])) {
 }
   
 
-
-
-
-echo $img;
 
 
 

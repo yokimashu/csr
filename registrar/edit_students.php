@@ -609,9 +609,9 @@ include('../includes/sidebar.php');
         var last_attended_college = $('#college').val();
         var student_image = $('#image-tag').val();
         // var docno = $(this).val();
-        console.log(contact_number);
-        console.log(oldphoto);
-        console.log(student_image);
+        // console.log(contact_number);
+        // console.log(oldphoto);
+        // console.log(student_image);
         $.ajax({
           type: 'POST',
           data: {
