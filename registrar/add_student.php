@@ -103,19 +103,19 @@ include('../includes/sidebar.php');
                                       <p>
                                         <div class="control-group span12">
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; ">First Name: </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 8px;">
-                                            <input class="input-xlarge focused span10" id="fName" type="text" value="">
+                                            >First Name: </label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span5" id="fName" type="text" value="">
                                           </div>
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 2px;">Middle Name: </label>
-                                          <div class="controls" style="display: inline-block; margin: 8px;">
-                                            <input class="input-xlarge focused span10" id="mName" type="text" value="">
+                                            >Middle Name: </label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span5" id="mName" type="text" value="">
                                           </div>
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 2px;">Last Name: </label>
-                                          <div class="controls" style="display: inline-block; margin: 4px;">
-                                            <input class="input-xlarge focused span10" id="lName" type="text" value="">
+                                           >Last Name: </label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span5" id="lName" type="text" value="">
                                           </div>
 
 
@@ -124,24 +124,24 @@ include('../includes/sidebar.php');
 
                                       <p>
                                         <div class="control-group span12">
-                                          <label class="control-label" for="date01" style="display: inline-block;">Date
+                                          <label class="control-label" for="date01" >Date
                                             of Birth: </label>
-                                          <div class="controls " style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused span11" type="date" id="dateOfBirth"
+                                          <div class="controls " >
+                                            <input class="input-xlarge focused span5" type="date" id="dateOfBirth"
                                               value="">
                                           </div>
 
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 10px;">Place of Birth:</label>
-                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused span11" id="placeOfBirth" type="text"
+                                            >Place of Birth:</label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span5" id="placeOfBirth" type="text"
                                               value="">
                                           </div>
 
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 10px;">Nationality: </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused span11" id="nationality" type="text"
+                                            >Nationality: </label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span5" id="nationality" type="text"
                                               value="">
                                           </div>
                                         </div>
@@ -151,10 +151,10 @@ include('../includes/sidebar.php');
 
                                         <div class="control-group span12">
 
-                                          <label class="control-label" style="display: inline-block; ">Gender: <span
+                                          <label class="control-label" >Gender: <span
                                               class="required">*</span></label>
-                                          <div class="controls" style="display: inline-block; margin-left: 15px;">
-                                            <select class="span12 m-wrap" id="gender" name="category">
+                                          <div class="controls" >
+                                            <select class="span5 m-wrap" id="gender" name="category">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option value="Male">Male</option>
                                               <option value="Female">Female</option>
@@ -162,10 +162,10 @@ include('../includes/sidebar.php');
                                           </div>
 
                                           <label class="control-label"
-                                            style="display: inline-block; margin-left: 30px;">Status: <span
+                                            >Status: <span
                                               class="required">*</span></label>
-                                          <div class="controls" style="display: inline-block; margin-left: 40px;">
-                                            <select class="span12 m-wrap" id="status" name="category">
+                                          <div class="controls" >
+                                            <select class="span5 m-wrap" id="status" name="category">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option value="Single">Single</option>
                                               <option value="Married">Married</option>
@@ -177,18 +177,18 @@ include('../includes/sidebar.php');
 
                                       </p>
 
-                                      <div class="control-group span12">
+                                      <div class="control-group span5">
 
                                         <div class="control-group">
-                                          <label class="control-label" style="display: inline-block;">Contact Number:
+                                          <label class="control-label">Contact Number:
                                           </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 15px;">
+                                          <div class="controls" >
                                             <input class="input-xlarge focused span8" id="contactNumber" type="number"
                                               value="">
                                           </div>
                                           <label class="control-label"
-                                            style="display: inline-block;margin-left:-30px;">Facebook Account: </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
+                                           >Facebook Account: </label>
+                                          <div class="controls" >
                                             <input class="input-xlarge focused" id="fbAcc" type="text"
                                               placeholder="Optional" value="">
                                           </div>
