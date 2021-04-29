@@ -155,18 +155,18 @@ include('../includes/sidebar.php');
                                       <p>
                                         <div class="control-group span12">
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; ">First Name: </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 8px;">
+                                            >First Name: </label>
+                                          <div class="controls" >
                                             <input class="input-xlarge focused span10" id="fName" name = "fName" type="text" value="<?php echo $fname; ?>">
                                           </div>
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 2px;">Middle Name: </label>
-                                          <div class="controls" style="display: inline-block; margin: 8px;">
+                                            >Middle Name: </label>
+                                          <div class="controls" >
                                             <input class="input-xlarge focused span10" id="mName" name ="mName" type="text" value="<?php echo $mname; ?>">
                                           </div>
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 2px;">Last Name: </label>
-                                          <div class="controls" style="display: inline-block; margin: 4px;">
+                                            >Last Name: </label>
+                                          <div class="controls" >
                                             <input class="input-xlarge focused span10" id="lName"  name = "lName"type="text" value="<?php echo $lname; ?>">
                                           </div>
 

@@ -100,8 +100,26 @@ include('../includes/sidebar.php');
                                         </div>
                                       </div>
 
-                                      <p>
+                                  
+
+                                      
+                                      
                                         <div class="control-group span12">
+                                          <label class= "control-label"
+                                          >Student Status: <span
+                                              class="required" >*</span></label>
+                                              <div class="controls" >
+                                                <select class="span5 m-wrap" id="student_status" name="category">
+                                                 <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                                 <option value="New">New Student</option>
+                                                 <option value="Old">Old Student</option>
+                                                 <option value="Transferee">Transferee Student</option>
+                                               </select>
+                                          </div>
+                                        </div>
+                                      
+                                      <p>
+                                          <div class="control-group span12">
                                           <label class="control-label" for="focusedInput"
                                             >First Name: </label>
                                           <div class="controls" >
