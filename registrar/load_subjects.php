@@ -11,7 +11,7 @@ include('../config/db_config.php');
     INNER JOIN tbl_schedules c ON c.`subject_code` =s.`subjects_id` 
     INNER JOIN tbl_rooms r ON r.`room_no` = c.`room_code`
     INNER JOIN tbl_faculty f ON f.`teachers_id` = c.`teacher_code`
-    WHERE s.course_id = :code AND s.year_level= :year_level AND s.semester = :semester"; 
+    WHERE s.courses_id = :code AND s.year_level= :year_level AND s.semester = :semester"; 
 
     $prep_sql = $con->prepare($sql);
     $prep_sql->execute([':code'=> $course,

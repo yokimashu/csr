@@ -26,6 +26,22 @@ if($idno !='' && $subject !='' && $title !='' && $units !='' && $day !='' && $ti
            ':day' => $day,
            ':stime' => $time,
            ':room' => $room]);   
+
+
+           $grades = "INSERT INTO tbl_grades SET
+           students_id  = :id,
+           subjects_id  = :subjects_id,
+           descriptive_title    =   :title,
+           prelim   =   '',
+           midterm  =   '' ,
+           final    =   '',
+            remarks =   ''";
+
+           $insert_grades = $con->prepare($grades);
+           $insert_grades->execute([
+            ':id'   =>  $idno,
+           ':subjects_id'   =>  $subject,
+           ':title' =>  $title]);
  echo json_encode("You successfully enrolled new student!");
 }else{
     echo json_encode("There is something wrong in the enrollment!");
