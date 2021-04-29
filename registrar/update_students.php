@@ -108,7 +108,7 @@ if (isset($_POST['students_id'])) {
 
 
     if ($oldphoto !=  $img) {
-        unlink('../studentimage/' . $oldphoto);
+     
         $folderPath = "../studentimage/";
         $image_parts = explode(";base64,", $img);
         $image_type_aux = explode("image/", $image_parts[0]);
@@ -121,7 +121,9 @@ if (isset($_POST['students_id'])) {
         $prep_new_photo = $con->prepare($get_new_photo);
         $prep_new_photo->execute([':photo' =>$fileName,
         ':studentid'  =>  $students_id]);
+        unlink('../studentimage/' . $oldphoto);
     }
+    echo "Success";
 }
   
 

@@ -651,9 +651,10 @@ include('../includes/sidebar.php');
           success: function (response) {
            
             console.log(response);
+            if(response == 'Success'){
               notification("Congratulations", "The student is successfully saved","Refresh","success","success");
 
-     
+            }
           },
           error: function (chr, d, e) {
             console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
