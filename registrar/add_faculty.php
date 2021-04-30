@@ -99,7 +99,7 @@ include('../includes/sidebar.php');
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Middle Name:</label>
+                      <label class="control-label" for="focusedInput">Middle Initial:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="middle_name" value="<?php echo $middle_name; ?>" required>
                         </div>

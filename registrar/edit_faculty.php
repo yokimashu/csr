@@ -88,56 +88,56 @@ include('../includes/sidebar.php');
                    
 
                   <div class="control-group">
-                      <label class="control-label" for="focusedInput">Teachers ID</label>
+                      <label class="control-label" for="focusedInput">Teachers ID:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="teachers_id" value="<?php echo $teachers_id; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Surname</label>
+                      <label class="control-label" for="focusedInput">Surname:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="surname"  value="<?php echo $surname; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">First Name</label>
+                      <label class="control-label" for="focusedInput">First Name:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Middle Name</label>
+                      <label class="control-label" for="focusedInput">Middle Initial:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="middle_name"  value="<?php echo $middle_name; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Work Status</label>
+                      <label class="control-label" for="focusedInput">Work Status:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="work_status" value="<?php echo $work_status; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Faculty Department</label>
+                      <label class="control-label" for="focusedInput">Faculty Department:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="faculty_dept"  value="<?php echo $faculty_dept; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Contact No.</label>
+                      <label class="control-label" for="focusedInput">Contact No.:</label>
                       <div class="controls">
                         <input type="number" class="form-control" name="contact_number" value="<?php echo $contact_number; ?>" required>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Email Address</label>
+                      <label class="control-label" for="focusedInput">Email Address:</label>
                       <div class="controls">
                         <input type="email" class="form-control" name="email_address"  value="<?php echo $email_address; ?>" required>
                       </div>
