@@ -113,7 +113,7 @@ include('../includes/sidebar.php');
                                                  <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                                  <option value="New">New Student</option>
                                                  <option value="Old">Old Student</option>
-                                                 <option value="Transferee">Transferee Student</option>
+                                                 <option value="Transferee Student">Transferee Student</option>
                                                </select>
                                           </div>
                                         </div>
@@ -123,17 +123,17 @@ include('../includes/sidebar.php');
                                           <label class="control-label" for="focusedInput"
                                             >First Name: </label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused span5" id="fName" type="text" value="">
+                                            <input class="input-xlarge focused span10" id="fName" type="text" value="">
                                           </div>
                                           <label class="control-label" for="focusedInput"
                                             >Middle Name: </label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused span5" id="mName" type="text" value="">
+                                            <input class="input-xlarge focused span10" id="mName" type="text" value="">
                                           </div>
                                           <label class="control-label" for="focusedInput"
                                            >Last Name: </label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused span5" id="lName" type="text" value="">
+                                            <input class="input-xlarge focused span10" id="lName" type="text" value="">
                                           </div>
 
 
@@ -145,21 +145,21 @@ include('../includes/sidebar.php');
                                           <label class="control-label" for="date01" >Date
                                             of Birth: </label>
                                           <div class="controls " >
-                                            <input class="input-xlarge focused span5" type="date" id="dateOfBirth"
+                                            <input class="input-xlarge focused span10" type="date" id="dateOfBirth"
                                               value="">
                                           </div>
 
                                           <label class="control-label" for="focusedInput"
                                             >Place of Birth:</label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused span5" id="placeOfBirth" type="text"
+                                            <input class="input-xlarge focused span10" id="placeOfBirth" type="text"
                                               value="">
                                           </div>
 
                                           <label class="control-label" for="focusedInput"
                                             >Nationality: </label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused span5" id="nationality" type="text"
+                                            <input class="input-xlarge focused span10" id="nationality" type="text"
                                               value="">
                                           </div>
                                         </div>
@@ -172,7 +172,7 @@ include('../includes/sidebar.php');
                                           <label class="control-label" >Gender: <span
                                               class="required">*</span></label>
                                           <div class="controls" >
-                                            <select class="span5 m-wrap" id="gender" name="category">
+                                            <select class="span10 m-wrap" id="gender" name="category">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option value="Male">Male</option>
                                               <option value="Female">Female</option>
@@ -183,7 +183,7 @@ include('../includes/sidebar.php');
                                             >Status: <span
                                               class="required">*</span></label>
                                           <div class="controls" >
-                                            <select class="span5 m-wrap" id="status" name="category">
+                                            <select class="span10 m-wrap" id="status" name="category">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option value="Single">Single</option>
                                               <option value="Married">Married</option>
@@ -195,19 +195,19 @@ include('../includes/sidebar.php');
 
                                       </p>
 
-                                      <div class="control-group span5">
+                                      <div class="control-group span12">
 
                                         <div class="control-group">
                                           <label class="control-label">Contact Number:
                                           </label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused span8" id="contactNumber" type="number"
+                                            <input class="input-xlarge focused span10" id="contactNumber" type="number"
                                               value="">
                                           </div>
                                           <label class="control-label"
                                            >Facebook Account: </label>
                                           <div class="controls" >
-                                            <input class="input-xlarge focused" id="fbAcc" type="text"
+                                            <input class="input-xlarge focused span10" id="fbAcc" type="text"
                                               placeholder="Optional" value="">
                                           </div>
                                         </div>
