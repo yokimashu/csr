@@ -152,6 +152,21 @@ include('../includes/sidebar.php');
                                         </div>
                                       </div>
 
+                             
+                                      <div class="control-group span12">
+                                          <label class= "control-label"
+                                          >Student Status: <span
+                                              class="required" >*</span></label>
+                                              <div class="controls" >
+                                                <select class="span5 m-wrap" id="student_status" name="category">
+                                                 <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                                 <option <?php if($student_status == 'New Student'){echo "selected";}?>value="New">New Student</option>
+                                                 <option <?php if($student_status == 'Old Student'){echo "selected";}?>value="Old Student">Old Student</option>
+                                                 <option <?php if($student_status == 'Transferee Student'){echo "selected";}?>value="Transferee Student">Transferee Student</option>
+                                               </select>
+                                          </div>
+                                        </div>
+
                                       <p>
                                         <div class="control-group span12">
                                           <label class="control-label" for="focusedInput"
@@ -176,24 +191,24 @@ include('../includes/sidebar.php');
 
                                       <p>
                                         <div class="control-group span12">
-                                          <label class="control-label" for="date01" style="display: inline-block;">Date
+                                          <label class="control-label" for="date01" >Date
                                             of Birth: </label>
-                                          <div class="controls " style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused span11" type="date" name = "dateOfBirth" id="dateOfBirth"
+                                          <div class="controls " >
+                                            <input class="input-xlarge focused span10" type="date" name = "dateOfBirth" id="dateOfBirth"
                                               value="<?php echo $birth; ?>">
                                           </div>
 
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 10px;">Place of Birth:</label>
-                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused span11" id="placeOfBirth" name="placeOfBirth" type="text"
+                                            >Place of Birth:</label>
+                                          <div class="controls">
+                                            <input class="input-xlarge focused span10" id="placeOfBirth" name="placeOfBirth" type="text"
                                               value="<?php echo $placeofbirth; ?>">
                                           </div>
 
                                           <label class="control-label" for="focusedInput"
-                                            style="display: inline-block; margin-left: 10px;">Nationality: </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused span11" id="nationality" name = "nationality" type="text"
+                                            >Nationality: </label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span10" id="nationality" name = "nationality" type="text"
                                               value="<?php echo $nationality; ?>">
                                           </div>
                                         </div>
@@ -205,8 +220,8 @@ include('../includes/sidebar.php');
 
                                           <label class="control-label" style="display: inline-block; ">Gender: <span
                                               class="required">*</span></label>
-                                          <div class="controls" style="display: inline-block; margin-left: 15px;">
-                                            <select class="span12 m-wrap" id="gender" name="gender"  name = "gender" value = "">
+                                          <div class="controls" >
+                                            <select class="span10 m-wrap" id="gender" name="gender"  name = "gender" value = "">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option <?php if($gender == 'Male'){echo 'selected';}?> value="Male">Male</option>
                                               <option <?php if($gender == 'Female'){echo 'selected';}?>value="Female">Female</option>
@@ -214,10 +229,10 @@ include('../includes/sidebar.php');
                                           </div>
 
                                           <label class="control-label"
-                                            style="display: inline-block; margin-left: 30px;">Status: <span
+                                            >Status: <span
                                               class="required">*</span></label>
-                                          <div class="controls" style="display: inline-block; margin-left: 40px;">
-                                            <select class="span12 m-wrap" id = "status" name="status" value = "">
+                                          <div class="controls" >
+                                            <select class="span10 m-wrap" id = "status" name="status" value = "">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
                                               <option <?php if($civil_status == 'Single'){echo "selected";}?>value="Single">Single</option>
                                               <option <?php if($civil_status == 'Married'){echo "selected";}?>value="Married">Married</option>
@@ -233,16 +248,16 @@ include('../includes/sidebar.php');
                                       <div class="control-group span12">
 
                                         <div class="control-group">
-                                          <label class="control-label" style="display: inline-block;">Contact Number:
+                                          <label class="control-label" >Contact Number:
                                           </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 15px;">
-                                            <input class="input-xlarge focused span8" id="contactNumber" name = "contactNumber" type="number"
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span10" id="contactNumber" name = "contactNumber" type="number"
                                               value="<?php echo $contact_number; ?>">
                                           </div>
                                           <label class="control-label"
-                                            style="display: inline-block;margin-left:-30px;">Facebook Account: </label>
-                                          <div class="controls" style="display: inline-block; margin-left: 10px;">
-                                            <input class="input-xlarge focused" id="fbAcc" name = "fbAcc" type="text"
+                                            >Facebook Account: </label>
+                                          <div class="controls" >
+                                            <input class="input-xlarge focused span10" id="fbAcc" name = "fbAcc" type="text"
                                               placeholder="Optional" value="<?php echo $fb_account; ?>">
                                           </div>
                                         </div>
