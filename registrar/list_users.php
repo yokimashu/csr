@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$department =  '';
+$user_id = $first_name = $middle_name = $last_name = $contact_no = $email = $username = $userpass = $account_type = $alert_msg = '';
 
 $user_id = $_SESSION['id'];
 
@@ -92,7 +92,7 @@ include('../includes/sidebar.php');
                       <td><?php echo $users_data['contact_no']; ?> </td>
                       <td><?php echo $users_data['email']; ?> </td>
                       <td>
-                      <a class="btn btn-primary" href="edit_users.php?user_id=<?php echo
+                      <a class="btn btn-primary" href="edit_user.php?user_id=<?php echo
     $users_data['user_id']; ?>"><i class="icon-edit"></i>
                           </a>
                         &nbsp;

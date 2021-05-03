@@ -158,15 +158,16 @@ include('../includes/sidebar.php');
                                           >Student Status: <span
                                               class="required" >*</span></label>
                                               <div class="controls" >
-                                                <select class="span5 m-wrap" id="student_status" name="category">
+                                                <select class="span5 m-wrap" id="student_status" name="student_status">
                                                  <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                                 <option <?php if($student_status == 'New Student'){echo "selected";}?>value="New">New Student</option>
-                                                 <option <?php if($student_status == 'Old Student'){echo "selected";}?>value="Old Student">Old Student</option>
-                                                 <option <?php if($student_status == 'Transferee Student'){echo "selected";}?>value="Transferee Student">Transferee Student</option>
+                                                 <option <?php if($student_status == 'New Student')echo "selected"; ?>value="New">New Student</option>
+                                                 <option <?php if($student_status == 'Old Student')echo "selected"; ?>value="Old Student">Old Student</option>
+                                                 <option <?php if($student_status == 'Transferee Student')echo "selected"; ?>value="Transferee Student">Transferee Student</option>
                                                </select>
                                           </div>
                                         </div>
 
+                   
                                       <p>
                                         <div class="control-group span12">
                                           <label class="control-label" for="focusedInput"
@@ -223,23 +224,34 @@ include('../includes/sidebar.php');
                                           <div class="controls" >
                                             <select class="span10 m-wrap" id="gender" name="gender"  name = "gender" value = "">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                              <option <?php if($gender == 'Male'){echo 'selected';}?> value="Male">Male</option>
-                                              <option <?php if($gender == 'Female'){echo 'selected';}?>value="Female">Female</option>
+                                              <option <?php if($gender == 'Male')echo 'selected';?> value="Male">Male</option>
+                                              <option <?php if($gender == 'Female')echo 'selected';?> value="Female">Female</option>
                                             </select>
                                           </div>
 
-                                          <label class="control-label"
-                                            >Status: <span
+                                          <label class="control-label" style="display: inline-block; ">Status: <span
                                               class="required">*</span></label>
                                           <div class="controls" >
-                                            <select class="span10 m-wrap" id = "status" name="status" value = "">
+                                            <select class="span10 m-wrap" id="status" name="status"  name = "status" value = "">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                              <option <?php if($civil_status == 'Single'){echo "selected";}?>value="Single">Single</option>
-                                              <option <?php if($civil_status == 'Married'){echo "selected";}?>value="Married">Married</option>
-                                              <option <?php if($civil_status == 'Widowed'){echo "selected";}?>value="Widowed">Widowed</option>
+                                              <option <?php if($status == 'Single')echo 'selected';?> value="Single">Single</option>
+                                              <option <?php if($status == 'Married')echo 'selected';?> value="Married">Married</option>
+                                            </select>
+                                          </div>
+
+                                         
+
+                                          <!-- <label class="control-label" style="display: inline-block;">Status: <span
+                                              class="required">*</span></label>
+                                          <div class="controls" >
+                                            <select class="span10 m-wrap" id="status" name="status" name = "status" name = "status"value = "">
+                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                              <option <?php if($status == 'Single')echo 'selected'; ?>value="Single">Single</option>
+                                              <option <?php if($status == 'Married')echo 'selected'; ?>value="Married">Married</option>
+                                              <option <?php if($status == 'Widowed')echo 'selected'; ?>value="Widowed">Widowed</option>
                                             </select>
                                             
-                                          </div>
+                                          </div> -->
 
                                         </div>
 
