@@ -83,6 +83,13 @@ include('../includes/sidebar.php');
                   </div>
                   <!-- search students -->
 
+                  <div class="control-group">
+                      <label class="control-label" for="focusedInput">Course</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="courses_id" value="<?php echo $courses_id; ?>" required>
+                      </div>
+                    </div>
+
                   <!-- Schedules -->
                   <div class="control-group">
                     <label class="control-label" for="multiSelect">Day/s</label>

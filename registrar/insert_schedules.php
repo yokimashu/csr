@@ -23,6 +23,7 @@
       //insert user to database
       $register_schedule_sql = "INSERT INTO tbl_schedules SET 
         subject_code         = :subjects,
+        courses_id                  = :courses_id,
         days                  = :days,
         start_time            = :start_time,
         end_time              = :end_time,
@@ -34,6 +35,7 @@
       $register_data = $con->prepare($register_schedule_sql);
       $register_data->execute([
         ':subjects'         => $subject,
+        ':courses_id'         => $courses_id,
         ':days'             => implode(" , ", $schedule),
         ':start_time'       => $start_time,
         ':end_time'         => $end_time,

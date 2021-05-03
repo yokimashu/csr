@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$objid =$subject_code =$days = $start_time = $end_time =$room_code =$teacher_code = '';
+$objid =$subject_code =$courses_id =$days = $start_time = $end_time =$room_code =$teacher_code = '';
 
 $objid = $_SESSION['id'];
 
@@ -77,6 +77,7 @@ include('../includes/sidebar.php');
                   <tr>
                      <th> OBJID</th>
                     <th> SUBJECT CODE</th>
+                    <th> COURSE </th>
                     <th> DAYS </th>
                     <th> START TIME </th>
                     <th> END TIME </th>
@@ -93,6 +94,7 @@ include('../includes/sidebar.php');
                     <tr style="font-size: 1rem">
                       <td><?php echo $schedules_data['objid']; ?> </td>
                       <td><?php echo $schedules_data['subject_code']; ?> </td>
+                      <td><?php echo $schedules_data['courses_id']; ?> </td>
                       <td><?php echo $schedules_data['days']; ?> </td>
                       <td><?php echo $schedules_data['start_time']; ?> </td>
                       <td><?php echo $schedules_data['end_time']; ?> </td>
