@@ -3,7 +3,7 @@
 
 session_start();
 
-$day = $start_time = $end_time = $alert_msg = '';
+$courses_id = $day = $start_time = $end_time = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -83,12 +83,30 @@ include('../includes/sidebar.php');
                   </div>
                   <!-- search students -->
 
-                  <div class="control-group">
+                  <!-- <div class="control-group">
                       <label class="control-label" for="focusedInput">Course</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="courses_id" value="<?php echo $courses_id; ?>" required>
                       </div>
-                    </div>
+                    </div> -->
+
+                    <div class="control-group">
+                    <label class="control-label" for="multiSelect">Course/s</label>
+                    <div class="controls">
+                      <select multiple="multiple" id="multiSelect" class="chzn-select span4" name='courses_id[]'>
+                        <option>BSIT</option>
+                        <option>BEED</option>
+                        <option>BSBA(FM)</option>
+                        <option>BSBA(MM)</option>
+                        <option>BSC</option>
+                        <option>BSED(ENG)</option>
+                        <option>BSED(FIL)</option>
+                        <option>BSED(MATH)</option>
+                        <option>BSTM</option>
+                        <option>Midwiferey</option>
+                      </select>
+                      <p class="help-block">Start typing to activate auto complete!</p>
+                    </div><br>
 
                   <!-- Schedules -->
                   <div class="control-group">
