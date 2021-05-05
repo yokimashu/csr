@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificates" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="723bcb88-57b8-475b-ac6b-d7650a3ea0a0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="137" y="0" width="333" height="27" uuid="bb93e6b3-b719-4cc9-8220-9a6f1561310f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian" size="16"/>
+				</textElement>
+				<text><![CDATA[Colegio de Sta. Rita de San Carlos Inc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="27" width="168" height="20" uuid="ecdd8209-4a49-49bc-92b7-5b059db76e86"/>
+				<text><![CDATA[San Carlos City, Negros Occidental]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="47" width="228" height="20" uuid="84366519-92c2-4b45-bba1-7437a9e77ad7"/>
+				<text><![CDATA[Tel No. (034) 312-6212 , Telefax (034) 312- 6824]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="67" width="168" height="20" uuid="ec0e91c9-c5c9-4564-81fb-8b63f849310a"/>
+				<text><![CDATA[Website: http://www.csr-scc.edu.ph]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="93" width="256" height="20" uuid="07b9f7e5-5a5c-48b5-8c1f-00e483907e80"/>
+				<text><![CDATA[Email: csrreg_123@yahoo.com  |  admin@csr-scc.edu.ph]]></text>
+			</staticText>
+			<image>
+				<reportElement x="44" y="8" width="104" height="97" uuid="d43c301f-4b7e-4a55-804e-e3b1f60c120a"/>
+				<imageExpression><![CDATA["C:\\Users\\lenovo\\Downloads\\181796580_3165308207035238_4406846908376911377_n.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="155" y="13" width="267" height="20" uuid="ff8f2fca-4121-4d8d-95e1-1d3045022732"/>
+				<textElement textAlignment="Center">
+					<font fontName="Baskerville Old Face" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[List of Enrolled Students]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="137" y="11" width="97" height="20" uuid="7edec77f-d4c5-405c-b93b-aad691f38cd3"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[School Year: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="11" width="74" height="20" uuid="f5430b81-1a39-4958-8738-216402b7bddd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Semester:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="226" y="26" width="64" height="1" uuid="990782f5-46ea-4423-8dfd-0a0e784c0eba"/>
+			</line>
+			<line>
+				<reportElement x="368" y="25" width="64" height="1" uuid="b8d2df69-8d5d-4181-8677-8b99859b8fe7"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="12" width="33" height="20" uuid="74e60259-0513-4b3f-b724-a0ebd94b4abe"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="12" width="100" height="20" uuid="905bfc3c-c453-4d4e-96c7-824843c137a6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="12" width="44" height="20" uuid="173404f1-0df9-4b9f-95fe-416d846d296a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="12" width="100" height="20" uuid="9d0b8290-3ae1-4b09-ae02-399921a21b55"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="12" width="100" height="20" uuid="f1e93b49-2b97-47dc-ba71-a04c62c9414e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Middle Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="12" width="100" height="20" uuid="cbba01ae-613b-4d6e-a333-d9b802c9638b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Course]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="12" width="44" height="20" uuid="81a71a21-9b57-4f08-992d-4aa6cbbccce7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="169" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="98" splitType="Stretch"/>
+	</summary>
+</jasperReport>

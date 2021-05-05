@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificates" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="723bcb88-57b8-475b-ac6b-d7650a3ea0a0">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="19"/>
-	<property name="ireport.y" value="230"/>
+	<property name="ireport.y" value="0"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -31,6 +31,10 @@
 				<reportElement x="163" y="93" width="256" height="20" uuid="07b9f7e5-5a5c-48b5-8c1f-00e483907e80"/>
 				<text><![CDATA[Email: csrreg_123@yahoo.com  |  admin@csr-scc.edu.ph]]></text>
 			</staticText>
+			<image>
+				<reportElement x="24" y="8" width="104" height="97" uuid="8f13a6fd-85e2-4c1c-bfd9-bf7f4ddc968c"/>
+				<imageExpression><![CDATA["C:\\Users\\lenovo\\Downloads\\181796580_3165308207035238_4406846908376911377_n.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
