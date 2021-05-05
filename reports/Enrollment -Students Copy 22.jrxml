@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment - Students Copy 2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9089770d-19c7-4769-b649-b09992d7a5dd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="330"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="10" width="204" height="20" uuid="72b5c2f5-c973-4dee-aadd-0e96f34afb6d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[AFFIDAVIT OF UNDERTAKING]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="154" splitType="Stretch">
+			<line>
+				<reportElement x="23" y="66" width="490" height="1" uuid="b24504d2-6afd-411a-a635-7fe8536440fe"/>
+			</line>
+			<staticText>
+				<reportElement x="193" y="67" width="100" height="17" uuid="a8b830ff-29b9-4e2f-8b59-af56aa83fbad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="91" width="131" height="20" uuid="bd917f52-b586-40d0-8d1c-f081712f33a9"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[and the parent/guardian of ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="142" y="109" width="318" height="1" uuid="153147b2-d533-49ee-9fef-1e6dd912954c"/>
+			</line>
+			<staticText>
+				<reportElement x="460" y="89" width="47" height="20" uuid="8e844cde-9681-49ca-ba5e-9072b527c8d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[hereby]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="111" width="100" height="11" uuid="7af971cd-c2ac-474c-b782-78c89561da89"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name of Learner]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="134" width="329" height="20" uuid="f9be62c5-3578-4e21-b757-76eb4070b214"/>
+				<text><![CDATA[signs this document freely and with full understanding of its contents.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="15" width="137" height="20" uuid="a272f8a2-f8b2-4585-aa9d-03c09f333335"/>
+				<text><![CDATA[of legal age, a resident of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="27" width="138" height="16" uuid="0f7ced9a-4644-4ccc-9d3e-12af7253fd28"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name of Parent/ Guardian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="15" width="10" height="20" uuid="1c9ffbcc-2b90-41d0-9fed-affbca1600ce"/>
+				<text><![CDATA[I, ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="52" y="27" width="318" height="1" uuid="06453b8a-f639-41d6-8177-709bf6bf9b8b"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="9" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="283" splitType="Stretch">
+			<staticText>
+				<reportElement x="531" y="54" width="16" height="13" uuid="4e4696aa-8877-4fcb-8ce0-2dadc3776a8d"/>
+				<text><![CDATA[.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="0" width="154" height="14" uuid="60d1035c-31f4-479a-a7b8-270b92c39253"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[The present circumstances are:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="12" width="148" height="14" uuid="f5e9d2ae-4848-46cf-a195-6e7932fcd753"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1.  I choose to enroll my child at]]></text>
+			</staticText>
+			<line>
+				<reportElement x="171" y="23" width="268" height="1" uuid="8f8570ed-fa82-458f-9584-7454e89def45"/>
+			</line>
+			<staticText>
+				<reportElement x="52" y="24" width="185" height="19" uuid="afb8eaf8-f945-4266-8b8d-12facbe083cb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2.  I  certify that my child was previously enrolled at ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="237" y="42" width="188" height="1" uuid="415c8fcb-6030-4323-b125-f23f28bad00b"/>
+			</line>
+			<staticText>
+				<reportElement x="63" y="44" width="119" height="12" uuid="e50e48cc-1bfa-43f1-9b02-316660b73d25"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[and passed grade level of]]></text>
+			</staticText>
+			<line>
+				<reportElement x="160" y="54" width="77" height="1" uuid="ed0a1693-c6c5-49a8-93e7-b03a11bf198d"/>
+			</line>
+			<staticText>
+				<reportElement x="52" y="55" width="43" height="13" uuid="2cd47ba1-6537-43b3-93a2-cbcf3c7c5d58"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[3. Due to ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="90" y="64" width="193" height="1" uuid="121756f2-d101-42a9-8b2b-083c5c60cfba"/>
+			</line>
+			<staticText>
+				<reportElement x="283" y="53" width="199" height="12" uuid="42428357-9e89-48c7-bd35-76e75fba27df"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[I cannot submit the transfer of credentials ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="68" width="94" height="14" uuid="65d19e09-86ff-44e0-8d4b-ce021313eb0d"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[of my child to this school.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="82" width="454" height="17" uuid="5c8f6c29-123f-4e6c-aab8-7aee1e9c1792"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4. I understand that my child shall be temporarily enrolled because I have not yet submitted the required credentials]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="99" width="161" height="19" uuid="251cc34c-4e89-435a-a458-a094e085a4df"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[With these circumstances, I undertake to:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="120" width="440" height="15" uuid="3587adce-2ffd-45db-9b25-6ba39926a40d"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1. Do what is permissible for the release of the credentials of my child from the previous school.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="135" width="217" height="14" uuid="4da1c460-14e3-44a3-b005-f30613b7a25e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2. Submit the transfer credentials of my child on or before ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="263" y="145" width="197" height="1" uuid="27a841b2-8929-41c3-8cfa-c4e4d255d780"/>
+			</line>
+			<staticText>
+				<reportElement x="52" y="149" width="352" height="14" uuid="7c5869c4-55a1-4366-9e02-987d293b1d50"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[3. I agree that the official record from this school shall only be released until the submission of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="163" width="163" height="14" uuid="e893b2a1-76ae-4694-ab92-657a6a507210"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[school credentials from the previous school.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="177" width="466" height="15" uuid="1932f5dc-fe01-4921-aa0e-c8ee5c8d831f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4. I understand that the school shallonly issue a temporary progress report card signed by the adviser to monitor the progress]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="192" width="273" height="16" uuid="e4dd1125-cd83-48f3-a37b-a27e5444a5c1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[  of my child and that it is inadmissble for transfer and enrolment purposes.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="208" width="264" height="16" uuid="acdc864f-9089-468c-943b-dd915234111b"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Without the transfer credentials of my child, I fully understand that:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="224" width="148" height="13" uuid="707899b5-10c0-4435-a00f-4288f45a7a89"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1. My child is only temporarily enrolled.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="238" width="234" height="13" uuid="b0123d51-a0fa-49a6-8006-37300ea6b484"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2. My child cannot be officially promoted to a higher grade level.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="251" width="241" height="13" uuid="986182d5-3c8f-4615-a271-0cf7ec98ebf1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[3. My child cannot officially graduate from this school.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="264" width="438" height="13" uuid="c21539dd-4dd8-428e-bbb1-f7668e898a0a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4. Should my child attain the qualifying average and other criteria for academic honors, he/she will not be recognized.]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="289" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="90" width="511" height="14" uuid="b745f928-36c6-4fb4-a1c2-fc0c5362790e"/>
+				<text><![CDATA[I hereby certify that the information given are true and correct to the best of my knowledge and I allow Colegio de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="104" width="511" height="15" uuid="1b3449af-8e49-469e-ad0b-73c496a3c20e"/>
+				<text><![CDATA[Santa Rita de San Carlos,Inc. to use my child's details to create and/or update his/her llearner profile in the Learner]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="119" width="503" height="14" uuid="aa075211-cf49-417d-8325-a828ea40e8ab"/>
+				<text><![CDATA[Information System. The Information herein shall be treated as confidential in compliance with the Data Privacy Act]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="133" width="56" height="15" uuid="7503165c-9d8f-4dc7-8510-e94c8a00038b"/>
+				<text><![CDATA[Act of 2012.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="286" y="189" width="254" height="1" uuid="a322a42b-0ef0-4cc7-9908-dac8b402ad6c"/>
+			</line>
+			<staticText>
+				<reportElement x="283" y="190" width="254" height="18" uuid="3d721ed4-4df8-4ca0-8c89-d5d13d081967"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Signature Over Printed Name of Parent/Guardian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="208" width="91" height="16" uuid="89c24932-dc25-412c-b69b-d4c9a6bbb3b6"/>
+				<text><![CDATA[Gov't ID Presented:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="224" width="55" height="16" uuid="6ed8e2e2-7771-4997-833e-d2f62585dc49"/>
+				<text><![CDATA[ID Number:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="240" width="64" height="16" uuid="9a57c15d-e510-4e7b-b41e-4f970024acb4"/>
+				<text><![CDATA[Date Issued:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="131" y="221" width="62" height="1" uuid="af579810-2108-4a00-ac55-f790cdfdf403"/>
+			</line>
+			<line>
+				<reportElement x="96" y="238" width="92" height="1" uuid="922d24ec-cdce-4aec-80f7-1945d8df270e"/>
+			</line>
+			<line>
+				<reportElement x="102" y="252" width="87" height="1" uuid="2a9a14f5-78a1-4834-bc8a-7333510b22fc"/>
+			</line>
+			<staticText>
+				<reportElement x="32" y="66" width="492" height="13" uuid="88c811d5-fec1-41fb-b341-99c9aa1b2748"/>
+				<text><![CDATA[Attested this	           day of	                      at				]]></text>
+			</staticText>
+			<line>
+				<reportElement x="286" y="67" width="232" height="1" uuid="514896d3-4d53-41d1-9d73-fbbbe226ea0b"/>
+			</line>
+			<line>
+				<reportElement x="189" y="67" width="68" height="1" uuid="a2770c11-83cb-4db7-8065-97140f42e24a"/>
+			</line>
+			<line>
+				<reportElement x="98" y="66" width="49" height="1" uuid="2c63308e-6f9a-429c-92e1-0d6383c55739"/>
+			</line>
+			<staticText>
+				<reportElement x="29" y="35" width="185" height="13" uuid="14a33428-b30a-43c8-aef3-3f666f27c0a7"/>
+				<text><![CDATA[obligations provided in this document.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="22" width="494" height="13" uuid="042127dc-9668-4574-8e56-e32669d199c4"/>
+				<text><![CDATA[who are involved in the acceptance and enrollment of my chils, and the enforcement of any law or rule and the]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="6" width="495" height="16" uuid="a7ae643f-5c8f-433e-b368-9dd0f45a1d78"/>
+				<text><![CDATA[With all the foregoing, I shall hold free from any liability, whether civil, criminal or administrative, CSR Personnel]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

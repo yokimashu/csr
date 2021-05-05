@@ -3,7 +3,7 @@
 
 session_start();
 
-$user_id = $first_name = $middle_name = $last_name = $contact_no = $email = $username1 = $userpass = $account_type = $alert_msg = '';
+$user_id = $first_name = $middle_name = $last_name = $contact_no = $email = $username1 = $userpass = $account_type = $department = $alert_msg = '';
 
 $btnNew = 'disabled';
 $btnStatus = 'enabled';
@@ -29,6 +29,26 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_user_name = $result['username'];
   $db_department = $result['department'];
 
+}
+
+//get room data
+if (isset($_GET['user_id'])) {
+  $user_id = $_GET['user_id'];
+
+  $get_users_sql = "SELECT * FROM tbl_users WHERE user_id = :user_id";
+  $get_users_data = $con->prepare($get_users_sql);
+  $get_users_data->execute([':user_id' => $user_id]);
+  while ($result = $get_users_data->fetch(PDO::FETCH_ASSOC)) {
+      $first_name = $result['first_name'];
+      $middle_name = $result['middle_name'];
+      $last_name  = $result['last_name'];
+      $contact_no = $result['contact_no'];
+      $email  = $result['email'];
+      $username = $username['username'];
+      $userpass =  $userpass['userpass'];
+      $account_type = $account_type['account_type'];
+      $department = $department['department'];
+  }
 }
 ?>
 
@@ -109,12 +129,21 @@ include('../includes/sidebar.php');
 
                 <legend>Edit Account Set-Up</legend>
 
-                <div class="control-group">
+                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Account Type:</label>
                       <div class="controls">
                         <input type="text" class="form-control" name="account_type" value="<?php echo $account_type; ?>" required>
                       </div>
                     </div>
+
+                    <div class="control-group">
+                      <label class="control-label" for="focusedInput">Department:</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="department" value="<?php echo $department; ?>" required>
+                      </div>
+                    </div>
+
+
 
 
 

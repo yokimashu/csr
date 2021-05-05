@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment - Students Copy" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1489bae3-596d-4ad4-a6c1-e445a4678194">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="a0c08e19-58bc-4409-955e-9a34731ff00a"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="98" y="11" width="391" height="29" uuid="fbfcaf21-1573-4682-9a27-4203e0f40df6"/>
+				<textElement>
+					<font fontName="Algerian" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Colegio de Santa Rita de San Carlos, Inc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="40" width="226" height="20" uuid="ac7cf470-8d4c-4237-be59-63cd81e914eb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[San Carlos City, Negros Occidental]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="98" y="6" width="211" height="29" uuid="e3e07c48-633a-450c-b503-a3be15c0f230"/>
+				<textElement>
+					<font fontName="Arial Black" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTRATION FORM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="6" width="61" height="29" uuid="4313063f-1ed7-4568-8889-590299ec36ed"/>
+				<textElement>
+					<font fontName="Arial Black" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID NO.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="489" y="25" width="61" height="1" uuid="9a25d1fa-f3ff-4f1c-9c9f-a04a9541fac5"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="36" height="20" uuid="9ecf1505-53a0-4aed-bb59-622292398ccc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="40" y="0" width="298" height="20" uuid="177d8b7a-2029-4c36-8f14-e90852090cad"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="351" y="0" width="23" height="20" uuid="2afb6470-a59e-42cd-8cb2-e855a5ccdf78"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Sex:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="372" y="0" width="20" height="20" uuid="40db4e7e-fd11-450d-895e-281c06d173c9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="401" y="0" width="26" height="20" uuid="197b957a-3125-45be-b70d-00147a8cde9f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Old]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="420" y="0" width="20" height="20" uuid="a5c9df2c-8fb9-46da-ae8e-160d3127f16a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="443" y="0" width="29" height="20" uuid="8719cdc8-4f00-48c9-810a-4026daee2579"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[New]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="465" y="0" width="20" height="20" uuid="7b9d65f1-a3df-4cf5-b3ce-a5c42fe8d0ac"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="488" y="0" width="46" height="20" uuid="5010e7f5-d3e8-4902-8b44-66f74a9a7330"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Returnee]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="531" y="0" width="20" height="20" uuid="ead4e1a5-175d-4faf-950b-b6d3cc4a94ba"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="57" y="20" width="41" height="14" uuid="0918c4a5-902d-429e-85d0-497f14dac9a2"/>
+				<text><![CDATA[Surname]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="20" width="55" height="14" uuid="848ccea5-731f-461c-b4f1-aa941da68b60"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="20" width="74" height="14" uuid="e9370da2-0272-413e-b0d9-120ec505f7b7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Middle Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="37" width="36" height="20" uuid="13bdc8eb-e5a0-4d80-bb28-4ef72f05afa2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[College]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="46" y="37" width="20" height="20" uuid="8e5852c3-fca0-4fc1-a205-580187ffdbc7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="74" y="37" width="28" height="20" uuid="baf53d87-3699-493b-93bf-4ad2f4097fc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[M.A]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="100" y="37" width="20" height="20" uuid="6d02f842-f8b3-4a41-a1f7-79dfb469bb99"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="157" y="37" width="75" height="20" uuid="1dfebcbc-e476-4db4-ac78-43a87b3924eb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[Course & Year]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="229" y="37" width="143" height="20" uuid="59a72181-551e-4a80-875f-00f5bf9dde1c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="394" y="37" width="35" height="20" uuid="d731bb2a-da41-462b-886e-15350413a05b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Major:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="429" y="37" width="121" height="20" uuid="b54e8a8f-8292-45e4-aa3e-3059b5ca52e0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="60" width="74" height="20" uuid="e6e545bf-11eb-47ef-9741-f1540a3e8fb6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Academic Year:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="85" y="60" width="72" height="20" uuid="7669a7eb-b5a7-4d08-8eda-0f3b9256e9b8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="175" y="60" width="54" height="20" uuid="d3cff704-f795-456f-a342-cfaa3f74c029"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Semester:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="224" y="60" width="52" height="20" uuid="b92cb3cb-59e2-4cb9-9188-3a63ad2698c8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="396" y="60" width="56" height="20" uuid="52faa738-209d-4913-90a2-46bfd2ee7908"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Contact No.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="450" y="60" width="100" height="20" uuid="64a86930-336e-4fe1-8b42-532bffbbb758"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="251" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="10" width="37" height="20" uuid="ceab1510-a5b1-47db-99fd-1635e29537eb"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="10" width="90" height="20" uuid="57a7f782-c1f2-4b23-ae50-c309593d6dbf"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descriptive Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="10" width="27" height="20" uuid="afe306ba-7ecf-4102-8ef1-a6ab87200448"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Units]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="10" width="27" height="20" uuid="4f5b79cf-0ec4-4260-b6c3-669ee68b2200"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="10" width="27" height="20" uuid="54cebf16-032b-4a24-b187-cbc36a0627ea"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="10" width="31" height="20" uuid="2960a702-3676-4c67-9f8f-31440be325af"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Room]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="30" width="100" height="20" uuid="a83e6b5e-c004-47c4-881e-8264e548f170"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[To the Registrar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="50" width="135" height="16" uuid="48715fe2-f223-42a8-b137-8d45041621b0"/>
+				<text><![CDATA[I have voluntarily enrolled]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="66" width="158" height="16" uuid="b41932f2-b6f8-4937-b09e-dbbb1fab1ce7"/>
+				<text><![CDATA[in the subjects listed herein after ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="82" width="158" height="16" uuid="2b3004d9-b609-4bd8-875b-acee3d7179e9"/>
+				<text><![CDATA[complying with all the college,as]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="98" width="158" height="16" uuid="11e3212c-8b81-4572-ac5b-adc7dcf865b3"/>
+				<text><![CDATA[well as government rules &]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="114" width="158" height="16" uuid="4c3e7b11-e2b9-45ab-9180-08b03c794d3e"/>
+				<text><![CDATA[regulations pertaining to subject]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="130" width="158" height="16" uuid="53b5cf61-a1f5-4c21-8b0a-a23bf53b17a2"/>
+				<text><![CDATA[loads.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="146" width="138" height="16" uuid="99668088-1608-431a-be16-725dc9df75d3"/>
+				<text><![CDATA[I understand that I must have]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="162" width="163" height="16" uuid="8a5636ea-1ae9-4347-9500-c8bbcb50d85b"/>
+				<text><![CDATA[at least one year of residence in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="178" width="158" height="16" uuid="fa091efe-7285-493b-94ad-c061e00329a5"/>
+				<text><![CDATA[CSR in order to be issued a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="194" width="158" height="16" uuid="79de707b-4d39-4f98-a58e-3e2354ecd982"/>
+				<text><![CDATA[diploma.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="231" width="100" height="20" uuid="f0258c8b-ecd8-44ff-b604-06099712dddd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Student's Signature]]></text>
+			</staticText>
+			<line>
+				<reportElement x="427" y="230" width="100" height="1" uuid="8ef6f89c-a231-40c0-8828-c80c6787a2bb"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="0" width="63" height="20" uuid="82c94c4e-8b16-49a1-a790-c8dead7dcf91"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Evaluated by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="20" width="106" height="18" uuid="ca89fe1a-bdad-4caa-8a25-a6768444e701"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[Guidance Counselor]]></text>
+			</staticText>
+			<line>
+				<reportElement x="74" y="18" width="100" height="1" uuid="297e89b4-d063-4749-b7cf-9e871de1592c"/>
+			</line>
+			<staticText>
+				<reportElement x="71" y="20" width="111" height="18" uuid="4195fb75-498b-4b88-91d4-77622051b7a3"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Dept.Head/Adviser]]></text>
+			</staticText>
+			<line>
+				<reportElement x="224" y="20" width="100" height="1" uuid="a2bd02ce-1e85-4dfe-9cd4-dc74b5679f78"/>
+			</line>
+			<staticText>
+				<reportElement x="427" y="18" width="100" height="20" uuid="b5dcd3ad-6f8d-4c44-99eb-31640103d129"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[School Treasurer]]></text>
+			</staticText>
+			<line>
+				<reportElement x="428" y="17" width="100" height="1" uuid="203a121a-be5c-461a-9944-94691f77f893"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="71" y="33" width="111" height="18" uuid="db7a23ca-0309-4d09-a2b0-6cf23c6c3c33"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Dean]]></text>
+			</staticText>
+			<line>
+				<reportElement x="75" y="30" width="100" height="1" uuid="348f7ba7-f3d5-4328-af4c-16b8bfbddd23"/>
+			</line>
+			<staticText>
+				<reportElement x="218" y="28" width="100" height="20" uuid="99f67d6d-b15a-498c-bc5c-bcd02504b501"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Directress]]></text>
+			</staticText>
+			<line>
+				<reportElement x="224" y="29" width="100" height="1" uuid="e9bf8495-d468-4eb8-9f7f-11c8b14c690e"/>
+			</line>
+			<staticText>
+				<reportElement x="211" y="51" width="127" height="20" uuid="c47eb8f2-b5db-4588-bd51-83eca66e17fa"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GUIDANCE COPY]]></text>
+			</staticText>
+			<line>
+				<reportElement x="431" y="27" width="100" height="1" uuid="4bc61f20-fb7d-451e-8dfa-2ecba6df48db"/>
+			</line>
+			<staticText>
+				<reportElement x="431" y="29" width="100" height="20" uuid="dd2fea3f-c71b-4b24-801b-651a1b280aea"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[School Registrar]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -3,7 +3,7 @@
 
 session_start();
 
-$user_id = $first_name = $middle_name = $last_name = $contact_no = $email = $username1 = $userpass = $account_type = $alert_msg = '';
+$user_id = $first_name = $middle_name = $last_name = $contact_no = $email = $username1 = $userpass = $account_type = $department = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -118,6 +118,20 @@ include('../includes/sidebar.php');
                           <option <?php if ($account_type == '2') echo 'selected'; ?> value="2">2 (User Only) </option>
                           <!-- <option value="1">1 (Admin)</option>
                           <option value="2">2 (User Only)</option> -->
+                        </select>
+                      </div>
+                    </div>
+                    
+
+                    <div class="control-group">
+                      <label class="control-label">Department: <span class="required">*</span></label>
+                      <div class="controls">
+                        <select class="span3 m-wrap" name="account_type">
+                          <option value="">Select...</option>
+                          <option <?php if ($department == '1') echo 'selected'; ?> value="1">1 (Registrar) </option>
+                          <option <?php if ($department == '2') echo 'selected'; ?> value="2">2 (Billing) </option>
+                          <!-- <option value="1">1 (Registrar)</option>
+                          <option value="2">2 (Billing)</option> -->
                         </select>
                       </div>
                     </div>

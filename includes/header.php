@@ -73,8 +73,7 @@ while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                            
-                                <a href="#" role="button"  data-toggle=""> <i class="icon-user"></i> <?php echo $db_first_name . '' . $db_middle_name . ' ' . $db_last_name ?> <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <?php echo $db_first_name . '' . $db_middle_name . ' ' . $db_last_name ?> <i class="caret"></i>
 
                                 </a>
                                 <ul class="dropdown-menu">
@@ -88,7 +87,86 @@ while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
                                 </ul>
                             </li>
                         </ul>
-                       
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
+
+                                </a>
+                                <ul class="dropdown-menu" id="menu1">
+                                    <li>
+                                        <a href="#">Tools <i class="icon-arrow-right"></i>
+
+                                        </a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li>
+                                                <a href="#">Reports</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Logs</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Errors</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">SEO Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Other Link</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">Other Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Other Link</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Content <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="#">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">News</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">Custom Pages</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">Calendar</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" href="#">FAQ</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Users <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="#">User List</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">Search</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">Permissions</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <!--/.nav-collapse -->
                 </div>

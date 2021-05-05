@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment - Registrar Copy 2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e248cc84-c7a7-4ac8-8380-c576cbe310d2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="0" width="74" height="16" uuid="062a6ad5-1e77-448e-bb68-269f90b30ed7"/>
+				<text><![CDATA[Student's Name:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="74" y="13" width="125" height="1" uuid="bad78698-d8f4-46c2-b7c1-ff9e37e89e2c"/>
+			</line>
+			<line>
+				<reportElement x="222" y="13" width="139" height="1" uuid="d7458bce-0922-4eba-8887-853f6b08688e"/>
+			</line>
+			<line>
+				<reportElement x="396" y="14" width="133" height="1" uuid="15ebaf21-83ab-473b-8bcb-48a619138e72"/>
+			</line>
+			<staticText>
+				<reportElement x="87" y="16" width="100" height="13" uuid="3c677f9f-5547-4632-bad2-f5721476515e"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SURNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="16" width="100" height="13" uuid="69628c5f-898d-4301-a034-e8e2ecf2a5a9"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[FIRST NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="16" width="100" height="13" uuid="93c15bd8-ed1f-490e-8327-d8548a419c28"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MIDDLE NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="637" y="63" width="57" height="16" uuid="dcd8a9ee-7565-4218-abe9-ff94983fccef"/>
+				<text><![CDATA[Student No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="466" y="41" width="77" height="1" uuid="b320fd1a-82a6-4a67-9c99-757863b0d0ce"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="43" width="74" height="18" uuid="a80b020c-f8c1-41b0-8ceb-8d92e837f130"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Home Address:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="74" y="57" width="166" height="1" uuid="bbb701a8-bbf3-4fe4-be46-728696028f39"/>
+			</line>
+			<staticText>
+				<reportElement x="241" y="43" width="56" height="16" uuid="d9b59449-119e-44b4-abc9-118d5fb0125f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Contact No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="29" width="74" height="16" uuid="b5adb221-7431-4f79-8f9c-42ac2e16202d"/>
+				<text><![CDATA[Student No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="297" y="56" width="77" height="1" uuid="2c18e693-739c-4ba2-a298-e366af944979"/>
+			</line>
+			<staticText>
+				<reportElement x="378" y="43" width="56" height="16" uuid="94abd230-018e-4382-b4ac-dc63f0f5d51e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[FB Account:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="434" y="58" width="109" height="1" uuid="700663b9-b9b9-4a6b-ad2f-4550dc30171d"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="61" width="94" height="18" uuid="5d41be0e-20c7-41e5-ab80-0bb1b8a3d70c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Provincial Address:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="87" y="78" width="166" height="1" uuid="ffdac555-3307-4e24-a4ac-b8449f709d60"/>
+			</line>
+			<staticText>
+				<reportElement x="254" y="63" width="23" height="16" uuid="d7d83273-0333-43de-a7b9-feb9d2b8c337"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Sex:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="278" y="77" width="42" height="1" uuid="74c1e993-0da3-4bac-bd2f-ca488557f841"/>
+			</line>
+			<line>
+				<reportElement x="373" y="76" width="49" height="1" uuid="25b4fa4f-e3ba-426b-bb39-581bdf819e47"/>
+			</line>
+			<staticText>
+				<reportElement x="320" y="62" width="54" height="16" uuid="823cc0f1-d62c-45a6-9080-96c7e4e7cc41"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Nationality:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="61" width="44" height="16" uuid="9f65fbe5-2a10-482d-b0c4-147a3e9fe344"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Baptized:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="465" y="75" width="17" height="1" uuid="00e7ba24-28ef-463c-9333-bc76540a6a09"/>
+			</line>
+			<staticText>
+				<reportElement x="482" y="61" width="47" height="16" uuid="bc138f74-d0c6-40bd-8f51-29dc466efd08"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Confirmed]]></text>
+			</staticText>
+			<line>
+				<reportElement x="531" y="75" width="17" height="1" uuid="bec7c0d9-bd4b-483a-be24-a700120754c4"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="78" width="72" height="17" uuid="9631afe2-8468-4319-b3e5-02762cce6f5b"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Date of Birth:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="62" y="94" width="59" height="1" uuid="e6174852-0f55-4fa4-8149-6292daa4b9da"/>
+			</line>
+			<staticText>
+				<reportElement x="121" y="79" width="66" height="17" uuid="85cf39cd-2648-4ed5-8c0a-bd237dd0c7e6"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Place of Birth:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="187" y="96" width="133" height="1" uuid="f8087c02-423d-48d5-8ede-b507e5953033"/>
+			</line>
+			<staticText>
+				<reportElement x="320" y="80" width="53" height="17" uuid="30eb7d3a-af27-40fa-a449-1d6fef9a0cdf"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Guardian:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="366" y="96" width="133" height="1" uuid="9a1d1282-d6e7-4c9d-bf9d-9621b2095ee9"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="0" width="119" height="20" uuid="f03477dd-3014-47bf-9584-1fbc1a922666"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preliminary Education:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="38" height="20" uuid="9c0fabd5-3e63-429d-a350-f314d93c1dc8"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[School]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="0" width="38" height="20" uuid="b3561a11-b001-4201-bce6-31dcb74a0bc7"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="20" width="57" height="17" uuid="8a26cdf2-d538-4a4b-af53-53b3346f601a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Elementary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="36" width="57" height="17" uuid="ab3aa816-2864-4998-8824-6959b47c8b63"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Secondary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="52" width="100" height="17" uuid="fe073ea4-6efb-4db0-98cf-20f7054af06c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[College last attended]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="19" width="20" height="16" uuid="0a91185c-c603-417c-9355-2a84665812ed"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[A.Y]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="36" width="20" height="16" uuid="0271d567-89ec-4b77-97c1-654c0e4964b2"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[A.Y]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="53" width="20" height="16" uuid="0ce7b923-ac2a-489a-b1f4-d9133660b358"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[A.Y]]></text>
+			</staticText>
+			<line>
+				<reportElement x="76" y="34" width="384" height="1" uuid="00c0ff82-3166-4a0d-815f-83b77d0d9e6c"/>
+			</line>
+			<line>
+				<reportElement x="76" y="51" width="384" height="1" uuid="d7321ca1-5401-4079-a918-97f3aa639d55"/>
+			</line>
+			<line>
+				<reportElement x="119" y="68" width="339" height="1" uuid="624874c1-f852-4213-b410-a78e38d28917"/>
+			</line>
+			<line>
+				<reportElement x="482" y="33" width="73" height="1" uuid="8ea4b935-ba7e-4490-9d88-481200a3e040"/>
+			</line>
+			<line>
+				<reportElement x="482" y="52" width="73" height="1" uuid="03c4742a-c168-4653-baa7-1995f5351771"/>
+			</line>
+			<line>
+				<reportElement x="482" y="67" width="73" height="1" uuid="cf43d484-ce09-488e-a375-dbe95145400c"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="230" splitType="Stretch">
+			<staticText>
+				<reportElement x="142" y="13" width="270" height="16" uuid="682fae01-616d-4a5b-8e9e-4c952822bcf7"/>
+				<textElement>
+					<font fontName="Arial Black" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STUDENT'S ENROLMENT AGREEMENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="37" width="509" height="20" uuid="885be502-84a9-415f-984f-fd9270d432b7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[I personally enroll in this Catholic institution and fully aware that I am bound to obey & observe the School Policies,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="57" width="527" height="20" uuid="b9727d75-b655-425d-b93e-ba866b0bcb81"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Rules and Regulations for a productive and successful stay in this college.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="76" width="509" height="20" uuid="6f00b20d-e961-4a5d-9eb2-ff6f29eb0322"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[I acknowledge that the following serious offenses taken frm the College Handbook, that after series of reminders and ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="96" width="527" height="20" uuid="280cb73d-ee83-4a7c-aa04-028fdbb279f9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[and due process could disqualify me from continuing my studies in this institution.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="132" width="522" height="17" uuid="6d047c42-dad7-4350-86c8-ad410c94b336"/>
+				<text><![CDATA[1. Incomplete school uniform			6. In extreme case, such as immorality,disrespect to authority.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="150" width="522" height="17" uuid="dcfcad88-727d-4156-9526-02e0feb60334"/>
+				<text><![CDATA[2. Frequent tardiness & absences from the class	7. Unauthorized removal of official notices & posters from the]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="168" width="522" height="17" uuid="29530392-30ce-4e12-80ba-d480c9d163f2"/>
+				<text><![CDATA[3. Smoking inside the campus			      bulletin boards & signages.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="186" width="522" height="17" uuid="fa21b7f3-c4c4-4290-93a5-2af6c07bc97f"/>
+				<text><![CDATA[4. Drunkenness & drug abuse			8. Loitering & staying along the corridors & disturbing classes.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="204" width="522" height="17" uuid="6aa080e3-ec5a-4ca7-afc4-b416363b47fe"/>
+				<text><![CDATA[5. Vandalism					9. Bullying/cyber bullying.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="5" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="2" width="66" height="20" uuid="66705222-9afd-40d3-961e-455871bab4f8"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[CONFORME:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="84" y="21" width="115" height="1" uuid="93388704-3b54-446b-bf53-624c6da20cbb"/>
+			</line>
+			<line>
+				<reportElement x="351" y="22" width="115" height="1" uuid="85b85241-c807-444e-ab18-badd66ee1f2b"/>
+			</line>
+			<staticText>
+				<reportElement x="87" y="23" width="100" height="20" uuid="ce2d4e00-dc1b-4335-9aa2-179f74f67a54"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARENT/GUARDIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="23" width="124" height="20" uuid="3b230ca5-3c27-4fd9-a741-946cf13dd238"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[STUDENT'S SIGNATURE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="43" width="144" height="20" uuid="9588c320-8ac3-4620-9fab-409fff4af34c"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature above printed name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="43" width="144" height="20" uuid="1f94d31c-c3c4-41e5-9adc-874177fbfeaa"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature above printed name]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
