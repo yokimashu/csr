@@ -3,7 +3,7 @@
 
 session_start();
 
-$courses_id = $day = $start_time = $end_time = $alert_msg = '';
+$courses_id =$courses = $day = $start_time = $end_time = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -31,6 +31,11 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_user_name = $result['username'];
   $db_department = $result['department'];
 }
+
+//select all courses
+$get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
+$get_all_courses_data = $con->prepare($get_all_courses_sql);
+$get_all_courses_data->execute();
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +95,7 @@ include('../includes/sidebar.php');
                       </div>
                     </div> -->
 
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                     <label class="control-label" for="multiSelect">Course/s</label>
                     <div class="controls">
                       <select multiple="multiple" id="multiSelect" class="chzn-select span4" name='courses_id[]'>
@@ -106,7 +111,20 @@ include('../includes/sidebar.php');
                         <option>Midwiferey</option>
                       </select>
                       <p class="help-block">Start typing to activate auto complete!</p>
-                    </div><br>
+                    </div><br> -->
+
+                    <div class="control-group">
+                      <label class="control-label" for="multiSelect">Course:</label>
+                      <div class="controls">
+                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="courses_id[]">
+                          <option>
+                            <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <option value="<?php echo
+                                          $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
+                        <?php } ?>
+                        </select>
+                        <p class="help-block">Start typing to activate auto complete!</p>
+                      </div> </br>
 
                   <!-- Schedules -->
                   <div class="control-group">
