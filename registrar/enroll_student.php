@@ -3,7 +3,7 @@
 
 session_start();
 
-$idno = $subjects_description = $units = $course_code = $year_level = $semester = $pre_requisites = $alert_msg = '';
+$idno = $subjects_description = $units = $course_code =  $middlename = $semester = $year_level = $semester = $pre_requisites = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -42,25 +42,163 @@ include('../includes/sidebar.php');
       <div class="row-fluid">
         <!-- block -->
 
+        <div class="control-group">
+          <label class="control-label" for="select01">SEACH STUDENT:</label>
+          <div class="controls">
+            <select id="search_student" name="student" class="chzn-select span5">
+              <option selected="selected">Please select...</option>
+              <?php while ($get_student = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                <option value="<?php echo
+                                $get_student['students_id']; ?>">
+                  <?php echo $get_student['first_name'] . ' ' . $get_student['middle_name'] . ' ' . $get_student['last_name']; ?>
+                </option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
         <div class="block">
           <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">Enroll Students</div>
+            <div class="muted pull-left">STUDENT INFO</div>
+          </div>
+          <div class="block-content collapse in">
+
+            <div class="span4">
+
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Student ID: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="id_no" type="text" readonly="" value="">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">First Name: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="first_name" type="text" readonly="" value="">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Year Level: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="year_level" type="text" readonly="" value="">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="span4">
+               
+            <div class="control-group">
+                            <label class="control-label" for="focusedInput">Course:</label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="course" type="text" readonly="" value="">
+                            </div>
+                    </div>
+                
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Middle Name:</label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="middle_name" type="text" readonly="" value="">
+                </div>
+              </div>
+
+              <div class="control-group">
+
+                <label class="control-label" for="focusedInput">Semester: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="semester" type="text" readonly="" value="">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="span4">
+
+            <div class="control-group">
+                <label class="control-label" for="focusedInput">Status: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="status" type="text" readonly="" value="">
+                </div>
+              </div>
+                 <div class="control-group">
+                            <label class="control-label" for="focusedInput">Last Name: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="last_name" type="text" readonly="" value="">
+                            </div>
+                          </div>
+
+                          <div class="control-group" hidden>
+                            <label class="control-label" hidden for="focusedInput">objid: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" h id="objid" type="text" readonly="" value="">
+                            </div>
+                          </div>
+
+              </div>
+          </div>
+        </div>
+        </div>
+
+        
+
+
+
+        <div class="block">
+          <div class="navbar navbar-inner block-header">
+            <div class="muted pull-left">ENROLLMENT</div>
           </div>
           <div class="block-content collapse in">
             <div class="span12">
               <form class="form-horizontal" role="form" id="enroll_student" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Details</legend>
+                
+                  
+
+
+                  <!-- <div class="control-group" hidden>
+                      <label class="control-label" for="focusedInput">ID No.</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="idno" value="<?php echo $idno; ?>" required>
+                      </div>
+                    </div> -->
 
                   <div class="control-group">
-                    <label class="control-label" for="select01">Search Student:</label>
+                    <label class="control-label" for="select01">Course</label>
                     <div class="controls">
-                      <select id="search_student" name="student" class="chzn-select span5">
+                      <select id="course1" name="course_code" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
-                        <?php while ($get_student = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <option value="<?php echo $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?>
+                          </option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                  
+
+                  <div class="control-group">
+                    <label class="control-label" for="select01">Year Level</label>
+                    <div class="controls">
+                      <select id="level" name="year_level" class="chzn-select span5">
+                        <option selected="selected">Please select...</option>
+                        <?php while ($get_level = $get_all_levels_data->fetch(PDO::FETCH_ASSOC)) { ?>
                           <option value="<?php echo
-                                          $get_student['students_id']; ?>">
-                            <?php echo $get_student['first_name'] . ' ' . $get_student['middle_name'] . ' ' . $get_student['last_name']; ?>
+                                          $get_level['code']; ?>"><?php echo $get_level['year_level']; ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="select01">Semester</label>
+                    <div class="controls">
+                      <select id="semester1" name="semester" class="chzn-select span5">
+                        <option selected="selected">Please select...</option>
+                        <?php while ($get_semester = $get_all_semesters_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                          <option value="<?php echo
+                                          $get_semester['code']; ?>"><?php echo $get_semester['semester']; ?>
                           </option>
                         <?php } ?>
                       </select>
@@ -68,57 +206,7 @@ include('../includes/sidebar.php');
                   </div>
 
 
-               
-                    <!-- <div class="control-group" hidden>
-                      <label class="control-label" for="focusedInput">ID No.</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="idno" value="<?php echo $idno; ?>" required>
-                      </div>
-                    </div> -->
 
-                    <div class="control-group">
-                      <label class="control-label" for="select01">Course</label>
-                      <div class="controls">
-                        <select id="course" name="course_code" class="chzn-select span5">
-                          <option selected="selected">Please select...</option>
-                          <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                            <option value="<?php echo
-                                            $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?>
-                            </option>
-                          <?php } ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="control-group">
-                      <label class="control-label" for="select01">Year Level</label>
-                      <div class="controls">
-                        <select id="level" name="year_level" class="chzn-select span5">
-                          <option selected="selected">Please select...</option>
-                          <?php while ($get_level = $get_all_levels_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                            <option value="<?php echo
-                                            $get_level['code']; ?>"><?php echo $get_level['year_level']; ?></option>
-                          <?php } ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="control-group">
-                      <label class="control-label" for="select01">Semester</label>
-                      <div class="controls">
-                        <select id="semester" name="semester" class="chzn-select span5">
-                          <option selected="selected">Please select...</option>
-                          <?php while ($get_semester = $get_all_semesters_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                            <option value="<?php echo
-                                            $get_semester['code']; ?>"><?php echo $get_semester['semester']; ?>
-                            </option>
-                          <?php } ?>
-                        </select>
-                      </div>
-                    </div>
-
-
-                
 
 
 
@@ -133,6 +221,7 @@ include('../includes/sidebar.php');
                       <div class="block-content collapse in">
                         <div class="span12">
 
+
                           <div class="control-group">
                             <label class="control-label" for="select01">Add Custom Subject</label>
                             <div class="controls">
@@ -146,72 +235,131 @@ include('../includes/sidebar.php');
                               </select>
                               <button class="btn btn-primary" id="add_subject">Add</button>
                             </div>
-                            </div>
-
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="subjects">
-                              <thead>
-                                <tr>
-                                  <th>Subject Code</th>
-                                  <th>Descriptive Title</th>
-                                  <th>No. of Units</th>
-                                  <th>Days</th>
-                                  <th>Time</th>
-                                  <th>Room</th>
-                                  <th>Options</th>
-                                </tr>
-                              </thead>
-                              <tbody id="list_subjects">
-
-                              </tbody>
-
-
-
-                            </table>
                           </div>
+
+                          <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="subjects">
+                            <thead>
+                              <tr>
+                                <th>Subject Code</th>
+                                <th>Descriptive Title</th>
+                                <th>No. of Units</th>
+                                <th>Days</th>
+                                <th>Time</th>
+                                <th>Room</th>
+                                <th>Options</th>
+                              </tr>
+                            </thead>
+                            <tbody id="list_subjects">
+
+                            </tbody>
+
+
+
+                          </table>
                         </div>
                       </div>
-                      <!-- /block -->
                     </div>
+                    <!-- /block -->
+                  </div>
 
-                  </div><br>
+            </div><br>
 
-                  <!-- /.box-body -->
-                  <div class="box-footer">
-                    <input type="submit" <?php echo $btnNew; ?> name="add" id="new" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="save" id="save" class="btn btn-primary" value="Save">
-                    <a href="list_enrollment.php">
-                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                    </a>
-                  </div>
-                  </div>
-                  </div>
-                  
-              </form>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <input type="submit" <?php echo $btnNew; ?> name="add" id="new" class="btn btn-primary" value="New">
+              <input type="submit" <?php echo $btnStatus; ?> name="save" id="save" class="btn btn-primary" value="Save">
+              <a href="list_enrollment.php">
+                <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+              </a>
             </div>
-            <!-- /.box -->
           </div>
-          <div class="col-md-1"></div>
         </div>
 
-  </section>
-  <!-- /.content -->
+        </form>
+      </div>
+      <!-- /.box -->
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+</section>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 <?php include('../includes/footer.php'); ?>
 
 <script>
-  $('#semester').on('change', function() {
 
-    var course = $('#course').val();
+$(function() {
+            $(".datepicker").datepicker();
+            $(".uniform_on").uniform();
+            $(".chzn-select").chosen();
+            $('.textarea').wysihtml5();
+    
+            
+        });
+
+
+  $('#search_student').on('change', function() {
+    var idno = this.value;
+
+    $.ajax({
+      type: "POST",
+      url: 'profile_student.php',
+      data: {
+        idno: idno
+      },
+      error: function(xhr, b, c) {
+        console.log(
+          "xhr=" +
+          xhr.responseText +
+          " b=" +
+          b.responseText +
+          " c=" +
+          c.responseText
+        );
+      },
+      success: function(response) {
+        var result = jQuery.parseJSON(response);
+        console.log('response from server', result);
+        $('#id_no').val(result.data);
+        $('#status').val(result.data2)
+        $('#first_name').val(result.data1);
+        $('#middle_name').val(result.data3);
+        $('#last_name').val(result.data4);
+        $('#course').val(result.data5);
+        // $('#status').val(result.data6);
+        $('#year_level').val(result.data7);
+        $('#semester').val(result.data8);
+        $('#course1').chosen("val",result.data5);
+        var course = result.data5.toUpperCase();
+        // alert(course);
+        $("#course1").val(course).trigger("chosen:updated");
+        // if (course == 'BSIT'){
+         
+          // $("#course1").chosen("val", "Bachelor of Science in Information Technology");
+        
+      }
+    });
+
+  });
+
+  $('#semester1').on('change', function() {
+
+    var course = $('#course1').val();
     var level = $('#level').val();
-    var semester = $('#semester').val();
+    var semester = $('#semester1').val();
+    var idno = $('#id_no').val();
     console.log(course);
     console.log(level);
     console.log(semester);
+   
+
     $('#list_subjects').load("load_subjects.php", {
         course: course,
         level: level,
-        semester: semester
+        semester: semester,
+        idno: idno
       },
       function(response, status, xhr) {
         if (status == "error") {
@@ -223,6 +371,23 @@ include('../includes/sidebar.php');
 
       });
 
+     
+            if ($('#objid').val() == '') {
+                $.ajax({
+                    type: 'POST',
+                    data: {},
+                    url: 'generate_objid.php',
+                    success: function(data) {
+                        //$('#entity_no').val(data);
+                        document.getElementById("objid").value = data;
+                        console.log(data);
+                    }
+                });
+            }
+ 
+
+
+
 
   });
 
@@ -231,21 +396,29 @@ include('../includes/sidebar.php');
     event.preventDefault();
     console.log("hello");
 
-    var idno = $('#search_student').val();
-    var course = $('#course').val();
+    var idno = $('#id_no').val();
+    var course = $('#course1').val();
     var yearlevel = $('#level').val();
-    var semester = $('#semester').val();
+    var semester = $('#semester1').val();
+    var objid = $('#objid').val();
 
+    // alert(idno);
+    // alert(course);
+    // alert(yearlevel);
+    // alert(semester);
+    // alert(objid);
 
     $.ajax({
       url: "insert_enrolle.php",
       method: 'POST',
       dataType: 'json',
       data: {
+        objid: objid,
         idno: idno,
         course: course,
         yearlevel: yearlevel,
         semester: semester
+        
       },
       error: function(xhr, b, c) {
         console.log("xhr=" + xhr.responseText + " b=" + b.responseText + " c=" + c.responseText);
@@ -273,6 +446,9 @@ include('../includes/sidebar.php');
         method: 'POST',
         data: {
           idno: idno,
+          objid: objid,
+          year: yearlevel,
+          semester: semester,
           subcode: col1,
           deptitle: col2,
           units: col3,
@@ -319,18 +495,36 @@ include('../includes/sidebar.php');
     document.getElementById("subjects").deleteRow(i);
   }
 
+
   $('#add_subject').click(function() {
     event.preventDefault();
     var subject_id = $('#custom_subjects').val();
+    var idno = $('#id_no').val();
+
+    alert(subject_id);
+    alert(idno);
+
     console.log(subject_id);
     $.ajax({
       url: 'get_subject_details.php',
       type: 'POST',
       data: {
-        id: subject_id
+        id: subject_id,
+        idno: idno
       },
       success: function(response) {
         var result = jQuery.parseJSON(response);
+        alert(result.message);
+        alert(result.prerequisite);
+
+        if (result.message == "Prerequisite subject " + result.prerequisite + " is either not yet COMPLETED or UNENROLLED!") {
+          notification('error', result.message);
+            $("#save").attr("disabled", false);
+            $("#new").attr("disabled", true);
+            // reset_form_input('enroll_student');
+
+          } else {
+
         var table = document.getElementById("subjects");
         var row = table.insertRow(1);
         var cell1 = row.insertCell(0);
@@ -348,7 +542,22 @@ include('../includes/sidebar.php');
         cell5.innerHTML = result.time;
         cell6.innerHTML = result.room_description;
         cell7.innerHTML = '<button class="btn btn-outline-success btn-sm " id = "remove" data-placement="top" title="Remove Subject"  onclick = "deleteRow(this)"> <i class="fa icon-remove"></i></button>';
+
+        
+
+        console.log('response from server', result);
+          }
+
       },
+      
+      //     if (result.message == result.prerequisite + " is either not yet COMPLETED or UNENROLLED") {
+      //       notification('error', result);
+      //       $("#save").attr("disabled", false);
+      //       $("#new").attr("disabled", true);
+      //       // reset_form_input('enroll_student');
+      //     }
+       
+        
       error: function(chr, d, e) {
         console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
       }

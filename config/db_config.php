@@ -3,7 +3,7 @@
 $host = "127.0.0.1";
 $db_name = "csr";
 $username = "root";
-$password = "";
+$password = "1234";
 
 try {
     //database connection
@@ -18,7 +18,7 @@ catch (PDOEXCEPTION $error) {
 
 }
 
-$conn = new mysqli("localhost","root","","csr");	
+$conn = new mysqli("localhost","root","1234","csr");	
 
 
 

@@ -1,11 +1,9 @@
 <?php
   include('../config/db_config.php');
-
-  $alert_msg = '';     
-
+  
   //if button insert clicked
 
-  if (isset($_POST['save'])) {
+  if (isset($_POST['objid'])) {
 
     
     //     echo "<pre>";
@@ -13,51 +11,34 @@
     // echo "</pre>";
 
     $objid = $_POST['objid'];
-    $students_id = $_POST['students_id'];
-    $subjects_id = $_POST['subjects_id'];
+    $subjects_id = $_POST['subject'];
     $prelim = $_POST['prelim'];
     $midterm = $_POST['midterm'];
-    $finals = $_POST['finals'];
-    $remarks = $_POST['remarks'];
+    $finals = $_POST['final'];
+    $remarks = $_POST['rmrks'];
     
   
       //insert user to database
-      $register_user_sql = "INSERT INTO tbl_grades SET 
-        objid             = :objid,
-        students_id          = :students_id,
-        subjects_id          = :subjects_id,
+      $register_user_sql = "UPDATE tbl_grades SET
         prelim               = :prelim,
         midterm              = :midterm,
         finals               = :finals,
-        remarks              = :remarks";
+        remarks              = :remarks WHERE objid = :objid and descriptive_title  = :title";
   
 
       $register_data = $con->prepare($register_user_sql);
       $register_data->execute([
         ':objid'            => $objid,
-        ':students_id'      => $students_id,
-        ':subjects_id'      => $subjects_id,
+        ':title'            => $subjects_id,
         ':prelim'           => $prelim,
         ':midterm'          => $midterm,
         ':finals'           => $finals,
         ':remarks'          => $remarks
       ]);
 
-      $alert_msg .= ' 
-          <div class="new-alert new-alert-success alert-dismissible">
-              <i class="icon fa fa-success"></i>
-              Data Inserted
-          </div>     
-      ';
-     // $fname = $mname = $lname = $contact_number = $email = $uname = $upass = '';
-
-     $btnStatus = 'disabled';
-     $btnNew = 'enabled';
     }
-
   
 
- 
 
  
 ?>

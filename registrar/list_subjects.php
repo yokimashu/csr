@@ -76,7 +76,7 @@ include('../includes/sidebar.php');
                 </div>
               </div>
 
-              <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="example2">
+              <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="list_subjects">
                 <thead>
                   <tr>
                     <th> SUBJECT ID</th>
@@ -105,7 +105,13 @@ include('../includes/sidebar.php');
                           </a>
                       <!-- &nbsp; -->
 
+                    <a class="btn btn-secondary" href="../jasperreport/enrolled_subjects.php?subjects_id=<?php echo
+    $subjects_data['subjects_id']; ?>"><i class="icon-print"></i>
+                          </a>
+                      <!-- &nbsp; -->
+
                     </td>
+
 
 
                   </tr>
@@ -136,7 +142,7 @@ include('../includes/sidebar.php');
 
 
 <script>
-  $('#example2').DataTable({
+  $('#list_subjects').DataTable({
     'paging': true,
     'lengthChange': true,
     'searching': true,
