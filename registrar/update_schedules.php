@@ -23,10 +23,10 @@
 
             $update_status_sql = "UPDATE tbl_schedules SET 
                 teacher_code           = :teacher_code,
-                room_code              = :room_code
-                end_time               = :end_time
-                start_time             = :start_time
-                days                   = :days
+                room_code              = :room_code,
+                end_time               = :end_time,
+                start_time             = :start_time,
+                days                   = :days,
                 subject_code           = :subject_code
                 WHERE objid            = :objid";
     
@@ -36,7 +36,7 @@
                 ':room_code'        => $room_code,
                 ':end_time'         => $end_time,
                 ':start_time'       => $start_time,
-                ':days'             => $days,
+                ':days'             => implode(" , ", $days),
                 ':subject_code'     => $subject_code,
                 ':objid'            => $objid
           ]);

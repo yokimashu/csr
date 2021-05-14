@@ -4,10 +4,8 @@
 session_start();
 
 $objid = $students_id = $subjects_id = $prelim = $midterm = $finals = $remarks = $alert_msg = '';
-
-
- $btnNew = 'disabled';
- $btnStatus = 'enabled';
+$fname = $mname = $lname = $course = $year_level = $course = $semester = $status = '';
+$photo = 'default.jpg';
 
 if (!isset($_SESSION['id'])) {
   header('location:../index');
@@ -30,8 +28,27 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_user_name = $result['username'];
   $db_department = $result['department'];
 }
-
-
+$student_id = $_GET['student_id'];
+$obj = $_GET['objid'];
+$get_enrolled = "SELECT * from tbl_students s inner join tbl_enrollment e  on s.students_id = e.students_id 
+inner join student_image i on s.students_id = i.student_id where s.students_id = :studentid";
+$student_data = $con->prepare($get_enrolled);
+$student_data->execute([':studentid'  =>  $student_id]);
+while($get_info = $student_data->fetch(PDO::FETCH_ASSOC)){
+  $objid = $get_info['objid'];
+  $students_id  = $get_info['students_id'];
+  $fname  = $get_info['first_name'];
+  $mname  = $get_info['middle_name'];
+  $lname  = $get_info['last_name'];
+  $course  = $get_info['course_code'];
+  $year_level  = $get_info['year_level'];
+  $semester  = $get_info['semester'];
+  $status  = $get_info['status'];
+  $photo = $get_info['photo'];
+}
+$get_grades  = "SELECT * FROM tbl_grades where objid =:obj";
+$get_grades_record = $con->prepare($get_grades);
+$get_grades_record->execute([':obj'  =>  $obj]);
 ?>
 
 <!DOCTYPE html>
@@ -69,56 +86,152 @@ include('../includes/sidebar.php');
 
 
                   <div class="box-body">
-                    <?php echo $alert_msg; ?>
+                             
+                    <div class="row-fluid">
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Objid</label>
-                      <div class="controls">
-                        <input type="text" class="input-xlarge focused" name="objid" value="<?php echo $objid; ?>" required>
-                      </div>
+                      <div class="span12">
+                        <input type="hidden" readonly id="objectid" value = "<?php echo $obj;?>">
+                        <!-- block -->
+                        <div class="block">
+                          <div class="navbar navbar-inner block-header">
+                            <div class="muted pull-left">Student Info</div>
+                          </div>
+                          <div class="block-content collapse in">
+                          <div class="span2" style="padding-bottom:30px;">
+                              <div class="register-box-body" style="width:300px;margin:auto;">
+
+                                <img src="../studentimage/<?php echo $photo;?>" align="center" id="photo" class="elevation-2"
+                                  style="margin-top:20px;margin-left:20px;margin-bottom:20px;width:200px;height:200px" ;
+                                  id="image">
+                              </div>
+                              <style>
+                                input[type="file"] {
+                                  display: none;
+
+                                }
+
+                                .custom-file-upload {
+                                  border: 1px solid #ccc;
+                                  border-radius: 5px;
+                                  display: inline-block;
+                                  padding: 7px 12px;
+                                  cursor: pointer;
+                                }
+                              </style>
+                            </div>
+                     
+            <div class="span4">
+
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Student ID: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="id_no" type="text" readonly="" value="<?php echo $students_id;?>">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">First Name: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="first_name" type="text" readonly="" value="<?php echo $fname;?>">
+                </div>
+              </div>
+              
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Middle Name:</label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="middle_name" type="text" readonly="" value="<?php echo $mname;?>">
+                </div>
+              </div>
+
+              <div class="control-group">
+                            <label class="control-label" for="focusedInput">Last Name: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="last_name" type="text" readonly="" value="<?php echo $lname;?>">
+                            </div>
+                          </div>
+
+              <div class="control-group">
+                <label class="control-label" for="focusedInput">Year Level: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="year_level" type="text" readonly="" value="<?php echo $year_level;?>">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="span4">
+               
+            <div class="control-group">
+                            <label class="control-label" for="focusedInput">Course:</label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" id="course" type="text" readonly="" value="<?php echo $course;?>">
+                            </div>
                     </div>
+                
+            
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Student Id</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="students_id"  value="<?php echo $students_id; ?>" required>
-                      </div>
-                    </div>
+              <div class="control-group">
 
-                    
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Subject Id</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="subjects_id"  value="<?php echo $subjects_id; ?>" required>
-                      </div>
-                    </div>
+                <label class="control-label" for="focusedInput">Semester: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="semester" type="text" readonly="" value="<?php echo $semester;?>">
+                </div>
+              </div>
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Prelim</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="prelim"  value="<?php echo $prelim; ?>" required>
-                      </div>
-                    </div>
+            </div>
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Midterm</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="midterm"  value="<?php echo $midterm; ?>" required>
-                      </div>
-                    </div>
+            <div class="span4">
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Finals</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="finals"  value="<?php echo $finals; ?>" required>
-                      </div>
-                    </div>
+            <div class="control-group">
+                <label class="control-label" for="focusedInput">Status: </label>
+                <div class="controls">
+                  <input class="input-xlarge focused" id="status" type="text" readonly="" value="<?php echo $status;?>">
+                </div>
+              </div>
+               
 
-                    <div class="control-group">
-                      <label class="control-label" for="focusedInput">Remarks</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="remarks"  value="<?php echo $remarks; ?>" required>
+                          <div class="control-group" hidden>
+                            <label class="control-label" hidden for="focusedInput">objid: </label>
+                            <div class="controls">
+                              <input class="input-xlarge focused" h id="objid" type="text" readonly="" value="">
+                            </div>
+                          </div>
+
+              </div>
+       
+
+                 
+                            <div class="span10">
+                              <table cellpadding="0" cellspacing="0" border="0"
+                                class="table table-striped table-bordered" id="grades">
+                                <thead>
+
+                                  <th>SUBJECT NAME</th>
+                                  <th> PRELIM </th>
+                                  <th> MIDTERM </th>
+                                  <th> FINALS</th>
+                                  <th> REMARKS</th>
+                                </thead>
+                                <tbody id="showgrades">
+                                  <tr>
+                                  <?php while($view_grades = $get_grades_record->fetch(PDO::FETCH_ASSOC)){ ?>
+                                  <td><?php echo $view_grades['descriptive_title'];?></td>
+                                  <td contentEditable = "true"><?php echo $view_grades['prelim'];?></td>
+                                  <td contentEditable = "true"><?php echo $view_grades['midterm'];?></td>
+                                  <td contentEditable = "true"><?php echo $view_grades['finals'];?></td>
+                                  <td  contentEditable = "true"><?php echo $view_grades['remarks'];?></td>
+                                  </tr>
+
+                                    <?php }?>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                        </div>
+
                       </div>
+
                     </div>
 
 
@@ -127,8 +240,8 @@ include('../includes/sidebar.php');
 
                   <!-- /.box-body -->
                   <div class="box-footer">
-                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <input type="submit"  name="save" class="btn btn-primary" id="save"
+                      value="Save">
                     <a href="list_grades.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                     </a>
@@ -146,59 +259,14 @@ include('../includes/sidebar.php');
 <!-- /.content-wrapper -->
 
 <!-- footer here -->
-<footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <b>Version</b> 1.0
-  </div>
-  <strong>Copyright &copy; <?php echo 2018; ?>.</strong> All rights
-  reserved.
-</footer>
+
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<?php include('../includes/footer.php'); ?>
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="../plugins/morris/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="../plugins/knob/jquery.knob.js"></script>
-<!-- daterangepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-<script src="../plugins/daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap4.js"></script>
-
-<script>
-  $('#users').DataTable({
+  $('#students').DataTable({
     'paging': true,
     'lengthChange': true,
     'searching': true,
@@ -210,13 +278,97 @@ include('../includes/sidebar.php');
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function() {
+  // $(document).ready(function() {
 
-    $(document).ajaxStart(function() {
-      Pace.restart()
-    })
+  //   $(document).ajaxStart(function() {
+  //     Pace.restart()
+  //   })
 
-  });
+  // });
+
+  // $("#students tbody").on("click", "#showinfo", function () {
+  //   event.preventDefault();
+  //   var currow = $(this).closest('tr');
+  //   var col1 = currow.find('td:eq(0)').text();
+
+
+  //   $('#objectid').val(col1);
+  //   $('#showgrades').load("load_student_grades.php", {
+  //       objid: col1
+  //     },
+  //     function (response, status, xhr) {
+  //       if (status == "error") {
+  //         alert(msg + xhr.status + " " + xhr.statusText);
+  //         console.log(msg + xhr.status + " " + xhr.statusText);
+  //         console.log("xhr=" + xhr.responseText);
+  //       }
+
+
+  //     });
+
+  //   $('#photo').load("load_photo.php", {
+  //       objid: col1
+  //     },
+  //     function (response, status, xhr) {
+  //       if (status == "error") {
+  //         alert(msg + xhr.status + " " + xhr.statusText);
+  //         console.log(msg + xhr.status + " " + xhr.statusText);
+  //         console.log("xhr=" + xhr.responseText);
+  //       }
+
+
+  //     });
+
+  //   console.log(col1);
+  // })
+  $('#save').click(function () {
+
+    event.preventDefault();
+    console.log("save");
+    var objid = '<?php echo $obj;?>';
+
+    $('#grades tr').each(function (row, tr) {
+      var col1 = $(tr).find('td:eq(0)').text();
+      var col2 = $(tr).find('td:eq(1)').text();
+      var col3 = $(tr).find('td:eq(2)').text();
+      var col4 = $(tr).find('td:eq(3)').text();
+      var col5 = $(tr).find('td:eq(4)').text();
+      console.log(col1,col2,col3,col4,col5);
+      $.ajax({
+        url: 'insert_grades.php',
+        data: {
+          objid: objid,
+          subject: col1,
+          prelim: col2,
+          midterm: col3,
+          final: col4,
+          rmrks: col5
+        },
+        method: 'POST',
+        success: function(response) {
+          notification('success', 'Grades recorded!');
+        },
+        error: function(chr, d, e) {
+          console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+
+        }
+
+      })
+    });
+  })
+
+  function notification(status, message) {
+    swal({
+      title: message,
+      // text: "You clicked the button!",
+      icon: status,
+      button: "Ok done!",
+
+    });
+
+
+
+  }
 </script>
 
 

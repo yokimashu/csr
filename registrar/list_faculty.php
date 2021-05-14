@@ -143,20 +143,20 @@ include('../includes/sidebar.php');
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script>
-  $('#pr').DataTable({
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'ordering': true,
-    'info': true,
-    'autoWidth': true
-  })
-  $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
-    event.preventDefault();
-    var user_id = ($(this).data('id'));
-    $('#user_id').val(user_id);
-    $('#deleteuser_Modal').modal('toggle');
-  })
+  // $('#pr').DataTable({
+  //   'paging': true,
+  //   'lengthChange': true,
+  //   'searching': true,
+  //   'ordering': true,
+  //   'info': true,
+  //   'autoWidth': true
+  // })
+  // $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
+  //   event.preventDefault();
+  //   var user_id = ($(this).data('id'));
+  //   $('#user_id').val(user_id);
+  //   $('#deleteuser_Modal').modal('toggle');
+  // })
 </script>
 </body>
 

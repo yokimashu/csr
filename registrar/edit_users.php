@@ -31,7 +31,7 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 
 }
 
-//get room data
+//get user data
 if (isset($_GET['user_id'])) {
   $user_id = $_GET['user_id'];
 
@@ -39,15 +39,16 @@ if (isset($_GET['user_id'])) {
   $get_users_data = $con->prepare($get_users_sql);
   $get_users_data->execute([':user_id' => $user_id]);
   while ($result = $get_users_data->fetch(PDO::FETCH_ASSOC)) {
+      $get_user = $result['user_id'];
       $first_name = $result['first_name'];
       $middle_name = $result['middle_name'];
       $last_name  = $result['last_name'];
       $contact_no = $result['contact_no'];
       $email  = $result['email'];
-      $username = $username['username'];
-      $userpass =  $userpass['userpass'];
-      $account_type = $account_type['account_type'];
-      $department = $department['department'];
+      $username1 = $result['username'];
+      $userpass =  $result['userpass'];
+      $account_type = $result['account_type'];
+      $department = $result['department'];
   }
 }
 ?>
@@ -91,6 +92,13 @@ include('../includes/sidebar.php');
                       <?php echo $alert_msg; ?>
 
                       <div class="control-group">
+                        <label class="control-label" for="focusedInput">User ID</label>
+                        <div class="controls">
+                        <input type="text" class="form-control" name="user_id" value="<?php echo $get_user; ?>">
+                        </div>
+                      </div>
+
+                      <div class="control-group">
                         <label class="control-label" for="focusedInput">First Name</label>
                         <div class="controls">
                         <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>" required>
@@ -125,24 +133,38 @@ include('../includes/sidebar.php');
                         </div>
                       </div>
 
+                      
            
 
                 <legend>Edit Account Set-Up</legend>
 
-                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Account Type:</label>
+                <div class="control-group">
+                      <label class="control-label">Account Type: <span class="required">*</span></label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="account_type" value="<?php echo $account_type; ?>" required>
+                        <select class="span3 m-wrap" name="account_type">
+                          <option value="">Select...</option>
+                          <option <?php if ($account_type == '1') echo 'selected'; ?> value="1">1 (Admin) </option>
+                          <option <?php if ($account_type == '2') echo 'selected'; ?> value="2">2 (User Only) </option>
+                          <!-- <option value="1">1 (Admin)</option>
+                          <option value="2">2 (User Only)</option> -->
+                        </select>
                       </div>
                     </div>
+                    
 
+                
                     <div class="control-group">
-                      <label class="control-label" for="focusedInput">Department:</label>
+                      <label class="control-label">Department: <span class="required">*</span></label>
                       <div class="controls">
-                        <input type="text" class="form-control" name="department" value="<?php echo $department; ?>" required>
+                        <select class="span3 m-wrap" name="department">
+                          <option value="">Select...</option>
+                          <option <?php if ($department == '1') echo 'selected'; ?> value="1">1 (Registrar) </option>
+                          <option <?php if ($department == '2') echo 'selected'; ?> value="2">2 (Billing) </option>
+                          <!-- <option value="1">1 (Registrar)</option>
+                          <option value="2">2 (Billing)</option> -->
+                        </select>
                       </div>
                     </div>
-
 
 
 
@@ -170,19 +192,7 @@ include('../includes/sidebar.php');
 
 
 
-                      <!-- <div class="control-group">
-                        <label class="control-label" for="focusedInput">Username</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $uname; ?>" required>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="focusedInput">Department</label>
-                        <div class="controls">
-                        <input type="text" class="form-control" name="department" placeholder="Department" value="<?php echo $department; ?>" required>
-                        </div>
-                      </div> -->
+                    
 
                       </div><br>
 

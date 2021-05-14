@@ -38,7 +38,8 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 //   $student_year_level   = $result['students_year_level'];
 // }
 
-$get_all_students_sql = "SELECT * FROM tbl_students ORDER BY students_id ASC ";
+$get_all_students_sql = "SELECT e.objid, s.`students_id`, s.`first_name`, s.`middle_name`, s.`last_name`, e.`course_code`, s.`status`, e.`year_level`, e.`semester`, e.status 
+FROM tbl_students s INNER JOIN tbl_enrollment e ON e.`students_id` = s.`students_id` ORDER BY s.students_id ASC ";
 $get_all_students_data = $con->prepare($get_all_students_sql);
 $get_all_students_data->execute();
 
@@ -74,45 +75,42 @@ include('../includes/sidebar.php');
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <div class="table-toolbar" style = "margin-bottom:20px;">
+              <div class="table-toolbar">
                 <div class="btn-group">
-                  <a href="enroll_student.php"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
-                </div>
-                <div class="btn-group pull-right">
-                  <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Print</a></li>
-                    <li><a href="#">Save as PDF</a></li>
-                    <li><a href="#">Export to Excel</a></li>
-                  </ul>
-                </div>
+                  <a href="enroll_student.php"><button class="btn btn-success">Enroll Student <i class="icon-plus icon-white"></i></button></a>
+                </div><br>
               </div>
-
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                 <thead>
                   <tr>
+                    <th> TRANSACTION ID</th>
                     <th> ID #</th>
                     <th> LAST NAME </th>
                     <th> FIRST NAME </th>
                     <th> MIDDLE NAME</th>
                     <th> COURSE </th>
                     <th> YEAR</th>
+                    <th> STATUS</th>
                     <th> OPTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php while ($students_data = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {  ?>
                     <tr style="font-size: 1rem">
+                      <td><?php echo $students_data['objid']; ?> </td>
                       <td><?php echo $students_data['students_id']; ?> </td>
-                      <td><?php echo $students_data['surname']; ?> </td>
+                      <td><?php echo $students_data['last_name']; ?> </td>
                       <td><?php echo $students_data['first_name']; ?> </td>
                       <td><?php echo $students_data['middle_name']; ?> </td>
-                      <td><?php echo $students_data['course']; ?> </td>
-                      <td><?php echo $students_data['student_year_level']; ?> </td>
+                      <td><?php echo $students_data['course_code']; ?> </td>
+                      <td><?php echo $students_data['year_level']; ?> </td>
+                      <td><?php echo $students_data['status']; ?> </td>
+
+
                       <td>
-                      <a class="btn btn-primary" href="edit_students.php?students_id=<?php echo
-    $students_data['students_id']; ?>"><i class="icon-edit"></i>
-                          </a>
+                        <a class="btn btn-primary" href="edit_enrollment.php?students_id=<?php echo
+                                                                                          $students_data['students_id']; ?>"><i class="icon-edit"></i>
+                        </a>
                         <!-- &nbsp; -->
 
                       </td>
@@ -145,20 +143,20 @@ include('../includes/sidebar.php');
 </div>
 
 <script>
-  $('#example2').DataTable({
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'ordering': true,
-    'info': true,
-    'autoWidth': true
-  })
-  $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
-    event.preventDefault();
-    var students_id = ($(this).data('id'));
-    $('#students_id').val(students_id);
-    $('#deleteuser_Modal').modal('toggle');
-  })
+  // $('#example2').DataTable({
+  //   'paging': true,
+  //   'lengthChange': true,
+  //   'searching': true,
+  //   'ordering': true,
+  //   'info': true,
+  //   'autoWidth': true
+  // })
+  // $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
+  //   event.preventDefault();
+  //   var students_id = ($(this).data('id'));
+  //   $('#students_id').val(students_id);
+  //   $('#deleteuser_Modal').modal('toggle');
+  // })
 </script>
 </body>
 

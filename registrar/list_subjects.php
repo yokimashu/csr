@@ -7,7 +7,7 @@ $btnNew = 'disabled';
 if (!isset($_SESSION['id'])) {
   header('location:../index');
 }
-$subjects_id = $subjects_description = $units = $course_id = $year_level = $semester = $pre_requisites = '';
+$subjects_id = $subjects_description = $units = $courses_id = $year_level = $semester = $pre_requisites = '';
 
 $subjects_id = $_SESSION['id'];
 
@@ -19,7 +19,7 @@ while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
   $subjects_id                    = $result['subjects_id'];
   $subjects_subjects_description  = $result['subjects_description'];
   $subjects_units                 = $result['units'];
-  $subjects_course_id             = $result['course_id'];
+  $subjects_courses_id             = $result['courses_id'];
   $subjects_year_level            = $result['year_level'];
   $subjects_semester              = $result['semester'];
   $subjects_pre_requisites        = $result['pre_requisites'];
@@ -82,7 +82,7 @@ include('../includes/sidebar.php');
                     <th> SUBJECT ID</th>
                     <th> DESCRIPTION</th>
                     <th> UNITS </th>
-                    <th> COURSE CODE </th>
+                    <th> COURSE </th>
                     <th> YEAR LEVEL</th>
                     <th> SEMESTER </th>
                     <th> PRE-REQUISITES</th>
@@ -95,7 +95,7 @@ include('../includes/sidebar.php');
                     <td><?php echo $subjects_data['subjects_id']; ?> </td>
                     <td><?php echo $subjects_data['subjects_description']; ?> </td>
                     <td><?php echo $subjects_data['units']; ?> </td>
-                    <td><?php echo $subjects_data['course_id']; ?> </td>
+                    <td><?php echo $subjects_data['courses_id']; ?> </td>
                     <td><?php echo $subjects_data['year_level']; ?> </td>
                     <td><?php echo $subjects_data['semester']; ?> </td>
                     <td><?php echo $subjects_data['pre_requisites']; ?> </td>
@@ -136,7 +136,7 @@ include('../includes/sidebar.php');
 
 
 <script>
-  $('#example2').DataTable({
+  $('#pr').DataTable({
     'paging': true,
     'lengthChange': true,
     'searching': true,

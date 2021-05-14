@@ -38,8 +38,7 @@
                         </li>
                         <ul style="display: block;">
                             <li><a href="list_students.php">Transcript of Records</a></li>
-                            <li><a href="list_faculty.php">Certificate of Good Moral</a></li>
-                            <li><a href="list_courses.php">Honorable Dismissal</a></li>
+                            <li><a href="list_faculty.php">Certificates</a></li>
                         </ul>
 
                         <li>
