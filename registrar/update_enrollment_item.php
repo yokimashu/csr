@@ -1,8 +1,6 @@
 <?php
 include('../config/db_config.php');
 
-
-
 if (isset($_POST['idno'])) {
 
   $objid      = $_POST['objid'];
@@ -16,8 +14,8 @@ if (isset($_POST['idno'])) {
   $time       = $_POST['time'];
   $room       = $_POST['sroom'];
 
-
   if ($idno != '' && $subject != '' && $title != '' && $units != '' && $day != '' && $time != '' && $room != '') {
+
 
     $query = "INSERT INTO tbl_enrollment_item SET
 
@@ -47,6 +45,7 @@ if (isset($_POST['idno'])) {
       ':room'           =>  $room
 
     ]);
+
 
     $query1 = "INSERT INTO tbl_grades SET
 
@@ -78,8 +77,8 @@ if (isset($_POST['idno'])) {
     ]);
 
 
-    echo json_encode("You successfully enrolled new student!");
+    echo json_encode("Record successfully updated!");
   } else {
-    echo json_encode("There is something wrong in the enrollment!");
+    echo json_encode("Record was not updated!");
   }
 }

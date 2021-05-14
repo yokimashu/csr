@@ -91,7 +91,8 @@ include('../includes/sidebar.php');
     $courses_data['courses_id']; ?>"><i class="icon-edit"></i>
                           </a>
                         <!-- &nbsp; -->
-
+                        <a class="btn btn-secondary" href="../jasperreport/enrolled_courses.php?course_id=<?php echo
+    $courses_data['courses_id']; ?>"><i class="icon-print"></i>
                       </td>
 
 

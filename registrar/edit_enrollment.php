@@ -18,6 +18,27 @@ include('../config/db_config.php');
 include('insert_subjects.php');
 include('../includes/sql.php');
 
+
+$idno = $_GET['students_id'];
+$get_all_students_sql = "SELECT e.objid, s.`students_id`, s.`first_name`, s.`middle_name`, s.`last_name`, e.`course_code`, s.`status`, e.`year_level`, e.`semester` 
+FROM tbl_students s INNER JOIN tbl_enrollment e ON e.`students_id` = s.`students_id` WHERE s.`students_id` = :idno ORDER BY s.students_id ASC ";
+
+$get_all_students_data = $con->prepare($get_all_students_sql);
+$get_all_students_data->execute([':idno' => $idno]);
+
+while ($result = $get_all_students_data->fetch(PDO::FETCH_ASSOC)) {
+
+  $objid              =  $result['objid'];
+  $idno               =  $result['students_id'];
+  $firstname          =  $result['first_name'];
+  $middlename         =  $result['middle_name'];
+  $lastname           =  $result['last_name'];
+  $course             =  $result['course_code'];
+  $status             =  $result['status'];
+  $year_level         =  $result['year_level'];
+  $semester           =  $result['semester'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +63,7 @@ include('../includes/sidebar.php');
       <div class="row-fluid">
         <!-- block -->
 
-        <div class="control-group">
+        <!-- <div class="control-group">
           <label class="control-label" for="select01">SEARCH STUDENT:</label>
           <div class="controls">
             <select id="search_student" name="student" class="chzn-select span5">
@@ -54,94 +75,94 @@ include('../includes/sidebar.php');
                 </option>
               <?php } ?>
             </select>
-          </div>
-      
+          </div> -->
 
-        <div class="block">
-          <div class="navbar navbar-inner block-header">
-            <div class="muted pull-left">STUDENT INFO</div>
-          </div>
-          <div class="block-content collapse in">
 
-            <div class="span4">
-
-              <div class="control-group">
-                <label class="control-label" for="focusedInput">Student ID: </label>
-                <div class="controls">
-                  <input class="input-xlarge focused" id="id_no" type="text" readonly="" value="">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label" for="focusedInput">First Name: </label>
-                <div class="controls">
-                  <input class="input-xlarge focused" id="first_name" type="text" readonly="" value="">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label" for="focusedInput">Year Level: </label>
-                <div class="controls">
-                  <input class="input-xlarge focused" id="year_level" type="text" readonly="" value="">
-                </div>
-              </div>
-
+          <div class="block">
+            <div class="navbar navbar-inner block-header">
+              <div class="muted pull-left">STUDENT INFO</div>
             </div>
+            <div class="block-content collapse in">
 
-            <div class="span4">
-               
-            <div class="control-group">
-                            <label class="control-label" for="focusedInput">Course:</label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="course" type="text" readonly="" value="">
-                            </div>
-                    </div>
-                
-              <div class="control-group">
-                <label class="control-label" for="focusedInput">Middle Name:</label>
-                <div class="controls">
-                  <input class="input-xlarge focused" id="middle_name" type="text" readonly="" value="">
+              <div class="span4">
+
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">Student ID: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="id_no" type="text" readonly="" value="<?php echo $idno; ?>">
+                  </div>
                 </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">First Name: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="first_name" type="text" readonly="" value="<?php echo $firstname; ?>">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">Year Level: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="year_level" type="text" readonly="" value="<?php echo $year_level; ?>">
+                  </div>
+                </div>
+
               </div>
 
-              <div class="control-group">
+              <div class="span4">
 
-                <label class="control-label" for="focusedInput">Semester: </label>
-                <div class="controls">
-                  <input class="input-xlarge focused" id="semester" type="text" readonly="" value="">
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">Course:</label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="course" type="text" readonly="" value="<?php echo $course; ?>">
+                  </div>
                 </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">Middle Name:</label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="middle_name" type="text" readonly="" value="<?php echo $middlename; ?>">
+                  </div>
+                </div>
+
+                <div class="control-group">
+
+                  <label class="control-label" for="focusedInput">Semester: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="semester" type="text" readonly="" value="<?php echo $semester; ?>">
+                  </div>
+                </div>
+
               </div>
 
+              <div class="span4">
+
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">Status: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="status" type="text" readonly="" value="<?php echo $status; ?>">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="focusedInput">Last Name: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused" id="last_name" type="text" readonly="" value="<?php echo $lastname; ?>">
+                  </div>
+                </div>
+
+                <div class="control-group" >
+                  <label class="control-label" hidden for="focusedInput">objid: </label>
+                  <div class="controls">
+                    <input class="input-xlarge focused"  id="objid" type="text" readonly="" value="<?php echo $objid; ?>">
+                  </div>
+                </div>
+
+              </div>
             </div>
-
-            <div class="span4">
-
-            <div class="control-group">
-                <label class="control-label" for="focusedInput">Status: </label>
-                <div class="controls">
-                  <input class="input-xlarge focused" id="status" type="text" readonly="" value="">
-                </div>
-              </div>
-                 <div class="control-group">
-                            <label class="control-label" for="focusedInput">Last Name: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" id="last_name" type="text" readonly="" value="">
-                            </div>
-                          </div>
-
-                          <div class="control-group" hidden>
-                            <label class="control-label" hidden for="focusedInput">objid: </label>
-                            <div class="controls">
-                              <input class="input-xlarge focused" h id="objid" type="text" readonly="" value="">
-                            </div>
-                          </div>
-
-              </div>
           </div>
         </div>
-        </div>
 
-        
+
 
 
 
@@ -153,8 +174,8 @@ include('../includes/sidebar.php');
             <div class="span12">
               <form class="form-horizontal" role="form" id="enroll_student" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                
-                  
+
+
 
 
                   <!-- <div class="control-group" hidden>
@@ -170,13 +191,15 @@ include('../includes/sidebar.php');
                       <select id="course1" name="course_code" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?>
-                          </option>
+                          <?php $selected = ($course == $get_courses['courses_id']) ? 'selected' : ''; ?>
+                          <option <?= $selected; ?> value="<?php echo $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
                         <?php } ?>
+
+
                       </select>
                     </div>
                   </div>
-                  
+
 
                   <div class="control-group">
                     <label class="control-label" for="select01">Year Level</label>
@@ -184,9 +207,10 @@ include('../includes/sidebar.php');
                       <select id="level" name="year_level" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_level = $get_all_levels_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo
-                                          $get_level['code']; ?>"><?php echo $get_level['year_level']; ?></option>
+                    <?php $selected = ($year_level == $get_level['code']) ? 'selected' : ''; ?>
+                          <option <?= $selected; ?> value="<?php echo $get_level['code']; ?>"><?php echo $get_level['year_level']; ?></option>
                         <?php } ?>
+
                       </select>
                     </div>
                   </div>
@@ -197,9 +221,8 @@ include('../includes/sidebar.php');
                       <select id="semester1" name="semester" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_semester = $get_all_semesters_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo
-                                          $get_semester['code']; ?>"><?php echo $get_semester['semester']; ?>
-                          </option>
+                       <?php $selected = ($semester == $get_semester['code']) ? 'selected' : ''; ?>
+                          <option <?= $selected; ?> value="<?php echo $get_semester['code']; ?>"><?php echo $get_semester['semester']; ?></option>
                         <?php } ?>
                       </select>
                     </div>
@@ -239,7 +262,7 @@ include('../includes/sidebar.php');
 
                           <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="subjects">
                             <thead>
-                           
+
                               <tr>
                                 <th>Subject Code</th>
                                 <th>Descriptive Title</th>
@@ -290,15 +313,57 @@ include('../includes/sidebar.php');
 <?php include('../includes/footer.php'); ?>
 
 <script>
+  $(function() {
+    $(".datepicker").datepicker();
+    $(".uniform_on").uniform();
+    $(".chzn-select").chosen();
+    $('.textarea').wysihtml5();
 
-$(function() {
-            $(".datepicker").datepicker();
-            $(".uniform_on").uniform();
-            $(".chzn-select").chosen();
-            $('.textarea').wysihtml5();
-    
-            
-        });
+
+    var course = $('#course1').val();
+    var level = $('#level').val();
+    var semester = $('#semester1').val();
+    var idno = $('#id_no').val();
+    var objid = $('#objid').val();
+
+    console.log(course);
+    console.log(level);
+    console.log(semester);
+
+
+    $('#list_subjects').load("load_subjects1.php", {
+        course: course,
+        level: level,
+        semester: semester,
+        idno: idno,
+        objid: objid
+      },
+      function(response, status, xhr) {
+        if (status == "error") {
+          alert(msg + xhr.status + " " + xhr.statusText);
+          console.log(msg + xhr.status + " " + xhr.statusText);
+          console.log("xhr=" + xhr.responseText);
+        }
+
+
+      });
+
+
+    if ($('#objid').val() == '') {
+      $.ajax({
+        type: 'POST',
+        data: {},
+        url: 'generate_objid.php',
+        success: function(data) {
+          //$('#entity_no').val(data);
+          document.getElementById("objid").value = data;
+          console.log(data);
+        }
+      });
+    }
+
+
+  });
 
 
   $('#search_student').on('change', function() {
@@ -332,7 +397,7 @@ $(function() {
         // $('#status').val(result.data6);
         $('#year_level').val(result.data7);
         $('#semester').val(result.data8);
-       
+
         var course = result.data5.toUpperCase();
         var year = result.data7.toUpperCase();
         var semester = result.data8;
@@ -343,46 +408,46 @@ $(function() {
         $("#semester1").val(semester).trigger("liszt:updated");
 
         $('#list_subjects').load("load_subjects.php", {
-        course: course,
-        level: year,
-        semester: semester,
-        idno: idno
-      },
-      function(response, status, xhr) {
-        if (status == "error") {
-          alert(msg + xhr.status + " " + xhr.statusText);
-          console.log(msg + xhr.status + " " + xhr.statusText);
-          console.log("xhr=" + xhr.responseText);
+            course: course,
+            level: year,
+            semester: semester,
+            idno: idno
+          },
+          function(response, status, xhr) {
+            if (status == "error") {
+              alert(msg + xhr.status + " " + xhr.statusText);
+              console.log(msg + xhr.status + " " + xhr.statusText);
+              console.log("xhr=" + xhr.responseText);
+            }
+
+
+          });
+
+
+        if ($('#objid').val() == '') {
+          $.ajax({
+            type: 'POST',
+            data: {},
+            url: 'generate_objid.php',
+            success: function(data) {
+              //$('#entity_no').val(data);
+              document.getElementById("objid").value = data;
+              console.log(data);
+            }
+          });
         }
 
 
-      });
 
-     
-            if ($('#objid').val() == '') {
-                $.ajax({
-                    type: 'POST',
-                    data: {},
-                    url: 'generate_objid.php',
-                    success: function(data) {
-                        //$('#entity_no').val(data);
-                        document.getElementById("objid").value = data;
-                        console.log(data);
-                    }
-                });
-            }
-
- 
-        
 
 
 
         // alert(course);
         // $("#course1").val(course).trigger("chosen:updated");
         // if (course == 'BSIT'){
-         
-          // $("#course1").chosen("val", "Bachelor of Science in Information Technology");
-        
+
+        // $("#course1").chosen("val", "Bachelor of Science in Information Technology");
+
       }
     });
 
@@ -397,7 +462,7 @@ $(function() {
     console.log(course);
     console.log(level);
     console.log(semester);
-   
+
 
     $('#list_subjects').load("load_subjects.php", {
         course: course,
@@ -415,20 +480,20 @@ $(function() {
 
       });
 
-     
-            if ($('#objid').val() == '') {
-                $.ajax({
-                    type: 'POST',
-                    data: {},
-                    url: 'generate_objid.php',
-                    success: function(data) {
-                        //$('#entity_no').val(data);
-                        document.getElementById("objid").value = data;
-                        console.log(data);
-                    }
-                });
-            }
- 
+
+    if ($('#objid').val() == '') {
+      $.ajax({
+        type: 'POST',
+        data: {},
+        url: 'generate_objid.php',
+        success: function(data) {
+          //$('#entity_no').val(data);
+          document.getElementById("objid").value = data;
+          console.log(data);
+        }
+      });
+    }
+
 
 
 
@@ -453,7 +518,7 @@ $(function() {
     // alert(objid);
 
     $.ajax({
-      url: "insert_enrolle.php",
+      url: "update_enrollment.php",
       method: 'POST',
       dataType: 'json',
       data: {
@@ -462,17 +527,14 @@ $(function() {
         course: course,
         yearlevel: yearlevel,
         semester: semester
-        
+
       },
       error: function(xhr, b, c) {
         console.log("xhr=" + xhr.responseText + " b=" + b.responseText + " c=" + c.responseText);
       }
 
-
-
-
-
     });
+
     $('#subjects tr').each(function(row, tr) {
 
 
@@ -483,10 +545,11 @@ $(function() {
       var col5 = $(tr).find('td:eq(4)').text();
       var col6 = $(tr).find('td:eq(5)').text();
       console.log(col1);
-      console.log(col6);
+      console.log(col6);  
       $.ajax({
 
-        url: 'insert_enrolle_item.php',
+        
+        url: 'update_enrollment_item.php',
         method: 'POST',
         data: {
           idno: idno,
@@ -563,45 +626,45 @@ $(function() {
 
         if (result.message == "Prerequisite subject " + result.prerequisite + " is either not yet COMPLETED or UNENROLLED!") {
           notification('error', result.message);
-            $("#save").attr("disabled", false);
-            $("#new").attr("disabled", true);
-            // reset_form_input('enroll_student');
+          $("#save").attr("disabled", false);
+          $("#new").attr("disabled", true);
+          // reset_form_input('enroll_student');
 
-          } else {
+        } else {
 
-        var table = document.getElementById("subjects");
-        var row = table.insertRow(1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var cell7 = row.insertCell(6);
-        console.log(result.subjects_id);
-        cell1.innerHTML = result.subjects_id;
-        cell2.innerHTML = result.subjects_description;
-        cell3.innerHTML = result.units;
-        cell4.innerHTML = result.days;
-        cell5.innerHTML = result.time;
-        cell6.innerHTML = result.room_description;
-        cell7.innerHTML = '<button class="btn btn-outline-success btn-sm " id = "remove" data-placement="top" title="Remove Subject"  onclick = "deleteRow(this)"> <i class="fa icon-remove"></i></button>';
+          var table = document.getElementById("subjects");
+          var row = table.insertRow(1);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+          console.log(result.subjects_id);
+          cell1.innerHTML = result.subjects_id;
+          cell2.innerHTML = result.subjects_description;
+          cell3.innerHTML = result.units;
+          cell4.innerHTML = result.days;
+          cell5.innerHTML = result.time;
+          cell6.innerHTML = result.room_description;
+          cell7.innerHTML = '<button class="btn btn-outline-success btn-sm " id = "remove" data-placement="top" title="Remove Subject"  onclick = "deleteRow(this)"> <i class="fa icon-remove"></i></button>';
 
-        
 
-        console.log('response from server', result);
-          }
+
+          console.log('response from server', result);
+        }
 
       },
-      
+
       //     if (result.message == result.prerequisite + " is either not yet COMPLETED or UNENROLLED") {
       //       notification('error', result);
       //       $("#save").attr("disabled", false);
       //       $("#new").attr("disabled", true);
       //       // reset_form_input('enroll_student');
       //     }
-       
-        
+
+
       error: function(chr, d, e) {
         console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
       }

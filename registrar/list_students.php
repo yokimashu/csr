@@ -127,20 +127,20 @@ include('../includes/sidebar.php');
 </div>
 
 <script>
-  $('#example2').DataTable({
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'ordering': true,
-    'info': true,
-    'autoWidth': true
-  })
-  $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
-    event.preventDefault();
-    var students_id = ($(this).data('id'));
-    $('#students_id').val(students_id);
-    $('#deleteuser_Modal').modal('toggle');
-  })
+  // $('#example2').DataTable({
+  //   'paging': true,
+  //   'lengthChange': true,
+  //   'searching': true,
+  //   'ordering': true,
+  //   'info': true,
+  //   'autoWidth': true
+  // })
+  // $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
+  //   event.preventDefault();
+  //   var students_id = ($(this).data('id'));
+  //   $('#students_id').val(students_id);
+  //   $('#deleteuser_Modal').modal('toggle');
+  // })
 </script>
 </body>
 

@@ -126,7 +126,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label">Department: <span class="required">*</span></label>
                       <div class="controls">
-                        <select class="span3 m-wrap" name="account_type">
+                        <select class="span3 m-wrap" name="department">
                           <option value="">Select...</option>
                           <option <?php if ($department == '1') echo 'selected'; ?> value="1">1 (Registrar) </option>
                           <option <?php if ($department == '2') echo 'selected'; ?> value="2">2 (Billing) </option>
