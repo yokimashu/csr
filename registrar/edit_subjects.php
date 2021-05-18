@@ -33,25 +33,24 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
 }
 
 
-//select all courses
-$get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
-$get_all_courses_data = $con->prepare($get_all_courses_sql);
-$get_all_courses_data->execute();
 
-//select all year level
-$get_all_year_sql = "SELECT * FROM tbl_year ORDER BY year_level Asc ";
-$get_all_year_data = $con->prepare($get_all_year_sql);
-$get_all_year_data->execute();
 
-//select all semester
-$get_all_semester_sql = "SELECT * FROM tbl_semester ORDER BY semester Asc ";
-$get_all_semester_data = $con->prepare($get_all_semester_sql);
-$get_all_semester_data->execute();
+if (isset($_GET['subjects_id'])) {
+  $subjects_id = $_GET['subjects_id'];
 
-//select all subjects
-$get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
-$get_all_subjects_data = $con->prepare($get_all_subjects_sql);
-$get_all_subjects_data->execute();
+  $get_subjects_sql = "SELECT * FROM tbl_subjects WHERE subjects_id = :subjects_id";
+  $get_subjects_data = $con->prepare($get_subjects_sql);
+  $get_subjects_data->execute([':subjects_id' => $subjects_id]);
+  while ($result = $get_subjects_data->fetch(PDO::FETCH_ASSOC)) {
+    $subjects_description = $result['subjects_description'];
+    $units = $result['units'];
+    $course = $result['courses_id'];
+    $year = $result['year_lvl'];
+    $semester = $result['code'];
+    $pre_requisites = $result['subject_code'];
+    
+  }
+}
 
 
 ?>
@@ -115,7 +114,7 @@ include('../includes/sidebar.php');
 
                     
 
-                   <div class="control-group">
+                    <div class="control-group">
                       <label class="control-label" for="multiSelect">Course:</label>
                       <div class="controls">
                         <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="courses_id[]">
@@ -154,12 +153,16 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="select01">Year Level</label>
                       <div class="controls">
-                        <select id="select01" name="year_level" class="chzn-select span5">
+                        <select id="select01" name="year_lvl" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_year = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                        <option value="<?php echo
-    $get_year['code']; ?>"><?php echo $get_year['code']; ?></option>
-<?php } ?>
+
+                          <?php $selected = ($year == $get_year['code']) ? 'selected' : ''; ?>
+                          <option <?= $selected; ?> value="<?php echo $get_year['code']; ?>"><?php echo $get_year['year_level']; ?></option>
+
+                          </option>
+                        <?php } ?>
+
                         </select>
                       </div>
                     </div>
@@ -167,7 +170,7 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="select01">Semester</label>
                       <div class="controls">
-                        <select id="select01" name="semester" class="chzn-select span5">
+                        <select id="select01" name="code" class="chzn-select span5">
                         <option selected="selected">Please select...</option>
                         <?php while ($get_semester = $get_all_semester_data->fetch(PDO::FETCH_ASSOC)) { ?>
                                                         <option value="<?php echo
