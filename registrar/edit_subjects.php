@@ -3,7 +3,7 @@
 
 session_start();
 
-$subjects_id = $subjects_description = $units = $year_level = $semester = $pre_requisites =$courses =$courses_id = $alert_msg = '';
+$subjects_id = $subjects_description = $units = $courses_id = $year_level = $semester = $pre_requisites = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -45,9 +45,9 @@ if (isset($_GET['subjects_id'])) {
     $subjects_description = $result['subjects_description'];
     $units = $result['units'];
     $course = $result['courses_id'];
-    $year = $result['year_lvl'];
-    $semester = $result['code'];
-    $pre_requisites = $result['subject_code'];
+    $year = $result['year_level'];
+    $semester = $result['semester'];
+    $pre_requisites = $result['pre_requisites'];
     
   }
 }
@@ -84,13 +84,14 @@ include('../includes/sidebar.php');
             <div class="span12">
               <form class="form-horizontal" role="form" method="post" action="<?php htmlspecialchars("PHP_SELF"); ?>">
                 <fieldset>
-                  <legend>Details</legend>
+                  <legend>Edit Subject Details</legend>
 
 
 
 
                   <div class="box-body">
                     <?php echo $alert_msg; ?>
+
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Subjects ID</label>
                       <div class="controls">
@@ -104,6 +105,7 @@ include('../includes/sidebar.php');
                         <input type="text" class="form-control span5" name="subjects_description" value="<?php echo $subjects_description; ?>" required>
                       </div>
                     </div>
+                    
 
                     <div class="control-group">
                       <label class="control-label" for="focusedInput">Units</label>
@@ -111,74 +113,62 @@ include('../includes/sidebar.php');
                         <input type="text" class="form-control" name="units" value="<?php echo $units; ?>" required>
                       </div>
                     </div>
-
                     
-
+                    <!-- Course -->
                     <div class="control-group">
-                      <label class="control-label" for="multiSelect">Course:</label>
+                      <label class="control-label" for="select01">Course:</label>
                       <div class="controls">
-                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="courses_id[]">
+                        <select id="select01" id="courses_id" class="chzn-select span5">
                           <option>
                             <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo
-                                          $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
-                        <?php } ?>
-                        </select>
-                        <p class="help-block">Start typing to activate auto complete!</p>
-                      </div>
-                      </div>
-
-
-                    <!-- <div class="control-group">
-                      <label class="control-label" for="focusedInput">Course Code</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" name="course_code" value="<?php echo $course_id; ?>" required>
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="control-group">
-                      <label class="control-label" for="focusedInput">Year Level</label>
-                      <div class="controls">
-                        <input type="text" class="form-control span5" name="year_level" value="<?php echo $year_level; ?>" required>
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="control-group">
-                      <label class="control-label" for="focusedInput">Semester</label>
-                      <div class="controls">
-                        <input type="text" class="form-control span5" name="year_level" value="<?php echo $semester; ?>" required>
-                      </div>
-                    </div> -->
-
-                    <div class="control-group">
-                      <label class="control-label" for="select01">Year Level</label>
-                      <div class="controls">
-                        <select id="select01" name="year_lvl" class="chzn-select span5">
-                        <option selected="selected">Please select...</option>
-                        <?php while ($get_year = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) { ?>
-
-                          <?php $selected = ($year == $get_year['code']) ? 'selected' : ''; ?>
-                          <option <?= $selected; ?> value="<?php echo $get_year['code']; ?>"><?php echo $get_year['year_level']; ?></option>
-
+                         
+                            <?php $selected = ($course == $get_courses['courses_id']) ? 'selected' : ''; ?>
+                            <option <?= $selected; ?> value="<?php echo $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
+                          
                           </option>
                         <?php } ?>
-
                         </select>
                       </div>
                     </div>
 
+
+                    <!-- Year Level -->
                     <div class="control-group">
-                      <label class="control-label" for="select01">Semester</label>
+                      <label class="control-label" for="select01">Year Level:</label>
                       <div class="controls">
-                        <select id="select01" name="code" class="chzn-select span5">
-                        <option selected="selected">Please select...</option>
-                        <?php while ($get_semester = $get_all_semester_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                        <option value="<?php echo
-    $get_semester['code']; ?>"><?php echo $get_semester['code']; ?></option>
-<?php } ?>
+                        <select id="select01" id="code" class="chzn-select span5">
+                          <option>
+                            <?php while ($get_year = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                         
+                            <?php $selected = ($year == $get_year['code']) ? 'selected' : ''; ?>
+                            <option <?= $selected; ?> value="<?php echo $get_year['code']; ?>"><?php echo $get_year['year_level']; ?></option>
+                          
+                          </option>
+                        <?php } ?>
                         </select>
                       </div>
                     </div>
+                    <!-- Year Level -->
+
+                    <!-- Semester -->
+                    <div class="control-group">
+                      <label class="control-label" for="select01">Semester:</label>
+                      <div class="controls">
+                        <select id="select01" id="code" class="chzn-select span5">
+                          <option>
+                            <?php while ($get_semester = $get_all_semester_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                         
+                            <?php $selected = ($semester == $get_semester['code']) ? 'selected' : ''; ?>
+                            <option <?= $selected; ?> value="<?php echo $get_semester['code']; ?>"><?php echo $get_semester['code']; ?></option>
+                          
+                          </option>
+                        <?php } ?>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Semester -->
+
+                    
 
                     <div class="control-group">
                       <label class="control-label" for="multiSelect">Pre-requisite Subject/s:</label>
@@ -193,23 +183,25 @@ include('../includes/sidebar.php');
                         <p class="help-block">Start typing to activate auto complete!</p>
                       </div>
 
-                    </div><br>
-
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                      <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                      <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
-                      <a href="list_subjects.php">
-                        <input type="button" name="cancel" class="btn btn-default" value="Cancel">
-                      </a>
                     </div>
+
+                  
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
+                    <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
+                    <a href="list_schedules.php">
+                      <input type="button" name="cancel" class="btn btn-default" value="Cancel">
+                    </a>
+                  </div>
               </form>
             </div>
             <!-- /.box -->
           </div>
           <div class="col-md-1"></div>
         </div>
-
+      </div>
+    </div>
   </section>
   <!-- /.content -->
 </div>
