@@ -22,6 +22,7 @@
   
 
             $update_subjects_sql = "UPDATE tbl_subjects SET 
+      
                 pre_requisites         = :pre_requisites,
                 semester               = :semester,
                 year_level             = :year_level,

@@ -136,12 +136,12 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="select01">Year Level:</label>
                       <div class="controls">
-                        <select id="select01" id="code" class="chzn-select span5">
+                        <select id="select01" id="year_level" class="chzn-select span5">
                           <option>
                             <?php while ($get_year = $get_all_year_data->fetch(PDO::FETCH_ASSOC)) { ?>
                          
-                            <?php $selected = ($year == $get_year['code']) ? 'selected' : ''; ?>
-                            <option <?= $selected; ?> value="<?php echo $get_year['code']; ?>"><?php echo $get_year['year_level']; ?></option>
+                            <?php $selected = ($year == $get_year['year_level']) ? 'selected' : ''; ?>
+                            <option <?= $selected; ?> value="<?php echo $get_code['year_level']; ?>"><?php echo $get_code['year_level']; ?></option>
                           
                           </option>
                         <?php } ?>
@@ -190,7 +190,7 @@ include('../includes/sidebar.php');
                   <div class="box-footer">
                     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
                     <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
-                    <a href="list_schedules.php">
+                    <a href="list_subjects.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                     </a>
                   </div>

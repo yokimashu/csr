@@ -20,6 +20,14 @@ $get_all_courses_sql = "SELECT * FROM tbl_courses ORDER BY courses_id Asc ";
 $get_all_courses_data = $con->prepare($get_all_courses_sql);
 $get_all_courses_data->execute();
 
+$get_all_year_sql = "SELECT * FROM tbl_year ORDER BY code Asc ";
+$get_all_year_data = $con->prepare($get_all_year_sql);
+$get_all_year_data->execute();
+
+$get_all_semester_sql = "SELECT * FROM tbl_semester ORDER BY code Asc ";
+$get_all_semester_data = $con->prepare($get_all_semester_sql);
+$get_all_semester_data->execute();
+
 //select all subjects
 $get_all_subjects_sql = "SELECT * FROM tbl_subjects ORDER BY subjects_id Asc ";
 $get_all_subjects_data = $con->prepare($get_all_subjects_sql);
