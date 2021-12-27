@@ -17,11 +17,11 @@ include('../includes/sidebar.php');
 <!--/span-->
 <div class="span9" id="content">
     <div class="row-fluid">
-        <div class="alert alert-success">
+        <!-- <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <h4>Success</h4>
             The operation completed successfully
-        </div>
+        </div> -->
        
     </div>
     <div class="row-fluid">
@@ -208,10 +208,12 @@ include('../includes/sidebar.php');
         <!-- /block -->
         
                         
-
+</div>
+    
     
 </div>
 </div>
 <hr>
 <!-- footer here -->
+
 <?php include('../includes/footer.php'); ?>

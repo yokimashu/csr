@@ -1,7 +1,20 @@
+<?php include('../registrar/chat.php') ?>
+
+
+<?php
+
+$curYear = date('Y');
+
+?>
+
 <footer>
-    <p>&copy; Vincent Gabriel 2013</p>
+<strong>Copyright &copy; 2021 ITRitarians <a href="">Colegio de Sta. Rita de San Carlos, Inc.</a>.</strong>
+   
+   <div class="float-right d-none d-sm-inline-block">
+       All rights reserved.
+   </div>
 </footer>
-</div>
+
 <!--/.fluid-container-->
 <link href="../vendors/datepicker.css" rel="stylesheet" media="screen">
 <link href="../vendors/uniform.default.css" rel="stylesheet" media="screen">
@@ -25,6 +38,7 @@
 
 <script src="../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
 <script src="../assets/scripts.js"></script>
+<script src="../assets/DT_bootstrap.js"></script>
 <script src="../vendors/sweetalert/sweetalert.min.js"></script>
 <script>
     $(function() {
@@ -108,4 +122,9 @@
     //   }],
     // });  
     });
+
+
 </script>
+
+</body>
+</html>

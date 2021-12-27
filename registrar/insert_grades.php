@@ -36,6 +36,17 @@
         ':remarks'          => $remarks
       ]);
 
+      $check_remarks = "CALL spUpdateRemarks(:subid,:obj,:prelim,:midterm,:final)";
+      $remarks = $con->prepare($check_remarks);
+      $remarks->execute([
+        ':subid' => $subjects_id,
+        ':obj' => $objid,
+        ':prelim' => $objid,
+        ':midterm' => $objid,
+        ':final' => $objid
+  
+      ]);
+
     }
   
 

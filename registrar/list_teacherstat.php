@@ -62,14 +62,14 @@ include('../includes/sidebar.php');
                 <div class="btn-group">
                   <a href="add_courses.php"><button class="btn btn-success">Add New Course<i class="icon-plus icon-white"></i></button></a>
                 </div>
-                <div class="btn-group pull-right">
+                <!-- <div class="btn-group pull-right">
                   <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
                   <ul class="dropdown-menu">
                     <li><a href="#">Print</a></li>
                     <li><a href="#">Save as PDF</a></li>
                     <li><a href="#">Export to Excel</a></li>
                   </ul>
-                </div>
+                </div> -->
               </div>
 
               <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
@@ -126,20 +126,20 @@ include('../includes/sidebar.php');
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
 <script>
-  $('#pr').DataTable({
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'ordering': true,
-    'info': true,
-    'autoWidth': true
-  })
-  $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
-    event.preventDefault();
-    var user_id = ($(this).data('id'));
-    $('#user_id').val(user_id);
-    $('#deleteuser_Modal').modal('toggle');
-  })
+  // $('#pr').DataTable({
+  //   'paging': true,
+  //   'lengthChange': true,
+  //   'searching': true,
+  //   'ordering': true,
+  //   'info': true,
+  //   'autoWidth': true
+  // })
+  // $(document).on('click', 'button[data-role=confirm_delete]', function(event) {
+  //   event.preventDefault();
+  //   var user_id = ($(this).data('id'));
+  //   $('#user_id').val(user_id);
+  //   $('#deleteuser_Modal').modal('toggle');
+  // })
 </script>
 </body>
 

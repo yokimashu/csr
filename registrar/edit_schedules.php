@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include('insert_schedules.php');
+include('update_schedules.php');
 include('../includes/sql.php');
 
 //select user
@@ -30,6 +30,23 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_contact_number = $result['contact_no'];
   $db_user_name = $result['username'];
   $db_department = $result['department'];
+}
+
+if (isset($_GET['objid'])) {
+  $objid = $_GET['objid'];
+
+  $get_schedule_sql = "SELECT * FROM tbl_schedules WHERE objid = :objid";
+  $get_schedule_data = $con->prepare($get_schedule_sql);
+  $get_schedule_data->execute([':objid' => $objid]);
+  while ($result = $get_schedule_data->fetch(PDO::FETCH_ASSOC)) {
+    $subjects = $result['subject_code'];
+    $course = $result['courses_id'];
+    $days = $result['days'];
+    $start_time = $result['start_time'];
+    $end_time = $result['end_time'];
+    $room = $result['room_code'];
+    $teacher = $result['teacher_code'];
+  }
 }
 ?>
 
@@ -71,13 +88,14 @@ include('../includes/sidebar.php');
                   <div class="control-group">
                     <label class="control-label" for="select01">Search Subject:</label>
                     <div class="controls">
-                      <select id="select01" name="subject" class="chzn-select span5">
+                      <select id="select01" name="subject_code" class="chzn-select span5">
                         <option>
                           <?php while ($get_subjects = $get_all_subjects_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <option value="<?php echo
-                                        $get_subjects['subjects_id']; ?>"><?php echo $get_subjects['subjects_description']; ?></option>
-                        </option>
+
+                            <?php $selected = ($subjects == $get_subjects['subjects_id']) ? 'selected' : ''; ?>
+                        <option <?= $selected; ?> value="<?php echo $get_subjects['subjects_id']; ?>"><?php echo $get_subjects['subjects_description']; ?></option>
                       <?php } ?>
+
                       </select>
                     </div>
                   </div>
@@ -87,15 +105,17 @@ include('../includes/sidebar.php');
                   <div class="control-group">
                     <label class="control-label" for="multiSelect">Day/s</label>
                     <div class="controls">
-                      <select multiple="multiple" id="multiSelect" class="chzn-select span4" name='schedule[]'>
-                        <option>Monday</option>
-                        <option>Tuesday</option>
-                        <option>Wednesday</option>
-                        <option>Thursday</option>
-                        <option>Friday</option>
-                        <option>Saturday</option>
+                      <select multiple="multiple" id="multiSelect" class="chzn-select span4" name='days[]'>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+           
                       </select>
                       <p class="help-block">Start typing to activate auto complete!</p>
+
                     </div><br>
                     <!-- Schedules -->
 
@@ -117,11 +137,13 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="select01">Room Assignment:</label>
                       <div class="controls">
-                        <select id="select01" name="room" class="chzn-select span5">
+                        <select id="select01" name="room_code" class="chzn-select span5">
                           <option>
                             <?php while ($get_rooms = $get_all_rooms_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo
-                                          $get_rooms['room_no']; ?>"><?php echo $get_rooms['room_description']; ?></option>
+
+                            <?php $selected = ($room == $get_rooms['room_no']) ? 'selected' : ''; ?>
+                          <option <?= $selected; ?> value="<?php echo $get_rooms['room_no']; ?>"><?php echo $get_rooms['room_description']; ?></option>
+
                           </option>
                         <?php } ?>
                         </select>
@@ -133,24 +155,32 @@ include('../includes/sidebar.php');
                     <div class="control-group">
                       <label class="control-label" for="select01">Teacher/Instructor:</label>
                       <div class="controls">
-                        <select id="select01" name="teacher" class="chzn-select span5">
+                        <select id="select01" name="teacher_code" class="chzn-select span5">
                           <option>
                             <?php while ($get_teachers = $get_all_teachers_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo
-                                          $get_teachers['teachers_id']; ?>"><?php echo $get_teachers['first_name'] . ' ' . $get_teachers['middle_name'] . ' ' . $get_teachers['surname']; ?></option>
-                          </option>
-                        <?php } ?>
+                         
+                            <?php $selected = ($teacher == $get_teachers['teachers_id']) ? 'selected' : ''; ?>
+                          <option <?= $selected; ?> value="<?php echo$get_teachers['teachers_id']; ?>"><?php echo $get_teachers['first_name'] . ' ' . $get_teachers['middle_name'] . ' ' . $get_teachers['surname']; ?></option>
+                        <?php } ?>    
+                
                         </select>
                       </div>
                     </div>
                     <!-- teacher -->
+
+                    <div class="control-group hidden">
+                      <label class="control-label" for="focusedInput">Objid</label>
+                      <div class="controls">
+                        <input type="text" class="form-control" name="objid" value="<?php echo $objid; ?>" required>
+                      </div>
+                    </div>
 
                   </div><br>
 
                   <!-- /.box-body -->
                   <div class="box-footer">
                     <input type="submit" <?php echo $btnNew; ?> name="add" class="btn btn-primary" value="New">
-                    <input type="submit" <?php echo $btnStatus; ?> name="save" class="btn btn-primary" value="Save">
+                    <input type="submit" <?php echo $btnStatus; ?> name="update" class="btn btn-primary" value="Save">
                     <a href="list_schedules.php">
                       <input type="button" name="cancel" class="btn btn-default" value="Cancel">
                     </a>

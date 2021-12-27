@@ -102,7 +102,7 @@ include('../includes/sidebar.php');
                       <td><?php echo $schedules_data['teacher_code']; ?> </td>
                       
                       <td>
-                      <a class="btn btn-primary" href="edit_schedules.php?day=<?php echo
+                      <a class="btn btn-primary" href="edit_schedules.php?objid=<?php echo
     $schedules_data['objid']; ?>"><i class="icon-edit"></i>
                           </a>
                         &nbsp;
@@ -138,7 +138,7 @@ include('../includes/sidebar.php');
 <script src="vendors/jquery-1.9.1.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
-<script>
+<!-- <script>
   $('#pr').DataTable({
     'paging': true,
     'lengthChange': true,
@@ -152,7 +152,7 @@ include('../includes/sidebar.php');
     var user_id = ($(this).data('id'));
     $('#user_id').val(user_id);
     $('#deleteuser_Modal').modal('toggle');
-  })
+  }) -->
 </script>
 </body>
 

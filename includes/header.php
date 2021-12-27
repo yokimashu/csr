@@ -53,6 +53,7 @@ while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
         <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
         <link href="../assets/styles.css" rel="stylesheet" media="screen">
+        <link href="../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="../vendors/pixelarity/pixelarity.css">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -69,7 +70,7 @@ while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">CSR MIS</a>
+                    <a class="brand" href="#">CSR Management Information System</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
@@ -87,7 +88,7 @@ while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
                                 </ul>
                             </li>
                         </ul>
-                        <ul class="nav">
+                        <!-- <ul class="nav">
                             <li class="active">
                                 <a href="#">Dashboard</a>
                             </li>
@@ -166,7 +167,7 @@ while ($result1 = $get_noofstuds_data->fetch(PDO::FETCH_ASSOC)) {
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <!--/.nav-collapse -->
                 </div>
