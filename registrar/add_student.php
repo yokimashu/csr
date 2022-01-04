@@ -111,8 +111,8 @@ include('../includes/sidebar.php');
                                               <div class="controls" >
                                                 <select class="span5 m-wrap" id="student_status" name="category">
                                                  <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                                 <option value="New">New Student</option>
-                                                 <option value="Old">Old Student</option>
+                                                 <option value="New Student">New Student</option>
+                                                 <option value="Old Student">Old Student</option>
                                                  <option value="Transferee Student">Transferee Student</option>
                                                </select>
                                           </div>
@@ -558,6 +558,7 @@ include('../includes/sidebar.php');
       $('#rootwizard .finish').click(function () {
 
         var students_id = document.getElementById("idNumber").value;
+        var student_status = document.getElementById("student_status").value;
         var first_name = document.getElementById("fName").value;
         var middle_name = document.getElementById("mName").value;
         var last_name = document.getElementById("lName").value;
@@ -592,6 +593,7 @@ include('../includes/sidebar.php');
           type: 'POST',
           data: {
             students_id: students_id,
+            student_status:student_status,
             first_name: first_name,
             middle_name: middle_name,
             last_name: last_name,

@@ -78,7 +78,7 @@ $get_student_record = "SELECT *,s.status as sstatus FROM tbl_students s inner jo
     }   
 
 ?>
-
+ 
 <!DOCTYPE html>
 <html>
 

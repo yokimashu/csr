@@ -3,7 +3,7 @@
 
 session_start();
 
-$subjects_id = $subjects_description = $units = $year_level = $semester = $pre_requisites =$courses =$courses_id = $alert_msg = '';
+$subjects_id = $subjects_description = $units = $course_code = $year_level = $semester = $pre_requisites = $alert_msg = '';
 
 
 $btnNew = 'disabled';
@@ -112,22 +112,18 @@ include('../includes/sidebar.php');
                       </div>
                     </div>
 
-                    
-
-                   <div class="control-group">
-                      <label class="control-label" for="multiSelect">Course:</label>
+                    <div class="control-group">
+                      <label class="control-label" for="select01">Course</label>
                       <div class="controls">
-                        <select multiple="multiple" id="multiSelect" class="chzn-select span5" name="courses_id[]">
-                          <option>
-                            <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
-                          <option value="<?php echo
-                                          $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
-                        <?php } ?>
+                        <select id="select01" name="courses_id" class="chzn-select span5">
+                        <option selected="selected">Please select...</option>
+                        <?php while ($get_courses = $get_all_courses_data->fetch(PDO::FETCH_ASSOC)) { ?>
+                                                        <option value="<?php echo
+    $get_courses['courses_id']; ?>"><?php echo $get_courses['courses']; ?></option>
+<?php } ?>
                         </select>
-                        <p class="help-block">Start typing to activate auto complete!</p>
                       </div>
-                      </div>
-
+                    </div>
 
                     <!-- <div class="control-group">
                       <label class="control-label" for="focusedInput">Course Code</label>
@@ -211,27 +207,6 @@ include('../includes/sidebar.php');
 </div>
 <!-- /.content-wrapper -->
 <?php include('../includes/footer.php'); ?>
-
-<script>
-  $('#example2').DataTable({
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'ordering': true,
-    'info': true,
-    'autoWidth': true,
-    'autoHeight': true
-  })
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $(document).ajaxStart(function() {
-      Pace.restart()
-    })
-
-  });
 </script>
 </body>
 
