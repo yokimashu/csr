@@ -7,7 +7,7 @@ $birth = $placeofbirth = $nationality = $gender =
 $contact_number = $alert_msg =  $fb_account = $religion = 
 $baptized =  $confirmed = $elem_school =  $high_school= $last_school =  $street =
 $vil_subd=  $brgy = $city =  $province =  $region = $zip_code =  $parent_name= 
-$address =  $contact =  $occupation = $photo = '';
+$address =  $contact =  $occupation = $photo = $student_status = '';
 $btnNew = 'disabled';
 $oldphoto ='';
 $civil_status = '';
@@ -42,7 +42,8 @@ $get_student_record = "SELECT *,s.status as sstatus FROM tbl_students s inner jo
 
 
     while ($records = $execute_getrecord->fetch(PDO::FETCH_ASSOC)) {   
-      $student_no = $records['students_id'];  
+      $student_no = $records['students_id'];
+      $student_status = $records['student_status'];    
       $fname = $records['first_name'];
       $mname = $records['middle_name'];
       $lname = $records['last_name'];   
@@ -159,10 +160,10 @@ include('../includes/sidebar.php');
                                               class="required" >*</span></label>
                                               <div class="controls" >
                                                 <select class="span5 m-wrap" id="student_status" name="student_status">
-                                                 <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                                 <option <?php if($student_status == 'New Student')echo "selected"; ?>value="New">New Student</option>
-                                                 <option <?php if($student_status == 'Old Student')echo "selected"; ?>value="Old Student">Old Student</option>
-                                                 <option <?php if($student_status == 'Transferee Student')echo "selected"; ?>value="Transferee Student">Transferee Student</option>
+                                                 <option <?php if($student_status == ''){echo "selected";} ?>value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                                 <option <?php if($student_status == 'New Student'){echo "selected";} ?>value="New Student">New Student</option>
+                                                 <option <?php if($student_status == 'Old Student'){echo "selected";} ?>value="Old Student">Old Student</option>
+                                                 <option <?php if($student_status == 'Transferee Student'){echo "selected";} ?>value="Transferee Student">Transferee Student</option>
                                                </select>
                                           </div>
                                         </div>
