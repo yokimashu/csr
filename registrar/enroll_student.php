@@ -53,6 +53,14 @@ include('../includes/sidebar.php');
                   <legend>Details</legend>
 
                   <div class="control-group">
+                            <label class="control-label" for="focusedInput">Enrollment ID: </label>
+                            <div class="controls">
+                              <input  readonly class="input-xlarge focused" id="enrollment_id" type="text" value="">
+                            </div>
+                          </div>
+
+
+                  <div class="control-group">
                     <label class="control-label" for="select01">Search Student:</label>
                     <div class="controls">
                       <select id="search_student" name="student" class="chzn-select span5">
@@ -201,7 +209,7 @@ include('../includes/sidebar.php');
 
 <script>
   $('#semester').on('change', function() {
-
+    var idno = $('#search_student').val();
     var course = $('#course').val();
     var level = $('#level').val();
     var semester = $('#semester').val();
@@ -209,6 +217,7 @@ include('../includes/sidebar.php');
     console.log(level);
     console.log(semester);
     $('#list_subjects').load("load_subjects.php", {
+        idno:idno,
         course: course,
         level: level,
         semester: semester
@@ -226,23 +235,43 @@ include('../includes/sidebar.php');
 
   });
 
+  $('#search_student').change(function() {
+    
+                if ($('#enrollment_id').val() == '') {
+                    $.ajax({
+                        type: 'POST',
+                        data: {},
+                        url: 'generate_objid.php',
+                        success: function(data) {
+                            //$('#entity_no').val(data);
+                            document.getElementById("enrollment_id").value = data;
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+
+
 
   $('#save').click(function() {
     event.preventDefault();
     console.log("hello");
-
+    var uid = $('#enrollment_id').val();
     var idno = $('#search_student').val();
     var course = $('#course').val();
     var yearlevel = $('#level').val();
     var semester = $('#semester').val();
-
+//     const uid = function(){
+//     return Date.now().toString(36) + Math.random().toString(36).substr(2);
+// };
 
     $.ajax({
       url: "insert_enrolle.php",
       method: 'POST',
-      dataType: 'json',
+      dataType:"JSON",
       data: {
-        idno: idno,
+        studentid: idno,
+        objid: uid,
         course: course,
         yearlevel: yearlevel,
         semester: semester
@@ -271,35 +300,38 @@ include('../includes/sidebar.php');
 
         url: 'insert_enrolle_item.php',
         method: 'POST',
+        dataType:"JSON",
         data: {
-          idno: idno,
+          student_id: idno,
+          objid: uid,
+          year:yearlevel,
           subcode: col1,
           deptitle: col2,
           units: col3,
           days: col4,
           time: col5,
           sroom: col6,
+          semester:semester
         },
         success: function(response) {
-          var result = jQuery.parseJSON(response);
-
-          if (result == "You successfully enrolled new student!") {
+          // var result = jQuery.parseJSON(response);
+          notification("Congratulations", "You are successfully enrolled","Refresh","success","success");
             notification('success', result);
             $("#save").attr("disabled", true);
             $("#new").attr("disabled", false);
-            // reset_form_input('enroll_student');
-
-          } else {
-            notification('error', result);
-            $("#save").attr("disabled", false);
-            $("#new").attr("disabled", true);
-          }
         },
         error: function(chr, d, e) {
+
           console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
 
+          notification("Opps!", "There is something wrong on your information provided","Close","error","error");
+
+          notification('error', result);
+            $("#save").attr("disabled", false);
+            $("#new").attr("disabled", true);
+          
         }
-      })
+      });
 
 
     });
@@ -321,12 +353,14 @@ include('../includes/sidebar.php');
 
   $('#add_subject').click(function() {
     event.preventDefault();
+    var idno = $('#search_student').val();
     var subject_id = $('#custom_subjects').val();
     console.log(subject_id);
     $.ajax({
       url: 'get_subject_details.php',
       type: 'POST',
       data: {
+        idno:idno,
         id: subject_id
       },
       success: function(response) {
@@ -356,18 +390,30 @@ include('../includes/sidebar.php');
 
   });
 
-  function notification(status, message) {
-    swal({
-      title: message,
-      // text: "You clicked the button!",
-      icon: status,
-      button: "Ok done!",
+  function notification(title, message,text,value,status) {
+      swal(title, message, status, {
+          buttons: {
+            catch: {
+              text: text,
+              value: value,
+            }
 
-    });
+          },
+        })
+        .then((value) => {
+          switch (value) {
 
+            case "success":
+              window.location.reload(true);
+              break;
+              case "error":
 
+              break;
 
-  }
+          }
+        });
+
+    }
 </script>
 
 

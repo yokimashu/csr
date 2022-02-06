@@ -138,7 +138,7 @@ include('../includes/sidebar.php');
 
 
 <script>
-  $('#pr').DataTable({
+  $('#list_subjects').DataTable({
     'paging': true,
     'lengthChange': true,
     'searching': true,

@@ -1,6 +1,5 @@
 <?php
 
-
 session_start();
 
 $objid = $students_id = $subjects_id = $prelim = $midterm = $finals = $remarks = $alert_msg = '';
@@ -13,7 +12,6 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-include ('insert_grades.php');
 
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
@@ -193,7 +191,7 @@ include('../includes/sidebar.php');
                           <div class="control-group" hidden>
                             <label class="control-label" hidden for="focusedInput">objid: </label>
                             <div class="controls">
-                              <input class="input-xlarge focused" h id="objid" type="text" readonly="" value="">
+                              <input class="input-xlarge focused" id="objid" type="text" readonly="" value="<?php echo $objid;?>">
                             </div>
                           </div>
 
@@ -325,8 +323,9 @@ include('../includes/sidebar.php');
 
     event.preventDefault();
     console.log("save");
-    var objid = '<?php echo $obj;?>';
-
+    var objid = $('#objid').val();
+    var idno = $('#id_no').val();
+    console.log(objid);
     $('#grades tr').each(function (row, tr) {
       var col1 = $(tr).find('td:eq(0)').text();
       var col2 = $(tr).find('td:eq(1)').text();
@@ -336,17 +335,18 @@ include('../includes/sidebar.php');
       console.log(col1,col2,col3,col4,col5);
       $.ajax({
         url: 'insert_grades.php',
+        method: 'POST',
         data: {
           objid: objid,
+          students_id:idno,
           subject: col1,
           prelim: col2,
           midterm: col3,
-          final: col4,
-          rmrks: col5
+          finals: col4,
+          remarks: col5,
         },
-        method: 'POST',
         success: function(response) {
-          notification('success', 'Grades recorded!');
+          notification("Grades Encoded !", "You have succesfully encoded the grades.","Refresh","success","success");
         },
         error: function(chr, d, e) {
           console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
@@ -357,18 +357,30 @@ include('../includes/sidebar.php');
     });
   })
 
-  function notification(status, message) {
-    swal({
-      title: message,
-      // text: "You clicked the button!",
-      icon: status,
-      button: "Ok done!",
+  function notification(title, message,text,value,status) {
+      swal(title, message, status, {
+          buttons: {
+            catch: {
+              text: text,
+              value: value,
+            }
 
-    });
+          },
+        })
+        .then((value) => {
+          switch (value) {
 
+            case "success":
+              window.location.reload(true);
+              break;
+              case "error":
 
+              break;
 
-  }
+          }
+        });
+
+    }
 </script>
 
 

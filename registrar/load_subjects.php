@@ -21,7 +21,7 @@ include('../config/db_config.php');
         INNER JOIN tbl_rooms r ON r.`room_no` = c.`room_code`
         INNER JOIN tbl_faculty f ON f.`teachers_id` = c.`teacher_code`
         -- INNER JOIN tbl_grades g ON g.subjects_id = s.`subjects_id`
-        WHERE s.course_id = :code AND s.year_level= :year_level AND s.semester = :semester 
+        WHERE s.courses_id = :code AND s.year_level= :year_level AND s.semester = :semester 
         AND s.pre_requisites NOT IN 
         (SELECT s.subjects_id FROM tbl_subjects s 
         INNER JOIN tbl_grades g ON s.subjects_id = g.subjects_id WHERE remarks 

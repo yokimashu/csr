@@ -3,10 +3,9 @@ include('../config/db_config.php');
 
 
 
-if (isset($_POST['idno'])) {
-
-  $objid      = $_POST['objid'];
-  $idno       = $_POST['idno'];
+if (isset($_POST['student_id'])) {
+  $objid = $_POST['objid'];
+  $student_id = $_POST['student_id'];
   $year       = $_POST['year'];
   $semester   = $_POST['semester'];
   $subject    = $_POST['subcode'];
@@ -17,26 +16,27 @@ if (isset($_POST['idno'])) {
   $room       = $_POST['sroom'];
 
 
-  if ($idno != '' && $subject != '' && $title != '' && $units != '' && $day != '' && $time != '' && $room != '') {
+  if ($student_id != '' && $subject != '' && $title != '' && $units != '' && $day != '' && $time != '' && $room != '') {
 
-    $query = "INSERT INTO tbl_enrollment_item SET
+    $query = "CALL spInsertEnrollmentItem (
 
-            objid             =   :objid,
-            students_id       =   :id,
-            year              =   :year,
-            semester          =   :semester,
-            subject_code      =   :subject,
-            descriptive_title =   :title,
-            units             =   :units,
-            days              =   :day,
-            time              =   :stime,
-            room              =   :room";
+            :objid,
+            :id,
+            :year,
+            :semester,
+            :subject,
+            :title,
+            :units,
+            :day,
+            :stime,
+            :room
+            )";
 
     $execute = $con->prepare($query);
     $execute->execute([
 
       ':objid'          =>  $objid,
-      ':id'             =>  $idno,
+      ':id'             =>  $student_id,
       ':year'           =>  $year,
       ':semester'       =>  $semester,
       ':subject'        =>  $subject,
@@ -48,34 +48,6 @@ if (isset($_POST['idno'])) {
 
     ]);
 
-    $query1 = "INSERT INTO tbl_grades SET
-
-    objid                =   :objid,
-    students_id          =   :id,
-    -- year              =   :year,
-    -- semester          =   :semester,
-    subjects_id          =   :subject,
-    descriptive_title    =   :title,
-    remarks              =   'ACTIVE'";
-    // -- days              =   :day,
-    // -- time              =   :stime,
-    // -- room              =   :room";
-
-    $execute = $con->prepare($query1);
-    $execute->execute([
-
-      ':objid'          =>  $objid,
-      ':id'             =>  $idno,
-      // ':year'           =>  $year,
-      // ':semester'       =>  $semester,
-      ':subject'        =>  $subject,
-      ':title'          =>  $title
-      // ':units'          =>  $units,
-      // ':day'            =>  $day,
-      // ':stime'          =>  $time,
-      // ':room'           =>  $room
-
-    ]);
 
 
     echo json_encode("You successfully enrolled new student!");

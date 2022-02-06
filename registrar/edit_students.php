@@ -7,7 +7,8 @@ $birth = $placeofbirth = $nationality = $gender =
 $contact_number = $alert_msg =  $fb_account = $religion = 
 $baptized =  $confirmed = $elem_school =  $high_school= $last_school =  $street =
 $vil_subd=  $brgy = $city =  $province =  $region = $zip_code =  $parent_name= 
-$address =  $contact =  $occupation = $photo = $student_status = '';
+$address =  $contact =  $occupation = $photo = '';
+$student_status = '';
 $btnNew = 'disabled';
 $oldphoto ='';
 $civil_status = '';
@@ -33,7 +34,7 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
   $db_department = $result['department'];
 }
 $student_id = $_GET['students_id'];
-$get_student_record = "SELECT *,s.status as sstatus FROM tbl_students s inner join tbl_student_address a on s.students_id = a.student_id 
+$get_student_record = "SELECT * FROM tbl_students s inner join tbl_student_address a on s.students_id = a.student_id 
                     inner join tbl_student_guardian g on s.students_id = g.student_id inner join student_image i on s.students_id = i.student_id where s.students_id = :student";
 
     $execute_getrecord = $con->prepare($get_student_record);
@@ -51,7 +52,7 @@ $get_student_record = "SELECT *,s.status as sstatus FROM tbl_students s inner jo
       $placeofbirth = $records['place_of_birth'];
       $nationality = $records['nationality'];
       $gender = $records['gender'];
-      $civil_status = $records['sstatus'];
+      $civil_status = $records['civil_status'];
       $contact_number = $records['contact_number'];
       $fb_account = $records['facebook_account'];
       $religion = $records['religion'];
@@ -160,12 +161,13 @@ include('../includes/sidebar.php');
                                               class="required" >*</span></label>
                                               <div class="controls" >
                                                 <select class="span5 m-wrap" id="student_status" name="student_status">
-                                                 <option <?php if($student_status == ''){echo "selected";} ?>value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                                 <option <?php if($student_status == 'New Student'){echo "selected";} ?>value="New Student">New Student</option>
-                                                 <option <?php if($student_status == 'Old Student'){echo "selected";} ?>value="Old Student">Old Student</option>
-                                                 <option <?php if($student_status == 'Transferee Student'){echo "selected";} ?>value="Transferee Student">Transferee Student</option>
+                                                 <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
+                                                 <option <?php if($student_status == 'New Student')echo 'selected';?> value="New Student">New Student</option>
+                                              <option <?php if($student_status == 'Old Student')echo 'selected';?> value="Old Student">Old Student</option>
+                                              <option <?php if($student_status == 'Transferee Student')echo 'selected';?> value="Transferee Student">Transferee Student</option>
+                                          
                                                </select>
-                                          </div>
+                                          </div>                    
                                         </div>
 
                    
@@ -235,24 +237,15 @@ include('../includes/sidebar.php');
                                           <div class="controls" >
                                             <select class="span10 m-wrap" id="status" name="status"  name = "status" value = "">
                                               <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                              <option <?php if($status == 'Single')echo 'selected';?> value="Single">Single</option>
-                                              <option <?php if($status == 'Married')echo 'selected';?> value="Married">Married</option>
+                                              <option <?php if($civil_status == 'Single')echo 'selected';?> value="Single">Single</option>
+                                              <option <?php if($civil_status == 'Married')echo 'selected';?> value="Married">Married</option>
                                             </select>
                                           </div>
 
                                          
 
-                                          <!-- <label class="control-label" style="display: inline-block;">Status: <span
-                                              class="required">*</span></label>
-                                          <div class="controls" >
-                                            <select class="span10 m-wrap" id="status" name="status" name = "status" name = "status"value = "">
-                                              <option value="">Please Select&#10240&#10240&#10240&#10240&#10240</option>
-                                              <option <?php if($status == 'Single')echo 'selected'; ?>value="Single">Single</option>
-                                              <option <?php if($status == 'Married')echo 'selected'; ?>value="Married">Married</option>
-                                              <option <?php if($status == 'Widowed')echo 'selected'; ?>value="Widowed">Widowed</option>
-                                            </select>
-                                            
-                                          </div> -->
+                                          
+                                        
 
                                         </div>
 
@@ -606,8 +599,9 @@ include('../includes/sidebar.php');
         }
       });
       $('#rootwizard .finish').click(function () {
-        var oldphoto = '<?php echo $oldphoto ?>';
+        var oldphoto = '<?php echo $oldphoto; ?>';
         var students_id = $('#idNumber').val();
+        var students_status = $('#student_status').val();
         var first_name = $('#fName').val();
         var middle_name = $('#mName').val();
         var last_name = $('#lName').val();
@@ -644,6 +638,7 @@ include('../includes/sidebar.php');
           type: 'POST',
           data: {
             students_id: students_id,
+            student_status: students_status,
             first_name: first_name,
             middle_name: middle_name,
             last_name: last_name,

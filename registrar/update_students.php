@@ -12,6 +12,7 @@ if (isset($_POST['students_id'])) {
     // echo "</pre>";
 
     $students_id = $_POST['students_id'];
+    $student_status = $_POST['student_status'];
     $first_name = $_POST['first_name'];
     $middle_name = $_POST['middle_name'];
     $last_name = $_POST['last_name'];
@@ -45,6 +46,7 @@ if (isset($_POST['students_id'])) {
     //insert user to database
     $register_user_sql = "CALL spUpdateStudent(
     :students_id,
+    :student_status,
     :first_name,
     :middle_name,
     :last_name,
@@ -76,6 +78,7 @@ if (isset($_POST['students_id'])) {
     $register_data = $con->prepare($register_user_sql);
     $register_data->execute([
       ':students_id'           => $students_id,
+      ':student_status'           => $student_status,
       ':first_name'            => $first_name,
       ':middle_name'           => $middle_name,
       ':last_name'             => $last_name,

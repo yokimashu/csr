@@ -4,7 +4,7 @@ include('../config/db_config.php');
 if (isset($_POST['id'])) {
 
 
-    $subject = $_POST['id'];
+    $id = $_POST['id'];
     $idno    = $_POST['idno'];
 
 
@@ -39,7 +39,7 @@ if (isset($_POST['id'])) {
               IN ('ACTIVE','FAILED')AND g.`students_id` = :idno)";
     $execute = $con->prepare($query);
     $execute->execute([
-        ':subject' => $_POST['id'],
+        ':subject' => $id,
         ':idno'         => $idno
     ]);
 
