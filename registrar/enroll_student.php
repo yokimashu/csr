@@ -132,7 +132,7 @@ include('../includes/sidebar.php');
 
                   <div class="row-fluid">
                     <!-- block -->
-                    <div class="block">
+                    <div class="block" >
                       <div class="navbar navbar-inner block-header">
                         <div class="muted pull-left">SUBJECTS</div>
                       </div>
@@ -155,7 +155,7 @@ include('../includes/sidebar.php');
                               <button class="btn btn-primary" id="add_subject">Add</button>
                             </div>
                             </div>
-
+                            </div>
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="subjects">
                               <thead>
                                 <tr>
@@ -176,7 +176,7 @@ include('../includes/sidebar.php');
 
                             </table>
                           </div>
-                        </div>
+                       
                       </div>
                       <!-- /block -->
                     </div>

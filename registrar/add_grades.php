@@ -217,7 +217,10 @@ include('../includes/sidebar.php');
                                   <td contentEditable = "true"><?php echo $view_grades['prelim'];?></td>
                                   <td contentEditable = "true"><?php echo $view_grades['midterm'];?></td>
                                   <td contentEditable = "true"><?php echo $view_grades['finals'];?></td>
-                                  <td  contentEditable = "true"><?php echo $view_grades['remarks'];?></td>
+                                  <td  contentEditable = "true">
+                                  <?php echo $view_grades['remarks'];?>
+                                
+                                </td>
                                   </tr>
 
                                     <?php }?>
