@@ -12,7 +12,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id'];
 
 include('../config/db_config.php');
-
+include('export_grades.php');
 //select user
 $get_user_sql = "SELECT * FROM tbl_users WHERE user_id = :id";
 $user_data = $con->prepare($get_user_sql);
@@ -115,7 +115,26 @@ include('../includes/sidebar.php');
                                   padding: 7px 12px;
                                   cursor: pointer;
                                 }
+                                .icon{
+
+                             
+                                    background: url('../dist/printer.png');
+                                    height: 4rem;
+                                    width: 4rem;
+                                    display: block;
+                                    max-height:100%;
+                                    max-width:100%;
+                                    object-fit:contain;
+                                      }
+                                
                               </style>
+                               <form method = "post" action = "<?php htmlspecialchars("PHP_SELF");?>">
+                               <div style = "display:flex;justify-content:center;margin-top:20px">
+                              <button class = "btn btn-primary" 
+                              style = "margin:auto;height:5rem;width:5rem;" 
+                              name = "export_grades" ><i class = "icon-print"></i><B>PRINT GRADES</B> </button>
+                              </form>
+                              </div>
                             </div>
                      
             <div class="span4">
@@ -123,14 +142,14 @@ include('../includes/sidebar.php');
               <div class="control-group">
                 <label class="control-label" for="focusedInput">Student ID: </label>
                 <div class="controls">
-                  <input class="input-xlarge focused" id="id_no" type="text" readonly="" value="<?php echo $students_id;?>">
+                  <input class="input-xlarge focused" id="id_no" name = "id_no" type="text" readonly="" value="<?php echo $students_id;?>">
                 </div>
               </div>
 
               <div class="control-group">
                 <label class="control-label" for="focusedInput">First Name: </label>
                 <div class="controls">
-                  <input class="input-xlarge focused" id="first_name" type="text" readonly="" value="<?php echo $fname;?>">
+                  <input class="input-xlarge focused" id="first_name" name = "first_name" type="text" readonly="" value="<?php echo $fname;?>">
                 </div>
               </div>
               
@@ -144,16 +163,18 @@ include('../includes/sidebar.php');
               <div class="control-group">
                             <label class="control-label" for="focusedInput">Last Name: </label>
                             <div class="controls">
-                              <input class="input-xlarge focused" id="last_name" type="text" readonly="" value="<?php echo $lname;?>">
+                              <input class="input-xlarge focused" id="last_name" name = "last_name" type="text" readonly="" value="<?php echo $lname;?>">
                             </div>
                           </div>
 
               <div class="control-group">
                 <label class="control-label" for="focusedInput">Year Level: </label>
                 <div class="controls">
-                  <input class="input-xlarge focused" id="year_level" type="text" readonly="" value="<?php echo $year_level;?>">
+                  <input class="input-xlarge focused" id="year_level" name = "year_level" type="text" readonly="" value="<?php echo $year_level;?>">
                 </div>
               </div>
+
+              
 
             </div>
 
@@ -162,7 +183,7 @@ include('../includes/sidebar.php');
             <div class="control-group">
                             <label class="control-label" for="focusedInput">Course:</label>
                             <div class="controls">
-                              <input class="input-xlarge focused" id="course" type="text" readonly="" value="<?php echo $course;?>">
+                              <input class="input-xlarge focused" id="course"  name = "course" type="text" readonly="" value="<?php echo $course;?>">
                             </div>
                     </div>
                 
@@ -172,7 +193,7 @@ include('../includes/sidebar.php');
 
                 <label class="control-label" for="focusedInput">Semester: </label>
                 <div class="controls">
-                  <input class="input-xlarge focused" id="semester" type="text" readonly="" value="<?php echo $semester;?>">
+                  <input class="input-xlarge focused" id="semester" name = "semester" type="text" readonly="" value="<?php echo $semester;?>">
                 </div>
               </div>
 
