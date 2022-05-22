@@ -132,7 +132,7 @@ include('../includes/sidebar.php');
                                <div style = "display:flex;justify-content:center;margin-top:20px">
                               <button class = "btn btn-primary" 
                               style = "margin:auto;height:5rem;width:5rem;" 
-                              name = "export_grades" ><i class = "icon-print"></i><B>PRINT GRADES</B> </button>
+                              name = "export_grades" ><i class = "icon-print"></i><B>EXPORT GRADES</B> </button>
                               </form>
                               </div>
                             </div>

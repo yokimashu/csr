@@ -210,13 +210,43 @@ include('../includes/sidebar.php');
 <script>
   $('#semester').on('change', function() {
     var idno = $('#search_student').val();
-    var course = $('#course').val();
     var level = $('#level').val();
     var semester = $('#semester').val();
-    console.log(course);
+    var course = $('#course').val();
     console.log(level);
     console.log(semester);
-    $('#list_subjects').load("load_subjects.php", {
+    
+      $.ajax({
+        type:'POST',
+        url:'check_enrolled_student.php',
+        data:{id:idno,
+              yearLevel:level,
+              sem:semester
+        },
+        dataType:"json",
+        success:function(result){
+        // var resultId = jQuery.parseJSON(result);
+       console.log(result);
+       if(result != ''){
+        notification("Opps!", "This student is already enrolled","Refresh","success","error");
+
+
+       }else {
+
+        getListSubjects(idno,course,level,semester);
+       }
+       
+        },
+        error: function(chr, d, e) {
+
+      console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+        }
+
+      })
+
+      
+function getListSubjects(idno,course,level,semester){
+  $('#list_subjects').load("load_subjects.php", {
         idno:idno,
         course: course,
         level: level,
@@ -231,12 +261,14 @@ include('../includes/sidebar.php');
 
 
       });
+}
+
 
 
   });
 
   $('#search_student').change(function() {
-    
+   
                 if ($('#enrollment_id').val() == '') {
                     $.ajax({
                         type: 'POST',
