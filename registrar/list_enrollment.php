@@ -109,10 +109,10 @@ include('../includes/sidebar.php');
 
                       <td>
                         <a class="btn btn-primary" href="edit_enrollment.php?students_id=<?php echo
-                                                                                          $students_data['students_id']; ?>"><i class="icon-edit"></i>
+                          $students_data['students_id']; ?>"><i class="icon-edit"></i>
                         </a>
                         <!-- &nbsp; -->
-
+                      <button class = " btn btn-success" id = "approve_enrolle" ><i class = "icon-check"></i></button>
                       </td>
 
 
@@ -157,6 +157,55 @@ include('../includes/sidebar.php');
   //   $('#students_id').val(students_id);
   //   $('#deleteuser_Modal').modal('toggle');
   // })
+
+  $("#example2 tbody").on("click", "#approve_enrolle", function() {
+      event.preventDefault();
+      var currow = $(this).closest("tr");
+      var transId = currow.find("td:eq(0)").text();
+    console.log(transId);
+
+        $.ajax({
+          type:"POST",
+          url:"accept_enrolle.php",
+          data:{id:transId},
+          success:function(){
+            notification("Student Enrolled !", "You have succesfully enrolled the student.","Refresh","success","success");
+          },
+          error: function(chr, d, e) {
+          console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+
+        }
+
+
+
+        })
+
+    });
+
+    function notification(title, message,text,value,status) {
+      swal(title, message, status, {
+          buttons: {
+            catch: {
+              text: text,
+              value: value,
+            }
+
+          },
+        })
+        .then((value) => {
+          switch (value) {
+
+            case "success":
+              window.location.reload(true);
+              break;
+              case "error":
+
+              break;
+
+          }
+        });
+
+    }
 </script>
 </body>
 

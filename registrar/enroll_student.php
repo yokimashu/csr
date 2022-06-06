@@ -138,7 +138,7 @@ include('../includes/sidebar.php');
                       </div>
 
 
-                      <div class="block-content collapse in">
+                      <div class="block-content   ">
                         <div class="span12">
 
                           <div class="control-group">
@@ -384,10 +384,66 @@ function getListSubjects(idno,course,level,semester){
   }
 
   $('#add_subject').click(function() {
+    console.log(subject_id);
     event.preventDefault();
     var idno = $('#search_student').val();
     var subject_id = $('#custom_subjects').val();
-    console.log(subject_id);
+    var isConflict = "false"; // this is to execute the check subject schedule will be execute for first time
+
+    $('#subjects tr').each(function(row, tr) { //iterate each row in the table  
+
+    var tableSubject = $(tr).find('td:eq(0)').text();
+ 
+if(tableSubject != '') { // the empty table will be  not included in the execution 
+ 
+   
+ $.ajax({
+  url: 'checkSubjectSchedule.php',
+      dataType:"json",
+      type: 'POST',
+      data: {
+        tableSub:tableSubject,
+        customSub: subject_id
+      
+      },
+      success: function(response){
+    
+        console.log(response);  
+        if(isConflict == "false"){
+        if(response =='subject is clear' ){   // add the subject
+          console.log(isConflict);
+          isConflict = "true"; 
+          console.log('add subject');
+          getSubjectDetails(idno,subject_id);
+        }
+        else { // dont add the subject
+          isConflict= "true";
+          console.log('choose another subject');
+         notification("Opps!", response,"Close","error","error");
+        }
+      }
+      },
+      error: function(chr, d, e) {
+        console.log("xhr=" + chr.responseText + " b=" + d.responseText + " c=" + e.responseText);
+      }
+
+
+ });
+}
+
+
+    });
+    
+ 
+ 
+    
+    
+   
+  });
+
+
+  function getSubjectDetails(idno,subject_id){
+
     $.ajax({
       url: 'get_subject_details.php',
       type: 'POST',
@@ -420,8 +476,7 @@ function getListSubjects(idno,course,level,semester){
       }
     })
 
-  });
-
+  }
   function notification(title, message,text,value,status) {
       swal(title, message, status, {
           buttons: {

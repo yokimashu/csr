@@ -8,13 +8,13 @@ include_once ('setting.php');
 include('reportConnection.php');
 
 
-$subject_code = $_GET['subjects_id'];
+$subject_code = $_GET['id'];
 
 $PHPJasperXML = new PHPJasperXML();
 // $PHPJasperXML->debugsql=true;
 // $PHPJasperXML->arrayParameter=array("employeeNo"=>'12345678');
       
-        $xml = $PHPJasperXML->load_xml_file("enrolled_subject.jrxml");
+        $xml = $PHPJasperXML->load_xml_file("tor.jrxml");
     
 // $PHPJasperXML->xml_dismantle($xml);
 $PHPJasperXML->sql ="SELECT * from tbl_students s inner join tbl_enrollment_item i on s.students_id = i.students_id WHERE subject_code = '".$subject_code."'";

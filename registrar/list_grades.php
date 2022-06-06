@@ -13,7 +13,7 @@ $objid = $_SESSION['id'];
 
 //querry to select current student information
 
-$get_all_grades_sql = "SELECT * FROM tbl_students s inner join tbl_enrollment e on s.students_id = e.students_id ORDER BY last_name";
+$get_all_grades_sql = "SELECT * FROM tbl_students s inner join tbl_enrollment e on s.students_id = e.students_id WHERE e.status = 'ACTIVE' ORDER BY last_name";
 $get_all_grades_data = $con->prepare($get_all_grades_sql);
 $get_all_grades_data->execute();
 
