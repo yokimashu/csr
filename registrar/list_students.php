@@ -93,11 +93,13 @@ include('../includes/sidebar.php');
                       <td><?php echo $students_data['middle_name']; ?> </td>
                       <td>
                       <a class="btn btn-primary" href="edit_students.php?students_id=<?php echo
-    $students_data['students_id']; ?>"><i class="icon-edit"></i>
+                         $students_data['students_id']; ?>"><i class="icon-edit"></i>
                           </a>
+            
                       
                       <!-- PRINT THE TOR -->
-                          <a class = "btn btn-primary" id = "link_tor" href="../plugins/jasperreport/tor.php?id="  target="blank" >
+                          <a class = "btn btn-primary" id = "link_tor" href="../jasperreport/tor.php?id=<?php echo
+                         $students_data['students_id']; ?>"  target="blank" >
                           <i class = "icon-print"></i>
                             <!-- <button class = "btn btn-primary" id = "print_tor"> <i class = "icon-print"></i></button> -->
                           </a>    
@@ -146,15 +148,6 @@ include('../includes/sidebar.php');
   //   $('#students_id').val(students_id);
   //   $('#deleteuser_Modal').modal('toggle');
   // })
-
-  $('#example2 tbody').on('click', '#link_tor', function() {
-
-    console.log('print tor');
-
-      var currow = $(this).closest("tr");
-      var student_id = currow.find("td:eq(0)").text();
-      $('#link_tor').attr("href", "../plugins/jasperreport/tor.php?id=" + student_id, '_parent');
-  })
 
 </script>
 </body>

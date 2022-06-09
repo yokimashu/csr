@@ -2,7 +2,7 @@
 
 $server = 'localhost';
 $user = 'root';
-$pass = 'N5lrLMRl427B';
+$pass = '';
 $db = 'csr';
 
 
