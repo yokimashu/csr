@@ -3,67 +3,37 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="250"/>
 	<queryString>
-		<![CDATA[SELECT DISTINCT i.`subjects_id`,CONCAT(last_name,', ',first_name,' ',LEFT(middle_name, 1),'.') AS name, s.*, te.`semester`,te.`year`,i.`subjects_id`,i.`descriptive_title`,i.`finals`,
+		<![CDATA[
+SELECT CONCAT(last_name,', ',first_name,' ',LEFT(middle_name, 1),'.') AS name,
+s.`place_of_birth`,
+s.`high_school`,
+s.`last_attended_college`,
+s.`elementary_school`,
+s.`high_school`,
 ti.`units`,
-DATE_FORMAT(date_of_birth,'%M %d, %Y') AS birthday,CONCAT(ad.`street`,', ',ad.`city`) AS address,ag.`parent_name`
-FROM tbl_students s INNER JOIN tbl_grades i ON s.students_id = i.students_id INNER JOIN tbl_student_address	ad ON s.`students_id` = ad.`student_id`
-INNER JOIN tbl_student_guardian ag ON s.`students_id` = ag.`student_id`
-INNER JOIN tbl_enrollment te ON s.`students_id` = te.`students_id` INNER JOIN tbl_enrollment_item ti ON s.`students_id` = ti.`students_id`
-
-;]]>
+ti.`descriptive_title`,
+ti.`subject_code`,
+te.year as yyear,
+DATE_FORMAT(date_of_birth,'%M %d, %Y') AS birthday,
+CONCAT(ad.`street`,', ',ad.`city`) AS address,
+ag.`parent_name`,
+i.`finals`,
+ti.`semester`,
+ti.`year`
+ FROM tbl_students s
+ INNER JOIN
+ tbl_enrollment_item ti ON s.`students_id` = ti.`students_id`
+ INNER JOIN tbl_student_address ad ON s.`students_id` = ad.`student_id`
+ INNER JOIN tbl_student_guardian ag ON s.`students_id` = ag.`student_id`
+  INNER JOIN tbl_grades i ON s.`students_id` = i.`students_id`
+   INNER JOIN tbl_enrollment te ON s.`students_id` = te.`students_id`
+ WHERE s.`students_id` = '7625' GROUP BY ti.`subject_code`;
+]]>
 	</queryString>
-	<field name="subjects_id" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<field name="name" class="java.lang.String"/>
-	<field name="students_id" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="student_status" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="first_name" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="middle_name" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="last_name" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="date_of_birth" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<field name="place_of_birth" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nationality" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="gender" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="civil_status" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="contact_number" class="java.lang.Long">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="facebook_account" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="religion" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="baptized" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="confirmed" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="elementary_school" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="high_school" class="java.lang.String">
@@ -72,29 +42,33 @@ INNER JOIN tbl_enrollment te ON s.`students_id` = te.`students_id` INNER JOIN tb
 	<field name="last_attended_college" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="status" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="semester" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="year" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="descriptive_title" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="finals" class="java.lang.Integer">
+	<field name="elementary_school" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="units" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="descriptive_title" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subject_code" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="yyear" class="java.lang.Integer"/>
 	<field name="birthday" class="java.lang.String"/>
 	<field name="address" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="parent_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="finals" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="semester" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="year" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -584,33 +558,34 @@ Failure]]></text>
 			<textField>
 				<reportElement x="11" y="2" width="38" height="12" uuid="4175774b-69ff-43d7-90f2-5da7e223a520"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{semester} + " Sem"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="48" y="2" width="38" height="12" uuid="c041e83a-606c-4f7a-a7f2-a496dc03802d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="90" y="2" width="62" height="12" uuid="5586e5e9-4275-4b73-8b5d-79bebe4e58fc"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{subjects_id}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="178" y="2" width="244" height="12" uuid="06a6ae26-74a9-46cc-8caf-67a1b9d632b0"/>
+				<reportElement isPrintRepeatedValues="false" x="178" y="2" width="244" height="12" uuid="06a6ae26-74a9-46cc-8caf-67a1b9d632b0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{descriptive_title}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="460" y="2" width="28" height="12" uuid="a63a73ea-a11f-4051-a44a-5b3864f015dd"/>
+				<reportElement x="462" y="2" width="28" height="12" uuid="a63a73ea-a11f-4051-a44a-5b3864f015dd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{finals}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="532" y="2" width="28" height="12" uuid="ecc9750c-6769-4046-bbf0-9f73e8f0ea52"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{units}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="2" width="89" height="12" uuid="c79cc1ac-2586-45cf-bad4-49ee06ad1c3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{subject_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="2" width="38" height="12" uuid="dbcda663-d10f-476f-b431-1fef9ff7aa69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{yyear}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
