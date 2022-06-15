@@ -644,7 +644,7 @@ include('../includes/sidebar.php');
       });
 
     });
-
+NUMBER
     $("#fileToUpload").change(function (e) {
 
       var img = e.target.files[0];

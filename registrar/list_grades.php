@@ -49,20 +49,7 @@ include('../includes/sidebar.php');
           </div>
           <div class="block-content collapse in">
             <div class="span12">
-              <div class="table-toolbar">
-                <div class="btn-group" style="margin-bottom:20px;">
-                  <a href="add_grades.php"><button class="btn btn-success">Add Grades<i
-                        class="icon-plus icon-white"></i></button></a>
-                </div>
-                <!-- <div class="btn-group pull-right">
-                  <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Print</a></li>
-                    <li><a href="#">Save as PDF</a></li>
-                    <li><a href="#">Export to Excel</a></li>
-                  </ul>
-                </div> -->
-              </div>
+            
 
               <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered" id="listgrades">
                 <thead>

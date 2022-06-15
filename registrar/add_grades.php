@@ -262,6 +262,11 @@ include('../includes/sidebar.php');
 
                   <!-- /.box-body -->
                   <div class="box-footer">
+                  <select class="span2 m-wrap" id="student_status" name="category">
+                    <option value = "ACTIVE">Active</option>
+                    <option value = "DROPPED">Dropped</option>
+                    <option value = "COMPLETE">Complete</option>
+                     </select>
                     <input type="submit"  name="save" class="btn btn-primary" id="save"
                       value="Save">
                     <a href="list_grades.php">
@@ -346,9 +351,9 @@ include('../includes/sidebar.php');
   $('#save').click(function () {
 
     event.preventDefault();
-    console.log("save");
-    var objid = $('#objid').val();
-    var idno = $('#id_no').val();
+    var status = $('#student_status').val();
+    var objid = '<?php echo $_GET['objid'] ?>';
+    var idno = $('#id_no').val(); 
     console.log(objid);
     $('#grades tr').each(function (row, tr) {
       var col1 = $(tr).find('td:eq(0)').text();
@@ -368,6 +373,7 @@ include('../includes/sidebar.php');
           midterm: col3,
           finals: col4,
           remarks: col5,
+          student_status:status
         },
         success: function(response) {
           notification("Grades Encoded !", "You have succesfully encoded the grades.","Refresh","success","success");

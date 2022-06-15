@@ -9,7 +9,7 @@
     //     echo "<pre>";
     //     print_r($_POST);
     // echo "</pre>";
-
+    $status = $_POST['student_status'];
     $objid = $_POST['objid'];
     $students_id = $_POST['students_id'];
     $subjects_id = $_POST['subject'];
@@ -27,7 +27,8 @@
          :prelim,
          :midterm,
          :finals,
-         :remarks
+         :remarks,
+         :status
        )";
   
 
@@ -39,7 +40,8 @@
         ':prelim'           => $prelim,
         ':midterm'           => $midterm,
         ':finals'           => $finals,
-        ':remarks'           => $remarks
+        ':remarks'           => $remarks,
+        ':status'           => $status,
       
       ]);
       
